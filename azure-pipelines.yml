@@ -12,9 +12,9 @@ pool:
 steps:
 - script: |
     az deployment sub create \
-    --name $(deploymentName) \
-    --location $(resouceGroupLocation) \
+    --name ${env:deploymentName} \
+    --location ${env:resouceGroupLocation \
     --template-file resourceGroup.bicep \
-    --parameters resourceGroupName=$(resourceGroupName) resourceGroupLocation=$(resourceGroupLocation)
+    --parameters resourceGroupName=${env:resourceGroupName} resourceGroupLocation=${env:resourceGroupLocation}
   displayName: 'Create Resource Group'
 
