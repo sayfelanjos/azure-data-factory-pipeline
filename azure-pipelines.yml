@@ -6,11 +6,22 @@
 trigger:
 - main
 
+name: 'Deploy Neolude Pipelines'
+
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: |
-    az deployment sub create --name $(deploymentName) --location $(resouceGroupLocation) --template-file '$(System.DefaultWorkingDirectory)/bicep/resourceGroup.bicep' --parameters resourceGroupName=$(resourceGroupName) resourceGroupLocation=$(resourceGroupLocation)
-  displayName: 'Create Resource Group'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: '$(azureServiceConnection)'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: '$(resourceGroupName)'
+    location: $'(location)'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(templateFile)'
+    overrideParameters: '-storageAccountType Standard_LRS'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
 
