@@ -25,4 +25,4 @@ steps:
     azureSubscription: 'azure-devops-service-connection'
     scriptType: 'ps'
     scriptLocation: 'scriptPath'
-    scriptPath: '.bicep\create-trigger.ps1'
+    scriptPath: '$(System.DefaultWorkingDirectory)\bicep\create-trigger.ps1'
