@@ -18,11 +18,11 @@ pool:
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
-    deploymentScope: 'Resource Group'
-    resourceGroupName: '$(resourceGroupName)'
-    azureResourceManagerConnection: '$(azureServiceConnection)'
+    deploymentScope: Resource Group
+    resourceGroupName: $(resourceGroupName)
+    azureResourceManagerConnection: $(azureServiceConnection)
     action: 'Create Or Update Resource Group'
-    location: $'(location)'
+    location: $(location)
     templateLocation: 'Linked artifact'
     csmFile: '$(templateFile)'
     deploymentMode: Complete
