@@ -18,12 +18,13 @@ pool:
 steps:
   - task: AzureResourceManagerTemplateDeployment@3
     inputs:
-      deploymentScope: 'Subscription'
-      azureResourceManagerConnection: $(azureServiceConnection)
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: 'Azure for Students(c84ab836-320a-4451-8302-864ca7447aab)'
       subscriptionId: 'c84ab836-320a-4451-8302-864ca7447aab'
-      location: $(location)
+      action: 'Create Or Update Resource Group'
+      resourceGroupName: 'Lab-Neolude-BI'
+      location: 'Brazil South'
       templateLocation: 'Linked artifact'
       csmFile: '.\bicep\resourceGroup.bicep'
-      deploymentMode: 'Incremental'
-      deploymentName: 'DeployResourceGroupOnAzureDevops'
+      deploymentMode: 'Complete'
 
