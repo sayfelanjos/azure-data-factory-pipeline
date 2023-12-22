@@ -18,13 +18,13 @@ pool:
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
-    deploymentScope: Resource Group
+    deploymentScope: Subscription
     resourceGroupName: $(resourceGroupName)
     azureResourceManagerConnection: $(azureServiceConnection)
     action: 'Create Or Update Resource Group'
     location: $(location)
     templateLocation: 'Linked artifact'
     csmFile: '$(templateFile)'
-    deploymentMode: Complete
+    deploymentMode: Incremental
     deploymentName: 'DeployPipelineTemplate'
 
