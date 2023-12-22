@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Neolude-Pools
+  name: Neolude-Pool
   vmImage: windows-latest
 
 steps:
