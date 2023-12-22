@@ -13,7 +13,7 @@ pool:
 
 pool: 
   name: Neolude-Pool
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
   
 steps:
   - task: AzureResourceManagerTemplateDeployment@3
