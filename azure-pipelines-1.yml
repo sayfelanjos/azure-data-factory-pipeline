@@ -26,5 +26,4 @@ steps:
     location: 'Brazil South'
     templateLocation: 'Linked artifact'
     csmFile: '.\bicep\resourceGroup.bicep'
-    csmParametersFile: 'resourceGroupName=Neolude-Pipeline2 resourceGroupLocation=brazilsouth'
     deploymentMode: 'Incremental'
