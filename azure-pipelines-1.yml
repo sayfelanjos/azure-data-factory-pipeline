@@ -25,7 +25,7 @@ steps:
     azureSubscription: 'azure-devops-service-connection'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az datafactory trigger delete --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "adf-pipeline-trigger"'
+    inlineScript: 'az datafactory trigger delete --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "adf-pipeline-trigger" --yes'
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'azure-devops-service-connection'
