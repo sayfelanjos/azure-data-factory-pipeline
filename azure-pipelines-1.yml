@@ -20,3 +20,9 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '.\bicep\azureDataFactory.bicep'
     deploymentMode: 'Complete'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'azure-devops-service-connection'
+    scriptType: 'ps'
+    scriptLocation: 'scriptPath'
+    scriptPath: '.bicep\create-trigger.ps1'
