@@ -24,7 +24,6 @@ steps:
       location: $(location)
       templateLocation: 'Linked artifact'
       csmFile: '.\bicep\resourceGroup.bicep'
-      csmParametersFile: '.\bicep\reourceGroupParam.bicepparam'
       deploymentMode: 'Incremental'
       deploymentName: 'DeployResourceGroupOnAzureDevops'
 
