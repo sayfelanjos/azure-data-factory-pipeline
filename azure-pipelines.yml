@@ -11,8 +11,9 @@ name: 'Deploy Neolude Pipelines'
 pool:
   vmImage: ubuntu-latest
 
-pool:
-  vmImage: $(vmImageName)
+pool: 
+  name: Neolude-Pool
+  vmImage: windows-latest
   
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
