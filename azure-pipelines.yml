@@ -25,6 +25,6 @@ steps:
       templateLocation: 'Linked artifact'
       csmFile: '.\bicep\resourceGroup.bicep'
       csmParametersFile: 'resourceGroupName=Lab-Neolude-BI resourceGroupLocation=brazilsouth'
-      deploymentMode: 'Complete'
+      deploymentMode: 'Incremental'
       deploymentName: 'deployResourceGroupOnAzureDevops'
 
