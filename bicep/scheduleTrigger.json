@@ -16,10 +16,10 @@
     {
         "recurrence":
         {
-            "endTime": "2023-12-18T21:45:00.8441801Z",
+            "endTime": "2023-12-22T20:30:00.8441801Z",
             "frequency": "Minute",
             "interval": 4,
-            "startTime": "2023-12-18T21:40:00.8441801Z",
+            "startTime": "2023-12-22T20:10:00.8441801Z",
             "timeZone": "UTC"
         }
     }
