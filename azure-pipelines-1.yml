@@ -30,5 +30,5 @@ steps:
   inputs:
     azureSubscription: 'azure-devops-service-connection'
     ResourceGroupName: 'Lab-Neolude-BI'
-    DatafactoryName: 'adf-pipeline-trigger'
+    DatafactoryName: 'datafactoryb2v42c6lrdhxs'
     TriggerStatus: start
