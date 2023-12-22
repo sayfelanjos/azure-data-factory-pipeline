@@ -26,9 +26,9 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: 'az datafactory trigger create --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --properties $(System.DefaultWorkingDirectory)\bicep\scheduleTrigger.json  --name "adf-pipeline-trigger"'
-- task: toggle-adf-trigger@2
+- task: AzureCLI@2
   inputs:
     azureSubscription: 'azure-devops-service-connection'
-    ResourceGroupName: 'Lab-Neolude-BI'
-    DatafactoryName: 'datafactoryb2v42c6lrdhxs'
-    TriggerStatus: start
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az datafactory trigger start --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "adf-pipeline-trigger"'
