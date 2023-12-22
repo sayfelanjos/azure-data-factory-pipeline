@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Subscription'
+    azureResourceManagerConnection: 'azure-devops-service-connection'
+    subscriptionId: 'c84ab836-320a-4451-8302-864ca7447aab'
+    location: 'Brazil South'
+    templateLocation: 'Linked artifact'
+    csmFile: '.\bicep\resourceGroup.bicep'
+    csmParametersFile: 'resourceGroupName=Neolude-Pipeline2 resourceGroupLocation=brazilsouth'
+    deploymentMode: 'Incremental'
