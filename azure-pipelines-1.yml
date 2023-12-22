@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: Neolude-Pools
+  vmImage: windows-latest
 
 steps:
 - script: echo Hello, world!
