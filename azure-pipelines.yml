@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -16,15 +17,10 @@ pool:
   vmImage: windows-latest
   
 steps:
-  - task: AzureResourceManagerTemplateDeployment@3
-    inputs:
-      deploymentScope: 'Resource Group'
-      azureResourceManagerConnection: azure-devops-service-connection
-      subscriptionId: 'c84ab836-320a-4451-8302-864ca7447aab'
-      action: 'Create Or Update Resource Group'
-      resourceGroupName: 'Lab-Neolude-BI'
-      location: 'Brazil South'
-      templateLocation: 'Linked artifact'
-      csmFile: '.\bicep\resourceGroup.bicep'
-      deploymentMode: 'Complete'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure for Students(c84ab836-320a-4451-8302-864ca7447aab)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az group create --location brazilsouth --name Neolude-Pipelines-Test2'
 
