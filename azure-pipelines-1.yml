@@ -25,6 +25,12 @@ steps:
     azureSubscription: 'azure-devops-service-connection'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
+    inlineScript: 'az datafactory trigger delete --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "adf-pipeline-trigger"'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'azure-devops-service-connection'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
     inlineScript: 'az datafactory trigger create --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --properties $(System.DefaultWorkingDirectory)\bicep\scheduleTrigger.json  --name "adf-pipeline-trigger"'
 - task: AzureCLI@2
   inputs:
@@ -32,9 +38,3 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: 'az datafactory trigger start --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "adf-pipeline-trigger"'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'azure-devops-service-connection'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az datafactory trigger delete --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "adf-pipeline-trigger"'
