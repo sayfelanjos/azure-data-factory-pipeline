@@ -14,6 +14,7 @@ variables:
   SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
   LOCATION: 'Brazil South'
   TEMPLATE_PATH: '.\bicep\resourceGroup.bicep'
+  TEMPLATE_PARAM_PATH: '.\bicep\resourceGroupParam.bicepparam'
   SERVICE_PRINCIPAL_CONNECTION: 'azure-devops-service-connection'
 
 steps:
@@ -25,7 +26,9 @@ steps:
     location: $(LOCATION)
     templateLocation: 'Linked artifact'
     csmFile: $(TEMPLATE_PATH)
+    csmParametersFile : $(TEMPLATE_PARAM_PATH)
     deploymentMode: 'Incremental'
+
 # - task: AzureCLI@2
 #   inputs:
 #     azureSubscription: 'azure-devops-service-connection'
