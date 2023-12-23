@@ -27,7 +27,7 @@ steps:
     location: $(LOCATION)
     templateLocation: 'Linked artifact'
     csmFile: $(TEMPLATE_PATH)
-    overrideParameters: '-resourceGroupName $(RESOURCE_GROUP_NAME) -resourceGroupLocation $(LOCATION)'
+    overrideParameters: -resourceGroupName $(RESOURCE_GROUP_NAME) -resourceGroupLocation $(LOCATION)
     deploymentMode: 'Incremental'
 
 # - task: AzureCLI@2
