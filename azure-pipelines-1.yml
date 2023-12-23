@@ -12,7 +12,7 @@ pool:
 
 variables:
   SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
-  LOCATION: 'Brazil South'
+  LOCATION: 'brazilsouth'
   TEMPLATE_PATH: '.\bicep\resourceGroup.bicep'
   TEMPLATE_PARAM_PATH: '.\bicep\resourceGroupParam.bicepparam'
   SERVICE_PRINCIPAL_CONNECTION: 'azure-devops-service-connection'
