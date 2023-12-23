@@ -25,7 +25,7 @@ steps:
     location: $(LOCATION)
     templateLocation: 'Linked artifact'
     csmFile: $(TEMPLATE_PATH)
-    deploymentMode: 'Complete'
+    deploymentMode: 'Incremental'
 # - task: AzureCLI@2
 #   inputs:
 #     azureSubscription: 'azure-devops-service-connection'
