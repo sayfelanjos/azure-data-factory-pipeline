@@ -13,7 +13,6 @@ pool:
 variables:
   SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
   LOCATION: 'brazilsouth'
-  TEMPLATE_PATH: '.\bicep\resourceGroup.bicep'
   SERVICE_PRINCIPAL_CONNECTION: 'Azure for Students(c84ab836-320a-4451-8302-864ca7447aab)'
   RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
 
@@ -25,9 +24,20 @@ steps:
     subscriptionId: $(SUBSCRIPTION_ID)
     location: $(LOCATION)
     templateLocation: 'Linked artifact'
-    csmFile: $(TEMPLATE_PATH)
+    csmFile: '.\bicep\resourceGroup.bicep'
     overrideParameters: -resourceGroupName $(RESOURCE_GROUP_NAME) -resourceGroupLocation $(LOCATION)
     deploymentMode: 'Incremental'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
+    subscriptionId: $(SUBSCRIPTION_ID)
+    resourceGroupName: $(RESOURCE_GROUP_NAME)
+    location: $(LOCATION)
+    action: 'Create Or Update Resource Group'
+    templateLocation: 'Linked artifact'
+    csmFile: '.\bicep\azureDataFactory.bicep'
+    deploymentMode: 'Complete'
 
 # - task: AzureCLI@2
 #   inputs:
