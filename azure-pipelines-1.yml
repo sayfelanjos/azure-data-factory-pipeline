@@ -26,7 +26,7 @@ steps:
     location: $(LOCATION)
     templateLocation: 'Linked artifact'
     csmFile: '$(System.DefaultWorkingDirectory)\$(TEMPLATE_PATH)'
-    csmParametersFile : '$(System.DefaultWorkingDirectory)\$(TEMPLATE_PARAM_PATH)'
+    overrideParameters: 'resourceGroupName=Neolude-Pipeline resourceGroupLocation-brazilsouth'
     deploymentMode: 'Incremental'
 
 # - task: AzureCLI@2
