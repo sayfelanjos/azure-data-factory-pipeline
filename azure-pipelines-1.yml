@@ -25,8 +25,8 @@ steps:
     subscriptionId: $(SUBSCRIPTION_ID)
     location: $(LOCATION)
     templateLocation: 'Linked artifact'
-    csmFile: $(TEMPLATE_PATH)
-    csmParametersFile : $(TEMPLATE_PARAM_PATH)
+    csmFile: '$(System.DefaultWorkingDirectory)\$(TEMPLATE_PATH)'
+    csmParametersFile : '$(System.DefaultWorkingDirectory)\$(TEMPLATE_PARAM_PATH)'
     deploymentMode: 'Incremental'
 
 # - task: AzureCLI@2
