@@ -50,11 +50,12 @@ steps:
     azureSubscription: 'azure-devops-service-connection'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az datafactory trigger create 
-                    --factory-name "datafactoryb2v42c6lrdhxs" 
-                    --resource-group "Lab-Neolude-BI" 
-                    --properties $(System.DefaultWorkingDirectory)\bicep\scheduleTrigger.json  
-                    --name "adf-pipeline-trigger"'
+    inlineScript: |
+      'az datafactory trigger create 
+        --factory-name "datafactory6hzdc6rlfakn6" 
+        --resource-group $(RESOURCE_GROUP_NAME)
+        --properties '.\bicep\scheduleTrigger.json  '
+        --name "adf-pipeline-trigger"'
 # - task: AzureCLI@2
 #   inputs:
 #     azureSubscription: 'azure-devops-service-connection'
