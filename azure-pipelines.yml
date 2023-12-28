@@ -8,7 +8,11 @@ variables:
   POOL_NAME: 'Neolude-Pool'
   KEY_VAULT_NAME: 'Neolude-KeyVault'
   SERVICE_PRINCIPAL_OBJECT_ID: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
-  
+  SQL_SERVER_DB_NAME_KEY: 'username'
+  SQL_SERVER_DB_NAME_VALUE: 'neolude'
+  SQL_SERVER_DB_PASSWORD_KEY: 'password'
+  SQL_SERVER_DB_PASSWORD_VALUE: '#Neolude2023'
+
 stages:
   - stage: 'Create_Resources'
     displayName: 'Create Azure Data Factory Pipeline'
@@ -42,7 +46,13 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\KeyVault.bicep'
-              overrideParameters: '-keyVaultName $(KEY_VAULT_NAME) -objectId $(SERVICE_PRINCIPAL_OBJECT_ID)'
+              overrideParameters: |
+                '-keyVaultName $(KEY_VAULT_NAME) 
+                -objectId $(SERVICE_PRINCIPAL_OBJECT_ID)
+                -sqlServerDBName $(SQL_SERVER_DB_NAME_KEY)
+                -sqlServerDBNameValue $(SQL_SERVER_DB_VALUE)
+                -sqlServerDBPassword $(SQL_SERVER_DB_PASSWORD_KEY)
+                -sqlServerDBPasswordValue $(SQL_SERVER_DB_PASSWORD_VALUE)'
               deploymentMode: 'Complete'
         
       - job: 'CreateSQLDatabase'
