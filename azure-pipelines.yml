@@ -70,23 +70,6 @@ stages:
               csmFile: '.\bicep\sqlDB.bicep'
               deploymentMode: 'Complete'
 
-name: 'Deploy Neolude Pipelines'
-
-pool:
-  vmImage: ubuntu-latest
-
-pool: 
-  name: Neolude-Pool
-  vmImage: windows-latest
-  
-steps:
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Azure for Students(c84ab836-320a-4451-8302-864ca7447aab)'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az group create --location brazilsouth --name Neolude-Pipelines-Test2'
-
   - stage: 'Inicia_Pipeline'
     displayName: 'Inicia Azure Data Factory Pipeline'
     pool:

@@ -1,5 +1,4 @@
 # Create Trigger
-
 az datafactory trigger create `
     --factory-name "datafactoryb2v42c6lrdhxs" `
     --resource-group "Lab-Neolude-BI" `
