@@ -32,7 +32,7 @@ stages:
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: 'Azure DevOps Connection'
+              azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
               subscriptionId: $(SUBSCRIPTION_ID)
               resourceGroupName: $(RESOURCE_GROUP_NAME)
               location: $(LOCATION)
@@ -47,7 +47,7 @@ stages:
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: 'Azure DevOps Connection'
+              azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
               subscriptionId: $(SUBSCRIPTION_ID)
               resourceGroupName: $(RESOURCE_GROUP_NAME)
               location: $(LOCATION)
@@ -80,7 +80,7 @@ steps:
         steps:
           - task: AzureCLI@2
             inputs:
-              azureSubscription: 'Azure DevOps Connection'
+              azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
               scriptType: 'ps'
               scriptLocation: 'inlineScript'
               inlineScript: |
@@ -122,7 +122,7 @@ steps:
         steps:
           - task: AzureCLI@2
             inputs:
-              azureSubscription: 'Azure DevOps Connection'
+              azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
               scriptType: 'ps'
               scriptLocation: 'inlineScript'
               inlineScript: |
