@@ -1,24 +1,24 @@
 trigger:
 - main
+variables:
+  SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
+  LOCATION: 'brazilsouth'
+  SERVICE_PRINCIPAL_CONNECTION: 'Azure DevOps Connection'
+  RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
+  POOL_NAME: 'Neolude-Pool'
+  pool:
+    name: $(POOL_NAME)
+    vmImage: windows-latest
 stages:
   - stage: 'Create_Resources'
     displayName: 'Create Azure Data Factory Pipeline'
-    variables:
-      SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
-      LOCATION: 'brazilsouth'
-      SERVICE_PRINCIPAL_CONNECTION: 'Azure DevOps Connection'
-      RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
-      POOL_NAME: 'Neolude-Pool'
-    pool:
-      name: $(POOL_NAME)
-      vmImage: windows-latest
     jobs:
       - job: 'CreateResourceGroup'
         steps:
         - task: AzureResourceManagerTemplateDeployment@3
           inputs:
             deploymentScope: 'Subscription'
-            azureResourceManagerConnection: 'Azure DevOps Connection'
+            azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
             subscriptionId: $(SUBSCRIPTION_ID)
             location: $(LOCATION)
             templateLocation: 'Linked artifact'
