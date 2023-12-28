@@ -4,32 +4,12 @@ param dataFactoryName string = 'datafactory${uniqueString(resourceGroup().id)}'
 @description('Location of the data factory.')
 param location string = resourceGroup().location
 
-@description('Name of the Azure storage account that contains the input/output data.')
-param storageAccountName string = 'storage${uniqueString(resourceGroup().id)}'
-
-@description('Name of the blob container in the Azure Storage account.')
-param blobContainerName string = 'blob${uniqueString(resourceGroup().id)}'
-
-
 var baseURL = 'https://restcountries.com/v3.1'
 var dataFactoryRestLinkedServiceName = 'CopyFromRestPipeline'
-var dataFactoryBlobLinkedServiceName = 'CopyToBlobPipeline'
+var dataFactorySqlDatabaseLinkedServiceName = 'CopyToBlobPipeline'
 var dataFactoryDataSetInName = 'CountriesRestAPI'
 var dataFactoryDataSetOutName = 'CountriesData'
 var pipelineName = 'FromRestToBlobPipeline'
-
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-}
-
-resource blobContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-01-01' = {
-  name: '${storageAccount.name}/default/${blobContainerName}'
-}
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' = {
   name: dataFactoryName
@@ -79,13 +59,30 @@ resource dataFactoryRestLinkedService 'Microsoft.DataFactory/factories/linkedser
   }
 }
 
-resource dataFactoryBlobLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
+resource dataFactorySqlDatabaseLinkedService 'Microsoft.DataFactory/factories/linkedservices@2017-09-01-preview' = {
+  name: dataFactorySqlDatabaseLinkedServiceName
   parent: dataFactory
-  name: dataFactoryBlobLinkedServiceName
   properties: {
-    type: 'AzureBlobStorage'
+    annotations: [
+      any
+    ]
+    connectVia: {
+      parameters: {}
+      referenceName: 'string'
+      type: 'IntegrationRuntimeReference'
+    }
+    description: 'string'
+    parameters: {}
+    type: 'AzureSqlDatabase'
     typeProperties: {
-      connectionString: 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};AccountKey=${storageAccount.listKeys().keys[0].value}'
+      connectionString: any()
+      encryptedCredential: any()
+      servicePrincipalId: any()
+      servicePrincipalKey: {
+        type: 'string'
+        // For remaining properties, see SecretBase objects
+      }
+      tenant: any()
     }
   }
 }
