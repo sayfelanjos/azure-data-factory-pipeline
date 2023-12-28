@@ -47,11 +47,11 @@ stages:
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\KeyVault.bicep'
               overrideParameters: |
-                '-keyVaultName $(KEY_VAULT_NAME) 
-                -objectId $(SERVICE_PRINCIPAL_OBJECT_ID)
-                -sqlServerDBName $(SQL_SERVER_DB_NAME_KEY)
-                -sqlServerDBNameValue $(SQL_SERVER_DB_PASSWORD_VALUE)
-                -sqlServerDBPassword $(SQL_SERVER_DB_PASSWORD_KEY)
+                '-keyVaultName $(KEY_VAULT_NAME) `
+                -objectId $(SERVICE_PRINCIPAL_OBJECT_ID) `
+                -sqlServerDBName $(SQL_SERVER_DB_NAME_KEY) `
+                -sqlServerDBNameValue $(SQL_SERVER_DB_PASSWORD_VALUE) `
+                -sqlServerDBPassword $(SQL_SERVER_DB_PASSWORD_KEY) `
                 -sqlServerDBPasswordValue $(SQL_SERVER_DB_PASSWORD_VALUE)'
               deploymentMode: 'Complete'
         
