@@ -6,7 +6,7 @@ stages:
     variables:
       SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
       LOCATION: 'brazilsouth'
-      SERVICE_PRINCIPAL_CONNECTION: 'Azure DevOps'
+      SERVICE_PRINCIPAL_CONNECTION: 'Azure DevOps Connection'
       RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
       POOL_NAME: 'Neolude-Pool'
     pool:
@@ -18,7 +18,7 @@ stages:
         - task: AzureResourceManagerTemplateDeployment@3
           inputs:
             deploymentScope: 'Subscription'
-            azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
+            azureResourceManagerConnection: 'Azure DevOps Connection'
             subscriptionId: $(SUBSCRIPTION_ID)
             location: $(LOCATION)
             templateLocation: 'Linked artifact'
