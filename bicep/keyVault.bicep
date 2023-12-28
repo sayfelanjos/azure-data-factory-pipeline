@@ -37,11 +37,18 @@ param secretsPermissions array = [
 param skuName string = 'standard'
 
 @description('Specifies the name of the secret that you want to create.')
-param secretName string
+param sqlServerDBName string
+
+@description('Name value of the SQL Database')
+param sqlServerDBNameValue string
 
 @description('Specifies the value of the secret that you want to create.')
 @secure()
-param secretValue string
+param sqlServerDBPassword string
+
+@description('Password value of the SQL Database')
+@secure()
+param sqlServerDBPasswordValue string
 
 resource kv 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   name: keyVaultName
@@ -74,10 +81,18 @@ resource kv 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   }
 }
 
-resource secret 'Microsoft.KeyVault/vaults/secrets@2021-11-01-preview' = {
+resource sqlServerDatabaseName 'Microsoft.KeyVault/vaults/secrets@2021-11-01-preview' = {
   parent: kv
-  name: secretName
+  name: sqlServerDBName
   properties: {
-    value: secretValue
+    value: sqlServerDBNameValue
   }
+}
+
+  resource sqlServerDatabasePassword 'Microsoft.KeyVault/vaults/secrets@2021-11-01-preview' = {
+    parent: kv
+    name: sqlServerDBPassword
+    properties: {
+      value: sqlServerDBPasswordValue
+    }
 }

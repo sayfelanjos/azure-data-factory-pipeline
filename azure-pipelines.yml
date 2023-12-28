@@ -11,7 +11,7 @@ variables:
   SQL_SERVER_DB_NAME_KEY: 'username'
   SQL_SERVER_DB_NAME_VALUE: 'neolude'
   SQL_SERVER_DB_PASSWORD_KEY: 'password'
-  SQL_SERVER_DB_PASSWORD_VALUE: '#Neolude2023'
+  SQL_SERVER_DB_PASSWORD_VALUE: '\#Neolude2023'
 
 stages:
   - stage: 'Create_Resources'
@@ -56,7 +56,7 @@ stages:
               deploymentMode: 'Complete'
         
       - job: 'CreateSQLDatabase'
-        dependsOn: 'CreateResourceGroup'
+        dependsOn: 'CreateKeyVault'
         steps:
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
