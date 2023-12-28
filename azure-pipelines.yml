@@ -1,8 +1,8 @@
 trigger:
 - main
 stages:
-  - stage: 'Create Azure Data Factory Pipeline'
-    displayName: Azure Data Factory
+  - stage: '1 - Create Resources'
+    displayName: 'Create Azure Data Factory Pipeline'
     variables:
       SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
       LOCATION: 'brazilsouth'
@@ -25,6 +25,21 @@ stages:
             csmFile: '.\bicep\resourceGroup.bicep'
             overrideParameters: -resourceGroupName $(RESOURCE_GROUP_NAME) -resourceGroupLocation $(LOCATION)
             deploymentMode: 'Incremental'
+
+      - job: 'CreateKeyVault'
+        dependsOn: 'CreateResourceGroup'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
+              subscriptionId: $(SUBSCRIPTION_ID)
+              resourceGroupName: $(RESOURCE_GROUP_NAME)
+              location: $(LOCATION)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\KeyVault.bicep'
+              deploymentMode: 'Complete'
         
       - job: 'CreateSQLDatabase'
         dependsOn: 'CreateResourceGroup'
@@ -38,7 +53,7 @@ stages:
               location: $(LOCATION)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '.\sqlDB.bicep'
+              csmFile: '.\bicep\sqlDB.bicep'
               deploymentMode: 'Complete'
 
 name: 'Deploy Neolude Pipelines'
@@ -58,6 +73,9 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: 'az group create --location brazilsouth --name Neolude-Pipelines-Test2'
 
+  - stage: '2 - Inicia Pipeline'
+    displayName: 'Inicia Azure Data Factory Pipeline'
+    jobs:
       - job: 'CreateTrigger'
         dependsOn: 'CreateAzureDataFactory'
         steps:

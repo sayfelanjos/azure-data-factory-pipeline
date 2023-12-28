@@ -9,7 +9,7 @@ var dataFactoryRestLinkedServiceName = 'CopyFromRestPipeline'
 var dataFactorySqlDatabaseLinkedServiceName = 'CopyToBlobPipeline'
 var dataFactoryDataSetInName = 'CountriesRestAPI'
 var dataFactoryDataSetOutName = 'CountriesData'
-var pipelineName = 'FromRestToBlobPipeline'
+var pipelineName = 'FromRestToSQLServerPipeline'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' = {
   name: dataFactoryName
