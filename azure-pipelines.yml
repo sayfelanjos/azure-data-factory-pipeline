@@ -6,12 +6,13 @@ variables:
   SERVICE_PRINCIPAL_CONNECTION: 'Azure DevOps Connection'
   RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
   POOL_NAME: 'Neolude-Pool'
-  pool:
-    name: $(POOL_NAME)
-    vmImage: windows-latest
+
 stages:
   - stage: 'Create_Resources'
     displayName: 'Create Azure Data Factory Pipeline'
+    pool:
+      name: $(POOL_NAME)
+      vmImage: windows-latest
     jobs:
       - job: 'CreateResourceGroup'
         steps:
@@ -75,6 +76,9 @@ steps:
 
   - stage: 'Inicia_Pipeline'
     displayName: 'Inicia Azure Data Factory Pipeline'
+    pool:
+      name: $(POOL_NAME)
+      vmImage: windows-latest
     jobs:
       - job: 'CreateTrigger'
         steps:
