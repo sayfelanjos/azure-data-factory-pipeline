@@ -7,6 +7,7 @@ variables:
   RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
   POOL_NAME: 'Neolude-Pool'
   KEY_VAULT_NAME: 'Neolude-KeyVault'
+  SERVICE_PRINCIPAL_OBJECT_ID: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
   
 stages:
   - stage: 'Create_Resources'
@@ -41,7 +42,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\KeyVault.bicep'
-              overrideParameters: '-keyVaultName $(KEY_VAULT_NAME)'
+              overrideParameters: '-keyVaultName $(KEY_VAULT_NAME) -objectId $(SERVICE_PRINCIPAL_OBJECT_ID)'
               deploymentMode: 'Complete'
         
       - job: 'CreateSQLDatabase'
