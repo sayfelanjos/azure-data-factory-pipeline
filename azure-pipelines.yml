@@ -1,10 +1,45 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
+stages:
+  - stage: 'Create Azure Data Factory Pipeline'
+    displayName: Azure Data Factory
+    variables:
+      SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
+      LOCATION: 'brazilsouth'
+      SERVICE_PRINCIPAL_CONNECTION: 'Azure for Students(c84ab836-320a-4451-8302-864ca7447aab)'
+      RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
+      POOL_NAME: 'Neolude-Pool'
+    pool:
+      name: $(POOL_NAME)
+      vmImage: windows-latest
+    jobs:
+      - job: 'CreateResourceGroup'
+        steps:
+        - task: AzureResourceManagerTemplateDeployment@3
+          inputs:
+            deploymentScope: 'Subscription'
+            azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
+            subscriptionId: $(SUBSCRIPTION_ID)
+            location: $(LOCATION)
+            templateLocation: 'Linked artifact'
+            csmFile: '.\bicep\resourceGroup.bicep'
+            overrideParameters: -resourceGroupName $(RESOURCE_GROUP_NAME) -resourceGroupLocation $(LOCATION)
+            deploymentMode: 'Incremental'
+        
+      - job: 'CreateSQLDatabase'
+        dependsOn: 'CreateResourceGroup'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
+              subscriptionId: $(SUBSCRIPTION_ID)
+              resourceGroupName: $(RESOURCE_GROUP_NAME)
+              location: $(LOCATION)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\sqlDB.bicep'
+              deploymentMode: 'Complete'
 
 name: 'Deploy Neolude Pipelines'
 
@@ -23,3 +58,58 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: 'az group create --location brazilsouth --name Neolude-Pipelines-Test2'
 
+      - job: 'CreateTrigger'
+        dependsOn: 'CreateAzureDataFactory'
+        steps:
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
+              scriptType: 'ps'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                'az datafactory trigger create 
+                  --factory-name "datafactory6hzdc6rlfakn6"  # criar um output para o nome do datafactory e guardar numa variável.
+                  --resource-group $(RESOURCE_GROUP_NAME)
+                  --properties |
+                    "{
+                      \"type\":\"ScheduleTrigger\",
+                      \"pipelines\":
+                      [
+                        {
+                          \"parameters\":
+                          {
+                            \"OutputBlobNameList\":[\"exampleoutput.csv\"]},
+                            \"pipelineReference\":
+                            {
+                              \"type\":\"PipelineReference\",
+                              \"referenceName\":\"examplePipeline\"
+                            }
+                          }
+                      ],
+                      \"typeProperties\":
+                      {
+                        \"recurrence\":
+                        {
+                          \"endTime\":\"2018-06-16T00:55:13.8441801Z\",
+                          \"frequency\":\"Minute\",
+                          \"interval\":4,
+                          \"startTime\":\"2018-06-16T00:39:13.8441801Z\",
+                          \"timeZone\":\"UTC\"
+                        }
+                      }
+                    }"
+                  --name "adf-pipeline-trigger"' # criar uma variável para o nome do trigger
+                  
+      - job: 'StartTrigger'
+        dependsOn: 'CreateTrigger'
+        steps:
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
+              scriptType: 'ps'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                'az datafactory trigger start 
+                  --factory-name "datafactory6hzdc6rlfakn6" 
+                  --resource-group $(RESOURCE_GROUP_NAME)
+                  --name "adf-pipeline-trigger"'
