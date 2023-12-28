@@ -77,7 +77,6 @@ steps:
     displayName: 'Inicia Azure Data Factory Pipeline'
     jobs:
       - job: 'CreateTrigger'
-        dependsOn: 'CreateAzureDataFactory'
         steps:
           - task: AzureCLI@2
             inputs:
