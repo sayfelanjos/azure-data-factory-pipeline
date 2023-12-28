@@ -3,7 +3,7 @@ trigger:
 variables:
   SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
   LOCATION: 'brazilsouth'
-  SERVICE_PRINCIPAL_CONNECTION: 'Azure DevOps Connection'
+  SERVICE_PRINCIPAL_CONNECTION: 'AzureDevOpsPipelines'
   RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
   POOL_NAME: 'Neolude-Pool'
   KEY_VAULT_NAME: 'Neolude-KeyVault'
