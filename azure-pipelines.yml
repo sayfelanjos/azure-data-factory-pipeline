@@ -5,7 +5,7 @@ variables:
   LOCATION: 'brazilsouth'
   SERVICE_PRINCIPAL_CONNECTION: 'AzureDevOpsPipelines'
   RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
-  POOL_NAME: 'Azure Pipelines'
+  POOL_NAME: 'Hosted Agent'
   KEY_VAULT_NAME: 'Neolude-KeyVault'
   SERVICE_PRINCIPAL_OBJECT_ID: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
   SQL_SERVER_DB_NAME_KEY: 'username'
