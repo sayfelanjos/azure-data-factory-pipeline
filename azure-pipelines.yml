@@ -4,7 +4,6 @@ parameters:
   - name: 'resourceGroupName'
     displayName: 'Nome do cliente o qual será criado um Resource Group para ou Nome do Resource Group já criado.'
     type: string
-  - name: ''
 
 variables:
   subscriptionId: 'c84ab836-320a-4451-8302-864ca7447aab'
