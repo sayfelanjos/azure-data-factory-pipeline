@@ -37,7 +37,7 @@
           "level": "warning"
         },
         "no-hardcoded-env-urls": {
-          "level": "warning"
+          "level": "off"
         },
         "no-hardcoded-location": {
           "level": "warning"
