@@ -18,18 +18,18 @@ stages:
       name: 'Azure Pipelines'
       vmImage: windows-latest
     jobs:
-      # - job: 'CreateResourceGroup'
-      #   steps:
-      #   - task: AzureResourceManagerTemplateDeployment@3
-      #     inputs:
-      #       deploymentScope: 'Subscription'
-      #       azureResourceManagerConnection: $(servicePrincipalConnection)
-      #       subscriptionId: $(subscriptionId)
-      #       location: $(location)
-      #       templateLocation: 'Linked artifact'
-      #       csmFile: '.\bicep\resourceGroup.bicep'
-      #       overrideParameters: -resourceGroupName ${{ parameters.resourceGroupName }} -resourceGroupLocation $(location)
-      #       deploymentMode: 'Incremental'
+      - job: 'CreateResourceGroup'
+        steps:
+        - task: AzureResourceManagerTemplateDeployment@3
+          inputs:
+            deploymentScope: 'Subscription'
+            azureResourceManagerConnection: $(servicePrincipalConnection)
+            subscriptionId: $(subscriptionId)
+            location: $(location)
+            templateLocation: 'Linked artifact'
+            csmFile: '.\bicep\resourceGroup.bicep'
+            overrideParameters: -resourceGroupName ${{ parameters.resourceGroupName }} -resourceGroupLocation $(location)
+            deploymentMode: 'Incremental'
 
       - job: 'CreateAzureDataFactory'
         dependsOn: 'CreateResourceGroup'
