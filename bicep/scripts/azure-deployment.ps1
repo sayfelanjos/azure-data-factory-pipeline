@@ -13,10 +13,6 @@ New-AzResourceGroupDeployment `
     -resourceGroupName $resourceGroupName `
     -TemplateFile '..\azureDataFactory.bicep'
 
-# New-AzResourceGroupDeployment `
-#     -ResourceGroupName $resourceGroupName `
-#     -TemplateFile '..\keyVault.bicep'
-
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile '..\sqlServer.bicep' `
