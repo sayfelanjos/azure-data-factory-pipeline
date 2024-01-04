@@ -1,17 +1,17 @@
 trigger:
-- main
+- development
+parameters:
+  - name: 'resourceGroupName'
+    displayName: 'Nome do cliente o qual será criado um Resource Group para ou Nome do Resource Group já criado.'
+    type: string
+  - name: ''
+
 variables:
-  SUBSCRIPTION_ID: 'c84ab836-320a-4451-8302-864ca7447aab'
-  LOCATION: 'brazilsouth'
-  SERVICE_PRINCIPAL_CONNECTION: 'AzureDevOpsPipelines'
-  RESOURCE_GROUP_NAME: 'Neolude-Inspand-Pipeline'
-  POOL_NAME: 'Default'
-  KEY_VAULT_NAME: 'Neolude-KeyVault'
-  SERVICE_PRINCIPAL_OBJECT_ID: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
-  SQL_SERVER_DB_NAME_KEY: 'username'
-  SQL_SERVER_DB_NAME_VALUE: 'neolude'
-  SQL_SERVER_DB_PASSWORD_KEY: 'password'
-  SQL_SERVER_DB_PASSWORD_VALUE: '\#Neolude2023'
+  subscriptionId: 'c84ab836-320a-4451-8302-864ca7447aab'
+  location: 'brazilsouth'
+  servicePrincipalConnection: 'Azure DevOps Connection'
+  poolName: 'Neolude-Pool'
+  servicePrincipalObjectId: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
 
 stages:
   - stage: 'Create_Resources'
@@ -20,113 +20,151 @@ stages:
       name: $(POOL_NAME)
       vmImage: windows-latest
     jobs:
-      - job: 'CreateResourceGroup'
-        steps:
-        - task: AzureResourceManagerTemplateDeployment@3
-          inputs:
-            deploymentScope: 'Subscription'
-            azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
-            subscriptionId: $(SUBSCRIPTION_ID)
-            location: $(LOCATION)
-            templateLocation: 'Linked artifact'
-            csmFile: '.\bicep\resourceGroup.bicep'
-            overrideParameters: -resourceGroupName $(RESOURCE_GROUP_NAME) -resourceGroupLocation $(LOCATION)
-            deploymentMode: 'Incremental'
+      # - job: 'CreateResourceGroup'
+      #   steps:
+      #   - task: AzureResourceManagerTemplateDeployment@3
+      #     inputs:
+      #       deploymentScope: 'Subscription'
+      #       azureResourceManagerConnection: $(servicePrincipalConnection)
+      #       subscriptionId: $(subscriptionId)
+      #       location: $(location)
+      #       templateLocation: 'Linked artifact'
+      #       csmFile: '.\bicep\resourceGroup.bicep'
+      #       overrideParameters: -resourceGroupName ${{ parameters.resourceGroupName }} -resourceGroupLocation $(location)
+      #       deploymentMode: 'Incremental'
 
-      - job: 'CreateKeyVault'
+      - job: 'CreateAzureDataFactory'
         dependsOn: 'CreateResourceGroup'
         steps:
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
-              subscriptionId: $(SUBSCRIPTION_ID)
-              resourceGroupName: $(RESOURCE_GROUP_NAME)
-              location: $(LOCATION)
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: ${{ parameters.resourceGroupName }}
+              location: $(location)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\KeyVault.bicep'
-              overrideParameters: '
-                -keyVaultName $(KEY_VAULT_NAME) 
-                -objectId $(SERVICE_PRINCIPAL_OBJECT_ID) 
-                -sqlServerDBName $(SQL_SERVER_DB_NAME_KEY) 
-                -sqlServerDBNameValue $(SQL_SERVER_DB_PASSWORD_VALUE) 
-                -sqlServerDBPassword $(SQL_SERVER_DB_PASSWORD_KEY) 
-                -sqlServerDBPasswordValue $(SQL_SERVER_DB_PASSWORD_VALUE)'
+              csmFile: '.\bicep\azureDataFactory.bicep'
               deploymentMode: 'Complete'
-        
+      
       - job: 'CreateSQLDatabase'
-        dependsOn: 'CreateKeyVault'
+        dependsOn: 'CreateResourceGroup'
         steps:
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(SERVICE_PRINCIPAL_CONNECTION)
-              subscriptionId: $(SUBSCRIPTION_ID)
-              resourceGroupName: $(RESOURCE_GROUP_NAME)
-              location: $(LOCATION)
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: ${{ parameters.resourceGroupName }}
+              location: $(location)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\sqlDB.bicep'
+              csmFile: '.\bicep\sqlServer.bicep'
               deploymentMode: 'Complete'
 
-  - stage: 'Inicia_Pipeline'
-    displayName: 'Inicia Azure Data Factory Pipeline'
-    pool:
-      name: $(POOL_NAME)
-      vmImage: windows-latest
-    jobs:
-      - job: 'CreateTrigger'
+      - job: 'CreateAzureDataFactoryLinkedServices'
+        dependsOn: 'CreateAzureDataFactory'
         steps:
-          - task: AzureCLI@2
+          - task: AzureResourceManagerTemplateDeployment@3
             inputs:
-              azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
-              scriptType: 'ps'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                'az datafactory trigger create 
-                  --factory-name "datafactory6hzdc6rlfakn6"  # criar um output para o nome do datafactory e guardar numa variável.
-                  --resource-group $(RESOURCE_GROUP_NAME)
-                  --properties |
-                    "{
-                      \"type\":\"ScheduleTrigger\",
-                      \"pipelines\":
-                      [
-                        {
-                          \"parameters\":
-                          {
-                            \"OutputBlobNameList\":[\"exampleoutput.csv\"]},
-                            \"pipelineReference\":
-                            {
-                              \"type\":\"PipelineReference\",
-                              \"referenceName\":\"examplePipeline\"
-                            }
-                          }
-                      ],
-                      \"typeProperties\":
-                      {
-                        \"recurrence\":
-                        {
-                          \"endTime\":\"2018-06-16T00:55:13.8441801Z\",
-                          \"frequency\":\"Minute\",
-                          \"interval\":4,
-                          \"startTime\":\"2018-06-16T00:39:13.8441801Z\",
-                          \"timeZone\":\"UTC\"
-                        }
-                      }
-                    }"
-                  --name "adf-pipeline-trigger"' # criar uma variável para o nome do trigger
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: ${{ parameters.resourceGroupName }}
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryLinkedServices.bicep'
+              deploymentMode: 'Complete'
+
+      - job: 'CreateAzureDataFactoryDataSets'
+        dependsOn: 'CreateAzureDataFactory'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: ${{ parameters.resourceGroupName }}
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
+              deploymentMode: 'Complete'
+
+      - job: 'CreateAzureDataFactoryPipeline'
+        dependsOn: 'CreateAzureDataFactory'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: ${{ parameters.resourceGroupName }}
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryPipeline.bicep'
+              deploymentMode: 'Complete'
+
+  # - stage: 'Inicia_Pipeline'
+  #   displayName: 'Inicia Azure Data Factory Pipeline'
+  #   pool:
+  #     name: $(POOL_NAME)
+  #     vmImage: windows-latest
+  #   jobs:
+  #     - job: 'CreateTrigger'
+  #       steps:
+  #         - task: AzureCLI@2
+  #           inputs:
+  #             azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
+  #             scriptType: 'ps'
+  #             scriptLocation: 'inlineScript'
+  #             inlineScript: |
+  #               'az datafactory trigger create 
+  #                 --factory-name "datafactory6hzdc6rlfakn6"  # criar um output para o nome do datafactory e guardar numa variável.
+  #                 --resource-group $(resourceGroupName)
+  #                 --properties |
+  #                   "{
+  #                     \"type\":\"ScheduleTrigger\",
+  #                     \"pipelines\":
+  #                     [
+  #                       {
+  #                         \"parameters\":
+  #                         {
+  #                           \"OutputBlobNameList\":[\"exampleoutput.csv\"]},
+  #                           \"pipelineReference\":
+  #                           {
+  #                             \"type\":\"PipelineReference\",
+  #                             \"referenceName\":\"examplePipeline\"
+  #                           }
+  #                         }
+  #                     ],
+  #                     \"typeProperties\":
+  #                     {
+  #                       \"recurrence\":
+  #                       {
+  #                         \"endTime\":\"2018-06-16T00:55:13.8441801Z\",
+  #                         \"frequency\":\"Minute\",
+  #                         \"interval\":4,
+  #                         \"startTime\":\"2018-06-16T00:39:13.8441801Z\",
+  #                         \"timeZone\":\"UTC\"
+  #                       }
+  #                     }
+  #                   }"
+  #                 --name "adf-pipeline-trigger"' # criar uma variável para o nome do trigger
                   
-      - job: 'StartTrigger'
-        dependsOn: 'CreateTrigger'
-        steps:
-          - task: AzureCLI@2
-            inputs:
-              azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
-              scriptType: 'ps'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                'az datafactory trigger start 
-                  --factory-name "datafactory6hzdc6rlfakn6" 
-                  --resource-group $(RESOURCE_GROUP_NAME)
-                  --name "adf-pipeline-trigger"'
+  #     - job: 'StartTrigger'
+  #       dependsOn: 'CreateTrigger'
+  #       steps:
+  #         - task: AzureCLI@2
+  #           inputs:
+  #             azureSubscription: $(SERVICE_PRINCIPAL_CONNECTION)
+  #             scriptType: 'ps'
+  #             scriptLocation: 'inlineScript'
+  #             inlineScript: |
+  #               'az datafactory trigger start 
+  #                 --factory-name "datafactory6hzdc6rlfakn6" 
+  #                 --resource-group $(resourceGroupName)
+  #                 --name "adf-pipeline-trigger"'
