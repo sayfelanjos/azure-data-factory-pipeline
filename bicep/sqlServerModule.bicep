@@ -20,6 +20,7 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   properties: {
     administratorLogin: sqlServerAdminLogin
     administratorLoginPassword: sqlServerAdminPassword
+    minimalTlsVersion: '1.2'
     publicNetworkAccess: 'Enabled'
     restrictOutboundNetworkAccess: 'Disabled'
   }

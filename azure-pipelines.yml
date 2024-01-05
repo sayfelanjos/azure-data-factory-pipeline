@@ -49,25 +49,25 @@ stages:
       #       ScriptType: InlineScript
       #       Inline: |
       #         '$IsPresent = Get-AzResourceGroup | Where {$_.ResourceGroupName -eq $(resourceGroupName)}'
-      - job: 'CreateResourceGroup'
+      # - job: 'CreateResourceGroup'
         # dependsOn: 'CheckResourceGroupPresence' 
         # variables: 
         #   isResourceGroupPresent: $[ dependencies.CheckResourceGroupPresence.outputs['CheckResult.IsPresent'] ]
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            # condition: eq(variables.isResourceGroupPresent, false)
-            inputs:
-              deploymentScope: 'Subscription'
-              azureResourceManagerConnection: $(servicePrincipalConnection)
-              subscriptionId: $(subscriptionId)
-              location: $(location)
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\resourceGroup.bicep'
-              overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
-              deploymentMode: 'Incremental'
+        # steps:
+        #   - task: AzureResourceManagerTemplateDeployment@3
+        #     # condition: eq(variables.isResourceGroupPresent, false)
+        #     inputs:
+        #       deploymentScope: 'Subscription'
+        #       azureResourceManagerConnection: $(servicePrincipalConnection)
+        #       subscriptionId: $(subscriptionId)
+        #       location: $(location)
+        #       templateLocation: 'Linked artifact'
+        #       csmFile: '.\bicep\resourceGroup.bicep'
+        #       overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
+        #       deploymentMode: 'Incremental'
 
       - job: 'CreateAzureDataFactory'
-        dependsOn: 'CreateResourceGroup'
+        # dependsOn: 'CreateResourceGroup'
         # condition: succeeded()
         steps:
           - task: AzureResourceManagerTemplateDeployment@3
@@ -83,7 +83,7 @@ stages:
               deploymentMode: 'Incremental'
               
       - job: 'CreateSQLDatabase'
-        dependsOn: 'CreateResourceGroup'
+        # dependsOn: 'CreateResourceGroup'
         # condition: succeeded()
         steps:
           - task: AzureResourceManagerTemplateDeployment@3

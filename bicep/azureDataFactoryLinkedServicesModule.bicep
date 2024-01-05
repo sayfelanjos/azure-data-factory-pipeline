@@ -8,6 +8,7 @@ param baseURL string
 param apiSecureString string
 
 param sqlServerUserName string
+
 @secure()
 param sqlServerPassword string
 
