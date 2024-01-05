@@ -1,34 +1,38 @@
 $resourceGroupName = 'DevOps-Test-NEOLUDE-BI'
-# $Location = 'brazilsouth'
+$Location = 'brazilsouth'
 $baseURL = 'https://data-api.neolude.com.br/'
 $relativeURL = '/'
 
 New-AzSubscriptionDeployment `
     -resourceGroupName $resourceGroupName `
     -Location $Location `
-    -TemplateFile '..\resourceGroup.bicep' `
-    -resourceGroupLocation $Location 
+    -TemplateFile '.\bicep\resourceGroup.bicep' `
+    -resourceGroupLocation $Location
 
 New-AzResourceGroupDeployment `
     -resourceGroupName $resourceGroupName `
-    -TemplateFile '..\azureDataFactory.bicep'
+    -TemplateFile '.\bicep\azureDataFactory.bicep' `
+    -Mode Incremental
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile '..\sqlServer.bicep' `
+    -TemplateFile '.\bicep\sqlServer.bicep' `
+    -Mode Incremental
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile '..\azureDataFactoryLinkedServicesModule.bicep' `
+    -TemplateFile '.\bicep\azureDataFactoryLinkedServicesModule.bicep' `
     -baseURL $baseURL `
-    -sqlServerUserName 'neoludeAdmin'
+    -sqlServerUserName 'neoludeAdmin' `
+    -Mode Incremental
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile '..\azureDataFactoryDataSet.bicep' `
-    -relativeURL $relativeURL
+    -TemplateFile '.\bicep\azureDataFactoryDataSet.bicep' `
+    -relativeURL $relativeURL `
+    -Mode Incremental
 
     New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile '..\azureDataFactoryPipeline.bicep'
-
+    -TemplateFile '.\bicep\azureDataFactoryPipeline.bicep' `
+    -Mode Incremental
