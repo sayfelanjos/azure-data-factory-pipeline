@@ -3,12 +3,15 @@ parameters:
   - name: 'resourceGroupName'
     displayName: 'Nome do cliente o qual será criado um Resource Group para ou Nome do Resource Group já criado.'
     type: string
+    default: 'DevOps-Test-NEOLUDE-BI'
   - name: 'sqlServerAdminLogin'
     displayName: 'SQL server admin user name'
     type: string
+    default: 'neoludeadmin'
   - name: 'sqlServerAdminPassword'
     displayName: 'SQL server admin password'
     type: string
+    default: '#Inspand2024'
   - name: 'baseURL'
     displayName: 'API URL'
     type: string
@@ -19,6 +22,7 @@ parameters:
     default: '/'
   - name: 'apiSecureString'
     displayName: 'API token'
+    default: 'lkasjdfkjasdçljflçasjdfçlkajsdçfj'
 
 variables:
   resourceGroupName: ${{ parameters.resourceGroupName }}
