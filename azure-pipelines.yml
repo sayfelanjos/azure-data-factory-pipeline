@@ -23,11 +23,11 @@ parameters:
 
 variables:
   resourceGroupName: ${{ parameters.resourceGroupName }}
-  subscriptionId: 'c84ab836-320a-4451-8302-864ca7447aab'
+  subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   location: 'brazilsouth'
-  servicePrincipalConnection: 'Azure DevOps Connection'
+  servicePrincipalConnection: 'AzureDevOpsPipelines'
   servicePrincipalObjectId: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
-  agentPool: 'Neolude-Pool'
+  agentPool: 'Azure Pipelines'
 
 stages:
   - stage: 'Create_Resources'
