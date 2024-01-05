@@ -1,5 +1,4 @@
-trigger:
-- development
+trigger: none
 parameters:
   - name: 'resourceGroupName'
     displayName: 'Nome do cliente o qual será criado um Resource Group para ou Nome do Resource Group já criado.'
@@ -26,7 +25,7 @@ variables:
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   location: 'brazilsouth'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
-  servicePrincipalObjectId: 'cc66bcc6-9432-42be-a35f-b9a079af8913'
+  servicePrincipalObjectId: 'ba7a68bd-3418-4b31-a97f-97c9dec173eb'
   agentPool: 'Azure Pipelines'
 
 stages:

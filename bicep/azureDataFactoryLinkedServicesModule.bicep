@@ -12,7 +12,6 @@ param sqlServerUserName string
 param sqlServerPassword string
 
 var resourceGroupName = resourceGroup().name
-var keyVaultLinkedServiceName = '${resourceGroupName}-key-vault'
 var serverName = '${resourceGroupName}-sql-server'
 var dataFactoryRestLinkedServiceName = 'copy-from-rest-api'
 var dataFactorySqlDatabaseLinkedServiceName = 'copy-to-sql-server-database'
@@ -37,18 +36,6 @@ resource dataFactoryRestLinkedService 'Microsoft.DataFactory/factories/linkedser
       }
       enableServerCertificateValidation: true
       url: baseURL
-    }
-  }
-}
-
-resource keyVaultLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
-  name: keyVaultLinkedServiceName
-  parent: dataFactory
-  properties: {
-    description: 'Data Factory Secrets'
-    type: 'AzureKeyVault'
-    typeProperties: {
-      baseUrl: 'https://${keyVaultLinkedServiceName}.vault.azure.net'
     }
   }
 }

@@ -20,7 +20,6 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   properties: {
     administratorLogin: sqlServerAdminLogin
     administratorLoginPassword: sqlServerAdminPassword
-    minimalTlsVersion: 'None'
     publicNetworkAccess: 'Enabled'
     restrictOutboundNetworkAccess: 'Disabled'
   }
@@ -33,5 +32,14 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   sku: {
     name: 'Standard'
     tier: 'Standard'
+  }
+}
+
+resource SQLAllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+  name: 'AllowAllWindowsAzureIps'
+  parent: sqlServer
+  properties: {
+    startIpAddress: '0.0.0.0'
+    endIpAddress: '0.0.0.0'
   }
 }

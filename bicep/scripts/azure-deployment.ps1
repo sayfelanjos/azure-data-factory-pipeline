@@ -21,14 +21,14 @@ New-AzResourceGroupDeployment `
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile '.\bicep\azureDataFactoryLinkedServicesModule.bicep' `
+    -TemplateFile '.\bicep\azureDataFactoryLinkedServices.bicep' `
     -baseURL $baseURL `
     -sqlServerUserName 'neoludeAdmin' `
     -Mode Incremental
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile '.\bicep\azureDataFactoryDataSet.bicep' `
+    -TemplateFile '.\bicep\azureDataFactoryDataSets.bicep' `
     -relativeURL $relativeURL `
     -Mode Incremental
 
