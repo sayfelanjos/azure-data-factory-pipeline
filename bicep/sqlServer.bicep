@@ -10,19 +10,19 @@ param dbName string = '${resourceGroupName}-sql-database'
 param location string = resourceGroup().location
 
 @description('The administrator username of the SQL logical server.')
-param sqlServerUserName string
+param sqlServerAdminLogin string
 
 @description('The administrator password of the SQL logical server.')
 @secure()
-param sqlServerPassword string
+param sqlServerAdminPassword string
 
 module sqlServer './sqlServerModule.bicep' = {
   name: 'deploySQL'
   params: {
     serverName: serverName
     location: location
-    sqlServerAdminLogin: sqlServerUserName
-    sqlServerAdminPassword: sqlServerPassword
+    sqlServerAdminLogin: sqlServerAdminLogin
+    sqlServerAdminPassword: sqlServerAdminPassword
     dbName: dbName
   }
 }
