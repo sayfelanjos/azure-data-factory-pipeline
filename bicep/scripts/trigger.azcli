@@ -1,6 +1,0 @@
-# Create the Trigger
-az datafactory trigger create --factory-name "exampleFactoryName" --resource-group "exampleResourceGroup" --properties "{\"type\":\"ScheduleTrigger\",\"pipelines\":[{\"parameters\":{\"OutputBlobNameList\":[\"exampleoutput.csv\"]},\"pipelineReference\":{\"type\":\"PipelineReference\",\"referenceName\":\"examplePipeline\"}}],\"typeProperties\":{\"recurrence\":{\"endTime\":\"2018-06-16T00:55:13.8441801Z\",\"frequency\":\"Minute\",\"interval\":4,\"startTime\":\"2018-06-16T00:39:13.8441801Z\",\"timeZone\":\"UTC\"}}}" --name "exampleTrigger"
-
-# Trigger Pipeline
-az datafactory trigger start --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "inspand-adf-trigger-pipeline" --no-wait --subscription c84ab836-320a-4451-8302-864ca7447aab
-az datafactory trigger start --factory-name "datafactoryb2v42c6lrdhxs" --resource-group "Lab-Neolude-BI" --name "inspand-adf-trigger-pipeline"
