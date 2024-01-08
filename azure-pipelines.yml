@@ -9,7 +9,12 @@ parameters:
   - name: 'sqlServerAdminPassword'
     displayName: 'SQL server admin password'
     type: string
-
+  - name: 'baseURL'
+    displayName: 'API URL'
+    type: string    
+  - name: 'apiSecureString'
+    displayName: 'API token'
+    
 variables:
   environment: 'dev'
   department: 'bi'
@@ -72,3 +77,19 @@ stages:
               overrideParameters: '-sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }}'
               deploymentMode: 'Incremental'
                 
+      - job: 'CreateAzureDataFactoryLinkedServices'
+        dependsOn: ['CreateSQLDatabase', 'CreateAzureDataFactory']
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: $(resourceGroupName)
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryLinkedServices.bicep'
+              overrideParameters: '-sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }}'
+              deploymentMode: 'Incremental'
