@@ -11,6 +11,7 @@ parameters:
     type: string
   - name: 'baseURL'
     displayName: 'API URL'
+    default: 'https://data-api.neolude.com.br/'
     type: string    
   - name: 'apiSecureString'
     displayName: 'API token'
@@ -114,3 +115,24 @@ stages:
               csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
               overrideParameters: '-relativeURL ${{ parameters.relativeURL}} -schemaName neolude -tableName videos'
               deploymentMode: 'Incremental'              
+
+  - stage: 'CreateTablesOnDatabase'
+    displayName: 'Create schemas and tables on sql database'
+    # dependsOn: 'CreateResources'
+    # condition: succeeded()
+    pool:
+      name: $(agentPool)
+      vmImage: windows-latest
+    jobs:
+      - job: 'CreateSchemasAndTablesOnDatabase'
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              version: '8.x'
+              performMultiLevelLookup: true
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'run'
+              projects: '.\dotnet-scripts\dotnet-scripts.csproj'
+              arguments: '$(resourceGroupName)-sql-server $(resourceGroupName)-sql-database ${{ parameters.sqlServerAdminLogin }} ${{ parameters.sqlServerAdminPassword }}' 
+              workingDirectory: '.\dotnet-scripts'
