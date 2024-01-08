@@ -33,3 +33,8 @@ New-AzResourceGroupDeployment `
     -TemplateFile '..\bicep\azureDataFactoryDataSets.bicep' `
     -relativeURL $relativeURL `
     -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactoryPipeline.bicep' `
+    -Mode Incremental

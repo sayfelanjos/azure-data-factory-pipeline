@@ -116,6 +116,22 @@ stages:
               overrideParameters: '-relativeURL ${{ parameters.relativeURL}} -schemaName neolude -tableName videos'
               deploymentMode: 'Incremental'              
 
+      - job: 'CreateAzureDataFactoryPipeline'
+        dependsOn: 'CreateAzureDataFactoryDataSets'
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: '$(servicePrincipalConnection)'
+              subscriptionId: '$(subscriptionId)'
+              resourceGroupName: '$(resourceGroupName)'
+              location: '$(location)'
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryPipeline.bicep'
+              deploymentMode: 'Incremental'              
+  
   - stage: 'CreateTablesOnDatabase'
     displayName: 'Create schemas and tables on sql database'
     # dependsOn: 'CreateResources'
