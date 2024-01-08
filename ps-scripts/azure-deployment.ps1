@@ -3,6 +3,8 @@ $Environment = 'dev'
 $Department = 'bi'
 $Location = 'brazilsouth'
 $resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)-$($Location)"
+$baseURL = 'https://data-api.neolude.com.br/'
+$relativeURL = '/'
 
 New-AzSubscriptionDeployment `
     -resourceGroupName $resourceGroupName `
@@ -18,4 +20,10 @@ New-AzResourceGroupDeployment `
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile '..\bicep\sqlServer.bicep' `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactoryLinkedServices.bicep' `
+    -baseURL $baseURL `
     -Mode Incremental
