@@ -3,6 +3,12 @@ parameters:
   - name: 'customerName'
     displayName: 'Nome do cliente para o qual serão criados os recursos'
     type: string
+  - name: 'sqlServerAdminLogin'
+    displayName: 'SQL server admin user name'
+    type: string
+  - name: 'sqlServerAdminPassword'
+    displayName: 'SQL server admin password'
+    type: string
 
 variables:
   environment: 'dev'

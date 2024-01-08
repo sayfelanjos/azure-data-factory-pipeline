@@ -1,11 +1,13 @@
+param resourceGroupName string = resourceGroup().name
+
 @description('The name of the SQL logical server.')
-param serverName string
+var serverName = '${resourceGroupName}-sql-server'
 
 @description('The name of the SQL Database.')
-param dbName string
+var dbName = '${resourceGroupName}-sql-database'
 
 @description('Location for all resources.')
-param location string
+param location string = resourceGroup().location
 
 @description('The administrator username of the SQL logical server.')
 param sqlServerAdminLogin string
@@ -20,7 +22,6 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   properties: {
     administratorLogin: sqlServerAdminLogin
     administratorLoginPassword: sqlServerAdminPassword
-    minimalTlsVersion: '1.2'
     publicNetworkAccess: 'Enabled'
     restrictOutboundNetworkAccess: 'Disabled'
   }
@@ -36,7 +37,7 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   }
 }
 
-resource SQLAllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+resource sqlAllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
   name: 'AllowAllWindowsAzureIps'
   parent: sqlServer
   properties: {
