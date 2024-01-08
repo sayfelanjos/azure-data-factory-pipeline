@@ -152,3 +152,45 @@ stages:
               projects: '.\dotnet-scripts\dotnet-scripts.csproj'
               arguments: '$(resourceGroupName)-sql-server $(resourceGroupName)-sql-database ${{ parameters.sqlServerAdminLogin }} ${{ parameters.sqlServerAdminPassword }}' 
               workingDirectory: '.\dotnet-scripts'
+
+  - stage: 'DevelopmentPipeline'
+    displayName: 'Start Dev Azure Data Factory Pipeline'
+    condition: 'eq(variables.environment, dev)'
+    pool:
+      name: '$(agentPool)'
+      vmImage: 'windows-latest'
+    jobs:
+      - job: 'CreateAzureDataFactoryTrigger'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: '$(servicePrincipalConnection)'
+              subscriptionId: '$(subscriptionId)'
+              resourceGroupName: '$(resourceGroupName)'
+              location: '$(location)'
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
+              deploymentMode: 'Incremental'
+                
+  - stage: 'ProductionPipeline'
+    displayName: 'Start Prod Azure Data Factory Pipeline'
+    condition: 'eq(variables.environment, prod)'
+    pool:
+      name: $(agentPool)
+      vmImage: 'windows-latest'
+    jobs:
+      - job: 'CreateAzureDataFactoryTrigger'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: '$(servicePrincipalConnection)'
+              subscriptionId: '$(subscriptionId)'
+              resourceGroupName: '$(resourceGroupName)'
+              location: '$(location)'
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
+              deploymentMode: 'Incremental'              
