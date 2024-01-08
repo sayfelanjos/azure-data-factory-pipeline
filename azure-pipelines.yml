@@ -31,4 +31,4 @@ stages:
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\resourceGroup.bicep'
               overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
-              deploymentMode: 'Incremental'
+              deploymentMode: 'Complete'
