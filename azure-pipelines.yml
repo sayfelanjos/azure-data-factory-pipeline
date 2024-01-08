@@ -155,7 +155,7 @@ stages:
 
   - stage: 'DevelopmentPipeline'
     displayName: 'Start Dev Azure Data Factory Pipeline'
-    condition: 'eq(variables.environment, "dev")'
+    condition: eq(variables.environment, 'dev')
     pool:
       name: '$(agentPool)'
       vmImage: 'windows-latest'
@@ -176,7 +176,7 @@ stages:
                 
   - stage: 'ProductionPipeline'
     displayName: 'Start Prod Azure Data Factory Pipeline'
-    condition: 'eq(variables.environment, "prod")'
+    condition: eq(variables.environment, 'prod')
     pool:
       name: $(agentPool)
       vmImage: 'windows-latest'
