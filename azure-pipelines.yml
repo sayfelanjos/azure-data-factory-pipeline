@@ -14,7 +14,11 @@ parameters:
     type: string    
   - name: 'apiSecureString'
     displayName: 'API token'
-    
+  - name: 'relativeURL'
+    displayName: 'API relativeURL eg: path https://<baseURL>/relativeURL'
+    type: string
+    default: '/'    
+
 variables:
   environment: 'dev'
   department: 'bi'
@@ -93,3 +97,20 @@ stages:
               csmFile: '.\bicep\azureDataFactoryLinkedServices.bicep'
               overrideParameters: '-sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }}'
               deploymentMode: 'Incremental'
+
+      - job: 'CreateAzureDataFactoryDataSets'
+        dependsOn: 'CreateAzureDataFactoryLinkedServices'
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: '$(servicePrincipalConnection)'
+              subscriptionId: '$(subscriptionId)'
+              resourceGroupName: '$(resourceGroupName)'
+              location: '$(location)'
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
+              overrideParameters: '-relativeURL ${{ parameters.relativeURL}} -schemaName neolude -tableName videos'
+              deploymentMode: 'Incremental'              
