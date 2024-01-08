@@ -1,1 +1,1 @@
-### TODO: Documentação
+[![Build Status](https://dev.azure.com/neolude/NEOLUDE-BI/_apis/build/status%2FCria%20Azure%20Data%20Factory%20Pipeline?branchName=create-bicep-resource-group-template)](https://dev.azure.com/neolude/NEOLUDE-BI/_build/latest?definitionId=1&branchName=create-bicep-resource-group-template)

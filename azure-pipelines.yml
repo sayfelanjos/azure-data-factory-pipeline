@@ -1,7 +1,7 @@
 trigger: none
 parameters:
   - name: 'customerName'
-    displayName: 'Name of the customer api'
+    displayName: 'Nome do cliente para o qual serão criados os recursos'
     type: string
 
 variables:
