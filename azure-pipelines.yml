@@ -192,7 +192,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '.\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '$(resourceGroupName) ${{ parameters.department}} ${{ parameters.environment}}'
+              ScriptArguments: '$(resourceGroupName) ${{ parameters.department}} ${{ parameters.environment}} ${{ parameters.customer }}'
               
                 
   - stage: 'ProductionPipeline'
