@@ -1,5 +1,15 @@
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
+
 @description('Data Factory Name')
-param dataFactoryName string = '${resourceGroup().name}-data-factory'
+param dataFactoryName string = 'adf-${department}-${environment}'
+
 
 @description('Location of the data factory.')
 param location string = resourceGroup().location

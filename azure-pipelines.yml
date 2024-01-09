@@ -1,6 +1,6 @@
 trigger: none
 parameters:
-  - name: 'customerName'
+  - name: 'customer'
     displayName: 'Nome do cliente para o qual serão criados os recursos'
     type: string
     default: 'neolude'
@@ -20,15 +20,21 @@ parameters:
     displayName: 'API token'
     default: ';aljdsfjas;ldjf;lksajd;fjasdjf'
   - name: 'relativeURL'
-    displayName: 'API relativeURL eg: path https://<baseURL>/relativeURL'
+    displayName: 'URL relativa eg: path https://<domínio>/<relative url>'
     type: string
-    default: '/users'    
+    default: '/users'
+  - name: 'environment'
+    displayName: 'Ambiente de desenvolvimento ex: dev, stg, prod'
+    type: string
+    default: 'dev'
+  - name: 'department'
+    displayName: 'Departamento responsável'
+    type: string
+    default: 'bi'
 
 variables:
-  environment: 'dev'
-  department: 'bi'
   location: 'brazilsouth'
-  resourceGroupName: '${{ parameters.customerName }}-$(department)-$(environment)'
+  resourceGroupName: '${{ parameters.customer }}-rg-${{ parameters.department }}-${{ parameters.environment }}'
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
@@ -67,6 +73,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactory.bicep'
+              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}}'
               deploymentMode: 'Incremental'
               
       - job: 'CreateSQLDatabase'
@@ -83,7 +90,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\sqlServer.bicep'
-              overrideParameters: '-sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }}'
+              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }}'
               deploymentMode: 'Incremental'
                 
       - job: 'CreateAzureDataFactoryLinkedServices'
@@ -100,7 +107,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryLinkedServices.bicep'
-              overrideParameters: '-sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }}'
+              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }}'
               deploymentMode: 'Incremental'
 
       - job: 'CreateAzureDataFactoryDataSets'
@@ -117,7 +124,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
-              overrideParameters: '-relativeURL ${{ parameters.relativeURL}}'
+              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}} -relativeURL ${{ parameters.relativeURL}}'
               deploymentMode: 'Incremental'              
 
       - job: 'CreateAzureDataFactoryPipeline'
@@ -176,6 +183,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
+              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}}'
               deploymentMode: 'Incremental'
           - task: AzurePowerShell@5
             inputs:
@@ -183,7 +191,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '.\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '$(resourceGroupName)'
+              ScriptArguments: '$(resourceGroupName) ${{ parameters.department}} ${{ parameters.environment}}'
               
                 
   - stage: 'ProductionPipeline'
@@ -205,4 +213,5 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
+              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}}'
               deploymentMode: 'Incremental'              

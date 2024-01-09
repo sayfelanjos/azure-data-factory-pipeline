@@ -1,4 +1,14 @@
-var dataFactoryName = '${resourceGroup().name}-data-factory'
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
+
+@description('Data Factory Name')
+param dataFactoryName string = 'adf-${department}-${environment}'
 
 @description('The customer API URL')
 param baseURL string
@@ -13,9 +23,9 @@ param sqlServerAdminLogin string
 param sqlServerAdminPassword string
 
 var resourceGroupName = resourceGroup().name
-var serverName = '${resourceGroupName}-sql-server'
+var serverName = 'sql-${department}-${environment}'
 var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
-var dataFactorySqlDatabaseLinkedServiceName = 'sql-database-linked-service'
+var dataFactorySqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName

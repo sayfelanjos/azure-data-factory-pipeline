@@ -1,5 +1,15 @@
-param resourceGroupName string = resourceGroup().name
-var dataFactoryName = '${resourceGroupName}-data-factory'
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
+
+@description('Data Factory Name')
+param dataFactoryName string = 'adf-${department}-${environment}'
+
 var dataFactoryDataSetInName = 'rest_api_dataset'
 var dataFactoryDataSetOutName = 'sql_server_dataset'
 var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'

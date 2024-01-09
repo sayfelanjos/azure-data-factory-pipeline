@@ -1,10 +1,18 @@
-param resourceGroupName string = resourceGroup().name
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
 
 @description('Data Factory Name')
-param dataFactoryName string = '${resourceGroupName}-data-factory'
-var pipelineName = 'copy-from-rest-api-to-sql-database-pipeline'
-param azureDataFactoryTriggerName string = 'azure-devops-pipeline-trigger'
+param dataFactoryName string = 'adf-${department}-${environment}'
 
+param tableName string
+var pipelineName = 'copy-${tableName}-pipeline'
+param azureDataFactoryTriggerName string = 'trigger-${tableName}'
 param utcTime string = utcNow('u')
 var startTime = dateTimeAdd(utcTime, '-PT2H58M')
 var endTime = dateTimeAdd(startTime, 'PT1M30S')
