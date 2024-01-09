@@ -3,22 +3,26 @@ parameters:
   - name: 'customerName'
     displayName: 'Nome do cliente para o qual serão criados os recursos'
     type: string
+    default: 'neolude'
   - name: 'sqlServerAdminLogin'
     displayName: 'SQL server admin user name'
     type: string
+    default: 'neoludeadmin'
   - name: 'sqlServerAdminPassword'
     displayName: 'SQL server admin password'
     type: string
+    default: '#Inspand2024'
   - name: 'baseURL'
     displayName: 'API URL'
-    default: 'https://data-api.neolude.com.br/'
+    default: 'https://jsonplaceholder.typicode.com'
     type: string    
   - name: 'apiSecureString'
     displayName: 'API token'
+    default: ';aljdsfjas;ldjf;lksajd;fjasdjf'
   - name: 'relativeURL'
     displayName: 'API relativeURL eg: path https://<baseURL>/relativeURL'
     type: string
-    default: '/'    
+    default: '/users'    
 
 variables:
   environment: 'dev'
@@ -175,7 +179,7 @@ stages:
               deploymentMode: 'Incremental'
           - task: AzurePowerShell@5
             inputs:
-              azureSubscription: '$(subscriptionId)'
+              azureSubscription: '$(servicePrincipalConnection)'
               ScriptType: 'FilePath'
               ScriptPath: '.\ps-scripts\start-trigger.ps1'
               
