@@ -28,7 +28,7 @@ variables:
   environment: 'dev'
   department: 'bi'
   location: 'brazilsouth'
-  resourceGroupName: '${{ parameters.customerName }}-$(department)-$(environment)-$(location)'
+  resourceGroupName: '${{ parameters.customerName }}-$(department)-$(environment)'
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
