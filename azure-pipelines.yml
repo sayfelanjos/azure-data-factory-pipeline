@@ -167,7 +167,7 @@ stages:
 
   - stage: 'DevelopmentPipeline'
     displayName: 'Start Dev Azure Data Factory Pipeline'
-    condition: eq(variables.environment, 'dev')
+    condition: eq(parameters.environment, 'dev')
     pool:
       name: '$(agentPool)'
       vmImage: 'windows-latest'
