@@ -15,7 +15,7 @@ param customer string
 var serverName = 'sql-${customer}-${department}-${environment}'
 
 @description('The name of the SQL Database.')
-var dbName = '${resourceGroupName}-sql-database'
+var dbName = 'sqldb-${customer}-${department}-${environment}'
 
 @description('Location for all resources.')
 param location string = resourceGroup().location

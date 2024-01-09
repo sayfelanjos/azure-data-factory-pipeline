@@ -162,7 +162,7 @@ stages:
             inputs:
               command: 'run'
               projects: '.\dotnet-scripts\dotnet-scripts.csproj'
-              arguments: '$(resourceGroupName)-sql-server $(resourceGroupName)-sql-database ${{ parameters.sqlServerAdminLogin }} ${{ parameters.sqlServerAdminPassword }}' 
+              arguments: 'sql-${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }} sqldb-${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }} ${{ parameters.sqlServerAdminLogin }} ${{ parameters.sqlServerAdminPassword }}' 
               workingDirectory: '.\dotnet-scripts'
 
   - stage: 'DevelopmentPipeline'
