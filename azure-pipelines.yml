@@ -184,7 +184,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
-              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}}'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
               deploymentMode: 'Incremental'
           - task: AzurePowerShell@5
             inputs:
