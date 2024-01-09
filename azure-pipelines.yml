@@ -32,3 +32,18 @@ stages:
               csmFile: '.\bicep\resourceGroup.bicep'
               overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
               deploymentMode: 'Incremental'
+
+      - job: 'CreateAzureDataFactory'
+        dependsOn: 'CreateResourceGroup'
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Subscription'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              location: $(location)
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\resourceGroup.bicep'
+              overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
+              deploymentMode: 'Incremental'
