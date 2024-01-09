@@ -1,8 +1,8 @@
 param resourceGroupName string = resourceGroup().name
 var dataFactoryName = '${resourceGroupName}-data-factory'
-var dataFactoryDataSetInName = '${resourceGroupName}-data-source'
-var dataFactoryDataSetOutName = '${resourceGroupName}-data-destination'
-var pipelineName = 'from-rest-to-sql-server-pipeline'
+var dataFactoryDataSetInName = 'rest_api_dataset'
+var dataFactoryDataSetOutName = 'sql_server_dataset'
+var pipelineName = 'copy-from-rest-api-to-sql-database-pipeline'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
@@ -27,97 +27,40 @@ resource dataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:01:40'
-            paginationRules: any({
-              'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
-              'EndCondition:$[\'data\']': 'Empty'
-            })
-            requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
           }
           sink: {
             type: 'AzureSqlSink'
-            preCopyScript: 'truncate table [neolude].[dbo.coursepermissions]'
             writeBehavior: 'insert'
-            sqlWriterUseTableLock: 'true'
-            tableOption: 'autoCreate'
+            sqlWriterUseTableLock: false
             disableMetricsCollection: false
           }
           enableStaging: false
-          translator: any(
-            {
-              type: 'TabularTranslator'
-              mappings: [
-                {
-                  source: {
-                    path: 'UserID'
-                  }
-                  sink: {
-                    name: 'UserID'
-                    type: 'Int64'
-                  }
-                }
-                {
-                  source: {
-                    path: 'CourseID'
-                  }
-                  sink: {
-                    name: 'CourseID'
-                    type: 'Int64'
-                  }
-                }
-                {
-                  source: {
-                    path: 'CoursePermissionLevelID'
-                  }
-                  sink: {
-                    name: 'CoursePermissionLevelID'
-                    type: 'Int64'
-                  }
-                }
-                {
-                  source: {
-                    path: '$[\'metadata\'][\'Page\']'
-                  }
-                  sink: {
-                    name: 'Page'
-                    type: 'Int64'
-                  }
-                }
-                {
-                  source: {
-                    path: '$[\'metadata\'][\'PageSize\']'
-                  }
-                  sink: {
-                    name: 'PageSize'
-                    type: 'Int64'
-                  }
-                }
-                {
-                  source: {
-                    path: '$[\'metadata\'][\'MaximumPageSize\']'
-                  }
-                  sink: {
-                    name: 'MaximumPageSize'
-                    type: 'Int64'
-                  }
-                }
-              ]
-              collectionReference: '$[\'data\']'
-              mapComplexValuesToString: true
+          translator: {
+            type: 'TabularTranslator'
+            schemaMapping: {
+              id: 'id'
+              name: 'name'
+              username: 'username'
+              email: 'email'
+              'address.street': 'street'
+              'address.suite': 'suite'
+              'address.city': 'city'
+              'address.zipcode': 'zipcode'
+              'address.geo.lat': 'lat'
+              'address.geo.lng': 'lng'
+              phone: 'phone'
+              website: 'website'
+              'company.name': 'company_name'
+              'company.catchPhrase': 'company_catch_phrase'
+              'company.bs': 'company_bs'
             }
-          )
+          }
         }
         inputs: [
           {
             referenceName: dataFactoryDataSetIn.name
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                value: 'coursepermissions?page={pagina}&page_size=5000&maximumpagesize=5000&update_start_date=2022-01-01'
-                type: 'Expression'
-              }
-            }
           }
         ]
         outputs: [
@@ -128,8 +71,5 @@ resource dataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
         ]
       }
     ]
-    folder: {
-      name: 'Neolude'
-    }
   }
 }
