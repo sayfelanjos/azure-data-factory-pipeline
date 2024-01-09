@@ -28,7 +28,7 @@ namespace Connect_to_SQL_Server
         {
             using (var command = new QC.SqlCommand())
             {
-                string query = File.ReadAllText(@"..\models\Create_Table_Inspand.sql");
+                string query = File.ReadAllText(@"..\models\Users_Table.sql");
                 command.Connection = connection;
                 command.CommandType = DT.CommandType.Text;
                 command.CommandText = query;
