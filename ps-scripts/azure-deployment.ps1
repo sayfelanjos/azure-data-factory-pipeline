@@ -2,15 +2,16 @@ $CustomerName = 'neolude'
 $Environment = 'dev'
 $Department = 'bi'
 $Location = 'brazilsouth'
-$resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)-$($Location)"
-$baseURL = 'https://data-api.neolude.com.br/'
-$relativeURL = '/'
+$resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)"
+$baseURL = 'https://jsonplaceholder.typicode.com'
+$relativeURL = '/users'
 
 New-AzSubscriptionDeployment `
     -resourceGroupName $resourceGroupName `
     -Location $Location `
     -TemplateFile '..\bicep\resourceGroup.bicep' `
-    -resourceGroupLocation $Location
+    -resourceGroupLocation $Location `
+    -Mode Incremental
 
 New-AzResourceGroupDeployment `
     -resourceGroupName $resourceGroupName `
