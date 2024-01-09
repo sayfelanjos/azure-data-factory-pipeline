@@ -9,8 +9,10 @@ param environment string
 
 param department string
 
+param customer string
+
 @description('The name of the SQL logical server.')
-var serverName = 'sql-${department}-${environment}'
+var serverName = 'sql-${customer}-${department}-${environment}'
 
 @description('The name of the SQL Database.')
 var dbName = '${resourceGroupName}-sql-database'

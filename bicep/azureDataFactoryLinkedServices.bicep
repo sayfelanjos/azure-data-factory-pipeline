@@ -22,8 +22,10 @@ param sqlServerAdminLogin string
 @secure()
 param sqlServerAdminPassword string
 
+param customer string
+
 var resourceGroupName = resourceGroup().name
-var serverName = 'sql-${department}-${environment}'
+var serverName = 'sql-${customer}-${department}-${environment}'
 var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
 var dataFactorySqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
