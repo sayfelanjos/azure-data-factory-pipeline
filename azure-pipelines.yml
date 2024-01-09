@@ -1,7 +1,7 @@
 trigger: none
 parameters:
   - name: 'customerName'
-    displayName: 'Nome do cliente para o qual serão criados os recursos'
+    displayName: 'Name of the customer api'
     type: string
   - name: 'sqlServerAdminLogin'
     displayName: 'SQL server admin user name'
@@ -11,14 +11,14 @@ parameters:
     type: string
   - name: 'baseURL'
     displayName: 'API URL'
-    default: 'https://data-api.neolude.com.br/'
-    type: string    
-  - name: 'apiSecureString'
-    displayName: 'API token'
+    type: string
+    default: 'https://jsonplaceholder.typicode.com'
   - name: 'relativeURL'
     displayName: 'API relativeURL eg: path https://<baseURL>/relativeURL'
     type: string
-    default: '/'    
+    default: '/users'
+  - name: 'apiSecureString'
+    displayName: 'API token'
 
 variables:
   environment: 'dev'
@@ -113,7 +113,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
-              overrideParameters: '-relativeURL ${{ parameters.relativeURL}} -schemaName neolude -tableName videos'
+              overrideParameters: '-relativeURL ${{ parameters.relativeURL}}'
               deploymentMode: 'Incremental'              
 
       - job: 'CreateAzureDataFactoryPipeline'
