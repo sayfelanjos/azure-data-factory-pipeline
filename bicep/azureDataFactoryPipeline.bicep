@@ -13,7 +13,7 @@ param customer string
 param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
 
 var dataFactoryDataSetInName = 'rest_api_dataset'
-var dataFactoryDataSetOutName = 'sql_server_dataset'
+var dataFactoryDataSetOutName = 'sqldb_dataset'
 var pipelineName = 'copy-pipeline'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {

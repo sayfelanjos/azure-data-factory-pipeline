@@ -12,9 +12,8 @@ param customer string
 @description('Data Factory Name')
 param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
 
-param tableName string
 var pipelineName = 'copy-pipeline'
-param azureDataFactoryTriggerName string = 'trigger-${tableName}'
+param azureDataFactoryTriggerName string = 'trigger'
 param utcTime string = utcNow('u')
 var startTime = dateTimeAdd(utcTime, '-PT2H58M')
 var endTime = dateTimeAdd(startTime, 'PT1M30S')

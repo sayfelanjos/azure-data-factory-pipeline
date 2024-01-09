@@ -13,7 +13,7 @@ param customer string
 param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
 
 var dataFactoryDataSetInName = 'rest_api_dataset'
-var dataFactoryDataSetOutName = 'sql_server_dataset'
+var dataFactoryDataSetOutName = 'sqldb_dataset'
 var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
 var dataFactorySqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
