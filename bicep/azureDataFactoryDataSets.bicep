@@ -7,8 +7,10 @@ param environment string
 
 param department string
 
+param customer string
+
 @description('Data Factory Name')
-param dataFactoryName string = 'adf-${department}-${environment}'
+param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
 
 var dataFactoryDataSetInName = 'rest_api_dataset'
 var dataFactoryDataSetOutName = 'sql_server_dataset'

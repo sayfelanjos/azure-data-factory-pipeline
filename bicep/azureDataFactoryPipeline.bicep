@@ -7,13 +7,14 @@ param environment string
 
 param department string
 
-@description('Data Factory Name')
-param dataFactoryName string = 'adf-${department}-${environment}'
+param customer string
 
-param tableName string
+@description('Data Factory Name')
+param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
+
 var dataFactoryDataSetInName = 'rest_api_dataset'
 var dataFactoryDataSetOutName = 'sql_server_dataset'
-var pipelineName = 'copy-${tableName}-pipeline'
+var pipelineName = 'copy-pipeline'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName

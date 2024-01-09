@@ -73,7 +73,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactory.bicep'
-              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}}'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
               deploymentMode: 'Incremental'
               
       - job: 'CreateSQLDatabase'
@@ -90,7 +90,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\sqlServer.bicep'
-              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -customer ${{ parameters.customer }}'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -customer ${{ parameters.customer }}'
               deploymentMode: 'Incremental'
                 
       - job: 'CreateAzureDataFactoryLinkedServices'
@@ -107,7 +107,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryLinkedServices.bicep'
-              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }} -customer ${{ parameters.customer }}'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }} -customer ${{ parameters.customer }}'
               deploymentMode: 'Incremental'
 
       - job: 'CreateAzureDataFactoryDataSets'
@@ -124,7 +124,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
-              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}} -relativeURL ${{ parameters.relativeURL}}'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -relativeURL ${{ parameters.relativeURL}}'
               deploymentMode: 'Incremental'              
 
       - job: 'CreateAzureDataFactoryPipeline'
@@ -141,6 +141,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryPipeline.bicep'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -relativeURL ${{ parameters.relativeURL}}'
               deploymentMode: 'Incremental'              
   
   - stage: 'CreateTablesOnDatabase'

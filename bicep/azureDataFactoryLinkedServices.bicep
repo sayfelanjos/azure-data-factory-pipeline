@@ -7,8 +7,10 @@ param environment string
 
 param department string
 
+param customer string
+
 @description('Data Factory Name')
-param dataFactoryName string = 'adf-${department}-${environment}'
+param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
 
 @description('The customer API URL')
 param baseURL string
@@ -21,8 +23,6 @@ param sqlServerAdminLogin string
 
 @secure()
 param sqlServerAdminPassword string
-
-param customer string
 
 var resourceGroupName = resourceGroup().name
 var serverName = 'sql-${customer}-${department}-${environment}'

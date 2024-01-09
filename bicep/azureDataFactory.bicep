@@ -7,8 +7,10 @@ param environment string
 
 param department string
 
+param customer string
+
 @description('Data Factory Name')
-param dataFactoryName string = 'adf-${department}-${environment}'
+param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
 
 
 @description('Location of the data factory.')
