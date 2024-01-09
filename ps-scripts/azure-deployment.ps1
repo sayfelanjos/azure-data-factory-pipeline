@@ -1,8 +1,8 @@
 $CustomerName = 'neolude'
 $Environment = 'dev'
 $Department = 'bi'
-$resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)-$($Location)"
 $Location = 'brazilsouth'
+$resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)"
 
 New-AzSubscriptionDeployment `
     -resourceGroupName $resourceGroupName `
