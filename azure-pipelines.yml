@@ -141,7 +141,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryPipeline.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -relativeURL ${{ parameters.relativeURL}}'
+              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
               deploymentMode: 'Incremental'              
   
   - stage: 'CreateTablesOnDatabase'
