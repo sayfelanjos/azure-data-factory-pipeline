@@ -134,8 +134,8 @@ stages:
   
   - stage: 'CreateTablesOnDatabase'
     displayName: 'Create schemas and tables on sql database'
-    # dependsOn: 'CreateResources'
-    # condition: succeeded()
+    dependsOn: 'CreateResources'
+    condition: succeeded()
     pool:
       name: $(agentPool)
       vmImage: windows-latest
@@ -173,6 +173,12 @@ stages:
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
               deploymentMode: 'Incremental'
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(subscriptionId)'
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\start-trigger.ps1'
+              
                 
   - stage: 'ProductionPipeline'
     displayName: 'Start Prod Azure Data Factory Pipeline'

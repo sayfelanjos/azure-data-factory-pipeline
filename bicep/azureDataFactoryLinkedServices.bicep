@@ -14,8 +14,8 @@ param sqlServerAdminPassword string
 
 var resourceGroupName = resourceGroup().name
 var serverName = '${resourceGroupName}-sql-server'
-var dataFactoryRestLinkedServiceName = '${resourceGroupName}-factory-linked-service-rest-api'
-var dataFactorySqlDatabaseLinkedServiceName = '${resourceGroupName}-factory-linked-service-sql-server-database'
+var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
+var dataFactorySqlDatabaseLinkedServiceName = 'sql-database-linked-service'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
