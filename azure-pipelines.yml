@@ -113,7 +113,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
-              overrideParameters: '-relativeURL ${{ parameters.relativeURL}} -schemaName neolude -tableName videos'
+              overrideParameters: '-relativeURL ${{ parameters.relativeURL}}'
               deploymentMode: 'Incremental'              
 
       - job: 'CreateAzureDataFactoryPipeline'
