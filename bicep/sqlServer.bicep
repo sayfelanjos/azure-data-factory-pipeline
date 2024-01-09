@@ -1,5 +1,3 @@
-param resourceGroupName string = resourceGroup().name
-
 @allowed([
   'dev'
   'stg'

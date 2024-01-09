@@ -1,11 +1,11 @@
-$CustomerName = 'neolude'
+$Customer = 'neolude'
 $Environment = 'dev'
 $Department = 'bi'
 $Location = 'brazilsouth'
-$resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)"
+$resourceGroupName = "$($Customer)-rg-$($Department)-$($Environment)"
 $baseURL = 'https://jsonplaceholder.typicode.com'
 $relativeURL = '/users'
-$DataFactoryName = "$($resourceGroupName)-data-factory"
+$DataFactoryName = "adf-$($customer)-$($department)-$($environment)"
 
 New-AzSubscriptionDeployment `
     -resourceGroupName $resourceGroupName `
@@ -44,10 +44,13 @@ New-AzResourceGroupDeployment `
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile '..\bicep\azureDataFactoryTrigger.bicep' `
+    -environment $Environment `
+    -customer $Customer `
+    -department $Department `
     -Mode Incremental
 
 Start-AzDataFactoryV2Trigger `
     -ResourceGroupName $resourceGroupName `
     -DataFactoryName $DataFactoryName `
-    -TriggerName 'azure-devops-pipeline-trigger' `
+    -TriggerName 'trigger' `
     -Force
