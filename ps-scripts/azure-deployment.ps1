@@ -1,8 +1,4 @@
-$CustomerName = 'neolude'
-$Environment = 'dev'
-$Department = 'bi'
-$Location = 'brazilsouth'
-$resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)"
+$resourceGroupName = $args[0]
 $baseURL = 'https://jsonplaceholder.typicode.com'
 $relativeURL = '/users'
 $DataFactoryName = "$($resourceGroupName)-data-factory"

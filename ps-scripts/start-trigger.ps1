@@ -1,6 +1,6 @@
-$CustomerName = 'neolude'
-$Environment = 'dev'
-$Department = 'bi'
+$CustomerName = $args[0]
+$Environment = $args[1]
+$Department = $args[2]
 $resourceGroupName = "$($CustomerName)-$($Department)-$($Environment)"
 $DataFactoryName = "$($resourceGroupName)-data-factory"
 
