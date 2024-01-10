@@ -10,7 +10,7 @@ param department string
 param customer string
 
 @description('Data Factory Name')
-param dataFactoryName string = 'adf-${customer}-${department}-${environment}'
+param dataFactoryName string = '${customer}-${department}-${environment}-adf'
 
 @description('The customer API URL')
 param baseURL string
@@ -25,7 +25,7 @@ param sqlServerAdminLogin string
 param sqlServerAdminPassword string
 
 var resourceGroupName = resourceGroup().name
-var serverName = 'sql-${customer}-${department}-${environment}'
+var serverName = '${customer}-${department}-${environment}-sqlsvr'
 var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
 var dataFactorySqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 

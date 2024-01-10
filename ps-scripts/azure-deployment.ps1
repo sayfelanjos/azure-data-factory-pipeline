@@ -2,10 +2,12 @@ $Customer = 'neolude'
 $Environment = 'dev'
 $Department = 'bi'
 $Location = 'brazilsouth'
-$resourceGroupName = "$($Customer)-rg-$($Department)-$($Environment)"
+$resourceGroupName = "$($Customer)-$($Department)-$($Environment)-rg"
 $baseURL = 'https://jsonplaceholder.typicode.com'
 $relativeURL = '/users'
-$DataFactoryName = "adf-$($customer)-$($department)-$($environment)"
+$DataFactoryName = "$($Customer)-$($Department)-$($Environment)-adf"
+$pipelineName = ''
+$triggerName = "$($pipelineName)-trigger"
 
 New-AzSubscriptionDeployment `
     -resourceGroupName $resourceGroupName `
@@ -52,5 +54,5 @@ New-AzResourceGroupDeployment `
 Start-AzDataFactoryV2Trigger `
     -ResourceGroupName $resourceGroupName `
     -DataFactoryName $DataFactoryName `
-    -TriggerName 'trigger' `
+    -TriggerName $triggerName `
     -Force

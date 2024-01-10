@@ -10,10 +10,10 @@ param department string
 param customer string
 
 @description('The name of the SQL logical server.')
-var serverName = 'sql-${customer}-${department}-${environment}'
+var serverName = '${customer}-${department}-${environment}-sqlsvr'
 
 @description('The name of the SQL Database.')
-var dbName = 'sqldb-${customer}-${department}-${environment}'
+var dbName = '${customer}-${department}-${environment}-sqldb'
 
 @description('Location for all resources.')
 param location string = resourceGroup().location
