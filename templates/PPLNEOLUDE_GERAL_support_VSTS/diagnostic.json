@@ -1,0 +1,23 @@
+{
+    "now": "2024-01-10T19:14:30.635Z",
+    "perfNow": 6852617.900000095,
+    "diagnosticCorrelation": "4f20be70-2ef0-4eff-861c-e15d8b56f71f",
+    "source": "DownloadSupportFiles",
+    "environment": {
+        "productName": "adf",
+        "buildVersion": "1.0.122523.2",
+        "environmentType": 3,
+        "resourceName": "neolude-adf-dev",
+        "resourceRegion": "brazilsouth",
+        "resourceGroup": "Dev-Env-NEOLUDE-BI",
+        "subscriptionId": "c56f173d-86ef-45e2-9a11-d3d887738b21",
+        "sessionId": "qAkxewUbh00arUM1z92XTe",
+        "operationId": "",
+        "gitType": "VSTS",
+        "loggingKey": "fbeaf155-e093-4cc4-bdf5-bbb9ef578d22"
+    },
+    "additionalInfo": {
+        "selectedResource": "PPLNEOLUDE_GERAL",
+        "selectedResourceType": "pipeline"
+    }
+}
