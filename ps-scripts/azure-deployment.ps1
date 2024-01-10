@@ -6,7 +6,7 @@ $resourceGroupName = "$($Customer)-$($Department)-$($Environment)-rg"
 $baseURL = 'https://jsonplaceholder.typicode.com'
 $relativeURL = '/users'
 $DataFactoryName = "$($Customer)-$($Department)-$($Environment)-adf"
-$pipelineName = ''
+$pipelineName = 'copy-pipeline'
 $triggerName = "$($pipelineName)-trigger"
 
 New-AzSubscriptionDeployment `

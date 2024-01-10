@@ -3,7 +3,7 @@ $department = $args[1]
 $environment = $args[2]
 $customer = $args[3]
 $DataFactoryName = "adf-$($customer)-$($department)-$($environment)"
-$pipelineName = ''
+$pipelineName = 'copy-pipeline'
 $triggerName = "$($pipelineName)-trigger"
 
 Start-AzDataFactoryV2Trigger `

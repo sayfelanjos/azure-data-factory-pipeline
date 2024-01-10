@@ -28,6 +28,24 @@ resource dataFactoryDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06
   name: dataFactoryDataSetOutName
 }
 
+param someTable object = {
+  id: 'id'
+  name: 'name'
+  username: 'username'
+  email: 'email'
+  'address.street': 'street'
+  'address.suite': 'suite'
+  'address.city': 'city'
+  'address.zipcode': 'zipcode'
+  'address.geo.lat': 'lat'
+  'address.geo.lng': 'lng'
+  phone: 'phone'
+  website: 'website'
+  'company.name': 'company_name'
+  'company.catchPhrase': 'company_catch_phrase'
+  'company.bs': 'company_bs'
+}
+
 resource dataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   parent: dataFactory
   name: pipelineName
@@ -50,23 +68,7 @@ resource dataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
           enableStaging: false
           translator: {
             type: 'TabularTranslator'
-            schemaMapping: {
-              id: 'id'
-              name: 'name'
-              username: 'username'
-              email: 'email'
-              'address.street': 'street'
-              'address.suite': 'suite'
-              'address.city': 'city'
-              'address.zipcode': 'zipcode'
-              'address.geo.lat': 'lat'
-              'address.geo.lng': 'lng'
-              phone: 'phone'
-              website: 'website'
-              'company.name': 'company_name'
-              'company.catchPhrase': 'company_catch_phrase'
-              'company.bs': 'company_bs'
-            }
+            schemaMapping: someTable
           }
         }
         inputs: [
