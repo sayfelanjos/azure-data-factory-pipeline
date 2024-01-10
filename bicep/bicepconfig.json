@@ -1,4 +1,7 @@
 {
+  "experimentalFeaturesEnabled": {
+    "compileTimeImports": true
+  },
   "analyzers": {
     "core": {
       "enabled": true,
