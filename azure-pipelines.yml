@@ -26,7 +26,7 @@ parameters:
   - name: 'environment'
     displayName: 'Ambiente de desenvolvimento ex: dev, stg, prod'
     type: string
-    default: 'dev'
+    default: 'stg'
   - name: 'department'
     displayName: 'Departamento responsável'
     type: string
@@ -194,7 +194,7 @@ stages:
               ScriptPath: '.\ps-scripts\start-trigger.ps1'
               ScriptArguments: '$(resourceGroupName) ${{ parameters.department}} ${{ parameters.environment}} ${{ parameters.customer }}'
 
-  - stage: 'DevelopmentPipeline'
+  - stage: 'StagingPipeline'
     displayName: 'Start Stg Azure Data Factory Pipeline'
     condition: ${{ eq(parameters.environment, 'stg') }}
     pool:
