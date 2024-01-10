@@ -1,9 +1,21 @@
-param resourceGroupName string = resourceGroup().name
-var dataFactoryName = '${resourceGroupName}-data-factory'
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
+
+param customer string
+
+@description('Data Factory Name')
+param dataFactoryName string = '${customer}-${department}-${environment}-adf'
+
 var dataFactoryDataSetInName = 'rest_api_dataset'
-var dataFactoryDataSetOutName = 'sql_server_dataset'
+var dataFactoryDataSetOutName = 'sqldb_dataset'
 var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
-var dataFactorySqlDatabaseLinkedServiceName = 'sql-database-linked-service'
+var dataFactorySqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
 @description('Relative URL is the last part of the url start after the Top-Level-Domain')
 param relativeURL string

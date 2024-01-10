@@ -1,10 +1,19 @@
-param resourceGroupName string = resourceGroup().name
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
+
+param customer string
 
 @description('The name of the SQL logical server.')
-var serverName = '${resourceGroupName}-sql-server'
+var serverName = '${customer}-${department}-${environment}-sqlsvr'
 
 @description('The name of the SQL Database.')
-var dbName = '${resourceGroupName}-sql-database'
+var dbName = '${customer}-${department}-${environment}-sqldb'
 
 @description('Location for all resources.')
 param location string = resourceGroup().location

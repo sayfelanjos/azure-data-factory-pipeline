@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dotnet-scripts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3442c6dd0f7aee553e7e0a384333a0c09236fd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("dotnet-scripts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dotnet-scripts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,20 @@
-param resourceGroupName string = resourceGroup().name
-var dataFactoryName = '${resourceGroupName}-data-factory'
+@allowed([
+  'dev'
+  'stg'
+  'prod'
+])
+param environment string
+
+param department string
+
+param customer string
+
+@description('Data Factory Name')
+param dataFactoryName string = '${customer}-${department}-${environment}-adf'
+
 var dataFactoryDataSetInName = 'rest_api_dataset'
-var dataFactoryDataSetOutName = 'sql_server_dataset'
-var pipelineName = 'copy-from-rest-api-to-sql-database-pipeline'
+var dataFactoryDataSetOutName = 'sqldb_dataset'
+var pipelineName = 'copy-pipeline'
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
