@@ -8,6 +8,7 @@ parameters:
     type: string    
   - name: 'apiSecureString'
     displayName: 'API token'
+    type: string
   - name: 'environment'
     displayName: 'Ambiente de desenvolvimento ex: dev, stg, prod'
     type: string
