@@ -3,18 +3,22 @@ parameters:
   - name: 'customer'
     displayName: 'Nome do cliente para o qual serão criados os recursos'
     type: string
+    default: 'casas-bahia'
   - name: 'baseURL'
     displayName: 'API URL'
+    default: 'https://data-api.neolude.com.br'
     type: string    
   - name: 'apiSecureString'
     displayName: 'API token'
-    type: string
+    default: ';aljdsfjas;ldjf;lksajd;fjasdjf'
   - name: 'environment'
     displayName: 'Ambiente de desenvolvimento ex: dev, stg, prod'
     type: string
+    default: 'dev'
   - name: 'department'
     displayName: 'Departamento responsável'
     type: string
+    default: 'bi'
 
 variables:
   location: 'brazilsouth'
