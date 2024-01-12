@@ -78,7 +78,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\database\sqlServer.bicep'
-              overrideParameters: '-serverName $(serverName) -dbName $(dbName) -sqlServerAdminLogin $(adminLogin) -sqlServerAdminPassword $(adminPassword)'
+              overrideParameters: '-serverName $(serverName) -dbName $(dbName) -sqlServerAdminLogin $(adminLogin) -sqlServerAdminPassword $env:adminPassword'
               deploymentMode: 'Incremental'
                 
       - job: 'CreateAzureDataFactoryLinkedServices'
@@ -95,7 +95,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '.\bicep\linkedServices\linkedServices.bicep'
-              overrideParameters: '-dataFactoryName $(dataFactoryName) -serverName $(serverName) -dbName $(dbName) -sqlServerAdminLogin $(adminLogin) -sqlServerAdminPassword $(adminPassword) -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }}'
+              overrideParameters: '-dataFactoryName $(dataFactoryName) -serverName $(serverName) -dbName $(dbName) -sqlServerAdminLogin $(adminLogin) -sqlServerAdminPassword $env:adminPassword -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }}'
               deploymentMode: 'Incremental'
 
       - job: 'CreateAzureDataFactoryDataSetsOut'
@@ -151,7 +151,7 @@ stages:
             inputs:
               command: 'run'
               projects: '.\dotnet-scripts\dotnet-scripts.csproj'
-              arguments: '$(serverName) $(dbName) $(adminLogin) $(adminPassword)' 
+              arguments: '$(serverName) $(dbName) $(adminLogin) $env:adminPassword' 
               workingDirectory: '.\dotnet-scripts'
 
   # - stage: 'DevelopmentPipeline'
