@@ -1,0 +1,17 @@
+{
+    "name": "tb_neolude_useraccesshistorys",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "dbo.useraccesshistorys"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

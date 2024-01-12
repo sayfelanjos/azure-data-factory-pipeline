@@ -1,0 +1,28 @@
+{
+    "name": "RestAPINeolude",
+    "apiVersion": "2018-06-01",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "RestService1",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "SetApiName": {
+                "type": "string"
+            }
+        },
+        "folder": {
+            "name": "Neolude"
+        },
+        "annotations": [],
+        "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": {
+                "value": "@dataset().SetApiName",
+                "type": "Expression"
+            }
+        },
+        "schema": {}
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

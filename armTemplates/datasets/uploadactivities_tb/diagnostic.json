@@ -1,0 +1,23 @@
+{
+    "now": "2024-01-11T01:21:54.808Z",
+    "perfNow": 7338234.900000002,
+    "diagnosticCorrelation": "2c1cac70-a2b2-4003-ae37-3dfc270605e3",
+    "source": "DownloadSupportFiles",
+    "environment": {
+        "productName": "adf",
+        "buildVersion": "1.0.122523.2",
+        "environmentType": 3,
+        "resourceName": "neolude-adf-dev",
+        "resourceRegion": "brazilsouth",
+        "resourceGroup": "Dev-Env-NEOLUDE-BI",
+        "subscriptionId": "c56f173d-86ef-45e2-9a11-d3d887738b21",
+        "sessionId": "MRXNloRP7+TVt5boag6JRV",
+        "operationId": "",
+        "gitType": "VSTS",
+        "loggingKey": "7cdbc383-40d2-4e8f-912b-d38a639a7194"
+    },
+    "additionalInfo": {
+        "selectedResource": "tb_neolude_uploadactivities",
+        "selectedResourceType": "dataset"
+    }
+}

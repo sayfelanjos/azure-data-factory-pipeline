@@ -1,0 +1,6 @@
+selected resource name:		tb_neolude_enrollabletags
+selected resource type:		dataset
+factory name:			neolude-adf-dev
+factory location:		brazilsouth
+subscription id:		c56f173d-86ef-45e2-9a11-d3d887738b21
+time of download (UTC):		Thu, 11 Jan 2024 01:23:41 GMT
