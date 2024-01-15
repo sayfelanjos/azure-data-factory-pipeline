@@ -155,7 +155,7 @@ stages:
               ScriptPath: '.\ps-scripts\pipelines-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'  
 
-  - stage: 'DevelopmentPipeline'
+  - stage: 'StartingPipeline'
     displayName: 'Start Azure Data Factory Pipeline'
     dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
     pool:
@@ -175,7 +175,9 @@ stages:
         steps:
           - task: PowerShell@2
             inputs:
-              script: 'Start-Sleep -Seconds 150'
+              targetType: 'inline'
+              script: |
+                'Start-Sleep -Seconds 150'
           - task: AzurePowerShell@5
             inputs:
               azureSubscription: '$(servicePrincipalConnection)'
