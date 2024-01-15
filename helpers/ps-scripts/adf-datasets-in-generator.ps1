@@ -14,7 +14,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: $($dataFactoryName)
 }
 
-resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: '$($ds)_ep'
     parent: dataFactory
     properties: {

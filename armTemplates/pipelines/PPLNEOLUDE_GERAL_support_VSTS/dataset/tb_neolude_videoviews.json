@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.videoviews"
+            "table": "videoviews"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

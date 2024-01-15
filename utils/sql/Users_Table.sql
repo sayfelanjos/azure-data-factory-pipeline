@@ -6,7 +6,7 @@ END
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 
-CREATE TABLE [neolude].[dbo.users](
+CREATE TABLE [neolude].[users](
 	[id] [bigint] NOT NULL,
 	[name] [NVARCHAR](MAX) NOT NULL,
 	[username] [NVARCHAR](MAX) NOT NULL,

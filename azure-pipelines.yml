@@ -155,7 +155,7 @@ stages:
               ScriptPath: '.\ps-scripts\pipelines-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'  
 
-  - stage: 'StartingPipeline'
+  - stage: 'StartingAzureDataFactoryPipeline'
     displayName: 'Start Azure Data Factory Pipeline'
     dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
     pool:

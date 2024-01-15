@@ -120,7 +120,7 @@ resource dataFactoryDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06
       }
     ]
     typeProperties: {
-      tableName: '[neolude].[dbo.users]'
+      tableName: '[neolude].[users]'
     }
   }
 }

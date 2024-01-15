@@ -5,7 +5,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: dataFactoryName
 }
 
-resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'videoviews_ep'
     parent: dataFactory
     properties: {
@@ -15,7 +15,7 @@ resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             referenceName: 'rest-api-linked-service'
             type: 'LinkedServiceReference'
         }
-        schema: { }
+        schema: {}
         typeProperties: {
             relativeUrl: '/videoviews'
         }
@@ -23,4 +23,4 @@ resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             name: 'rest_endpoints'
         }
     }
-}    
+}

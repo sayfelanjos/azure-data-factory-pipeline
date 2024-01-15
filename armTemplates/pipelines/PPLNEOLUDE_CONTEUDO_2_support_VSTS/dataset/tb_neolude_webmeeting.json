@@ -10,7 +10,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.webmeeting"
+            "table": "webmeeting"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

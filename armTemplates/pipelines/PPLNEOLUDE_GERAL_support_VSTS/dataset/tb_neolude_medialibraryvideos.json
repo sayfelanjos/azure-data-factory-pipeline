@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.medialibraryvideos"
+            "table": "medialibraryvideos"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

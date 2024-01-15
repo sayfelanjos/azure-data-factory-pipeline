@@ -16,7 +16,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: $($dataFactoryName)
 }
 
-resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+resource sqlDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: '$($ds.BaseName)'
     parent: dataFactory
     properties: {

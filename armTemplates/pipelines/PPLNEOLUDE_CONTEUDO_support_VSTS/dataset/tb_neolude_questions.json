@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.questions"
+            "table": "questions"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

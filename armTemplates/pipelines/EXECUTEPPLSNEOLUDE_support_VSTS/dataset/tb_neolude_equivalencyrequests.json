@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.equivalencyrequests"
+            "table": "equivalencyrequests"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

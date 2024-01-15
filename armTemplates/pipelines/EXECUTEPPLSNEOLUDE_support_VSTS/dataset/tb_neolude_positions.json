@@ -50,7 +50,7 @@
         ],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.positions"
+            "table": "positions"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

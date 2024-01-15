@@ -6,7 +6,7 @@ END
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 
-CREATE TABLE [great_job].[dbo.audios](
+CREATE TABLE [great_job].[audios](
 [AudioID] [bigint] NULL,
 [AudioActivityID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,
@@ -19,7 +19,7 @@ CREATE TABLE [great_job].[dbo.audios](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.businessunits](
+CREATE TABLE [great_job].[businessunits](
 [BusinessUnitID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [BusinessUnitName] [nvarchar](max) NULL,
@@ -36,7 +36,7 @@ CREATE TABLE [great_job].[dbo.businessunits](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.campaigncontents](
+CREATE TABLE [great_job].[campaigncontents](
 [CampaignRepositoryContentID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [CampaignContentID] [bigint] NULL,
@@ -53,7 +53,7 @@ CREATE TABLE [great_job].[dbo.campaigncontents](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.campaignpermissions](
+CREATE TABLE [great_job].[campaignpermissions](
 [CampaignPermissionID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [CampaignID] [bigint] NULL,
@@ -68,7 +68,7 @@ CREATE TABLE [great_job].[dbo.campaignpermissions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.campaigns](
+CREATE TABLE [great_job].[campaigns](
 [CampaignID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [CampaignName] [nvarchar](max) NULL,
@@ -86,7 +86,7 @@ CREATE TABLE [great_job].[dbo.campaigns](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.catries](
+CREATE TABLE [great_job].[catries](
 [CatryID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [CatryName] [nvarchar](max) NULL,
@@ -100,7 +100,7 @@ CREATE TABLE [great_job].[dbo.catries](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.certifications](
+CREATE TABLE [great_job].[certifications](
 [CertificationID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -120,7 +120,7 @@ CREATE TABLE [great_job].[dbo.certifications](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.componentactivities](
+CREATE TABLE [great_job].[componentactivities](
 [ComponentActivityID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [ComponentActivityName] [nvarchar](max) NULL,
@@ -152,7 +152,7 @@ CREATE TABLE [great_job].[dbo.componentactivities](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.courseActivityViews](
+CREATE TABLE [great_job].[courseActivityViews](
 [CompletedActivityID] [bigint] NULL,
 [CourseID] [bigint] NULL,
 [EnrollableID] [bigint] NULL,
@@ -172,7 +172,7 @@ CREATE TABLE [great_job].[dbo.courseActivityViews](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.coursecatries](
+CREATE TABLE [great_job].[coursecatries](
 [CourseCatryID] [bigint] NULL,
 [CourseID] [bigint] NULL,
 [CatryID] [bigint] NULL,
@@ -184,7 +184,7 @@ CREATE TABLE [great_job].[dbo.coursecatries](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.coursepermissions](
+CREATE TABLE [great_job].[coursepermissions](
 [UserID] [bigint] NULL,
 [CourseID] [bigint] NULL,
 [CoursePermissionLevelID] [bigint] NULL,
@@ -193,7 +193,7 @@ CREATE TABLE [great_job].[dbo.coursepermissions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.courses](
+CREATE TABLE [great_job].[courses](
 [CourseID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -215,7 +215,7 @@ CREATE TABLE [great_job].[dbo.courses](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.coursetags](
+CREATE TABLE [great_job].[coursetags](
 [TagID] [bigint] NULL,
 [CourseID] [bigint] NULL,
 [Page] [bigint] NULL,
@@ -223,7 +223,7 @@ CREATE TABLE [great_job].[dbo.coursetags](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.enrollables](
+CREATE TABLE [great_job].[enrollables](
 [EnrollableID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -249,7 +249,7 @@ CREATE TABLE [great_job].[dbo.enrollables](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE TABLE [great_job].[dbo.enrollabletags](
+CREATE TABLE [great_job].[enrollabletags](
 [TagID] [bigint] NULL,
 [EnrollableID] [bigint] NULL,
 [Page] [bigint] NULL,
@@ -257,7 +257,7 @@ CREATE TABLE [great_job].[dbo.enrollabletags](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.enrollments](
+CREATE TABLE [great_job].[enrollments](
 [EnrollmentID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -280,7 +280,7 @@ CREATE TABLE [great_job].[dbo.enrollments](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.equivalencyrequests](
+CREATE TABLE [great_job].[equivalencyrequests](
 [CourseEquivalencyRequestID] [bigint] NULL,
 [RequestedCourseID] [bigint] NULL,
 [EnrollmentID] [bigint] NULL,
@@ -305,7 +305,7 @@ CREATE TABLE [great_job].[dbo.equivalencyrequests](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.examquestions](
+CREATE TABLE [great_job].[examquestions](
 [ExamQuestionID] [bigint] NULL,
 [ExamID] [bigint] NULL,
 [QuestionID] [bigint] NULL,
@@ -321,7 +321,7 @@ CREATE TABLE [great_job].[dbo.examquestions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.exams](
+CREATE TABLE [great_job].[exams](
 [ExamID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [Title] [nvarchar](max) NULL,
@@ -339,7 +339,7 @@ CREATE TABLE [great_job].[dbo.exams](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.examtaken](
+CREATE TABLE [great_job].[examtaken](
 [ExamTakenID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [ExamID] [bigint] NULL,
@@ -360,7 +360,7 @@ CREATE TABLE [great_job].[dbo.examtaken](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.examtakenquestions](
+CREATE TABLE [great_job].[examtakenquestions](
 [ExamTakenQuestionID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [ExamTakenID] [bigint] NULL,
@@ -375,7 +375,7 @@ CREATE TABLE [great_job].[dbo.examtakenquestions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.htmls](
+CREATE TABLE [great_job].[htmls](
 [HTMLPageID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,
 [Title] [nvarchar](max) NULL,
@@ -388,7 +388,7 @@ CREATE TABLE [great_job].[dbo.htmls](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.labels](
+CREATE TABLE [great_job].[labels](
 [LabelID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [LabelName] [nvarchar](max) NULL,
@@ -400,7 +400,7 @@ CREATE TABLE [great_job].[dbo.labels](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.medialibraryfiledownloads](
+CREATE TABLE [great_job].[medialibraryfiledownloads](
 [DownloadHistoryID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [FileAssignmentID] [bigint] NULL,
@@ -416,7 +416,7 @@ CREATE TABLE [great_job].[dbo.medialibraryfiledownloads](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.medialibraryhtmls](
+CREATE TABLE [great_job].[medialibraryhtmls](
 [MediaContentID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [CatryID] [bigint] NULL,
@@ -432,7 +432,7 @@ CREATE TABLE [great_job].[dbo.medialibraryhtmls](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.medialibraryhtmlviews](
+CREATE TABLE [great_job].[medialibraryhtmlviews](
 [AccessHistoryID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [UserID] [bigint] NULL,
@@ -445,7 +445,7 @@ CREATE TABLE [great_job].[dbo.medialibraryhtmlviews](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.medialibrarypermissions](
+CREATE TABLE [great_job].[medialibrarypermissions](
 [MediaContentPermissionID] [bigint] NULL,
 [UserID] [bigint] NULL,
 [MediaContentID] [bigint] NULL,
@@ -458,7 +458,7 @@ CREATE TABLE [great_job].[dbo.medialibrarypermissions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.medialibraryvideos](
+CREATE TABLE [great_job].[medialibraryvideos](
 [MediaContentID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [CatryID] [bigint] NULL,
@@ -474,7 +474,7 @@ CREATE TABLE [great_job].[dbo.medialibraryvideos](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.occupationareas](
+CREATE TABLE [great_job].[occupationareas](
 [OccupationAreaID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [OccupationAreaName] [nvarchar](max) NULL,
@@ -489,7 +489,7 @@ CREATE TABLE [great_job].[dbo.occupationareas](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.placerooms](
+CREATE TABLE [great_job].[placerooms](
 [PlaceRoomID] [bigint] NULL,
 [PlaceID] [bigint] NULL,
 [PlaceRoomName] [nvarchar](max) NULL,
@@ -504,7 +504,7 @@ CREATE TABLE [great_job].[dbo.placerooms](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.places](
+CREATE TABLE [great_job].[places](
 [PlaceID] [bigint] NULL,
 [PlaceName] [nvarchar](max) NULL,
 [PlaceStatusID] [bigint] NULL,
@@ -517,7 +517,7 @@ CREATE TABLE [great_job].[dbo.places](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.positions](
+CREATE TABLE [great_job].[positions](
 [PositionID] [bigint] NULL,
 [PositionName] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -528,7 +528,7 @@ CREATE TABLE [great_job].[dbo.positions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.ppts](
+CREATE TABLE [great_job].[ppts](
 [PresentationID] [bigint] NULL,
 [PresentationActivityID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,
@@ -543,7 +543,7 @@ CREATE TABLE [great_job].[dbo.ppts](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.presentialmeetings](
+CREATE TABLE [great_job].[presentialmeetings](
 [PresentialMeetingID] [bigint] NULL,
 [PresentialMeetingActivityID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,
@@ -567,7 +567,7 @@ CREATE TABLE [great_job].[dbo.presentialmeetings](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.questions](
+CREATE TABLE [great_job].[questions](
 [QuestionID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [Title] [nvarchar](max) NULL,
@@ -584,7 +584,7 @@ CREATE TABLE [great_job].[dbo.questions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.scorms](
+CREATE TABLE [great_job].[scorms](
 [ScormID] [bigint] NULL,
 [ScormActivityID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,
@@ -603,7 +603,7 @@ CREATE TABLE [great_job].[dbo.scorms](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.surveyanswerquestions](
+CREATE TABLE [great_job].[surveyanswerquestions](
 [SurveyQuestionAnswerID] [bigint] NULL,
 [SurveyAnswerID] [bigint] NULL,
 [SurveyQuestionID] [bigint] NULL,
@@ -618,7 +618,7 @@ CREATE TABLE [great_job].[dbo.surveyanswerquestions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.surveyanswers](
+CREATE TABLE [great_job].[surveyanswers](
 [SurveyAnswerID] [bigint] NULL,
 [SurveyID] [bigint] NULL,
 [EnrollmentID] [bigint] NULL,
@@ -636,7 +636,7 @@ CREATE TABLE [great_job].[dbo.surveyanswers](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.surveyquestionoptions](
+CREATE TABLE [great_job].[surveyquestionoptions](
 [SurveyQuestionOptionID] [bigint] NULL,
 [QuestionID] [bigint] NULL,
 [Label] [nvarchar](max) NULL,
@@ -651,7 +651,7 @@ CREATE TABLE [great_job].[dbo.surveyquestionoptions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.surveyquestions](
+CREATE TABLE [great_job].[surveyquestions](
 [SurveyQuestionID] [bigint] NULL,
 [Question] [nvarchar](max) NULL,
 [SurveyID] [bigint] NULL,
@@ -670,7 +670,7 @@ CREATE TABLE [great_job].[dbo.surveyquestions](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.surveys](
+CREATE TABLE [great_job].[surveys](
 [SurveyID] [bigint] NULL,
 [Title] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -685,7 +685,7 @@ CREATE TABLE [great_job].[dbo.surveys](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.tags](
+CREATE TABLE [great_job].[tags](
 [TagID] [bigint] NULL,
 [TagName] [nvarchar](max) NULL,
 [IsDeleted] [bit] NULL,
@@ -696,7 +696,7 @@ CREATE TABLE [great_job].[dbo.tags](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.uploadactivities](
+CREATE TABLE [great_job].[uploadactivities](
 [FileAssignmentID] [bigint] NULL,
 [FileAssignmentUploadActivityID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,
@@ -709,7 +709,7 @@ CREATE TABLE [great_job].[dbo.uploadactivities](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.useraccesshistorys](
+CREATE TABLE [great_job].[useraccesshistorys](
 [UserID] [bigint] NULL,
 [Device] [nvarchar](max) NULL,
 [AuditCreatedDate] [nvarchar](max) NULL,
@@ -720,7 +720,7 @@ CREATE TABLE [great_job].[dbo.useraccesshistorys](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.userbusinessunits](
+CREATE TABLE [great_job].[userbusinessunits](
 [UserBusinessUnitID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [UserID] [bigint] NULL,
@@ -742,7 +742,7 @@ CREATE TABLE [great_job].[dbo.userbusinessunits](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.usercertifications](
+CREATE TABLE [great_job].[usercertifications](
 [CertificationID] [bigint] NULL,
 [UserID] [bigint] NULL,
 [CourseID] [bigint] NULL,
@@ -756,7 +756,7 @@ CREATE TABLE [great_job].[dbo.usercertifications](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.userlabels](
+CREATE TABLE [great_job].[userlabels](
 [UserLabelID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [UserID] [bigint] NULL,
@@ -769,7 +769,7 @@ CREATE TABLE [great_job].[dbo.userlabels](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.users](
+CREATE TABLE [great_job].[users](
 [UserID] [bigint] NULL,
 [ClientUniqueIdentifier] [nvarchar](max) NULL,
 [FirstName] [nvarchar](max) NULL,
@@ -799,7 +799,7 @@ CREATE TABLE [great_job].[dbo.users](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.videos](
+CREATE TABLE [great_job].[videos](
 [VideoID] [float] NULL,
 [IsDeleted] [bit] NULL,
 [Title] [nvarchar](max) NULL,
@@ -817,7 +817,7 @@ CREATE TABLE [great_job].[dbo.videos](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.videoviews](
+CREATE TABLE [great_job].[videoviews](
 [VideoAccessHistoryID] [bigint] NULL,
 [IsDeleted] [bit] NULL,
 [UserID] [bigint] NULL,
@@ -830,7 +830,7 @@ CREATE TABLE [great_job].[dbo.videoviews](
 [MaximumPageSize] [bigint] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
 
-CREATE TABLE [great_job].[dbo.webmeeting](
+CREATE TABLE [great_job].[webmeeting](
 [WebMeetingID] [bigint] NULL,
 [WebMeetingActivityID] [bigint] NULL,
 [ModuleActivityTypeID] [bigint] NULL,

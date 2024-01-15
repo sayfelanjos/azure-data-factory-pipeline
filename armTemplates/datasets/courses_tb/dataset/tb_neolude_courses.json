@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.courses"
+            "table": "courses"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

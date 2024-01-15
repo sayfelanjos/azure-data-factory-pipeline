@@ -2,7 +2,7 @@ param dataFactoryName string
 
 var pipelineName = 'copy_data_tags_pl'
 
-resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [

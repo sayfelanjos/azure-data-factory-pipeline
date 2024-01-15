@@ -8,9 +8,9 @@ SET QUOTED_IDENTIFIER ON
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.audios'
+	WHERE s.name='neolude' and t.name='audios'
 ) 
-CREATE TABLE [neolude].[dbo.audios](
+CREATE TABLE [neolude].[audios](
 	[AudioID] [bigint] NULL,
 	[AudioActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,
@@ -25,9 +25,9 @@ CREATE TABLE [neolude].[dbo.audios](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.businessunits'
+	WHERE s.name='neolude' and t.name='businessunits'
 ) 
-CREATE TABLE [neolude].[dbo.businessunits](
+CREATE TABLE [neolude].[businessunits](
 	[BusinessUnitID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[BusinessUnitName] [nvarchar](max) NULL,
@@ -46,9 +46,9 @@ CREATE TABLE [neolude].[dbo.businessunits](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.campaigncontents'
+	WHERE s.name='neolude' and t.name='campaigncontents'
 ) 
-CREATE TABLE [neolude].[dbo.campaigncontents](
+CREATE TABLE [neolude].[campaigncontents](
 	[CampaignRepositoryContentID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[CampaignContentID] [bigint] NULL,
@@ -67,9 +67,9 @@ CREATE TABLE [neolude].[dbo.campaigncontents](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.campaignpermissions'
+	WHERE s.name='neolude' and t.name='campaignpermissions'
 ) 
-CREATE TABLE [neolude].[dbo.campaignpermissions](
+CREATE TABLE [neolude].[campaignpermissions](
 	[CampaignPermissionID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[CampaignID] [bigint] NULL,
@@ -86,9 +86,9 @@ CREATE TABLE [neolude].[dbo.campaignpermissions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.campaigns'
+	WHERE s.name='neolude' and t.name='campaigns'
 ) 
-CREATE TABLE [neolude].[dbo.campaigns](
+CREATE TABLE [neolude].[campaigns](
 	[CampaignID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[CampaignName] [nvarchar](max) NULL,
@@ -108,9 +108,9 @@ CREATE TABLE [neolude].[dbo.campaigns](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.catries'
+	WHERE s.name='neolude' and t.name='catries'
 ) 
-CREATE TABLE [neolude].[dbo.catries](
+CREATE TABLE [neolude].[catries](
 	[CatryID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[CatryName] [nvarchar](max) NULL,
@@ -126,9 +126,9 @@ CREATE TABLE [neolude].[dbo.catries](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.certifications'
+	WHERE s.name='neolude' and t.name='certifications'
 ) 
-CREATE TABLE [neolude].[dbo.certifications](
+CREATE TABLE [neolude].[certifications](
 	[CertificationID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -150,9 +150,9 @@ CREATE TABLE [neolude].[dbo.certifications](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.componentactivities'
+	WHERE s.name='neolude' and t.name='componentactivities'
 ) 
-CREATE TABLE [neolude].[dbo.componentactivities](
+CREATE TABLE [neolude].[componentactivities](
 	[ComponentActivityID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[ComponentActivityName] [nvarchar](max) NULL,
@@ -186,9 +186,9 @@ CREATE TABLE [neolude].[dbo.componentactivities](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.courseActivityViews'
+	WHERE s.name='neolude' and t.name='courseActivityViews'
 ) 
-CREATE TABLE [neolude].[dbo.courseActivityViews](
+CREATE TABLE [neolude].[courseActivityViews](
 	[CompletedActivityID] [bigint] NULL,
 	[CourseID] [bigint] NULL,
 	[EnrollableID] [bigint] NULL,
@@ -210,9 +210,9 @@ CREATE TABLE [neolude].[dbo.courseActivityViews](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.coursecatries'
+	WHERE s.name='neolude' and t.name='coursecatries'
 ) 
-CREATE TABLE [neolude].[dbo.coursecatries](
+CREATE TABLE [neolude].[coursecatries](
 	[CourseCatryID] [bigint] NULL,
 	[CourseID] [bigint] NULL,
 	[CatryID] [bigint] NULL,
@@ -226,9 +226,9 @@ CREATE TABLE [neolude].[dbo.coursecatries](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.coursepermissions'
+	WHERE s.name='neolude' and t.name='coursepermissions'
 ) 
-CREATE TABLE [neolude].[dbo.coursepermissions](
+CREATE TABLE [neolude].[coursepermissions](
 	[UserID] [bigint] NULL,
 	[CourseID] [bigint] NULL,
 	[CoursePermissionLevelID] [bigint] NULL,
@@ -239,9 +239,9 @@ CREATE TABLE [neolude].[dbo.coursepermissions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.courses'
+	WHERE s.name='neolude' and t.name='courses'
 ) 
-CREATE TABLE [neolude].[dbo.courses](
+CREATE TABLE [neolude].[courses](
 	[CourseID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -265,9 +265,9 @@ CREATE TABLE [neolude].[dbo.courses](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.coursetags'
+	WHERE s.name='neolude' and t.name='coursetags'
 ) 
-CREATE TABLE [neolude].[dbo.coursetags](
+CREATE TABLE [neolude].[coursetags](
 	[TagID] [bigint] NULL,
 	[CourseID] [bigint] NULL,
 	[Page] [bigint] NULL,
@@ -277,9 +277,9 @@ CREATE TABLE [neolude].[dbo.coursetags](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.enrollables'
+	WHERE s.name='neolude' and t.name='enrollables'
 ) 
-CREATE TABLE [neolude].[dbo.enrollables](
+CREATE TABLE [neolude].[enrollables](
 	[EnrollableID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -307,9 +307,9 @@ CREATE TABLE [neolude].[dbo.enrollables](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.enrollabletags'
+	WHERE s.name='neolude' and t.name='enrollabletags'
 ) 
-CREATE TABLE [neolude].[dbo.enrollabletags](
+CREATE TABLE [neolude].[enrollabletags](
 	[TagID] [bigint] NULL,
 	[EnrollableID] [bigint] NULL,
 	[Page] [bigint] NULL,
@@ -319,9 +319,9 @@ CREATE TABLE [neolude].[dbo.enrollabletags](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.enrollments'
+	WHERE s.name='neolude' and t.name='enrollments'
 ) 
-CREATE TABLE [neolude].[dbo.enrollments](
+CREATE TABLE [neolude].[enrollments](
 	[EnrollmentID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -346,9 +346,9 @@ CREATE TABLE [neolude].[dbo.enrollments](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.equivalencyrequests'
+	WHERE s.name='neolude' and t.name='equivalencyrequests'
 ) 
-CREATE TABLE [neolude].[dbo.equivalencyrequests](
+CREATE TABLE [neolude].[equivalencyrequests](
 	[CourseEquivalencyRequestID] [bigint] NULL,
 	[RequestedCourseID] [bigint] NULL,
 	[EnrollmentID] [bigint] NULL,
@@ -375,9 +375,9 @@ CREATE TABLE [neolude].[dbo.equivalencyrequests](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.examquestions'
+	WHERE s.name='neolude' and t.name='examquestions'
 ) 
-CREATE TABLE [neolude].[dbo.examquestions](
+CREATE TABLE [neolude].[examquestions](
 	[ExamQuestionID] [bigint] NULL,
 	[ExamID] [bigint] NULL,
 	[QuestionID] [bigint] NULL,
@@ -395,9 +395,9 @@ CREATE TABLE [neolude].[dbo.examquestions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.exams'
+	WHERE s.name='neolude' and t.name='exams'
 ) 
-CREATE TABLE [neolude].[dbo.exams](
+CREATE TABLE [neolude].[exams](
 	[ExamID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[Title] [nvarchar](max) NULL,
@@ -417,9 +417,9 @@ CREATE TABLE [neolude].[dbo.exams](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.examtaken'
+	WHERE s.name='neolude' and t.name='examtaken'
 ) 
-CREATE TABLE [neolude].[dbo.examtaken](
+CREATE TABLE [neolude].[examtaken](
 	[ExamTakenID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[ExamID] [bigint] NULL,
@@ -442,9 +442,9 @@ CREATE TABLE [neolude].[dbo.examtaken](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.examtakenquestions'
+	WHERE s.name='neolude' and t.name='examtakenquestions'
 ) 
-CREATE TABLE [neolude].[dbo.examtakenquestions](
+CREATE TABLE [neolude].[examtakenquestions](
 	[ExamTakenQuestionID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[ExamTakenID] [bigint] NULL,
@@ -461,9 +461,9 @@ CREATE TABLE [neolude].[dbo.examtakenquestions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.htmls'
+	WHERE s.name='neolude' and t.name='htmls'
 ) 
-CREATE TABLE [neolude].[dbo.htmls](
+CREATE TABLE [neolude].[htmls](
 	[HTMLPageID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,
 	[Title] [nvarchar](max) NULL,
@@ -478,9 +478,9 @@ CREATE TABLE [neolude].[dbo.htmls](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.labels'
+	WHERE s.name='neolude' and t.name='labels'
 ) 
-CREATE TABLE [neolude].[dbo.labels](
+CREATE TABLE [neolude].[labels](
 	[LabelID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[LabelName] [nvarchar](max) NULL,
@@ -494,9 +494,9 @@ CREATE TABLE [neolude].[dbo.labels](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.medialibraryfiledownloads'
+	WHERE s.name='neolude' and t.name='medialibraryfiledownloads'
 ) 
-CREATE TABLE [neolude].[dbo.medialibraryfiledownloads](
+CREATE TABLE [neolude].[medialibraryfiledownloads](
 	[DownloadHistoryID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[FileAssignmentID] [bigint] NULL,
@@ -514,9 +514,9 @@ CREATE TABLE [neolude].[dbo.medialibraryfiledownloads](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.medialibraryhtmls'
+	WHERE s.name='neolude' and t.name='medialibraryhtmls'
 ) 
-CREATE TABLE [neolude].[dbo.medialibraryhtmls](
+CREATE TABLE [neolude].[medialibraryhtmls](
 	[MediaContentID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[CatryID] [bigint] NULL,
@@ -534,9 +534,9 @@ CREATE TABLE [neolude].[dbo.medialibraryhtmls](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.medialibraryhtmlviews'
+	WHERE s.name='neolude' and t.name='medialibraryhtmlviews'
 ) 
-CREATE TABLE [neolude].[dbo.medialibraryhtmlviews](
+CREATE TABLE [neolude].[medialibraryhtmlviews](
 	[AccessHistoryID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[UserID] [bigint] NULL,
@@ -551,9 +551,9 @@ CREATE TABLE [neolude].[dbo.medialibraryhtmlviews](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.medialibrarypermissions'
+	WHERE s.name='neolude' and t.name='medialibrarypermissions'
 ) 
-CREATE TABLE [neolude].[dbo.medialibrarypermissions](
+CREATE TABLE [neolude].[medialibrarypermissions](
 	[MediaContentPermissionID] [bigint] NULL,
 	[UserID] [bigint] NULL,
 	[MediaContentID] [bigint] NULL,
@@ -568,9 +568,9 @@ CREATE TABLE [neolude].[dbo.medialibrarypermissions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.medialibraryvideos'
+	WHERE s.name='neolude' and t.name='medialibraryvideos'
 ) 
-CREATE TABLE [neolude].[dbo.medialibraryvideos](
+CREATE TABLE [neolude].[medialibraryvideos](
 	[MediaContentID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[CatryID] [bigint] NULL,
@@ -588,9 +588,9 @@ CREATE TABLE [neolude].[dbo.medialibraryvideos](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.occupationareas'
+	WHERE s.name='neolude' and t.name='occupationareas'
 ) 
-CREATE TABLE [neolude].[dbo.occupationareas](
+CREATE TABLE [neolude].[occupationareas](
 	[OccupationAreaID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[OccupationAreaName] [nvarchar](max) NULL,
@@ -607,9 +607,9 @@ CREATE TABLE [neolude].[dbo.occupationareas](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.placerooms'
+	WHERE s.name='neolude' and t.name='placerooms'
 ) 
-CREATE TABLE [neolude].[dbo.placerooms](
+CREATE TABLE [neolude].[placerooms](
 	[PlaceRoomID] [bigint] NULL,
 	[PlaceID] [bigint] NULL,
 	[PlaceRoomName] [nvarchar](max) NULL,
@@ -626,9 +626,9 @@ CREATE TABLE [neolude].[dbo.placerooms](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.places'
+	WHERE s.name='neolude' and t.name='places'
 ) 
-CREATE TABLE [neolude].[dbo.places](
+CREATE TABLE [neolude].[places](
 	[PlaceID] [bigint] NULL,
 	[PlaceName] [nvarchar](max) NULL,
 	[PlaceStatusID] [bigint] NULL,
@@ -643,9 +643,9 @@ CREATE TABLE [neolude].[dbo.places](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.positions'
+	WHERE s.name='neolude' and t.name='positions'
 ) 
-CREATE TABLE [neolude].[dbo.positions](
+CREATE TABLE [neolude].[positions](
 	[PositionID] [bigint] NULL,
 	[PositionName] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -658,9 +658,9 @@ CREATE TABLE [neolude].[dbo.positions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.ppts'
+	WHERE s.name='neolude' and t.name='ppts'
 ) 
-CREATE TABLE [neolude].[dbo.ppts](
+CREATE TABLE [neolude].[ppts](
 	[PresentationID] [bigint] NULL,
 	[PresentationActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,
@@ -677,9 +677,9 @@ CREATE TABLE [neolude].[dbo.ppts](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.presentialmeetings'
+	WHERE s.name='neolude' and t.name='presentialmeetings'
 ) 
-CREATE TABLE [neolude].[dbo.presentialmeetings](
+CREATE TABLE [neolude].[presentialmeetings](
 	[PresentialMeetingID] [bigint] NULL,
 	[PresentialMeetingActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,
@@ -705,9 +705,9 @@ CREATE TABLE [neolude].[dbo.presentialmeetings](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.questions'
+	WHERE s.name='neolude' and t.name='questions'
 ) 
-CREATE TABLE [neolude].[dbo.questions](
+CREATE TABLE [neolude].[questions](
 	[QuestionID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[Title] [nvarchar](max) NULL,
@@ -726,9 +726,9 @@ CREATE TABLE [neolude].[dbo.questions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.scorms'
+	WHERE s.name='neolude' and t.name='scorms'
 ) 
-CREATE TABLE [neolude].[dbo.scorms](
+CREATE TABLE [neolude].[scorms](
 	[ScormID] [bigint] NULL,
 	[ScormActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,
@@ -749,9 +749,9 @@ CREATE TABLE [neolude].[dbo.scorms](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.surveyanswerquestions'
+	WHERE s.name='neolude' and t.name='surveyanswerquestions'
 ) 
-CREATE TABLE [neolude].[dbo.surveyanswerquestions](
+CREATE TABLE [neolude].[surveyanswerquestions](
 	[SurveyQuestionAnswerID] [bigint] NULL,
 	[SurveyAnswerID] [bigint] NULL,
 	[SurveyQuestionID] [bigint] NULL,
@@ -768,9 +768,9 @@ CREATE TABLE [neolude].[dbo.surveyanswerquestions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.surveyanswers'
+	WHERE s.name='neolude' and t.name='surveyanswers'
 ) 
-CREATE TABLE [neolude].[dbo.surveyanswers](
+CREATE TABLE [neolude].[surveyanswers](
 	[SurveyAnswerID] [bigint] NULL,
 	[SurveyID] [bigint] NULL,
 	[EnrollmentID] [bigint] NULL,
@@ -790,9 +790,9 @@ CREATE TABLE [neolude].[dbo.surveyanswers](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.surveyquestionoptions'
+	WHERE s.name='neolude' and t.name='surveyquestionoptions'
 ) 
-CREATE TABLE [neolude].[dbo.surveyquestionoptions](
+CREATE TABLE [neolude].[surveyquestionoptions](
 	[SurveyQuestionOptionID] [bigint] NULL,
 	[QuestionID] [bigint] NULL,
 	[Label] [nvarchar](max) NULL,
@@ -809,9 +809,9 @@ CREATE TABLE [neolude].[dbo.surveyquestionoptions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.surveyquestions'
+	WHERE s.name='neolude' and t.name='surveyquestions'
 ) 
-CREATE TABLE [neolude].[dbo.surveyquestions](
+CREATE TABLE [neolude].[surveyquestions](
 	[SurveyQuestionID] [bigint] NULL,
 	[Question] [nvarchar](max) NULL,
 	[SurveyID] [bigint] NULL,
@@ -832,9 +832,9 @@ CREATE TABLE [neolude].[dbo.surveyquestions](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.surveys'
+	WHERE s.name='neolude' and t.name='surveys'
 ) 
-CREATE TABLE [neolude].[dbo.surveys](
+CREATE TABLE [neolude].[surveys](
 	[SurveyID] [bigint] NULL,
 	[Title] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -851,9 +851,9 @@ CREATE TABLE [neolude].[dbo.surveys](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.tags'
+	WHERE s.name='neolude' and t.name='tags'
 ) 
-CREATE TABLE [neolude].[dbo.tags](
+CREATE TABLE [neolude].[tags](
 	[TagID] [bigint] NULL,
 	[TagName] [nvarchar](max) NULL,
 	[IsDeleted] [bit] NULL,
@@ -866,9 +866,9 @@ CREATE TABLE [neolude].[dbo.tags](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.uploadactivities'
+	WHERE s.name='neolude' and t.name='uploadactivities'
 ) 
-CREATE TABLE [neolude].[dbo.uploadactivities](
+CREATE TABLE [neolude].[uploadactivities](
 	[FileAssignmentID] [bigint] NULL,
 	[FileAssignmentUploadActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,
@@ -883,9 +883,9 @@ CREATE TABLE [neolude].[dbo.uploadactivities](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.useraccesshistorys'
+	WHERE s.name='neolude' and t.name='useraccesshistorys'
 ) 
-CREATE TABLE [neolude].[dbo.useraccesshistorys](
+CREATE TABLE [neolude].[useraccesshistorys](
 	[UserID] [bigint] NULL,
 	[Device] [nvarchar](max) NULL,
 	[AuditCreatedDate] [nvarchar](max) NULL,
@@ -898,9 +898,9 @@ CREATE TABLE [neolude].[dbo.useraccesshistorys](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.userbusinessunits'
+	WHERE s.name='neolude' and t.name='userbusinessunits'
 ) 
-CREATE TABLE [neolude].[dbo.userbusinessunits](
+CREATE TABLE [neolude].[userbusinessunits](
 	[UserBusinessUnitID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[UserID] [bigint] NULL,
@@ -924,9 +924,9 @@ CREATE TABLE [neolude].[dbo.userbusinessunits](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.usercertifications'
+	WHERE s.name='neolude' and t.name='usercertifications'
 ) 
-CREATE TABLE [neolude].[dbo.usercertifications](
+CREATE TABLE [neolude].[usercertifications](
 	[CertificationID] [bigint] NULL,
 	[UserID] [bigint] NULL,
 	[CourseID] [bigint] NULL,
@@ -942,9 +942,9 @@ CREATE TABLE [neolude].[dbo.usercertifications](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.userlabels'
+	WHERE s.name='neolude' and t.name='userlabels'
 ) 
-CREATE TABLE [neolude].[dbo.userlabels](
+CREATE TABLE [neolude].[userlabels](
 	[UserLabelID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[UserID] [bigint] NULL,
@@ -959,9 +959,9 @@ CREATE TABLE [neolude].[dbo.userlabels](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.users'
+	WHERE s.name='neolude' and t.name='users'
 ) 
-CREATE TABLE [neolude].[dbo.users](
+CREATE TABLE [neolude].[users](
 	[UserID] [bigint] NULL,
 	[ClientUniqueIdentifier] [nvarchar](max) NULL,
 	[FirstName] [nvarchar](max) NULL,
@@ -993,9 +993,9 @@ CREATE TABLE [neolude].[dbo.users](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.videos'
+	WHERE s.name='neolude' and t.name='videos'
 ) 
-CREATE TABLE [neolude].[dbo.videos](
+CREATE TABLE [neolude].[videos](
 	[VideoID] [float] NULL,
 	[IsDeleted] [bit] NULL,
 	[Title] [nvarchar](max) NULL,
@@ -1015,9 +1015,9 @@ CREATE TABLE [neolude].[dbo.videos](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.videoviews'
+	WHERE s.name='neolude' and t.name='videoviews'
 ) 
-CREATE TABLE [neolude].[dbo.videoviews](
+CREATE TABLE [neolude].[videoviews](
 	[VideoAccessHistoryID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[UserID] [bigint] NULL,
@@ -1032,9 +1032,9 @@ CREATE TABLE [neolude].[dbo.videoviews](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='dbo.webmeeting'
+	WHERE s.name='neolude' and t.name='webmeeting'
 ) 
-CREATE TABLE [neolude].[dbo.webmeeting](
+CREATE TABLE [neolude].[webmeeting](
 	[WebMeetingID] [bigint] NULL,
 	[WebMeetingActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,

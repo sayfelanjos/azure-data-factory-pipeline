@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.occupationareas"
+            "table": "occupationareas"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

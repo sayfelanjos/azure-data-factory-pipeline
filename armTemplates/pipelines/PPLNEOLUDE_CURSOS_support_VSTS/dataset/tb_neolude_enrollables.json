@@ -13,7 +13,7 @@
         "schema": [],
         "typeProperties": {
             "schema": "neolude",
-            "table": "dbo.enrollables"
+            "table": "enrollables"
         }
     },
     "type": "Microsoft.DataFactory/factories/datasets"

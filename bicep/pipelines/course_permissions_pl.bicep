@@ -38,7 +38,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           }
           sink: {
             type: 'AzureSqlSink'
-            preCopyScript: 'truncate table [neolude].[dbo.coursepermissions]'
+            preCopyScript: 'truncate table [neolude].[coursepermissions]'
             writeBehavior: 'insert'
             sqlWriterUseTableLock: true
             tableOption: 'autoCreate'

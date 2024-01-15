@@ -28,7 +28,7 @@
                     },
                     "sink": {
                         "type": "AzureSqlSink",
-                        "preCopyScript": "truncate table [neolude].[dbo.coursepermissions]",
+                        "preCopyScript": "truncate table [neolude].[coursepermissions]",
                         "writeBehavior": "insert",
                         "sqlWriterUseTableLock": true,
                         "tableOption": "autoCreate",

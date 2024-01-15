@@ -5,7 +5,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: dataFactoryName
 }
 
-resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+resource sqlDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'medialibraryhtmlviews_tb'
     parent: dataFactory
     properties: {
@@ -17,7 +17,7 @@ resource symbolicname 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: []
         typeProperties: {
-            table: 'dbo.medialibraryhtmlviews'
+            table: 'medialibraryhtmlviews'
             schema: 'neolude'
         }
         folder: {
