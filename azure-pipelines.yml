@@ -64,7 +64,8 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '.\ps-scripts\sql-server-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(serverName) $(dbName) $(adminLogin) $(adminPassword)'         
+              ScriptArguments: '$(resourceGroupName) $(serverName) $(dbName) $(adminLogin) $(adminPassword)'
+              workingDirectory: '.\ps-scripts'         
       - job: 'CreateSchemasAndTablesOnDatabase'
         dependsOn: 'CreateSQLDatabase'
         condition: succeeded()
