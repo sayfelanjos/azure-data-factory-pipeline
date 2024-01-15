@@ -10,12 +10,6 @@ $isPresent = Get-AzSqlServer -ResourceGroupName $resourceGroupName -ServerName $
 if ($isPresent) {
     Write-Host 'Server already exists!'
 }else {
-    Write-Host $resourceGroupName
-    Write-Host $serverName
-    Write-Host $dbName
-    Write-Host $adminLogin
-    Write-Host $adminPassword
-
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile $templatePath `

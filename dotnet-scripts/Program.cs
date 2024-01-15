@@ -12,7 +12,7 @@ namespace Connect_to_SQL_Server
             Server=tcp:{args[0]}.database.windows.net,1433;Database={args[1]};
             User ID={args[2]};Password={args[3]};
             Encrypt=True;TrustServerCertificate=False;
-            Connection Timeout=30;
+            Connection Timeout=60;
             """;
 
             using (var connection = new QC.SqlConnection(connectionString))
