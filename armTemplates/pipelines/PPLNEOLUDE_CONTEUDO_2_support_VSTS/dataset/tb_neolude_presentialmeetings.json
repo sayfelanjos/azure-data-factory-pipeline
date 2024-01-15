@@ -1,0 +1,17 @@
+{
+    "name": "tb_neolude_presentialmeetings",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "presentialmeetings"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

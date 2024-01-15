@@ -1,0 +1,56 @@
+$Customer = 'neolude'
+$Environment = 'dev'
+$Department = 'ti'
+$Location = 'brazilsouth'
+$resourceGroupName = "$($Customer)-rg-$($Department)-$($Environment)"
+$baseURL = 'https://jsonplaceholder.typicode.com'
+$relativeURL = '/users'
+$DataFactoryName = "adf-$($customer)-$($department)-$($environment)"
+
+New-AzSubscriptionDeployment `
+    -resourceGroupName $resourceGroupName `
+    -Location $Location `
+    -TemplateFile '..\bicep\resourceGroup.bicep' `
+    -resourceGroupLocation $Location `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -resourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactory.bicep' `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\sqlServer.bicep' `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactoryLinkedServices.bicep' `
+    -baseURL $baseURL `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactoryDataSets.bicep' `
+    -relativeURL $relativeURL `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactoryPipeline.bicep' `
+    -Mode Incremental
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '..\bicep\azureDataFactoryTrigger.bicep' `
+    -environment $Environment `
+    -customer $Customer `
+    -department $Department `
+    -Mode Incremental
+
+Start-AzDataFactoryV2Trigger `
+    -ResourceGroupName $resourceGroupName `
+    -DataFactoryName $DataFactoryName `
+    -TriggerName 'trigger' `
+    -Force

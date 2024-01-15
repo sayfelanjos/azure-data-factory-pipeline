@@ -1,0 +1,17 @@
+{
+    "name": "tb_neolude_audios",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "audios"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

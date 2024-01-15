@@ -3,26 +3,11 @@ parameters:
   - name: 'customer'
     displayName: 'Nome do cliente para o qual serão criados os recursos'
     type: string
-    default: 'neolude'
-  - name: 'sqlServerAdminLogin'
-    displayName: 'SQL server admin user name'
-    type: string
-    default: 'neoludeadmin'
-  - name: 'sqlServerAdminPassword'
-    displayName: 'SQL server admin password'
-    type: string
-    default: '#Inspand2024'
+    default: 'casas-bahia'
   - name: 'baseURL'
     displayName: 'API URL'
-    default: 'https://jsonplaceholder.typicode.com'
-    type: string    
-  - name: 'apiSecureString'
-    displayName: 'API token'
-    default: ';aljdsfjas;ldjf;lksajd;fjasdjf'
-  - name: 'relativeURL'
-    displayName: 'URL relativa eg: path https://<domínio>/<relative url>'
+    default: 'https://data-api.neolude.com.br'
     type: string
-    default: '/users'
   - name: 'environment'
     displayName: 'Ambiente de desenvolvimento ex: dev, stg, prod'
     type: string
@@ -34,14 +19,18 @@ parameters:
 
 variables:
   location: 'brazilsouth'
-  resourceGroupName: '${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }}-rg'
+  prefix: '${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }}'
+  resourceGroupName: '$(prefix)-rg'
+  dataFactoryName: '$(prefix)-adf'
+  serverName: '$(prefix)-sqlsvr'
+  dbName: '$(prefix)-sqldb'
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
 
 stages:
-  - stage: 'CreateResources'
-    displayName: 'Create Azure Data Factory Resources'
+  - stage: 'CreateResourceGroup'
+    displayName: 'Create Resource Group'
     pool: 
       name: $(agentPool)
       vmImage: windows-latest
@@ -55,104 +44,30 @@ stages:
               subscriptionId: $(subscriptionId)
               location: $(location)
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\resourceGroup.bicep'
+              csmFile: '.\bicep\resourceGroup\resourceGroup.bicep'
               overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
               deploymentMode: 'Incremental'
 
-      - job: 'CreateAzureDataFactory'
-        dependsOn: 'CreateResourceGroup'
-        condition: succeeded()
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(servicePrincipalConnection)
-              subscriptionId: $(subscriptionId)
-              resourceGroupName: $(resourceGroupName)
-              location: $(location)
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactory.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
-              deploymentMode: 'Incremental'
-              
-      - job: 'CreateSQLDatabase'
-        dependsOn: 'CreateResourceGroup'
-        condition: succeeded()
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(servicePrincipalConnection)
-              subscriptionId: $(subscriptionId)
-              resourceGroupName: $(resourceGroupName)
-              location: $(location)
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\sqlServer.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -customer ${{ parameters.customer }}'
-              deploymentMode: 'Incremental'
-                
-      - job: 'CreateAzureDataFactoryLinkedServices'
-        dependsOn: ['CreateSQLDatabase', 'CreateAzureDataFactory']
-        condition: succeeded()
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(servicePrincipalConnection)
-              subscriptionId: $(subscriptionId)
-              resourceGroupName: $(resourceGroupName)
-              location: $(location)
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactoryLinkedServices.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -sqlServerAdminLogin ${{ parameters.sqlServerAdminLogin }} -sqlServerAdminPassword ${{ parameters.sqlServerAdminPassword }} -baseURL ${{ parameters.baseURL }} -apiSecureString ${{ parameters.apiSecureString }} -customer ${{ parameters.customer }}'
-              deploymentMode: 'Incremental'
-
-      - job: 'CreateAzureDataFactoryDataSets'
-        dependsOn: 'CreateAzureDataFactoryLinkedServices'
-        condition: succeeded()
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: '$(servicePrincipalConnection)'
-              subscriptionId: '$(subscriptionId)'
-              resourceGroupName: '$(resourceGroupName)'
-              location: '$(location)'
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactoryDataSets.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}} -relativeURL ${{ parameters.relativeURL}}'
-              deploymentMode: 'Incremental'              
-
-      - job: 'CreateAzureDataFactoryPipeline'
-        dependsOn: 'CreateAzureDataFactoryDataSets'
-        condition: succeeded()
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: '$(servicePrincipalConnection)'
-              subscriptionId: '$(subscriptionId)'
-              resourceGroupName: '$(resourceGroupName)'
-              location: '$(location)'
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactoryPipeline.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
-              deploymentMode: 'Incremental'              
-  
-  - stage: 'CreateTablesOnDatabase'
-    displayName: 'Create schemas and tables on sql database'
-    dependsOn: 'CreateResources'
+  - stage: 'CreateSqlDatabase'
+    displayName: 'Create SQL Database'
+    dependsOn: 'CreateResourceGroup'
     condition: succeeded()
     pool:
       name: $(agentPool)
       vmImage: windows-latest
     jobs:
+      - job: 'CreateSQLDatabase'
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\sql-server-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(serverName) $(dbName) $(adminLogin) $(adminPassword)'   
       - job: 'CreateSchemasAndTablesOnDatabase'
+        dependsOn: 'CreateSQLDatabase'
+        condition: succeeded()
         steps:
           - task: UseDotNet@2
             inputs:
@@ -162,85 +77,111 @@ stages:
             inputs:
               command: 'run'
               projects: '.\dotnet-scripts\dotnet-scripts.csproj'
-              arguments: '${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }}-sqlsvr ${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }}-sqldb ${{ parameters.sqlServerAdminLogin }} ${{ parameters.sqlServerAdminPassword }}' 
+              arguments: '$(serverName) $(dbName) $(adminLogin) $(adminPassword)' 
               workingDirectory: '.\dotnet-scripts'
 
-  - stage: 'DevelopmentPipeline'
-    displayName: 'Start Dev Azure Data Factory Pipeline'
-    condition: ${{ eq(parameters.environment, 'dev') }}
-    pool:
-      name: '$(agentPool)'
-      vmImage: 'windows-latest'
-    jobs:
-      - job: 'CreateAzureDataFactoryTrigger'
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: '$(servicePrincipalConnection)'
-              subscriptionId: '$(subscriptionId)'
-              resourceGroupName: '$(resourceGroupName)'
-              location: '$(location)'
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
-              deploymentMode: 'Incremental'
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: '$(servicePrincipalConnection)'
-              azurePowerShellVersion: latestVersion
-              ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '$(resourceGroupName) ${{ parameters.department}} ${{ parameters.environment}} ${{ parameters.customer }}'
-
-  - stage: 'StagingPipeline'
-    displayName: 'Start Stg Azure Data Factory Pipeline'
-    condition: ${{ eq(parameters.environment, 'stg') }}
-    pool:
-      name: '$(agentPool)'
-      vmImage: 'windows-latest'
-    jobs:
-      - job: 'CreateAzureDataFactoryTrigger'
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: '$(servicePrincipalConnection)'
-              subscriptionId: '$(subscriptionId)'
-              resourceGroupName: '$(resourceGroupName)'
-              location: '$(location)'
-              action: 'Create Or Update Resource Group'
-              templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
-              overrideParameters: '-customer ${{ parameters.customer }} -environment ${{ parameters.environment }} -department ${{ parameters.department}}'
-              deploymentMode: 'Incremental'
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: '$(servicePrincipalConnection)'
-              azurePowerShellVersion: latestVersion
-              ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '$(resourceGroupName) ${{ parameters.department}} ${{ parameters.environment}} ${{ parameters.customer }}'
-
-  - stage: 'ProductionPipeline'
-    displayName: 'Start Prod Azure Data Factory Pipeline'
-    condition: ${{ eq(parameters.environment, 'prod') }}
-    pool:
+  - stage: 'CreateAzureDataFactory'
+    dependsOn: ['CreateResourceGroup', 'CreateSqlDatabase']
+    displayName: 'Create Azure Data Factory'
+    pool: 
       name: $(agentPool)
-      vmImage: 'windows-latest'
+      vmImage: windows-latest
     jobs:
-      - job: 'CreateAzureDataFactoryTrigger'
+      - job: 'CreateAzureDataFactory'
         steps:
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: '$(servicePrincipalConnection)'
-              subscriptionId: '$(subscriptionId)'
-              resourceGroupName: '$(resourceGroupName)'
-              location: '$(location)'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              location: $(location)
+              resourceGroupName: $(resourceGroupName)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\azureDataFactoryTrigger.bicep'
-              overrideParameters: '-environment ${{ parameters.environment }} -department ${{ parameters.department}}'
-              deploymentMode: 'Incremental'              
+              csmFile: '.\bicep\dataFactory\dataFactory.bicep'
+              overrideParameters: '-dataFactoryName $(dataFactoryName)'
+              deploymentMode: 'Incremental'
+                
+      - job: 'CreateLinkedServices'
+        dependsOn: ['CreateAzureDataFactory']
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: $(resourceGroupName)
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '.\bicep\linkedServices\linkedServices.bicep'
+              overrideParameters: '-dataFactoryName $(dataFactoryName) -serverName $(serverName) -dbName $(dbName) -sqlServerAdminLogin $(adminLogin) -sqlServerAdminPassword $(adminPassword) -baseURL ${{ parameters.baseURL }} -apiSecureString $(apiToken)'
+              deploymentMode: 'Incremental'
+
+      - job: 'CreateDataSetsOut'
+        dependsOn: ['CreateLinkedServices']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\datasets-out-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'          
+
+      - job: 'CreateDataSetsIn'
+        dependsOn: ['CreateLinkedServices']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\datasets-in-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'   
+                          
+      - job: 'CreatePipelines'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\pipelines-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'  
+
+  - stage: 'StartingAzureDataFactoryPipeline'
+    displayName: 'Start Azure Data Factory Pipeline'
+    dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
+    pool:
+      name: '$(agentPool)'
+      vmImage: 'windows-latest'
+    jobs:
+      - job: 'CreateTrigger'
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\triggers-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
+      - job: 'StopTrigger'
+        steps:
+          - task: PowerShell@2
+            inputs:
+              targetType: 'inline'
+              script: |
+                'Start-Sleep -Seconds 150'
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '.\ps-scripts\stop-triggers.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'     

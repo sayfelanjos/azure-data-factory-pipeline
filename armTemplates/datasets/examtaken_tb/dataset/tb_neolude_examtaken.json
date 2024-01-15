@@ -1,0 +1,20 @@
+{
+    "name": "tb_neolude_examtaken",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Neolude"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "examtaken"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

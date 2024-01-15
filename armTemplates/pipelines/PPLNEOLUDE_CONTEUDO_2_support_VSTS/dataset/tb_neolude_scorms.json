@@ -1,0 +1,17 @@
+{
+    "name": "tb_neolude_scorms",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "scorms"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,127 @@
+{
+    "name": "PPLNEOLUDE_COURSE_PERMISSIONS",
+    "properties": {
+        "activities": [
+            {
+                "name": "Copy_data_Coursepermissions",
+                "description": "",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "RestSource",
+                        "httpRequestTimeout": "00:01:40",
+                        "requestInterval": "00.00:00:00.010",
+                        "requestMethod": "GET",
+                        "paginationRules": {
+                            "AbsoluteUrl.{pagina}": "RANGE:1:9999:1",
+                            "EndCondition:$['data']": "Empty"
+                        }
+                    },
+                    "sink": {
+                        "type": "AzureSqlSink",
+                        "preCopyScript": "truncate table [neolude].[coursepermissions]",
+                        "writeBehavior": "insert",
+                        "sqlWriterUseTableLock": true,
+                        "tableOption": "autoCreate",
+                        "disableMetricsCollection": false
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "mappings": [
+                            {
+                                "source": {
+                                    "path": "['UserID']"
+                                },
+                                "sink": {
+                                    "name": "UserID",
+                                    "type": "Int64"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "['CourseID']"
+                                },
+                                "sink": {
+                                    "name": "CourseID",
+                                    "type": "Int64"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "['CoursePermissionLevelID']"
+                                },
+                                "sink": {
+                                    "name": "CoursePermissionLevelID",
+                                    "type": "Int64"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "$['metadata']['Page']"
+                                },
+                                "sink": {
+                                    "name": "Page",
+                                    "type": "Int64"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "$['metadata']['PageSize']"
+                                },
+                                "sink": {
+                                    "name": "PageSize",
+                                    "type": "Int64"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "$['metadata']['MaximumPageSize']"
+                                },
+                                "sink": {
+                                    "name": "MaximumPageSize",
+                                    "type": "Int64"
+                                }
+                            }
+                        ],
+                        "collectionReference": "$['data']",
+                        "mapComplexValuesToString": true
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "RestAPINeolude",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "SetApiName": {
+                                "value": "coursepermissions?page={pagina}&page_size=5000&maximumpagesize=5000&update_start_date=2022-01-01",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "tb_neolude_coursepermissions",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
+        ],
+        "folder": {
+            "name": "Neolude"
+        },
+        "annotations": [],
+        "lastPublishTime": "2023-09-05T12:37:07Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,17 @@
+{
+    "name": "tb_neolude_ppts",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "ppts"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
