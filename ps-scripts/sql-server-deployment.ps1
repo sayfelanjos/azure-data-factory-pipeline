@@ -2,8 +2,8 @@ $resourceGroupName = $args[0]
 $serverName = $args[1]
 $dbName = $args[2]
 $adminLogin = $args[3]
-# $adminPassword = ConvertTo-SecureString $args[4] -AsPlainText -Force
-$adminPassword = $args[4]
+$adminPassword = ConvertTo-SecureString $args[4] -AsPlainText -Force
+# $adminPassword = $args[4]
 $templatePath = '.\bicep\database\sqlServer.bicep'
 
 $isPresent = Get-AzSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -ErrorAction SilentlyContinue
