@@ -18,15 +18,15 @@ Siga os seguintes passos para execução do pipeline.
 
 6. No forms que aparecerá no canto direito da tela você terá que preencher os seguintes campos:
 
-* *Branch/tag* - Escolha a versão do pipeline que será executado. Você poderá escolher através da tag ou no nome da branch. A ultima versão estará na branch **main** e na tag **last-version**.
+    * *Branch/tag* - Escolha a versão do pipeline que será executado. Você poderá escolher através da tag ou no nome da branch. A ultima versão estará na branch **main** e na tag **last-version**.
 
-* *Nome do cliente para o qual serão criados os recursos* - Nome que será dado ao **Resource Group**. Uma sugestão é colocar um nome que identifique facilmente o propósito dos recursos como, por exemplo, o nome do cliente. 
+    * *Nome do cliente para o qual serão criados os recursos* - Nome que será dado ao **Resource Group**. Uma sugestão é colocar um nome que identifique facilmente o propósito dos recursos como, por exemplo, o nome do cliente. 
 
-* *API URL* - URL que será usada para extrair os dados. Default: *https://data-api.neolude.com.br*
+    * *API URL* - URL que será usada para extrair os dados. Default: *https://data-api.neolude.com.br*
 
-* *Ambiente de desenvolvimento ex: dev, stg, prod* - Ambiente de desenvolvimento. Os mais comumente utilizados são: development (dev), staging (stg), production (prod).
+    * *Ambiente de desenvolvimento ex: dev, stg, prod* - Ambiente de desenvolvimento. Os mais comumente utilizados são: development (dev), staging (stg), production (prod).
 
-* *Departamento responsável* -  Departamento que estará usufruindo dos recursos criados. Exemplos: Business Inteligence (bi), Marketing (mkt), Information Tecnology (it). Obs: O padrão é utilizar a abreviação com letras minúsculas.
+    * *Departamento responsável* -  Departamento que estará usufruindo dos recursos criados. Exemplos: Business Inteligence (bi), Marketing (mkt), Information Tecnology (it). Obs: O padrão é utilizar a abreviação com letras minúsculas.
 
 7. Após preencher os campos listados acima, vá em *Advanced options* e click em *Variables*.
 Preencha os valores para *adminLogin*, *adminPassword*, que serão os dados de acesso para o banco de dados SQL, e *apiToken* que é o token de acesso a API.
