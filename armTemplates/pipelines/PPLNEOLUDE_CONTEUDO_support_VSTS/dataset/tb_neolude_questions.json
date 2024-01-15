@@ -1,0 +1,20 @@
+{
+    "name": "tb_neolude_questions",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Neolude"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "dbo.questions"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

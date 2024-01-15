@@ -1,0 +1,17 @@
+{
+    "name": "tb_neolude_medialibraryfiledownloads",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "neolude",
+            "table": "db.medialibraryfiledownloads"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saymo\\eng4tech\\neolude\\NEOLUDE-BI\\dotnet-scripts\\dotnet-scripts.csproj": {}
+    "C:\\Users\\saymo\\eng4tech\\neolude\\LAB-NEOLUDE-DATAOPS\\dotnet-scripts\\dotnet-scripts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saymo\\eng4tech\\neolude\\NEOLUDE-BI\\dotnet-scripts\\dotnet-scripts.csproj": {
+    "C:\\Users\\saymo\\eng4tech\\neolude\\LAB-NEOLUDE-DATAOPS\\dotnet-scripts\\dotnet-scripts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saymo\\eng4tech\\neolude\\NEOLUDE-BI\\dotnet-scripts\\dotnet-scripts.csproj",
+        "projectUniqueName": "C:\\Users\\saymo\\eng4tech\\neolude\\LAB-NEOLUDE-DATAOPS\\dotnet-scripts\\dotnet-scripts.csproj",
         "projectName": "dotnet-scripts",
-        "projectPath": "C:\\Users\\saymo\\eng4tech\\neolude\\NEOLUDE-BI\\dotnet-scripts\\dotnet-scripts.csproj",
+        "projectPath": "C:\\Users\\saymo\\eng4tech\\neolude\\LAB-NEOLUDE-DATAOPS\\dotnet-scripts\\dotnet-scripts.csproj",
         "packagesPath": "C:\\Users\\saymo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saymo\\eng4tech\\neolude\\NEOLUDE-BI\\dotnet-scripts\\obj\\",
+        "outputPath": "C:\\Users\\saymo\\eng4tech\\neolude\\LAB-NEOLUDE-DATAOPS\\dotnet-scripts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saymo\\AppData\\Roaming\\NuGet\\NuGet.Config"

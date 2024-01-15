@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uC1ACH6PQQ37GIX1s/Ts6u1hVp9hKkOu1nBVa6zLvmPrCT410vCw9b3zPw4+8wbR677LHjw6nSDwn3OSKFXYUA==",
+  "dgSpecHash": "4CvpOmrTNyydBHoh52SNKkh5uJxM0RxjaXWW1cuGgjyp/5F3q/B9bWOIMpqxnOaFArer5T/M3MrYGgu1fgasPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\saymo\\eng4tech\\neolude\\NEOLUDE-BI\\dotnet-scripts\\dotnet-scripts.csproj",
+  "projectFilePath": "C:\\Users\\saymo\\eng4tech\\neolude\\LAB-NEOLUDE-DATAOPS\\dotnet-scripts\\dotnet-scripts.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\saymo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\saymo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
