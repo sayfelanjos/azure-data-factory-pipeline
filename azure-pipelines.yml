@@ -44,7 +44,7 @@ stages:
               subscriptionId: $(subscriptionId)
               location: $(location)
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\resourceGroup\resourceGroup.bicep'
+              csmFile: '$(Build.SourcesDirectory)\bicep\resourceGroup\resourceGroup.bicep'
               overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
               deploymentMode: 'Incremental'
 
@@ -63,7 +63,7 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\sql-server-deployment.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\sql-server-deployment.ps1'
               ScriptArguments: '"$(resourceGroupName)" "$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"'   
       - job: 'CreateSchemasAndTablesOnDatabase'
         dependsOn: 'CreateSQLDatabase'
@@ -76,7 +76,7 @@ stages:
           - task: DotNetCoreCLI@2
             inputs:
               command: 'run'
-              projects: '.\dotnet-scripts\dotnet-scripts.csproj'
+              projects: '$(Build.SourcesDirectory)\dotnet-scripts\dotnet-scripts.csproj'
               arguments: '"$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"' 
               workingDirectory: '.\dotnet-scripts'
 
@@ -98,7 +98,7 @@ stages:
               resourceGroupName: $(resourceGroupName)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\dataFactory\dataFactory.bicep'
+              csmFile: '$(Build.SourcesDirectory)\bicep\dataFactory\dataFactory.bicep'
               overrideParameters: '-dataFactoryName $(dataFactoryName)'
               deploymentMode: 'Incremental'
                 
@@ -115,8 +115,8 @@ stages:
               location: $(location)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '.\bicep\linkedServices\linkedServices.bicep'
-              overrideParameters: '-dataFactoryName $(dataFactoryName) -serverName $(serverName) -dbName $(dbName) -sqlServerAdminLogin $(adminLogin) -sqlServerAdminPassword $(adminPassword) -baseURL ${{ parameters.baseURL }} -apiSecureString $(apiToken)'
+              csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\linkedServices.bicep'
+              overrideParameters: '-dataFactoryName "$(dataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
               deploymentMode: 'Incremental'
 
       - job: 'CreateDataSetsOut'
@@ -128,7 +128,7 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\datasets-out-deployment.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'          
 
       - job: 'CreateDataSetsIn'
@@ -140,7 +140,7 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\datasets-in-deployment.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'   
                           
       - job: 'CreatePipelines'
@@ -152,7 +152,7 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\pipelines-deployment.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'  
 
   - stage: 'StartingAzureDataFactoryPipeline'
@@ -169,7 +169,7 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\triggers-deployment.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\triggers-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
       - job: 'StopTrigger'
         steps:
@@ -183,5 +183,5 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '.\ps-scripts\stop-triggers.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\stop-triggers.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'     
