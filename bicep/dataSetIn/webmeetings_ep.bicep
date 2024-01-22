@@ -6,7 +6,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
 }
 
 resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-    name: 'webmeeting_ep'
+    name: 'webmeetings_ep'
     parent: dataFactory
     properties: {
         annotations: []
@@ -17,7 +17,7 @@ resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: '/webmeeting'
+            relativeUrl: '/webmeetings'
         }
         folder: {
             name: 'rest_endpoints'

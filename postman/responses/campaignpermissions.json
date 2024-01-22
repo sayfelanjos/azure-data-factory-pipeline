@@ -1,0 +1,97 @@
+{
+    "data": [
+        {
+            "CampaignPermissionID": 2020,
+            "IsDeleted": false,
+            "CampaignID": 2121,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": 219398,
+            "Inheritable": false,
+            "AuditCreatedDate": "2019-05-26T02:46:19",
+            "AuditLastUpdatedDate": "2019-05-26T02:46:19"
+        },
+        {
+            "CampaignPermissionID": 2121,
+            "IsDeleted": false,
+            "CampaignID": 2222,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": 185234,
+            "Inheritable": false,
+            "AuditCreatedDate": "2019-09-12T17:37:22",
+            "AuditLastUpdatedDate": "2019-09-12T17:37:22"
+        },
+        {
+            "CampaignPermissionID": 2222,
+            "IsDeleted": false,
+            "CampaignID": 2525,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": 68438,
+            "Inheritable": false,
+            "AuditCreatedDate": "2020-08-26T16:07:50",
+            "AuditLastUpdatedDate": "2020-08-26T16:07:50"
+        },
+        {
+            "CampaignPermissionID": 2323,
+            "IsDeleted": false,
+            "CampaignID": 2525,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": 202840,
+            "Inheritable": false,
+            "AuditCreatedDate": "2020-08-26T16:08:10",
+            "AuditLastUpdatedDate": "2020-08-26T16:08:10"
+        },
+        {
+            "CampaignPermissionID": 2424,
+            "IsDeleted": false,
+            "CampaignID": 2525,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": 462246,
+            "Inheritable": false,
+            "AuditCreatedDate": "2020-09-25T13:05:57",
+            "AuditLastUpdatedDate": "2020-09-25T13:05:57"
+        },
+        {
+            "CampaignPermissionID": 2525,
+            "IsDeleted": false,
+            "CampaignID": 2222,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": null,
+            "Inheritable": true,
+            "AuditCreatedDate": "2020-09-25T13:06:48",
+            "AuditLastUpdatedDate": "2020-09-25T13:06:48"
+        },
+        {
+            "CampaignPermissionID": 2526,
+            "IsDeleted": false,
+            "CampaignID": 2222,
+            "OccupationAreaID": null,
+            "BusinessUnitID": null,
+            "UserID": 462246,
+            "Inheritable": false,
+            "AuditCreatedDate": "2020-09-25T13:06:49",
+            "AuditLastUpdatedDate": "2020-09-25T13:06:49"
+        },
+        {
+            "CampaignPermissionID": 2626,
+            "IsDeleted": false,
+            "CampaignID": 3030,
+            "OccupationAreaID": null,
+            "BusinessUnitID": 34340,
+            "UserID": null,
+            "Inheritable": true,
+            "AuditCreatedDate": "2022-04-18T13:04:39",
+            "AuditLastUpdatedDate": "2022-04-18T13:04:44"
+        }
+    ],
+    "metadata": {
+        "Page": 1,
+        "PageSize": 8,
+        "MaximumPageSize": 5000
+    }
+}

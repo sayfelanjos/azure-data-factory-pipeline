@@ -6,7 +6,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
 }
 
 resource sqlDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-    name: 'webmeeting_tb'
+    name: 'webmeetings_tb'
     parent: dataFactory
     properties: {
         annotations: []
@@ -17,7 +17,7 @@ resource sqlDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: []
         typeProperties: {
-            table: 'webmeeting'
+            table: 'webmeetings'
             schema: 'neolude'
         }
         folder: {

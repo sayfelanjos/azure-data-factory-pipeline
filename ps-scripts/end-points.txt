@@ -51,4 +51,4 @@ userlabels
 users
 videos
 videoviews
-webmeeting
+webmeetings

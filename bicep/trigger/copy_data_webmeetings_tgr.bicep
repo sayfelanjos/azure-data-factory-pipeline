@@ -10,7 +10,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
 }
 
 resource azureDataFactoryTrigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
-  name: 'copy_data_webmeeting_tgr'
+  name: 'copy_data_webmeetings_tgr'
   parent: dataFactory
   properties: {
     type: 'ScheduleTrigger'
@@ -18,7 +18,7 @@ resource azureDataFactoryTrigger 'Microsoft.DataFactory/factories/triggers@2018-
       {
         parameters: {}
         pipelineReference: {
-          referenceName: 'copy_data_webmeeting_pl'
+          referenceName: 'copy_data_webmeetings_pl'
           type: 'PipelineReference'
         }
       }
