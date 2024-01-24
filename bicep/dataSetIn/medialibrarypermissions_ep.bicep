@@ -5,7 +5,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: dataFactoryName
 }
 
-resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'medialibrarypermissions_ep'
     parent: dataFactory
     properties: {

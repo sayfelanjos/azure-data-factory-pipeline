@@ -19,7 +19,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: dataFactoryName
 }
 
-resource copyPipelines 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource symbolicname 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
     name: '$($cp.name.ToLower())'
     parent: dataFactory
     description: 'Extract data from rest api to sql database'

@@ -2,7 +2,7 @@ param dataFactoryName string
 
 var pipelineName = 'copy_data_medialibraryfiledownloads_pl'
 
-resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [
@@ -12,8 +12,8 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '0.12:00:00'
-          retry: 0
+          timeout: '1.00:00:00'
+          retry: 5
           retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
@@ -34,7 +34,8 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
             type: 'AzureSqlSink'
             writeBehavior: 'upsert'
             upsertSettings: {
-              useTempDB: true
+              useTempDB: false
+              interimSchemaName: 'neolude'
               keys: [
                 'DownloadHistoryID'
               ]
@@ -52,6 +53,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'DownloadHistoryID'
+                  type: 'Int64'
                 }
               }
               {
@@ -60,6 +62,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'IsDeleted'
+                  type: 'Boolean'
                 }
               }
               {
@@ -68,6 +71,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'FileAssignmentID'
+                  type: 'Int64'
                 }
               }
               {
@@ -76,6 +80,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'UserID'
+                  type: 'Int64'
                 }
               }
               {
@@ -84,6 +89,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'FileName'
+                  type: 'String'
                 }
               }
               {
@@ -92,6 +98,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'Title'
+                  type: 'String'
                 }
               }
               {
@@ -100,6 +107,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'Description'
+                  type: 'String'
                 }
               }
               {
@@ -108,6 +116,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'DownloadDate'
+                  type: 'String'
                 }
               }
               {
@@ -116,6 +125,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'AuditCreatedDate'
+                  type: 'String'
                 }
               }
               {
@@ -124,6 +134,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
+                  type: 'String'
                 }
               }
               {
@@ -132,6 +143,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'Page'
+                  type: 'Int64'
                 }
               }
               {
@@ -140,6 +152,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'PageSize'
+                  type: 'Int64'
                 }
               }
               {
@@ -148,6 +161,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'MaximumPageSize'
+                  type: 'Int64'
                 }
               }
             ]
@@ -176,5 +190,6 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
     parameters: {}
     runDimensions: {}
     variables: {}
+
   }
 }

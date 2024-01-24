@@ -1,8 +1,8 @@
 param dataFactoryName string
 
-var pipelineName = 'copy_data_webmeetings_pl'
+var pipelineName = 'copy_data_webmeeting_pl'
 
-resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [
@@ -12,8 +12,8 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '0.12:00:00'
-          retry: 0
+          timeout: '1.00:00:00'
+          retry: 5
           retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
@@ -34,7 +34,8 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
             type: 'AzureSqlSink'
             writeBehavior: 'upsert'
             upsertSettings: {
-              useTempDB: true
+              useTempDB: false
+              interimSchemaName: 'neolude'
               keys: [
                 'WebMeetingID'
               ]
@@ -170,13 +171,13 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         }
         inputs: [
           {
-            referenceName: 'webmeetings_ep'
+            referenceName: 'webmeeting_ep'
             type: 'DatasetReference'
           }
         ]
         outputs: [
           {
-            referenceName: 'webmeetings_tb'
+            referenceName: 'webmeeting_tb'
             type: 'DatasetReference'
           }
         ]
@@ -189,5 +190,6 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
     parameters: {}
     runDimensions: {}
     variables: {}
+
   }
 }

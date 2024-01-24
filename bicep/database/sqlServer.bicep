@@ -29,11 +29,19 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   parent: sqlServer
   name: dbName
   location: location
+  properties: {
+    maxSizeBytes: 107374182400
+    catalogCollation: 'SQL_Latin1_General_CP1_CI_AS'
+    zoneRedundant: false
+    readScale: 'Disabled'
+    requestedBackupStorageRedundancy: 'Zone'
+    minCapacity: 2
+  }
   sku: {
     name: 'GP_S_Gen5'
     tier: 'GeneralPurpose'
     family: 'Gen5'
-    capacity: 1
+    capacity: 8
   }
 }
 

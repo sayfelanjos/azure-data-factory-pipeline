@@ -5,7 +5,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: dataFactoryName
 }
 
-resource sqlDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'categories_tb'
     parent: dataFactory
     properties: {

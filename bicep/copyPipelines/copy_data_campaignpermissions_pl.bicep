@@ -2,7 +2,7 @@ param dataFactoryName string
 
 var pipelineName = 'copy_data_campaignpermissions_pl'
 
-resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource campaignpermissions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [
@@ -12,14 +12,15 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '0.12:00:00'
-          retry: 0
+          timeout: '1.00:00:00'
+          retry: 5
           retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
         }
         userProperties: []
         typeProperties: {
+          // parallelCopies: 1
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:01:40'
@@ -33,8 +34,10 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
           sink: {
             type: 'AzureSqlSink'
             writeBehavior: 'upsert'
+            // maxConcurrentConnections: 2
             upsertSettings: {
-              useTempDB: true
+              useTempDB: false
+              interimSchemaName: 'neolude'
               keys: [
                 'CampaignPermissionID'
               ]

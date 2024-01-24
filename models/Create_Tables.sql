@@ -108,15 +108,15 @@ CREATE TABLE [neolude].[campaigns](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='catries'
+	WHERE s.name='neolude' and t.name='categories'
 ) 
-CREATE TABLE [neolude].[catries](
-	[CatryID] [bigint] NULL,
+CREATE TABLE [neolude].[categories](
+	[CategoryID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
-	[CatryName] [nvarchar](max) NULL,
-	[CatryTypeID] [bigint] NULL,
-	[CatryTypeIdentifier] [nvarchar](max) NULL,
-	[ParentCatryID] [bigint] NULL,
+	[CategoryName] [nvarchar](max) NULL,
+	[CategoryTypeID] [bigint] NULL,
+	[CategoryTypeIdentifier] [nvarchar](max) NULL,
+	[ParentCategoryID] [bigint] NULL,
 	[AuditCreatedDate] [nvarchar](max) NULL,
 	[AuditLastUpdatedDate] [nvarchar](max) NULL,
 	[Page] [bigint] NULL,
@@ -210,12 +210,12 @@ CREATE TABLE [neolude].[courseActivityViews](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='coursecatries'
+	WHERE s.name='neolude' and t.name='coursecategories'
 ) 
-CREATE TABLE [neolude].[coursecatries](
-	[CourseCatryID] [bigint] NULL,
+CREATE TABLE [neolude].[coursecategories](
+	[CourseCategoryID] [bigint] NULL,
 	[CourseID] [bigint] NULL,
-	[CatryID] [bigint] NULL,
+	[CategoryID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[AuditCreatedDate] [nvarchar](max) NULL,
 	[AuditLastUpdatedDate] [nvarchar](max) NULL,
@@ -519,7 +519,7 @@ IF NOT EXISTS (
 CREATE TABLE [neolude].[medialibraryhtmls](
 	[MediaContentID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
-	[CatryID] [bigint] NULL,
+	[CategoryID] [bigint] NULL,
 	[Media_Name] [nvarchar](max) NULL,
 	[HTMLPageID] [bigint] NULL,
 	[IsEnabled] [bit] NULL,
@@ -573,7 +573,7 @@ IF NOT EXISTS (
 CREATE TABLE [neolude].[medialibraryvideos](
 	[MediaContentID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
-	[CatryID] [bigint] NULL,
+	[CategoryID] [bigint] NULL,
 	[Media_Name] [nvarchar](max) NULL,
 	[VideoID] [bigint] NULL,
 	[IsEnabled] [bit] NULL,

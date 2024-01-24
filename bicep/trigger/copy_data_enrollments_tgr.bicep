@@ -2,14 +2,15 @@
 param dataFactoryName string
 
 param utcTime string = utcNow('u')
-var startTime = dateTimeAdd(utcTime, '-PT2H58M')
-var endTime = dateTimeAdd(startTime, 'PT1M30S')
+var timeNow = dateTimeAdd(utcTime, '-PT3H')
+var startTime = dateTimeAdd(timeNow, 'PT1M')
+var endTime = dateTimeAdd(startTime, 'PT1Y')
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
 }
 
-resource azureDataFactoryTrigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
+resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
   name: 'copy_data_enrollments_tgr'
   parent: dataFactory
   properties: {
@@ -25,7 +26,7 @@ resource azureDataFactoryTrigger 'Microsoft.DataFactory/factories/triggers@2018-
     ]
     typeProperties: {
       recurrence: {
-        frequency: 'Minute'
+        frequency: 'Week'
         endTime: endTime
         interval: 1
         startTime: startTime

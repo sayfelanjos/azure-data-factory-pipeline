@@ -172,6 +172,7 @@ stages:
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\triggers-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
       - job: 'StopTrigger'
+        dependsOn: 'CreateTrigger'
         steps:
           - task: PowerShell@2
             inputs:
