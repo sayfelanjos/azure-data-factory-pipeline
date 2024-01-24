@@ -24,7 +24,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/audios",
+=======
+									"raw": "https://data-api.neolude.com.br/audios",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -78,7 +82,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/campaigncontents",
+=======
+									"raw": "https://data-api.neolude.com.br/campaigncontents",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -105,7 +113,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/campaignpermissions",
+=======
+									"raw": "https://data-api.neolude.com.br/campaignpermissions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -132,7 +144,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/campaigns",
+=======
+									"raw": "https://data-api.neolude.com.br/campaigns",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -159,7 +175,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/categories",
+=======
+									"raw": "https://data-api.neolude.com.br/categories",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -186,7 +206,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/certificationpermissions",
+=======
+									"raw": "https://data-api.neolude.com.br/certificationpermissions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -213,7 +237,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/certifications",
+=======
+									"raw": "https://data-api.neolude.com.br/certifications",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -240,7 +268,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/componentactivities",
+=======
+									"raw": "https://data-api.neolude.com.br/componentactivities",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -267,7 +299,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/coursecategories",
+=======
+									"raw": "https://data-api.neolude.com.br/coursecategories",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -294,7 +330,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/coursepermissions",
+=======
+									"raw": "https://data-api.neolude.com.br/coursepermissions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -321,7 +361,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/courses",
+=======
+									"raw": "https://data-api.neolude.com.br/courses",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -348,7 +392,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/coursetags",
+=======
+									"raw": "https://data-api.neolude.com.br/coursetags",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -375,7 +423,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/enrollables",
+=======
+									"raw": "https://data-api.neolude.com.br/enrollables",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -402,7 +454,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/enrollabletags",
+=======
+									"raw": "https://data-api.neolude.com.br/enrollabletags",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -429,7 +485,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/enrollments",
+=======
+									"raw": "https://data-api.neolude.com.br/enrollments",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -456,7 +516,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/equivalencyrequests",
+=======
+									"raw": "https://data-api.neolude.com.br/equivalencyrequests",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -483,7 +547,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/examquestions",
+=======
+									"raw": "https://data-api.neolude.com.br/examquestions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -510,7 +578,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/exams",
+=======
+									"raw": "https://data-api.neolude.com.br/exams",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -537,7 +609,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/examtaken",
+=======
+									"raw": "https://data-api.neolude.com.br/examtaken",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -564,7 +640,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/examtakenanswers",
+=======
+									"raw": "https://data-api.neolude.com.br/examtakenanswers",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -591,7 +671,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/examtakenquestions",
+=======
+									"raw": "https://data-api.neolude.com.br/examtakenquestions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -618,7 +702,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/htmls",
+=======
+									"raw": "https://data-api.neolude.com.br/htmls",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -645,7 +733,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/labels",
+=======
+									"raw": "https://data-api.neolude.com.br/labels",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -672,7 +764,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/medialibraryfiledownloads",
+=======
+									"raw": "https://data-api.neolude.com.br/medialibraryfiledownloads",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -699,7 +795,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/medialibraryhtmls",
+=======
+									"raw": "https://data-api.neolude.com.br/medialibraryhtmls",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -726,7 +826,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/medialibraryhtmlviews",
+=======
+									"raw": "https://data-api.neolude.com.br/medialibraryhtmlviews",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -753,7 +857,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/medialibrarypermissions",
+=======
+									"raw": "https://data-api.neolude.com.br/medialibrarypermissions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -780,7 +888,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/medialibraryvideos",
+=======
+									"raw": "https://data-api.neolude.com.br/medialibraryvideos",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -807,7 +919,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/occupationareas",
+=======
+									"raw": "https://data-api.neolude.com.br/occupationareas",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -834,7 +950,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/placerooms",
+=======
+									"raw": "https://data-api.neolude.com.br/placerooms",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -861,7 +981,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/places",
+=======
+									"raw": "https://data-api.neolude.com.br/places",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -888,7 +1012,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/positions",
+=======
+									"raw": "https://data-api.neolude.com.br/positions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -932,7 +1060,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/ppts",
+=======
+									"raw": "https://data-api.neolude.com.br/ppts",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -959,7 +1091,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/presentialmeetings",
+=======
+									"raw": "https://data-api.neolude.com.br/presentialmeetings",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -986,7 +1122,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/questions",
+=======
+									"raw": "https://data-api.neolude.com.br/questions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1013,7 +1153,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/RestAPINeolude",
+=======
+									"raw": "https://data-api.neolude.com.br/RestAPINeolude",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1040,7 +1184,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/scorms",
+=======
+									"raw": "https://data-api.neolude.com.br/scorms",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1067,7 +1215,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/surveyanswerquestions",
+=======
+									"raw": "https://data-api.neolude.com.br/surveyanswerquestions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1094,7 +1246,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/surveyanswers",
+=======
+									"raw": "https://data-api.neolude.com.br/surveyanswers",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1121,7 +1277,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/surveyquestionoptions",
+=======
+									"raw": "https://data-api.neolude.com.br/surveyquestionoptions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1148,7 +1308,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/surveyquestions",
+=======
+									"raw": "https://data-api.neolude.com.br/surveyquestions",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1175,7 +1339,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/surveys",
+=======
+									"raw": "https://data-api.neolude.com.br/surveys",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1202,7 +1370,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/tags",
+=======
+									"raw": "https://data-api.neolude.com.br/tags",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1229,7 +1401,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/uploadactivities",
+=======
+									"raw": "https://data-api.neolude.com.br/uploadactivities",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1256,7 +1432,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/useraccesshistorys",
+=======
+									"raw": "https://data-api.neolude.com.br/useraccesshistorys",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1283,7 +1463,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/userbusinessunits",
+=======
+									"raw": "https://data-api.neolude.com.br/userbusinessunits",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1310,7 +1494,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/usercertifications",
+=======
+									"raw": "https://data-api.neolude.com.br/usercertifications",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1337,7 +1525,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/userlabels",
+=======
+									"raw": "https://data-api.neolude.com.br/userlabels",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1364,7 +1556,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/users",
+=======
+									"raw": "https://data-api.neolude.com.br/users",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1391,7 +1587,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/videos",
+=======
+									"raw": "https://data-api.neolude.com.br/videos",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1418,7 +1618,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/videoviews",
+=======
+									"raw": "https://data-api.neolude.com.br/videoviews",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
@@ -1445,7 +1649,11 @@
 									}
 								],
 								"url": {
+<<<<<<< HEAD
 									"raw": "{{baseURL}}/webmeeting",
+=======
+									"raw": "https://data-api.neolude.com.br/webmeeting",
+>>>>>>> 6011e7f8e636d805ae1a3cc20252c2926107974f
 									"protocol": "https",
 									"host": [
 										"data-api",
