@@ -2,8 +2,9 @@
 param dataFactoryName string
 
 param utcTime string = utcNow('u')
-var startTime = dateTimeAdd(utcTime, '-PT2H58M')
-var endTime = dateTimeAdd(startTime, 'PT1M30S')
+var timeNow = dateTimeAdd(utcTime, '-PT3H')
+var startTime = dateTimeAdd(timeNow, 'PT0H1M')
+var endTime = dateTimeAdd(startTime, 'PT1Y')
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
@@ -25,7 +26,7 @@ resource azureDataFactoryTrigger 'Microsoft.DataFactory/factories/triggers@2018-
     ]
     typeProperties: {
       recurrence: {
-        frequency: 'Minute'
+        frequency: 'Month'
         endTime: endTime
         interval: 1
         startTime: startTime

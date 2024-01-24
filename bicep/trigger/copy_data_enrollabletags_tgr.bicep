@@ -26,7 +26,7 @@ resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
     ]
     typeProperties: {
       recurrence: {
-        frequency: 'Week'
+        frequency: 'Month'
         endTime: endTime
         interval: 1
         startTime: startTime
