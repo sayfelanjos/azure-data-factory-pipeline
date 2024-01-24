@@ -3,7 +3,7 @@ param dataFactoryName string
 
 param utcTime string = utcNow('u')
 var timeNow = dateTimeAdd(utcTime, '-PT3H')
-var startTime = dateTimeAdd(timeNow, 'PT1M')
+var startTime = dateTimeAdd(timeNow, 'PT0H1M')
 var endTime = dateTimeAdd(startTime, 'PT1Y')
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName

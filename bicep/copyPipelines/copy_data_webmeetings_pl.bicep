@@ -1,6 +1,6 @@
 param dataFactoryName string
 
-var pipelineName = 'copy_data_webmeeting_pl'
+var pipelineName = 'copy_data_webmeetings_pl'
 
 resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
@@ -171,13 +171,13 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
         }
         inputs: [
           {
-            referenceName: 'webmeeting_ep'
+            referenceName: 'webmeetings_ep'
             type: 'DatasetReference'
           }
         ]
         outputs: [
           {
-            referenceName: 'webmeeting_tb'
+            referenceName: 'webmeetings_tb'
             type: 'DatasetReference'
           }
         ]
