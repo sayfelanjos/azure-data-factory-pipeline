@@ -31,17 +31,13 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   location: location
   properties: {
     maxSizeBytes: 107374182400
-    catalogCollation: 'SQL_Latin1_General_CP1_CI_AS'
-    zoneRedundant: false
-    readScale: 'Disabled'
-    requestedBackupStorageRedundancy: 'Zone'
-    minCapacity: 2
+    minCapacity: 1
   }
   sku: {
     name: 'GP_S_Gen5'
     tier: 'GeneralPurpose'
     family: 'Gen5'
-    capacity: 8
+    capacity: 1
   }
 }
 
