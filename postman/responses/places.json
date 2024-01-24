@@ -1,0 +1,2466 @@
+{
+    "data": [
+        {
+            "PlaceID": 2020,
+            "PlaceName": "Amil Rio de Janeiro",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.640000",
+            "AuditLastUpdatedDate": "2019-02-19T08:50:36"
+        },
+        {
+            "PlaceID": 2021,
+            "PlaceName": "Avenida Rio Branco, 116",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.640000",
+            "AuditLastUpdatedDate": "2019-02-19T08:50:23"
+        },
+        {
+            "PlaceID": 2022,
+            "PlaceName": "UnitedHealth Group Brasil",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.640000",
+            "AuditLastUpdatedDate": "2019-05-22T20:15:41"
+        },
+        {
+            "PlaceID": 2023,
+            "PlaceName": "Amil Morumbi",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.640000",
+            "AuditLastUpdatedDate": "2019-02-19T13:43:03"
+        },
+        {
+            "PlaceID": 2121,
+            "PlaceName": "São Paulo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2122,
+            "PlaceName": "ISAT CAMPINAS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2123,
+            "PlaceName": "Ipanema",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2124,
+            "PlaceName": "Amil Espaço Saúde - Butantã",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2125,
+            "PlaceName": "Amil Espaço Saúde - Osasco",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2126,
+            "PlaceName": "Morumbi",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-20T08:10:34"
+        },
+        {
+            "PlaceID": 2127,
+            "PlaceName": "Amil Espaço Saúde - Tatuapé",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2128,
+            "PlaceName": "Amil Espaço Saúde - Alphavile",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2129,
+            "PlaceName": "Rua José Paulino, de 722/723 a 1600/1601, 530",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2130,
+            "PlaceName": "Amil - Rio de Janeiro",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2131,
+            "PlaceName": "AES Niterói",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-05-02T08:55:37"
+        },
+        {
+            "PlaceID": 2132,
+            "PlaceName": "HOSPITAL SAMARITANO HIGIENOPOLIS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-07-17T11:14:55"
+        },
+        {
+            "PlaceID": 2133,
+            "PlaceName": "Amil Espaço Saúde Santana",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2134,
+            "PlaceName": "Amil Espaço Saúde - Botafogo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2135,
+            "PlaceName": "Avenida Visconde do Rio Branco, lado par, 360",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2136,
+            "PlaceName": "Rua José Paulino, de 722/723 a 1600/1601, 530",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2137,
+            "PlaceName": "Amil Espaço Saúde Nova Iguaçu",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2138,
+            "PlaceName": "Rua José Paulino, de 722/723 a 1600/1601, 118",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2139,
+            "PlaceName": "TERZIUS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2140,
+            "PlaceName": "Amil Espaço Saúde - Tijuca",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2141,
+            "PlaceName": "Vespasiano, 1",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2142,
+            "PlaceName": "Amil Espaço Saúde Santo Amaro",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2143,
+            "PlaceName": "Universidade de vendas - SP",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2144,
+            "PlaceName": "Amil Espaço Saúde - Caxias",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2145,
+            "PlaceName": "Barra",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2146,
+            "PlaceName": "AUDITÓRIO BARRA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2147,
+            "PlaceName": "Universidade de vendas - SP Interior",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2148,
+            "PlaceName": "Amil Espaço Saúde Jacarepaguá",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2149,
+            "PlaceName": "Amil Espaço Saúde - Barra",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2150,
+            "PlaceName": "Universidade de vendas - DF",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2151,
+            "PlaceName": "Centro Empresarial Barra Shoping",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2152,
+            "PlaceName": "AEROPORTO CONGONHAS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2153,
+            "PlaceName": "AES ALPHAVILE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2154,
+            "PlaceName": "AES SANTO ANDRÉ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2155,
+            "PlaceName": "Amil Espaço Saúde - Ipanema",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2156,
+            "PlaceName": "Rua 01, 01",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2157,
+            "PlaceName": "Auditório - United Class",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2158,
+            "PlaceName": "Corretora Mato Segue",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2159,
+            "PlaceName": "Hospital Clínicas Caieiras",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2160,
+            "PlaceName": "Hospital Metropolitano Lapa",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2161,
+            "PlaceName": "Hospital Paulistano",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2162,
+            "PlaceName": "Hospital e Maternidade Madre Theodora",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2163,
+            "PlaceName": "Alameda Santos",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2164,
+            "PlaceName": "Hospital Alvorada Moema",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2023-08-15T09:56:09.913000"
+        },
+        {
+            "PlaceID": 2165,
+            "PlaceName": "HOSPITAL SANTA HELENA - SANTO ANDRÉ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2023-02-23T18:31:19"
+        },
+        {
+            "PlaceID": 2166,
+            "PlaceName": "Hospital Ipiranga Mogi",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2167,
+            "PlaceName": "Hospital Carlos Chagas",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2168,
+            "PlaceName": "Hospital Ipiranga Arujá",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2169,
+            "PlaceName": "AMIL DAY CLINIC JACAREPAGUÁ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2170,
+            "PlaceName": "APAE/SP",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2171,
+            "PlaceName": "Amil Pernambuco",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2172,
+            "PlaceName": "Hospital Ana Costa",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2173,
+            "PlaceName": "1, 1",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2174,
+            "PlaceName": "Hospital da Luz",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-19T09:36:20"
+        },
+        {
+            "PlaceID": 2175,
+            "PlaceName": "Hospital Paulistano",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2176,
+            "PlaceName": "Amil Natal",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2177,
+            "PlaceName": "Amil Minas Gerais",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2178,
+            "PlaceName": "Hospital Pró-Cardíaco",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-21T09:40:21"
+        },
+        {
+            "PlaceID": 2179,
+            "PlaceName": "Amil Espaço Saúde - Ana Rosa",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2180,
+            "PlaceName": "Célula de Simulação Botafogo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-21T11:40:05"
+        },
+        {
+            "PlaceID": 2181,
+            "PlaceName": "Amil Salvador",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-14T12:36:52.677000",
+            "AuditLastUpdatedDate": "2019-02-14T12:36:52.677000"
+        },
+        {
+            "PlaceID": 2222,
+            "PlaceName": "Unidade Ana Rosa",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:16:00",
+            "AuditLastUpdatedDate": "2019-02-18T08:16:00"
+        },
+        {
+            "PlaceID": 2223,
+            "PlaceName": "AES TATUAPÉ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:26:19",
+            "AuditLastUpdatedDate": "2019-02-18T08:26:19"
+        },
+        {
+            "PlaceID": 2224,
+            "PlaceName": "Centro Empresarial Barra Shopping",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:26:45",
+            "AuditLastUpdatedDate": "2019-02-18T08:26:45"
+        },
+        {
+            "PlaceID": 2225,
+            "PlaceName": "Resgate Barra",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:27:04",
+            "AuditLastUpdatedDate": "2019-02-18T08:27:04"
+        },
+        {
+            "PlaceID": 2226,
+            "PlaceName": "AES BOTAFOGO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:27:22",
+            "AuditLastUpdatedDate": "2019-02-18T08:27:22"
+        },
+        {
+            "PlaceID": 2227,
+            "PlaceName": "SHAM DIADEMA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:28:00",
+            "AuditLastUpdatedDate": "2019-09-18T08:30:25"
+        },
+        {
+            "PlaceID": 2228,
+            "PlaceName": "NEXT SANTO ANDRE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:28:16",
+            "AuditLastUpdatedDate": "2019-05-22T18:10:43"
+        },
+        {
+            "PlaceID": 2323,
+            "PlaceName": "AES CAMPO GRANDE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:23:47",
+            "AuditLastUpdatedDate": "2019-02-18T08:23:47"
+        },
+        {
+            "PlaceID": 2324,
+            "PlaceName": "AES MEIER",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:24:15",
+            "AuditLastUpdatedDate": "2019-02-18T08:24:15"
+        },
+        {
+            "PlaceID": 2325,
+            "PlaceName": "SHAM CARAPICUIBA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T08:27:38",
+            "AuditLastUpdatedDate": "2019-09-18T08:29:41"
+        },
+        {
+            "PlaceID": 2424,
+            "PlaceName": "Amil João Pessoa",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-18T11:02:16",
+            "AuditLastUpdatedDate": "2019-02-18T11:02:16"
+        },
+        {
+            "PlaceID": 2425,
+            "PlaceName": "Hospital da Luz",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-18T16:07:46",
+            "AuditLastUpdatedDate": "2019-02-19T09:36:33"
+        },
+        {
+            "PlaceID": 2525,
+            "PlaceName": "Hospital da luz",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-19T09:34:28",
+            "AuditLastUpdatedDate": "2019-02-19T09:34:59"
+        },
+        {
+            "PlaceID": 2526,
+            "PlaceName": "Centro de Treinamento Pro Cardiaco",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-19T10:20:23",
+            "AuditLastUpdatedDate": "2019-02-19T10:21:22"
+        },
+        {
+            "PlaceID": 2527,
+            "PlaceName": "Hospital pro cardio",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-02-19T10:20:38",
+            "AuditLastUpdatedDate": "2019-02-21T09:36:02"
+        },
+        {
+            "PlaceID": 2626,
+            "PlaceName": "Amil Campinas",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-19T15:28:38",
+            "AuditLastUpdatedDate": "2019-02-19T15:28:38"
+        },
+        {
+            "PlaceID": 2727,
+            "PlaceName": "AES GUARULHOS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:03:03",
+            "AuditLastUpdatedDate": "2019-02-21T09:05:00"
+        },
+        {
+            "PlaceID": 2728,
+            "PlaceName": "Amil Fortaleza",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:30:16",
+            "AuditLastUpdatedDate": "2019-02-21T09:30:16"
+        },
+        {
+            "PlaceID": 2729,
+            "PlaceName": "Hospital Samaritano Botafogo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:52:32",
+            "AuditLastUpdatedDate": "2019-02-21T09:53:07"
+        },
+        {
+            "PlaceID": 2730,
+            "PlaceName": "Americas Medical City",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:53:45",
+            "AuditLastUpdatedDate": "2019-02-21T09:56:02"
+        },
+        {
+            "PlaceID": 2731,
+            "PlaceName": "Hospital de Clinicas de Jacarepagua",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:59:46",
+            "AuditLastUpdatedDate": "2019-02-21T10:01:15"
+        },
+        {
+            "PlaceID": 2732,
+            "PlaceName": "Hospital Monte Klinikum GNEC - Térreo na ala B (próximo a hemodinâmica)  ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:06:41",
+            "AuditLastUpdatedDate": "2019-08-14T11:17:24"
+        },
+        {
+            "PlaceID": 2733,
+            "PlaceName": "Hospital Santa Joana Recife",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:09:34",
+            "AuditLastUpdatedDate": "2019-02-21T10:09:45"
+        },
+        {
+            "PlaceID": 2828,
+            "PlaceName": "Centro de Treinamento Botafogo",
+            "PlaceStatusID": 2122,
+            "PlaceStatus_Identifier": "INACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:36:35",
+            "AuditLastUpdatedDate": "2022-12-27T11:25:48"
+        },
+        {
+            "PlaceID": 2829,
+            "PlaceName": "Hospital Maternidade Santa Lucia",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T09:37:31",
+            "AuditLastUpdatedDate": "2019-02-21T09:53:29"
+        },
+        {
+            "PlaceID": 2830,
+            "PlaceName": "Hospital Pan Americano",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:02:18",
+            "AuditLastUpdatedDate": "2019-02-21T10:02:27"
+        },
+        {
+            "PlaceID": 2831,
+            "PlaceName": "Hospital Pasteur",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:03:04",
+            "AuditLastUpdatedDate": "2019-02-21T10:03:22"
+        },
+        {
+            "PlaceID": 2832,
+            "PlaceName": "Hospital de Clinicas Mario Lioni",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:03:58",
+            "AuditLastUpdatedDate": "2019-02-21T10:04:30"
+        },
+        {
+            "PlaceID": 2833,
+            "PlaceName": "Hospital Vitoria Curitiba - Sala de Vídeo da Diretoria",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:05:04",
+            "AuditLastUpdatedDate": "2019-07-05T09:02:15"
+        },
+        {
+            "PlaceID": 2834,
+            "PlaceName": "Hospital Alvorada Brasilia",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:05:44",
+            "AuditLastUpdatedDate": "2019-02-21T10:06:17"
+        },
+        {
+            "PlaceID": 2835,
+            "PlaceName": "Hospital Promater - Sala de treinamentos 1° Andar",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:10:06",
+            "AuditLastUpdatedDate": "2019-07-05T08:24:29"
+        },
+        {
+            "PlaceID": 2836,
+            "PlaceName": "HOSPITAL SAMARITANO H- AUDITORIO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T10:50:16",
+            "AuditLastUpdatedDate": "2019-02-21T10:51:17"
+        },
+        {
+            "PlaceID": 2837,
+            "PlaceName": "Home Care SP",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-21T11:22:04",
+            "AuditLastUpdatedDate": "2019-02-21T11:22:59"
+        },
+        {
+            "PlaceID": 2929,
+            "PlaceName": "Externo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-26T11:34:06",
+            "AuditLastUpdatedDate": "2019-02-26T11:34:06"
+        },
+        {
+            "PlaceID": 3030,
+            "PlaceName": "Amil Manaus",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-27T09:11:08",
+            "AuditLastUpdatedDate": "2019-04-22T09:16:37"
+        },
+        {
+            "PlaceID": 3031,
+            "PlaceName": "NEXT UNIDADE AVANÇADA DIADEMA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-27T10:16:52",
+            "AuditLastUpdatedDate": "2019-02-27T10:20:44"
+        },
+        {
+            "PlaceID": 3032,
+            "PlaceName": "AES ADOLPHO PINHEIRO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-02-27T11:05:40",
+            "AuditLastUpdatedDate": "2019-02-27T11:06:50"
+        },
+        {
+            "PlaceID": 3131,
+            "PlaceName": "SHAM GUAPITUBA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-03-01T08:55:46",
+            "AuditLastUpdatedDate": "2019-09-18T08:31:13"
+        },
+        {
+            "PlaceID": 3132,
+            "PlaceName": "AES ANA ROSA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-01T09:56:32",
+            "AuditLastUpdatedDate": "2019-03-01T09:57:31"
+        },
+        {
+            "PlaceID": 3232,
+            "PlaceName": "CORRETORA JC LUZ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-06T08:54:44",
+            "AuditLastUpdatedDate": "2019-03-06T08:56:20"
+        },
+        {
+            "PlaceID": 3333,
+            "PlaceName": "HOSPITAL NEXT BUTANTA ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-08T13:36:03",
+            "AuditLastUpdatedDate": "2019-03-08T13:36:58"
+        },
+        {
+            "PlaceID": 3434,
+            "PlaceName": "CONVATEC",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-11T16:22:32",
+            "AuditLastUpdatedDate": "2019-03-11T16:28:45"
+        },
+        {
+            "PlaceID": 3535,
+            "PlaceName": "Hospital TotalCor",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-12T14:06:50",
+            "AuditLastUpdatedDate": "2019-03-12T14:08:26"
+        },
+        {
+            "PlaceID": 3636,
+            "PlaceName": "AES SUMARE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-13T10:25:40",
+            "AuditLastUpdatedDate": "2019-03-13T10:31:06"
+        },
+        {
+            "PlaceID": 3737,
+            "PlaceName": "AES CAMPINAS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-13T10:31:39",
+            "AuditLastUpdatedDate": "2019-03-13T10:32:28"
+        },
+        {
+            "PlaceID": 3738,
+            "PlaceName": "AES SAO JOSE DOS PINHAIS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-13T16:24:16",
+            "AuditLastUpdatedDate": "2019-03-13T16:24:41"
+        },
+        {
+            "PlaceID": 3838,
+            "PlaceName": "Amil Brasília",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-03-14T09:20:17",
+            "AuditLastUpdatedDate": "2019-03-26T10:26:54"
+        },
+        {
+            "PlaceID": 3839,
+            "PlaceName": "Arquiteto Olavo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-14T16:32:10",
+            "AuditLastUpdatedDate": "2019-03-14T16:32:10"
+        },
+        {
+            "PlaceID": 3939,
+            "PlaceName": "AES CINCINATO BRAGA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-20T14:04:06",
+            "AuditLastUpdatedDate": "2019-03-20T14:06:24"
+        },
+        {
+            "PlaceID": 4040,
+            "PlaceName": "Treinamento THC011 - Admissão",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-22T17:24:45",
+            "AuditLastUpdatedDate": "2019-03-22T17:26:11"
+        },
+        {
+            "PlaceID": 4141,
+            "PlaceName": "Ka Solution",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-25T08:27:33",
+            "AuditLastUpdatedDate": "2019-03-25T08:27:41"
+        },
+        {
+            "PlaceID": 4142,
+            "PlaceName": "8 andar do Morumbi",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-25T16:35:54",
+            "AuditLastUpdatedDate": "2019-03-25T16:35:54"
+        },
+        {
+            "PlaceID": 4242,
+            "PlaceName": "9 ANDAR UHG MORUMBI",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-25T09:29:36",
+            "AuditLastUpdatedDate": "2019-03-25T09:35:06"
+        },
+        {
+            "PlaceID": 4243,
+            "PlaceName": "Teste Morumbi",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-25T14:00:32",
+            "AuditLastUpdatedDate": "2019-03-25T14:00:32"
+        },
+        {
+            "PlaceID": 4244,
+            "PlaceName": "Teste",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-25T16:37:48",
+            "AuditLastUpdatedDate": "2019-03-25T16:37:48"
+        },
+        {
+            "PlaceID": 4343,
+            "PlaceName": "teste",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-26T07:48:38",
+            "AuditLastUpdatedDate": "2019-03-26T07:48:38"
+        },
+        {
+            "PlaceID": 4444,
+            "PlaceName": "TESTE DO LUCAS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-03-26T11:37:16",
+            "AuditLastUpdatedDate": "2019-03-26T14:21:19"
+        },
+        {
+            "PlaceID": 4545,
+            "PlaceName": "AES TAGUATINGA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-03-27T16:11:58",
+            "AuditLastUpdatedDate": "2019-03-27T16:12:52"
+        },
+        {
+            "PlaceID": 4646,
+            "PlaceName": "Hospital Vitoria - SP",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-01T14:15:10",
+            "AuditLastUpdatedDate": "2019-04-01T14:21:07"
+        },
+        {
+            "PlaceID": 4747,
+            "PlaceName": "Next Guarulhos ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-02T10:22:05",
+            "AuditLastUpdatedDate": "2019-04-02T10:24:39"
+        },
+        {
+            "PlaceID": 4848,
+            "PlaceName": "HOME CARE RJ / CAXIAS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-08T10:56:51",
+            "AuditLastUpdatedDate": "2019-04-08T10:59:29"
+        },
+        {
+            "PlaceID": 4949,
+            "PlaceName": "RESGATE SP",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-15T11:38:21",
+            "AuditLastUpdatedDate": "2019-04-15T11:39:01"
+        },
+        {
+            "PlaceID": 5050,
+            "PlaceName": "Auditório 6º andar",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-16T15:09:45",
+            "AuditLastUpdatedDate": "2019-04-16T15:09:45"
+        },
+        {
+            "PlaceID": 5151,
+            "PlaceName": "TOTAL CARE JARDINS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T10:48:15",
+            "AuditLastUpdatedDate": "2019-04-17T10:48:43"
+        },
+        {
+            "PlaceID": 5252,
+            "PlaceName": "COI MDX",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T16:20:21",
+            "AuditLastUpdatedDate": "2019-04-17T16:20:58"
+        },
+        {
+            "PlaceID": 5253,
+            "PlaceName": "COI AMERICAS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T16:21:54",
+            "AuditLastUpdatedDate": "2019-04-17T16:22:33"
+        },
+        {
+            "PlaceID": 5254,
+            "PlaceName": "COI BOTAFOGO II",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T16:23:37",
+            "AuditLastUpdatedDate": "2019-04-17T16:24:06"
+        },
+        {
+            "PlaceID": 5255,
+            "PlaceName": "COI NITEROI",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T16:24:29",
+            "AuditLastUpdatedDate": "2019-04-17T16:25:00"
+        },
+        {
+            "PlaceID": 5256,
+            "PlaceName": "COI NOVA IGUACU",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T16:25:26",
+            "AuditLastUpdatedDate": "2019-04-17T16:26:28"
+        },
+        {
+            "PlaceID": 5257,
+            "PlaceName": "COI SAMARITANO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-17T16:26:52",
+            "AuditLastUpdatedDate": "2019-04-17T16:27:14"
+        },
+        {
+            "PlaceID": 5353,
+            "PlaceName": "Brasília TOTAL CARE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-22T09:14:11",
+            "AuditLastUpdatedDate": "2019-04-22T10:28:22"
+        },
+        {
+            "PlaceID": 5454,
+            "PlaceName": "TOTAL CARE BARRA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-23T14:24:10",
+            "AuditLastUpdatedDate": "2019-04-23T14:24:48"
+        },
+        {
+            "PlaceID": 5555,
+            "PlaceName": "PS SÃO VICENTE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-24T09:42:35",
+            "AuditLastUpdatedDate": "2019-04-24T09:43:23"
+        },
+        {
+            "PlaceID": 5656,
+            "PlaceName": "SANTOS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-24T09:46:16",
+            "AuditLastUpdatedDate": "2019-04-24T09:50:02"
+        },
+        {
+            "PlaceID": 5757,
+            "PlaceName": " CEMEDCARE (AMIL TUTÓIA)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-04-30T08:32:02",
+            "AuditLastUpdatedDate": "2019-04-30T08:35:52"
+        },
+        {
+            "PlaceID": 5858,
+            "PlaceName": "AES NITERÓI",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-05-02T08:32:53",
+            "AuditLastUpdatedDate": "2019-05-02T08:55:42"
+        },
+        {
+            "PlaceID": 5859,
+            "PlaceName": "AES ÁGUA VERDE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-02T08:34:38",
+            "AuditLastUpdatedDate": "2019-05-02T08:35:06"
+        },
+        {
+            "PlaceID": 5860,
+            "PlaceName": "AES CEAME",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-02T08:36:19",
+            "AuditLastUpdatedDate": "2019-05-02T08:36:47"
+        },
+        {
+            "PlaceID": 5861,
+            "PlaceName": "AES CEAME MATERNO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-02T08:37:12",
+            "AuditLastUpdatedDate": "2019-05-02T08:37:45"
+        },
+        {
+            "PlaceID": 5959,
+            "PlaceName": "AES NITERÓI",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-02T08:53:39",
+            "AuditLastUpdatedDate": "2019-05-02T08:55:00"
+        },
+        {
+            "PlaceID": 6060,
+            "PlaceName": "Hotel Atlântico Prime",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-03T13:50:28",
+            "AuditLastUpdatedDate": "2019-05-03T15:27:35"
+        },
+        {
+            "PlaceID": 6161,
+            "PlaceName": "EINSTEIN - UNIDADE PAULISTA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-05T16:52:17",
+            "AuditLastUpdatedDate": "2019-05-05T16:52:17"
+        },
+        {
+            "PlaceID": 6262,
+            "PlaceName": "NEXT GUARULHOS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-06T08:07:03",
+            "AuditLastUpdatedDate": "2019-05-06T08:07:03"
+        },
+        {
+            "PlaceID": 6363,
+            "PlaceName": "ANA COSTA PS SÃO VICENTE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-06T14:28:37",
+            "AuditLastUpdatedDate": "2019-05-06T14:29:44"
+        },
+        {
+            "PlaceID": 6464,
+            "PlaceName": "CLINICA ASPEN - SUMARÉ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-06T14:56:42",
+            "AuditLastUpdatedDate": "2019-05-06T14:58:19"
+        },
+        {
+            "PlaceID": 6565,
+            "PlaceName": "AES ASA SUL",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-13T09:24:15",
+            "AuditLastUpdatedDate": "2019-05-13T09:34:36"
+        },
+        {
+            "PlaceID": 6666,
+            "PlaceName": "CEMED DERBY",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-14T10:41:26",
+            "AuditLastUpdatedDate": "2019-05-14T10:43:35"
+        },
+        {
+            "PlaceID": 6667,
+            "PlaceName": "Amil Sala vídeo conferência",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-14T11:09:48",
+            "AuditLastUpdatedDate": "2019-05-14T11:09:48"
+        },
+        {
+            "PlaceID": 6767,
+            "PlaceName": "SHAM - SÃO BERNARDO DO CAMPO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-22T18:05:16",
+            "AuditLastUpdatedDate": "2019-05-22T18:06:44"
+        },
+        {
+            "PlaceID": 6868,
+            "PlaceName": "Sobam",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-23T15:58:40",
+            "AuditLastUpdatedDate": "2019-05-23T16:00:53"
+        },
+        {
+            "PlaceID": 6969,
+            "PlaceName": "Webex Credenciado (teste)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-24T12:10:40",
+            "AuditLastUpdatedDate": "2019-05-24T12:11:07"
+        },
+        {
+            "PlaceID": 7070,
+            "PlaceName": "AES SÃO BERNARDO DO CAMPO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-25T23:45:19",
+            "AuditLastUpdatedDate": "2019-05-25T23:47:31"
+        },
+        {
+            "PlaceID": 7171,
+            "PlaceName": "WEBEX",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-27T16:39:54",
+            "AuditLastUpdatedDate": "2019-05-27T16:39:54"
+        },
+        {
+            "PlaceID": 7272,
+            "PlaceName": "Corretora Agecor",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-29T17:43:32",
+            "AuditLastUpdatedDate": "2019-05-29T17:44:42"
+        },
+        {
+            "PlaceID": 7273,
+            "PlaceName": "HOSPITAL DA LUZ - PSO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-29T17:46:32",
+            "AuditLastUpdatedDate": "2019-05-29T17:47:32"
+        },
+        {
+            "PlaceID": 7274,
+            "PlaceName": "SEDE MORUMBI",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-29T17:59:40",
+            "AuditLastUpdatedDate": "2019-05-29T18:00:27"
+        },
+        {
+            "PlaceID": 7373,
+            "PlaceName": "Amil - Possolo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-05-31T16:59:49",
+            "AuditLastUpdatedDate": "2019-05-31T17:03:17"
+        },
+        {
+            "PlaceID": 7474,
+            "PlaceName": "UHG - Morumbi (26/06)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-04T10:15:54",
+            "AuditLastUpdatedDate": "2019-06-04T10:31:18"
+        },
+        {
+            "PlaceID": 7475,
+            "PlaceName": "UHG - Morumbi (27/06)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-04T10:22:38",
+            "AuditLastUpdatedDate": "2019-06-04T10:31:46"
+        },
+        {
+            "PlaceID": 7476,
+            "PlaceName": "UHG - Morumbi (28/06)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-06-04T10:29:27",
+            "AuditLastUpdatedDate": "2019-06-04T11:53:06"
+        },
+        {
+            "PlaceID": 7575,
+            "PlaceName": "UHG Morumbi - (28/06)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-04T11:55:18",
+            "AuditLastUpdatedDate": "2019-06-04T11:57:09"
+        },
+        {
+            "PlaceID": 7576,
+            "PlaceName": "Next Promoção a Saúde",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-04T19:04:31",
+            "AuditLastUpdatedDate": "2019-06-04T19:05:04"
+        },
+        {
+            "PlaceID": 7676,
+            "PlaceName": "Hospital Pitangueiras - SOBAM",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-05T14:13:20",
+            "AuditLastUpdatedDate": "2019-06-05T14:15:10"
+        },
+        {
+            "PlaceID": 7777,
+            "PlaceName": "NEXT SANTO AMARO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-06T10:22:13",
+            "AuditLastUpdatedDate": "2019-06-06T10:23:01"
+        },
+        {
+            "PlaceID": 7878,
+            "PlaceName": "UHG MORUMBI - TORRE A - AUDITÓRIO - 1° ANDAR",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-07T15:11:27",
+            "AuditLastUpdatedDate": "2019-06-07T15:13:02"
+        },
+        {
+            "PlaceID": 7979,
+            "PlaceName": "ITR TREINAMENTOS",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-10T10:27:12",
+            "AuditLastUpdatedDate": "2019-06-10T10:33:00"
+        },
+        {
+            "PlaceID": 8080,
+            "PlaceName": "AES Mogi das Cruzes",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-17T10:40:18",
+            "AuditLastUpdatedDate": "2019-06-17T10:43:02"
+        },
+        {
+            "PlaceID": 8181,
+            "PlaceName": "NEXT SAO BERNARDO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-17T11:07:21",
+            "AuditLastUpdatedDate": "2019-08-08T10:31:58"
+        },
+        {
+            "PlaceID": 8282,
+            "PlaceName": "NEXT BUTANTA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-19T17:19:43",
+            "AuditLastUpdatedDate": "2019-06-19T17:20:43"
+        },
+        {
+            "PlaceID": 8383,
+            "PlaceName": "NEXT CLÍNICA MULHER",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-21T16:37:38",
+            "AuditLastUpdatedDate": "2019-06-21T16:38:04"
+        },
+        {
+            "PlaceID": 8484,
+            "PlaceName": "AUDITORIO JOSÉ ADEMAR",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-25T08:53:04",
+            "AuditLastUpdatedDate": "2019-06-25T08:53:46"
+        },
+        {
+            "PlaceID": 8585,
+            "PlaceName": "UHG MORUMBI - TORRE B - AUDITÓRIO - 6° ANDAR - SALA 001",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-25T14:29:48",
+            "AuditLastUpdatedDate": "2019-11-08T14:08:08"
+        },
+        {
+            "PlaceID": 8586,
+            "PlaceName": "UHG MORUMBI - TORRE B - SALAS 08 e 09 - 20° ANDAR",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-25T14:34:25",
+            "AuditLastUpdatedDate": "2019-06-25T14:35:39"
+        },
+        {
+            "PlaceID": 8587,
+            "PlaceName": "BARRA RJ - 6° ANDAR - SALA 04",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-25T14:43:50",
+            "AuditLastUpdatedDate": "2019-06-25T14:46:48"
+        },
+        {
+            "PlaceID": 8588,
+            "PlaceName": "Será informado posteriormente",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-25T16:04:49",
+            "AuditLastUpdatedDate": "2019-06-25T16:04:49"
+        },
+        {
+            "PlaceID": 8686,
+            "PlaceName": "Ez Tower",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-27T17:24:24",
+            "AuditLastUpdatedDate": "2019-06-27T17:25:05"
+        },
+        {
+            "PlaceID": 8787,
+            "PlaceName": "Amil - Rio de Janeiro 2",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-06-27T18:04:28",
+            "AuditLastUpdatedDate": "2019-06-27T18:05:20"
+        },
+        {
+            "PlaceID": 8888,
+            "PlaceName": "PS BEATRIX",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-02T16:08:26",
+            "AuditLastUpdatedDate": "2019-07-02T16:12:58"
+        },
+        {
+            "PlaceID": 8889,
+            "PlaceName": "ANA COSTA  P.A. PRAIA GRANDE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-02T16:09:57",
+            "AuditLastUpdatedDate": "2019-08-26T09:41:59"
+        },
+        {
+            "PlaceID": 8890,
+            "PlaceName": "ANA COSTA - PS Presidente Wilson",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-02T16:10:57",
+            "AuditLastUpdatedDate": "2019-11-04T11:21:29"
+        },
+        {
+            "PlaceID": 8891,
+            "PlaceName": "PS CUBATÃO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-02T16:14:19",
+            "AuditLastUpdatedDate": "2019-07-02T16:14:54"
+        },
+        {
+            "PlaceID": 8892,
+            "PlaceName": "ANA COSTA  P.A. GUARUJÁ (ENSEADA) ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-02T16:15:19",
+            "AuditLastUpdatedDate": "2019-08-30T09:08:31"
+        },
+        {
+            "PlaceID": 8893,
+            "PlaceName": "UHG MORUMBI - TORRE B - SALA 3 e 4 - 6° ANDAR",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-02T17:37:25",
+            "AuditLastUpdatedDate": "2019-12-19T15:41:43"
+        },
+        {
+            "PlaceID": 8989,
+            "PlaceName": "PS WASHINGTON LUIZ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-03T08:42:04",
+            "AuditLastUpdatedDate": "2019-07-03T08:42:04"
+        },
+        {
+            "PlaceID": 8990,
+            "PlaceName": "SANTA HELENA - MAUÁ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-03T14:33:49",
+            "AuditLastUpdatedDate": "2019-07-03T14:33:49"
+        },
+        {
+            "PlaceID": 8991,
+            "PlaceName": "SHAM - SÃO CAETANO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-03T14:46:33",
+            "AuditLastUpdatedDate": "2019-09-18T08:28:46"
+        },
+        {
+            "PlaceID": 8992,
+            "PlaceName": "JEFFERSON_TESTE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-07-03T14:54:54",
+            "AuditLastUpdatedDate": "2019-07-03T14:59:00"
+        },
+        {
+            "PlaceID": 8993,
+            "PlaceName": "Ana teste",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-03T14:54:55",
+            "AuditLastUpdatedDate": "2019-07-03T14:54:55"
+        },
+        {
+            "PlaceID": 8994,
+            "PlaceName": "SHAM - SANTO ANDRE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-03T15:06:08",
+            "AuditLastUpdatedDate": "2019-07-03T15:06:08"
+        },
+        {
+            "PlaceID": 9090,
+            "PlaceName": "Hospital Promater - Sala de Treinamentos (1º andar) ",
+            "PlaceStatusID": 2122,
+            "PlaceStatus_Identifier": "INACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-05T08:43:14",
+            "AuditLastUpdatedDate": "2021-10-06T10:31:19"
+        },
+        {
+            "PlaceID": 9191,
+            "PlaceName": "Ka solution - Botafogo",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-23T09:45:05",
+            "AuditLastUpdatedDate": "2019-07-23T09:48:41"
+        },
+        {
+            "PlaceID": 9292,
+            "PlaceName": "HOSPITAL DAS CLINICAS DA FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-07-31T07:49:25",
+            "AuditLastUpdatedDate": "2019-07-31T07:51:38"
+        },
+        {
+            "PlaceID": 9393,
+            "PlaceName": "DAVITA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-02T13:49:41",
+            "AuditLastUpdatedDate": "2019-08-02T13:50:24"
+        },
+        {
+            "PlaceID": 9494,
+            "PlaceName": "Faculdade",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-05T10:27:56",
+            "AuditLastUpdatedDate": "2019-08-05T10:27:56"
+        },
+        {
+            "PlaceID": 9595,
+            "PlaceName": "Hotel Renaissance SP",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-05T11:21:01",
+            "AuditLastUpdatedDate": "2019-08-05T11:24:07"
+        },
+        {
+            "PlaceID": 9696,
+            "PlaceName": "NEXT SAO BERNARDO",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-08T10:22:04",
+            "AuditLastUpdatedDate": "2021-07-29T15:59:22"
+        },
+        {
+            "PlaceID": 9797,
+            "PlaceName": "SHAM - CM 22",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2019-08-20T08:39:39",
+            "AuditLastUpdatedDate": "2019-08-20T08:43:33"
+        },
+        {
+            "PlaceID": 9898,
+            "PlaceName": "SEDE MORUMBI - 23º ANDAR",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-27T10:12:35",
+            "AuditLastUpdatedDate": "2019-08-27T10:16:02"
+        },
+        {
+            "PlaceID": 9899,
+            "PlaceName": "PARANÁ - Universidade de Vendas",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-27T16:51:14",
+            "AuditLastUpdatedDate": "2019-08-27T16:52:05"
+        },
+        {
+            "PlaceID": 9900,
+            "PlaceName": "BRASÍLIA - Universidade de Vendas",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-27T16:53:03",
+            "AuditLastUpdatedDate": "2019-08-27T16:54:16"
+        },
+        {
+            "PlaceID": 9999,
+            "PlaceName": "Hospital Samaritano - Higienópolis ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-08-28T14:51:17",
+            "AuditLastUpdatedDate": "2019-08-28T15:23:08"
+        },
+        {
+            "PlaceID": 10100,
+            "PlaceName": "Farmacoi",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-03T15:04:58",
+            "AuditLastUpdatedDate": "2019-09-03T15:07:48"
+        },
+        {
+            "PlaceID": 10201,
+            "PlaceName": "Consultório Integrado – Consulta Carioca",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-09T14:50:42",
+            "AuditLastUpdatedDate": "2019-09-09T14:51:14"
+        },
+        {
+            "PlaceID": 10202,
+            "PlaceName": "In Company – Tribunal Judiciário RJ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-09T14:52:30",
+            "AuditLastUpdatedDate": "2019-09-09T14:53:03"
+        },
+        {
+            "PlaceID": 10302,
+            "PlaceName": "NUCLEO DE EDUCAÇÃO EM URGÊNCIA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-13T10:38:32",
+            "AuditLastUpdatedDate": "2019-09-13T10:38:32"
+        },
+        {
+            "PlaceID": 10403,
+            "PlaceName": "Amil uv Minas Gerais",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-16T13:19:47",
+            "AuditLastUpdatedDate": "2019-09-16T13:20:25"
+        },
+        {
+            "PlaceID": 10404,
+            "PlaceName": "Amil uv Olinda",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-16T13:30:22",
+            "AuditLastUpdatedDate": "2019-09-16T13:30:53"
+        },
+        {
+            "PlaceID": 10504,
+            "PlaceName": "UHG MORUMBI SALA 007",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-17T15:28:19",
+            "AuditLastUpdatedDate": "2019-09-17T15:29:39"
+        },
+        {
+            "PlaceID": 10605,
+            "PlaceName": "UHG MORUMBI SALA 040",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-17T15:39:01",
+            "AuditLastUpdatedDate": "2019-09-17T15:39:43"
+        },
+        {
+            "PlaceID": 10706,
+            "PlaceName": "UHG MORUMBI - Sala 9 - 20º andar",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-18T19:03:01",
+            "AuditLastUpdatedDate": "2019-09-18T19:06:43"
+        },
+        {
+            "PlaceID": 10807,
+            "PlaceName": "VIA WEBEX ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-19T19:02:11",
+            "AuditLastUpdatedDate": "2019-09-19T19:03:33"
+        },
+        {
+            "PlaceID": 10908,
+            "PlaceName": "HOSPITAL E MATERNIDADE SANTA HELENA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-20T09:07:48",
+            "AuditLastUpdatedDate": "2019-09-20T09:09:10"
+        },
+        {
+            "PlaceID": 11009,
+            "PlaceName": "UHG Morumbi - 20º andar - Sala 9",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-24T14:37:05",
+            "AuditLastUpdatedDate": "2019-09-24T14:37:50"
+        },
+        {
+            "PlaceID": 11110,
+            "PlaceName": "Treinamento via Webex",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-24T18:57:56",
+            "AuditLastUpdatedDate": "2019-09-24T18:57:56"
+        },
+        {
+            "PlaceID": 11211,
+            "PlaceName": "UHG Morumbi -  Sala C - 17º andar",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-24T20:13:10",
+            "AuditLastUpdatedDate": "2019-09-24T20:13:42"
+        },
+        {
+            "PlaceID": 11312,
+            "PlaceName": "EAD",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-25T14:06:41",
+            "AuditLastUpdatedDate": "2019-09-25T14:06:41"
+        },
+        {
+            "PlaceID": 11313,
+            "PlaceName": "UHG Morumbi - 14º andar - Sala 002",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-25T15:09:03",
+            "AuditLastUpdatedDate": "2019-09-25T15:09:21"
+        },
+        {
+            "PlaceID": 11413,
+            "PlaceName": "AES MORUMBI",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-09-26T14:04:45",
+            "AuditLastUpdatedDate": "2019-09-26T14:05:26"
+        },
+        {
+            "PlaceID": 11514,
+            "PlaceName": "Senescente",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-02T09:10:36",
+            "AuditLastUpdatedDate": "2019-10-02T09:11:44"
+        },
+        {
+            "PlaceID": 11515,
+            "PlaceName": "Interne",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-02T09:12:21",
+            "AuditLastUpdatedDate": "2019-10-02T09:12:21"
+        },
+        {
+            "PlaceID": 11615,
+            "PlaceName": "E-LEARNING",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-03T09:57:17",
+            "AuditLastUpdatedDate": "2019-10-03T09:57:59"
+        },
+        {
+            "PlaceID": 11716,
+            "PlaceName": "Webex_Compartilhando Conhecimento",
+            "PlaceStatusID": 2122,
+            "PlaceStatus_Identifier": "INACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-09T08:54:56",
+            "AuditLastUpdatedDate": "2019-10-24T11:20:55"
+        },
+        {
+            "PlaceID": 11717,
+            "PlaceName": "AMBULATÓRIO SÃO VICENTE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-09T09:55:54",
+            "AuditLastUpdatedDate": "2019-10-09T09:58:40"
+        },
+        {
+            "PlaceID": 11817,
+            "PlaceName": "SHAM - MAUÁ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-11T13:38:18",
+            "AuditLastUpdatedDate": "2019-10-11T13:41:14"
+        },
+        {
+            "PlaceID": 11918,
+            "PlaceName": "SHAM - GUAPITUBA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-11T14:58:26",
+            "AuditLastUpdatedDate": "2019-10-11T15:00:35"
+        },
+        {
+            "PlaceID": 12019,
+            "PlaceName": "SHAM - RIBEIRÃO PIRES",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-22T15:01:20",
+            "AuditLastUpdatedDate": "2019-10-22T15:02:34"
+        },
+        {
+            "PlaceID": 12120,
+            "PlaceName": "Webex - Compartilhando Conhecimento",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-23T16:09:56",
+            "AuditLastUpdatedDate": "2019-10-23T16:13:56"
+        },
+        {
+            "PlaceID": 12221,
+            "PlaceName": "VISTA GUANABARA - RJ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-10-25T14:36:48",
+            "AuditLastUpdatedDate": "2019-10-25T14:37:48"
+        },
+        {
+            "PlaceID": 12322,
+            "PlaceName": "UHG MORUMBI - TORRE B ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-11-05T11:38:17",
+            "AuditLastUpdatedDate": "2019-12-06T08:24:44"
+        },
+        {
+            "PlaceID": 12423,
+            "PlaceName": "VISTA GUANABARA - 5° ANDAR - SALA 20 ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-11-05T10:46:51",
+            "AuditLastUpdatedDate": "2019-11-05T11:47:26"
+        },
+        {
+            "PlaceID": 12524,
+            "PlaceName": "Air Liquid",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2019-12-03T11:12:44",
+            "AuditLastUpdatedDate": "2019-12-03T11:14:13"
+        },
+        {
+            "PlaceID": 12625,
+            "PlaceName": "OMNI BRASÍLIA - BRASÍLIA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-01-06T15:23:19",
+            "AuditLastUpdatedDate": "2020-01-06T15:24:08"
+        },
+        {
+            "PlaceID": 12726,
+            "PlaceName": "INCOR",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-01-15T14:22:49",
+            "AuditLastUpdatedDate": "2020-01-15T14:23:49"
+        },
+        {
+            "PlaceID": 12827,
+            "PlaceName": "Sala 01, 5° andar, Vista Guanabara",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-01-17T11:49:44",
+            "AuditLastUpdatedDate": "2020-01-17T11:50:32"
+        },
+        {
+            "PlaceID": 12928,
+            "PlaceName": "sala 10, 20° andar, EZ Tower",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-01-17T12:16:12",
+            "AuditLastUpdatedDate": "2020-01-17T12:16:41"
+        },
+        {
+            "PlaceID": 13029,
+            "PlaceName": "Itaquá",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-02-12T08:15:55",
+            "AuditLastUpdatedDate": "2020-02-12T08:18:39"
+        },
+        {
+            "PlaceID": 13130,
+            "PlaceName": "Centro de Especialidades Sobam II Pediatria",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-03-02T11:26:07",
+            "AuditLastUpdatedDate": "2020-03-02T11:27:32"
+        },
+        {
+            "PlaceID": 13231,
+            "PlaceName": "TESTE DAIANE - Rua Heitor Penteado - Jardim Aclimação",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-03-04T18:47:34",
+            "AuditLastUpdatedDate": "2020-03-04T18:57:58"
+        },
+        {
+            "PlaceID": 13332,
+            "PlaceName": "Consultório Integrado Freguesia - RJ",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-03-05T08:16:53",
+            "AuditLastUpdatedDate": "2020-03-05T08:16:53"
+        },
+        {
+            "PlaceID": 13433,
+            "PlaceName": "Consultório Integrado Amparo - Campinas",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-03-05T16:17:01",
+            "AuditLastUpdatedDate": "2020-03-05T16:18:03"
+        },
+        {
+            "PlaceID": 13534,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:13",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:18"
+        },
+        {
+            "PlaceID": 13535,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:19",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:10"
+        },
+        {
+            "PlaceID": 13536,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:20",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:22"
+        },
+        {
+            "PlaceID": 13537,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:22",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:14"
+        },
+        {
+            "PlaceID": 13538,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:26",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:16"
+        },
+        {
+            "PlaceID": 13635,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:11",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:18"
+        },
+        {
+            "PlaceID": 13636,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:11",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:30"
+        },
+        {
+            "PlaceID": 13637,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:12",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:22"
+        },
+        {
+            "PlaceID": 13638,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:12",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:25"
+        },
+        {
+            "PlaceID": 13639,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:12",
+            "AuditLastUpdatedDate": "2020-05-15T11:06:28"
+        },
+        {
+            "PlaceID": 13640,
+            "PlaceName": "Emiliano Perneta, 480. Curitiba PR, Centro. (Optum)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2020-05-14T11:32:13",
+            "AuditLastUpdatedDate": "2020-05-15T11:08:11"
+        },
+        {
+            "PlaceID": 13736,
+            "PlaceName": "Optum Solutions do Brasil (Curitiba)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-05-15T11:09:04",
+            "AuditLastUpdatedDate": "2020-05-15T11:11:10"
+        },
+        {
+            "PlaceID": 13837,
+            "PlaceName": "POR TELEFONE",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-06-09T16:44:59",
+            "AuditLastUpdatedDate": "2020-06-10T07:55:31"
+        },
+        {
+            "PlaceID": 13938,
+            "PlaceName": "Videoconferência",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-06-25T16:25:03",
+            "AuditLastUpdatedDate": "2020-06-26T08:16:31"
+        },
+        {
+            "PlaceID": 14039,
+            "PlaceName": "Via Teams",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-06-29T14:37:03",
+            "AuditLastUpdatedDate": "2020-06-29T16:19:05"
+        },
+        {
+            "PlaceID": 14140,
+            "PlaceName": "Treinamento via Teams Microsoft",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2020-07-06T10:04:20",
+            "AuditLastUpdatedDate": "2020-07-06T10:05:25"
+        },
+        {
+            "PlaceID": 14241,
+            "PlaceName": "COI Tijuca",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2021-06-25T12:23:06",
+            "AuditLastUpdatedDate": "2021-06-25T12:23:43"
+        },
+        {
+            "PlaceID": 14342,
+            "PlaceName": "HOSPITAL SAMARITANO PAULISTA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2021-10-01T10:44:52",
+            "AuditLastUpdatedDate": "2021-10-01T10:46:16"
+        },
+        {
+            "PlaceID": 14443,
+            "PlaceName": "Amil Paraná",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2022-11-04T11:07:20",
+            "AuditLastUpdatedDate": "2022-11-04T11:08:04"
+        },
+        {
+            "PlaceID": 14544,
+            "PlaceName": "Amil Distrito Federal",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2022-11-04T11:08:41",
+            "AuditLastUpdatedDate": "2022-11-04T11:12:04"
+        },
+        {
+            "PlaceID": 14645,
+            "PlaceName": "Instituto RADIUM",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2023-04-26T10:57:30",
+            "AuditLastUpdatedDate": "2023-04-26T10:59:09"
+        },
+        {
+            "PlaceID": 14746,
+            "PlaceName": "Medicina Diagnostica Vitoria",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2023-09-05T14:24:26.900000",
+            "AuditLastUpdatedDate": "2023-09-05T14:25:37.027000"
+        },
+        {
+            "PlaceID": 14847,
+            "PlaceName": "Rua Barão de Tefé 34, Saúde – Auditório 1 Vista Guanabara (5º andar)",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2023-09-13T17:23:18.980000",
+            "AuditLastUpdatedDate": "2023-09-13T17:23:58.450000"
+        },
+        {
+            "PlaceID": 14948,
+            "PlaceName": "Laboratório - Alameda Santos",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2023-09-28T11:33:29.127000",
+            "AuditLastUpdatedDate": "2023-09-28T11:33:29.127000"
+        },
+        {
+            "PlaceID": 15049,
+            "PlaceName": "Eye Clinic - Avenida República do Líbano",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2023-11-14T16:34:32.883000",
+            "AuditLastUpdatedDate": "2023-11-14T16:35:37.163000"
+        },
+        {
+            "PlaceID": 15150,
+            "PlaceName": "HOSPITAL SAMARITANO PAULISTA",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": true,
+            "AuditCreatedDate": "2023-11-14T16:39:54.003000",
+            "AuditLastUpdatedDate": "2023-11-14T16:42:36.767000"
+        },
+        {
+            "PlaceID": 15251,
+            "PlaceName": "Morumbi - 7° andar",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2024-01-05T13:31:16.083000",
+            "AuditLastUpdatedDate": "2024-01-05T13:31:16.083000"
+        },
+        {
+            "PlaceID": 15252,
+            "PlaceName": "Morumbi - 7° andar",
+            "PlaceStatusID": 2020,
+            "PlaceStatus_Identifier": "ACTIVE",
+            "IsDeleted": false,
+            "AuditCreatedDate": "2024-01-05T13:31:17.150000",
+            "AuditLastUpdatedDate": "2024-01-05T13:31:17.150000"
+        }
+    ],
+    "metadata": {
+        "Page": 1,
+        "PageSize": 273,
+        "MaximumPageSize": 5000
+    }
+}

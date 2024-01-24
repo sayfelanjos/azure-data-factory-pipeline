@@ -1032,9 +1032,9 @@ CREATE TABLE [neolude].[videoviews](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='webmeeting'
+	WHERE s.name='neolude' and t.name='webmeetings'
 ) 
-CREATE TABLE [neolude].[webmeeting](
+CREATE TABLE [neolude].[webmeetings](
 	[WebMeetingID] [bigint] NULL,
 	[WebMeetingActivityID] [bigint] NULL,
 	[ModuleActivityTypeID] [bigint] NULL,

@@ -122,5 +122,8 @@ resource dataFactoryDataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06
     typeProperties: {
       tableName: '[neolude].[users]'
     }
+    folder: {
+      name: 'folderName'
+    }
   }
 }
