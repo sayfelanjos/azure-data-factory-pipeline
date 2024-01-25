@@ -12,9 +12,9 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '1.00:00:00'
-          retry: 2
-          retryIntervalInSeconds: 60
+          timeout: '2.00:00:00'
+          retry: 4
+          retryIntervalInSeconds: 180
           secureOutput: false
           secureInput: false
         }
