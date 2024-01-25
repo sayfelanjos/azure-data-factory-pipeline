@@ -433,9 +433,9 @@ CREATE TABLE [neolude].[exams](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
-	WHERE s.name='neolude' and t.name='examtaken'
+	WHERE s.name='neolude' and t.name='examtakens'
 ) 
-CREATE TABLE [neolude].[examtaken](
+CREATE TABLE [neolude].[examtakens](
 	[ExamTakenID] [bigint] NULL,
 	[IsDeleted] [bit] NULL,
 	[ExamID] [bigint] NULL,

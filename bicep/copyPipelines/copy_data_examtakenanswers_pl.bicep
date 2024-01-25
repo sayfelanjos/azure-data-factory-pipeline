@@ -14,7 +14,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         policy: {
           timeout: '1.0:00:00'
           retry: 2
-          retryIntervalInSeconds: 300
+          retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
         }

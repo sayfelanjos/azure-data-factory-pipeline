@@ -14,7 +14,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
         policy: {
           timeout: '1.00:00:00'
           retry: 2
-          retryIntervalInSeconds: 300
+          retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
         }
