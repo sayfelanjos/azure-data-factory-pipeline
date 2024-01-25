@@ -9,5 +9,5 @@ foreach ($pl in $pipelines) {
     Invoke-AzDataFactoryV2Pipeline `
         -DataFactoryName $dataFactoryName `
         -ResourceGroupName $resourceGroupName `
-        -PipelineName $pl.Name 
+        -PipelineName $pl.BaseName
 }
