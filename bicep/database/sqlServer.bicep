@@ -37,7 +37,7 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
     name: 'GP_S_Gen5'
     tier: 'GeneralPurpose'
     family: 'Gen5'
-    capacity: 1
+    capacity: 8
   }
 }
 
