@@ -1,8 +1,8 @@
 param dataFactoryName string
 
-var pipelineName = 'copy_data_coursepermissions_pl'
+var pipelineName = 'copy_data_examtakenanswers_pl'
 
-resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [
@@ -12,7 +12,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '1.00:00:00'
+          timeout: '1.0:00:00'
           retry: 2
           retryIntervalInSeconds: 30
           secureOutput: false
@@ -26,7 +26,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
             requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
-              'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
+              'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
               'EndCondition:$[\'data\']': 'Empty'
             }
           }
@@ -34,45 +34,97 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
             type: 'AzureSqlSink'
             writeBehavior: 'upsert'
             upsertSettings: {
-              useTempDB: false
-              interimSchemaName: 'neolude'
+              useTempDB: true
               keys: [
-                'UserID'
+                'ExamTakenID'
               ]
             }
             sqlWriterUseTableLock: true
             tableOption: 'autoCreate'
             disableMetricsCollection: false
           }
-          enableStaging: false
           translator: {
             type: 'TabularTranslator'
             mappings: [
               {
                 source: {
-                  path: 'UserID'
+                  path: 'Identifier'
                 }
                 sink: {
-                  name: 'UserID'
+                  name: 'Identifier'
+                  type: 'String'
+                }
+              }
+              {
+                source: {
+                  path: 'IsDeleted'
+                }
+                sink: {
+                  name: 'IsDeleted'
+                  type: 'Boolean'
+                }
+              }
+              {
+                source: {
+                  path: 'ExamTakenID'
+                }
+                sink: {
+                  name: 'ExamTakenID'
                   type: 'Int64'
                 }
               }
               {
                 source: {
-                  path: 'CourseID'
+                  path: 'QuestionID'
                 }
                 sink: {
-                  name: 'CourseID'
+                  name: 'QuestionID'
                   type: 'Int64'
                 }
               }
               {
                 source: {
-                  path: 'CoursePermissionLevelID'
+                  path: 'Grade'
                 }
                 sink: {
-                  name: 'CoursePermissionLevelID'
-                  type: 'Int64'
+                  name: 'Grade'
+                  type: 'Double'
+                }
+              }
+              {
+                source: {
+                  path: 'Answer'
+                }
+                sink: {
+                  name: 'Answer'
+                  type: 'String'
+                }
+              }
+              {
+                source: {
+                  path: 'IsCorrect'
+                }
+                sink: {
+                  name: 'IsCorrect'
+                  type: 'Boolean'
+                }
+              }
+              {
+                source: {
+                  path: 'AuditCreatedDate'
+                }
+                sink: {
+                  name: 'AuditCreatedDate'
+                  type: 'String'
+                }
+              }
+              {
+                source: {
+                  path: 'AuditLastUpdatedDate'
+                }
+                sink: {
+                  name: 'AuditLastUpdatedDate'
+                  type: 'String'
                 }
               }
               {
@@ -109,13 +161,13 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
         }
         inputs: [
           {
-            referenceName: 'coursepermissions_ep'
+            referenceName: 'examtakenanswers_ep'
             type: 'DatasetReference'
           }
         ]
         outputs: [
           {
-            referenceName: 'coursepermissions_tb'
+            referenceName: 'examtakenanswers_tb'
             type: 'DatasetReference'
           }
         ]

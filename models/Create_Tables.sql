@@ -150,6 +150,22 @@ CREATE TABLE [neolude].[certifications](
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
+	WHERE s.name='neolude' and t.name='certificationpermissions'
+) 
+CREATE TABLE [neolude].[certificationpermissions](
+	[CertificationID] [bigint] NULL,
+	[UserID] [bigint] NULL,
+	[CourseID] [bigint] NULL,
+	[GranteDate] [nvarchar](max) NULL,
+	[ExpirationDate] [nvarchar](max) NULL,
+	[Status] [nvarchar](max) NULL,
+	[Page] [bigint] NULL,
+	[PageSize] [bigint] NULL,
+	[MaximumPageSize] [bigint] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+
+IF NOT EXISTS (
+	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
 	WHERE s.name='neolude' and t.name='componentactivities'
 ) 
 CREATE TABLE [neolude].[componentactivities](
@@ -433,6 +449,25 @@ CREATE TABLE [neolude].[examtaken](
 	[CompletionDate] [datetimeoffset](7) NULL,
 	[Locked] [bit] NULL,
 	[CreatedByLock] [bit] NULL,
+	[AuditCreatedDate] [nvarchar](max) NULL,
+	[AuditLastUpdatedDate] [nvarchar](max) NULL,
+	[Page] [bigint] NULL,
+	[PageSize] [bigint] NULL,
+	[MaximumPageSize] [bigint] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+
+IF NOT EXISTS (
+	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
+	WHERE s.name='neolude' and t.name='examtakenanswers'
+) 
+CREATE TABLE [neolude].[examtakenanswers](
+	[Identifier] [nvarchar](max) NULL,
+	[IsDeleted] [bit] NULL,
+	[ExamTakenID] [bigint] NULL,
+	[QuestionID] [bigint] NULL,
+	[Grade] [float] NULL,
+	[Answer] [nvarchar](max) NULL,
+	[IsCorrect] [bit] NULL,
 	[AuditCreatedDate] [nvarchar](max) NULL,
 	[AuditLastUpdatedDate] [nvarchar](max) NULL,
 	[Page] [bigint] NULL,

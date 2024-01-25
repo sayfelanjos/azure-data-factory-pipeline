@@ -1,8 +1,8 @@
 param dataFactoryName string
 
-var pipelineName = 'copy_data_coursepermissions_pl'
+var pipelineName = 'copy_data_certificationpermissions_pl'
 
-resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [
@@ -37,17 +37,25 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
               useTempDB: false
               interimSchemaName: 'neolude'
               keys: [
-                'UserID'
+                'CertificationID'
               ]
             }
             sqlWriterUseTableLock: true
             tableOption: 'autoCreate'
             disableMetricsCollection: false
           }
-          enableStaging: false
           translator: {
             type: 'TabularTranslator'
             mappings: [
+              {
+                source: {
+                  path: 'CertificationID'
+                }
+                sink: {
+                  name: 'CertificationID'
+                  type: 'Int64'
+                }
+              }
               {
                 source: {
                   path: 'UserID'
@@ -68,11 +76,29 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
               }
               {
                 source: {
-                  path: 'CoursePermissionLevelID'
+                  path: 'GrantedDate'
                 }
                 sink: {
-                  name: 'CoursePermissionLevelID'
-                  type: 'Int64'
+                  name: 'GrantedDate'
+                  type: 'String'
+                }
+              }
+              {
+                source: {
+                  path: 'ExpirationDate'
+                }
+                sink: {
+                  name: 'ExpirationDate'
+                  type: 'String'
+                }
+              }
+              {
+                source: {
+                  path: 'Status'
+                }
+                sink: {
+                  name: 'Status'
+                  type: 'String'
                 }
               }
               {
@@ -109,13 +135,13 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
         }
         inputs: [
           {
-            referenceName: 'coursepermissions_ep'
+            referenceName: 'certificationpermissions_ep'
             type: 'DatasetReference'
           }
         ]
         outputs: [
           {
-            referenceName: 'coursepermissions_tb'
+            referenceName: 'certificationpermissions_tb'
             type: 'DatasetReference'
           }
         ]
