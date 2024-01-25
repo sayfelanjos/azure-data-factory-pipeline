@@ -13,7 +13,7 @@ resource videoviews_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
         dependsOn: []
         policy: {
           timeout: '1.00:00:00'
-          retry: 5
+          retry: 2
           retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false

@@ -154,7 +154,6 @@ stages:
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'  
-
   - stage: 'StartingAzureDataFactoryPipeline'
     displayName: 'Start Azure Data Factory Pipeline'
     dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
@@ -162,27 +161,43 @@ stages:
       name: '$(agentPool)'
       vmImage: 'windows-latest'
     jobs:
-      - job: 'CreateTrigger'
+      - job: 'RunPipelines'
         steps:
           - task: AzurePowerShell@5
             inputs:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\triggers-deployment.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
-      - job: 'StopTrigger'
-        dependsOn: 'CreateTrigger'
-        steps:
-          - task: PowerShell@2
-            inputs:
-              targetType: 'inline'
-              script: |
-                'Start-Sleep -Seconds 150'
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: '$(servicePrincipalConnection)'
-              azurePowerShellVersion: latestVersion
-              ScriptType: 'FilePath'
-              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\stop-triggers.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'     
+  # - stage: 'StartingAzureDataFactoryPipeline'
+  #   displayName: 'Start Azure Data Factory Pipeline'
+  #   dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
+  #   pool:
+  #     name: '$(agentPool)'
+  #     vmImage: 'windows-latest'
+  #   jobs:
+  #     - job: 'CreateTrigger'
+  #       steps:
+  #         - task: AzurePowerShell@5
+  #           inputs:
+  #             azureSubscription: '$(servicePrincipalConnection)'
+  #             azurePowerShellVersion: latestVersion
+  #             ScriptType: 'FilePath'
+  #             ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\triggers-deployment.ps1'
+  #             ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
+      # - job: 'StopTrigger'
+      #   dependsOn: 'CreateTrigger'
+      #   steps:
+      #     - task: PowerShell@2
+      #       inputs:
+      #         targetType: 'inline'
+      #         script: |
+      #           'Start-Sleep -Seconds 150'
+      #     - task: AzurePowerShell@5
+      #       inputs:
+      #         azureSubscription: '$(servicePrincipalConnection)'
+      #         azurePowerShellVersion: latestVersion
+      #         ScriptType: 'FilePath'
+      #         ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\stop-triggers.ps1'
+      #         ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'     
