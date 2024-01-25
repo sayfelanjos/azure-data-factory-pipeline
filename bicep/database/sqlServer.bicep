@@ -32,6 +32,7 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   properties: {
     maxSizeBytes: 214748364800
     minCapacity: 1
+    requestedBackupStorageRedundancy: 'Zone'
   }
   sku: {
     name: 'GP_S_Gen5'
