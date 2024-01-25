@@ -839,7 +839,7 @@ resource contents_pl_2 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
               ]
               outputs: [
                 {
-                  referenceName: 'webmeeting_tb'
+                  referenceName: 'webmeetings_tb'
                   type: 'DatasetReference'
                 }
               ]
