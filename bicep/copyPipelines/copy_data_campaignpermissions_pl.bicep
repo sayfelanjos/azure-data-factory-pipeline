@@ -20,7 +20,6 @@ resource campaignpermissions_pipeline 'Microsoft.DataFactory/factories/pipelines
         }
         userProperties: []
         typeProperties: {
-          // parallelCopies: 1
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:01:40'
@@ -34,7 +33,6 @@ resource campaignpermissions_pipeline 'Microsoft.DataFactory/factories/pipelines
           sink: {
             type: 'AzureSqlSink'
             writeBehavior: 'upsert'
-            // maxConcurrentConnections: 2
             upsertSettings: {
               useTempDB: false
               interimSchemaName: 'neolude'
