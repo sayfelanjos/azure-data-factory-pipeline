@@ -17,7 +17,7 @@ resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: '/webmeetings'
+            relativeUrl: '/webmeetings?page={pagina}&page_size=5000'
         }
         folder: {
             name: 'rest_endpoints'

@@ -17,7 +17,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: '/medialibrarypermissions'
+            relativeUrl: '/medialibrarypermissions?page={pagina}&page_size=5000'
         }
         folder: {
             name: 'rest_endpoints'
