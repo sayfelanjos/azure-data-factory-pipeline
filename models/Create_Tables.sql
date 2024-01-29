@@ -1109,7 +1109,7 @@ CREATE TABLE [neolude].[teste_cursos](
 	[Page] [bigint] NULL,
 	[PageSize] [bigint] NULL,
 	[MaximumPageSize] [bigint] NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]; 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
 
 IF NOT EXISTS (
 	SELECT * FROM sys.tables t JOIN sys.schemas s ON (t.schema_id = s.schema_id) 

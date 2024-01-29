@@ -42,11 +42,20 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   }
 }
 
-resource sqlAllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
-  name: 'AllowAllWindowsAzureIps'
+resource sqlAllowAllInternalAzureIps 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+  name: 'AllowAllInternalAzureIps'
   parent: sqlServer
   properties: {
     startIpAddress: '0.0.0.0'
     endIpAddress: '0.0.0.0'
+  }
+}
+
+resource sqlAllowExternalIp 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+  name: 'AllowExternalIp'
+  parent: sqlServer
+  properties: {
+    startIpAddress: '187.106.33.56'
+    endIpAddress: '187.106.33.56'
   }
 }

@@ -22,5 +22,4 @@ CREATE TABLE [neolude].[dbo.users](
 	[company_name] [NVARCHAR](MAX) NULL,
 	[company_catch_phrase] [NVARCHAR](MAX) NULL,
 	[company_bs] [NVARCHAR](MAX) NULL
-
 )
