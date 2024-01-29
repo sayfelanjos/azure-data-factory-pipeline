@@ -51,11 +51,29 @@ resource sqlAllowAllInternalAzureIps 'Microsoft.Sql/servers/firewallRules@2023-0
   }
 }
 
-resource sqlAllowExternalIp 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
-  name: 'AllowExternalIp'
+resource sqlAllowSaymonWindowsDesktoplIp 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+  name: 'AllowSaymonWindowsDesktoplIp'
   parent: sqlServer
   properties: {
     startIpAddress: '187.106.33.56'
     endIpAddress: '187.106.33.56'
+  }
+}
+
+resource sqlAllowSaymonWindowsLaptopIpExternalIp 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+  name: 'AllowSaymonWindowsLaptopIpIp'
+  parent: sqlServer
+  properties: {
+    startIpAddress: '192.168.15.26'
+    endIpAddress: '192.168.15.26'
+  }
+}
+
+resource sqlAllowGlaucolIp 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+  name: 'AllowGlaucoIp'
+  parent: sqlServer
+  properties: {
+    startIpAddress: '189.121.201.218'
+    endIpAddress: '189.121.201.218'
   }
 }
