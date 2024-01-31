@@ -22,8 +22,8 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:01:40'
-            requestInterval: '00.00:00:00.010'
+            httpRequestTimeout: '00:05:00'
+            requestInterval: '00.00:01:00'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
