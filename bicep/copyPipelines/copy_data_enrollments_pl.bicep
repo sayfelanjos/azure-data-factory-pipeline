@@ -12,8 +12,8 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '2.00:00:00'
-          retry: 4
+          timeout: '00.12:00:00'
+          retry: 2
           retryIntervalInSeconds: 180
           secureOutput: false
           secureInput: false
@@ -22,8 +22,8 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:01:00'
+            httpRequestTimeout: '00:01:40'
+            requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
@@ -236,6 +236,12 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
           {
             referenceName: 'enrollments_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                type: 'Expression'
+                value: 'enrollments?page={pagina}&page_size=5000'
+              }
+            }
           }
         ]
         outputs: [

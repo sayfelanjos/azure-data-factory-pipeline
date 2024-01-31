@@ -12,8 +12,8 @@ resource coursestags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '2.00:00:00'
-          retry: 4
+          timeout: '00.12:00:00'
+          retry: 2
           retryIntervalInSeconds: 180
           secureOutput: false
           secureInput: false
@@ -101,6 +101,12 @@ resource coursestags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
           {
             referenceName: 'coursetags_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                type: 'Expression'
+                value: 'coursetags?page={pagina}&page_size=5000'
+              }
+            }
           }
         ]
         outputs: [

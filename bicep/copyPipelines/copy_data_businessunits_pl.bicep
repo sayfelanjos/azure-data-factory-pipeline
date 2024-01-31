@@ -12,8 +12,8 @@ resource businessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '2.00:00:00'
-          retry: 4
+          timeout: '00.12:00:00'
+          retry: 2
           retryIntervalInSeconds: 180
           secureOutput: false
           secureInput: false
@@ -182,6 +182,12 @@ resource businessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
           {
             referenceName: 'businessunits_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                type: 'Expression'
+                value: '/businessunits?page={pagina}&page_size=5000'
+              }
+            }
           }
         ]
         outputs: [

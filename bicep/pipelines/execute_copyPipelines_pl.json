@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.24.24.22086",
+      "templateHash": "867477774454756356"
+    }
+  },
+  "parameters": {
+    "pipelineName": {
+      "type": "string"
+    },
+    "dataFactoryName": {
+      "type": "string",
+      "metadata": {
+        "description": "Data Factory Name"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DataFactory/factories/pipelines",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', parameters('dataFactoryName'), parameters('pipelineName'))]",
+      "properties": {
+        "activities": [],
+        "annotations": []
+      }
+    }
+  ]
+}
