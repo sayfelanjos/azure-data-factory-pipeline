@@ -17,7 +17,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: '/audios?page={pagina}&page_size=5000'
+            relativeUrl: '@dataset().SetApiName'
         }
         folder: {
             name: 'rest_endpoints'

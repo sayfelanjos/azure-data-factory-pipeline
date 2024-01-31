@@ -12,8 +12,8 @@ resource medialibraryhtmlviews_pipeline 'Microsoft.DataFactory/factories/pipelin
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '2.00:00:00'
-          retry: 4
+          timeout: '00.12:00:00'
+          retry: 2
           retryIntervalInSeconds: 180
           secureOutput: false
           secureInput: false
@@ -146,6 +146,12 @@ resource medialibraryhtmlviews_pipeline 'Microsoft.DataFactory/factories/pipelin
           {
             referenceName: 'medialibraryhtmlviews_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                type: 'Expression'
+                value: 'medialibraryhtmlviews?page={pagina}&page_size=5000'
+              }
+            }
           }
         ]
         outputs: [

@@ -11,7 +11,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
 }
 
 resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
-  name: 'copy_data_examtaken_tgr'
+  name: 'copy_data_examtakens_tgr'
   parent: dataFactory
   properties: {
     type: 'ScheduleTrigger'
@@ -19,7 +19,7 @@ resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
       {
         parameters: {}
         pipelineReference: {
-          referenceName: 'copy_data_examtaken_pl'
+          referenceName: 'copy_data_examtakens_pl'
           type: 'PipelineReference'
         }
       }

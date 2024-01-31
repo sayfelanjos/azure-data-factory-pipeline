@@ -12,8 +12,8 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '2.00:00:00'
-          retry: 4
+          timeout: '00.12:00:00'
+          retry: 2
           retryIntervalInSeconds: 180
           secureOutput: false
           secureInput: false
@@ -22,7 +22,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:10:00'
+            httpRequestTimeout: '00:01:40'
             requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
@@ -317,6 +317,12 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
           {
             referenceName: 'componentactivities_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                type: 'Expression'
+                value: 'componentactivities?page={pagina}&page_size=5000'
+              }
+            }
           }
         ]
         outputs: [

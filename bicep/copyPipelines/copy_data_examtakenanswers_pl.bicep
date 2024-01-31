@@ -12,7 +12,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '1.0:00:00'
+          timeout: '00.12:00:00'
           retry: 2
           retryIntervalInSeconds: 60
           secureOutput: false
@@ -163,6 +163,12 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
           {
             referenceName: 'examtakenanswers_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                type: 'Expression'
+                value: 'examtakenanswers?page={pagina}&page_size=5000'
+              }
+            }
           }
         ]
         outputs: [
