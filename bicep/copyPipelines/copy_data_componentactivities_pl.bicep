@@ -14,7 +14,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
         policy: {
           timeout: '00.12:00:00'
           retry: 2
-          retryIntervalInSeconds: 180
+          retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
         }
@@ -320,7 +320,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
             parameters: {
               SetApiName: {
                 type: 'Expression'
-                value: 'componentactivities?page={pagina}&page_size=5000'
+                value: 'componentactivities?page={pagina}&page_size=5000&update_start_date=2022-01-01'
               }
             }
           }

@@ -14,7 +14,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
         policy: {
           timeout: '00.12:00:00'
           retry: 2
-          retryIntervalInSeconds: 180
+          retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
         }
@@ -22,8 +22,8 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:01:00'
+            httpRequestTimeout: '00:01:40'
+            requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
@@ -149,7 +149,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
             parameters: {
               SetApiName: {
                 type: 'Expression'
-                value: '/audios?page={pagina}&page_size=5000'
+                value: '/audios?page={pagina}&page_size=5000&update_start_date=2022-01-01'
               }
             }
           }

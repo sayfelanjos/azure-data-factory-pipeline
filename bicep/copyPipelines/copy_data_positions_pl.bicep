@@ -14,7 +14,7 @@ resource positions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
         policy: {
           timeout: '00.12:00:00'
           retry: 2
-          retryIntervalInSeconds: 180
+          retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
         }
@@ -22,8 +22,8 @@ resource positions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:01:00'
+            httpRequestTimeout: '00:01:40'
+            requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
@@ -131,7 +131,7 @@ resource positions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
             parameters: {
               SetApiName: {
                 type: 'Expression'
-                value: 'positions?page={pagina}&page_size=5000'
+                value: 'positions?page={pagina}&page_size=5000&update_start_date=2022-01-01'
               }
             }
           }

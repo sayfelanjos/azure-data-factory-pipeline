@@ -14,7 +14,7 @@ resource examtakens_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
         policy: {
           timeout: '00.12:00:00'
           retry: 2
-          retryIntervalInSeconds: 180
+          retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
         }
@@ -22,8 +22,8 @@ resource examtakens_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:01:00'
+            httpRequestTimeout: '00:01:40'
+            requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
@@ -227,7 +227,7 @@ resource examtakens_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             parameters: {
               SetApiName: {
                 type: 'Expression'
-                value: 'examtakens?page={pagina}&page_size=5000'
+                value: 'examtakens?page={pagina}&page_size=5000&update_start_date=2022-01-01'
               }
             }
           }

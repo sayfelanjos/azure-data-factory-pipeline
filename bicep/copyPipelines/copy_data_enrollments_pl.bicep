@@ -14,7 +14,7 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
         policy: {
           timeout: '00.12:00:00'
           retry: 2
-          retryIntervalInSeconds: 180
+          retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
         }
@@ -239,7 +239,7 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
             parameters: {
               SetApiName: {
                 type: 'Expression'
-                value: 'enrollments?page={pagina}&page_size=5000'
+                value: 'enrollments?page={pagina}&page_size=5000&update_start_date=2022-01-01'
               }
             }
           }
