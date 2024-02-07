@@ -35,13 +35,13 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Assessments'
               keys: [
                 'QuestionID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'QuestionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'DifficultyLevel'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'QuestionTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -170,12 +170,12 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

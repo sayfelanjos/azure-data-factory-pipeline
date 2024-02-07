@@ -35,13 +35,13 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Research'
               keys: [
                 'SurveyQuestionID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'SurveyQuestionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'SurveyID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'SurveyOrder'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'SurveyQuestionTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'GroupingID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -170,7 +170,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -179,7 +179,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -188,12 +188,12 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

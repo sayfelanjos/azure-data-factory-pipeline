@@ -35,13 +35,13 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'CourseCategoryID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'CourseCategoryID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'CategoryID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,12 +125,12 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

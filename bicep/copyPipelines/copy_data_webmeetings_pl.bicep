@@ -35,13 +35,13 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'VideoConference'
               keys: [
                 'WebMeetingID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'WebMeetingID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'WebMeetingActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'StartDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'EndDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -161,12 +161,12 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

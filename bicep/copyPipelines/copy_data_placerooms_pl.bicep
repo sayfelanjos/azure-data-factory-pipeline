@@ -35,13 +35,13 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'PlaceRoomID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'PlaceRoomID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'PlaceID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'Capacity'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,12 +152,12 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

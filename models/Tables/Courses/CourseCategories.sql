@@ -5,10 +5,10 @@ WHERE s.name='Courses' and t.name='CourseCategories'
 ) 
 CREATE TABLE [Courses].[CourseCategories]
 (
-	[CourseCategoryID] [bigint] NULL,
-	[CourseID] [bigint] NULL,
-	[CategoryID] [bigint] NULL,
-	[IsDeleted] [bit] NULL,
+	[CourseCategoryID] [int] NOT NULL PRIMARY KEY,
+	[CourseID] [int] NOT NULL FOREIGN KEY (CourseID) REFERENCES Courses.Courses(CourseID),
+	[CategoryID] [int] NOT NULL FOREIGN KEY (CategoryID) REFERENCES Categories.Categories(CategoryID),
+	[IsDeleted] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,
 	[Page] [smallint] NOT NULL,

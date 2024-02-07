@@ -5,12 +5,12 @@ WHERE s.name='Categories' and t.name='Categories'
 ) 
 CREATE TABLE [Categories].[Categories]
 (
-	[CategoryID] [bigint] NULL,
-	[IsDeleted] [bit] NULL,
-	[CategoryName] [nvarchar](max) NULL,
-	[CategoryTypeID] [bigint] NULL,
-	[CategoryTypeIdentifier] [nvarchar](max) NULL,
-	[ParentCategoryID] [bigint] NULL,
+	[CategoryID] [int] NOT NULL PRIMARY KEY,
+	[IsDeleted] [bit] NOT NULL,
+	[CategoryName] [nvarchar](200) NULL,
+	[CategoryTypeID] [int] NOT NULL,
+	[CategoryTypeIdentifier] [nvarchar](20) NULL,
+	[ParentCategoryID] [int] NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,
 	[Page] [smallint] NOT NULL,

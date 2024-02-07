@@ -35,13 +35,13 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Tags'
               keys: [
                 'tagid'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'TagID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'EnrollableID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -89,12 +89,12 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

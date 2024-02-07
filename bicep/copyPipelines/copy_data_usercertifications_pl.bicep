@@ -35,13 +35,13 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Certifications'
               keys: [
                 'CertificationID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'CertificationID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'GrantedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'ExpirationDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,12 +143,12 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

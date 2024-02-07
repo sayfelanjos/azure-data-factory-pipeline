@@ -5,11 +5,11 @@ WHERE s.name='Audios' and t.name='Audios'
 ) 
 CREATE TABLE [Audios].[Audios]
 (
-	[AudioID] [bigint] NULL,
-	[AudioActivityID] [bigint] NULL,
-	[ModuleActivityTypeID] [bigint] NULL,
-	[IsDeleted] [bit] NULL,
-	[Title] [nvarchar](max) NULL,
+	[AudioID] [int] NOT NULL PRIMARY KEY,
+	[AudioActivityID] [int] NOT NULL,
+	[ModuleActivityTypeID] [int] NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[Title] [nvarchar](200) NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,
 	[Page] [smallint] NOT NULL,

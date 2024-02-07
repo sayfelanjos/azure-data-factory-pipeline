@@ -35,13 +35,13 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'ComponentActivityID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentActivityOrder'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ModuleActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'GradeTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'GradeScale'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -170,7 +170,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -188,7 +188,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityBeginning'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -197,7 +197,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityEnding'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -206,7 +206,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityHoldDays'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -215,7 +215,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityAvailableDays'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -224,7 +224,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -242,7 +242,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentOrder'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -251,7 +251,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'EnrollableID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -260,7 +260,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -269,7 +269,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -278,7 +278,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -287,7 +287,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -296,7 +296,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -305,12 +305,12 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

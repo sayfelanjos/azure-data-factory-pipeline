@@ -35,13 +35,13 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Certifications'
               keys: [
                 'CertificationID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'CertificationID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'ExpirationValue'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'DaysBeforeRenewal'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'CertificationStatusID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -170,7 +170,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -179,7 +179,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -188,7 +188,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -197,12 +197,12 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

@@ -35,13 +35,13 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Campaigns'
               keys: [
                 'CampaignID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'CampaignID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'Beginning'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'Ending'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'CampaignContentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'ContentTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -170,7 +170,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -179,12 +179,12 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

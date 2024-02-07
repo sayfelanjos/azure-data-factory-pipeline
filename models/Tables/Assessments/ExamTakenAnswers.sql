@@ -5,12 +5,12 @@ WHERE s.name='Assessments' and t.name='ExamTakenAnswers'
 ) 
 CREATE TABLE [Assessments].[ExamTakenAnswers]
 (
-	[Identifier] [nvarchar](max) NULL,
-	[IsDeleted] [bit] NULL,
-	[ExamTakenID] [bigint] NULL,
-	[QuestionID] [bigint] NULL,
-	[Grade] [float] NULL,
-	[Answer] [nvarchar](max) NULL,
+	[Identifier] [nvarchar](20) NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[ExamTakenID] [int] NOT NULL FOREIGN KEY (ExamTakenID) REFERENCES Assessments.ExamTakens(ExamTakenID),
+	[QuestionID] [int] NOT NULL FOREIGN KEY (QuestionID) REFERENCES Assessments.Questions(QuestionID),
+	[Grade] [decimal] NOT NULL,
+	[Answer] [nvarchar](400) NOT NULL,
 	[IsCorrect] [bit] NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,
