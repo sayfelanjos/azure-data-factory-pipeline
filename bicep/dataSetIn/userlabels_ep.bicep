@@ -14,7 +14,6 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         parameters: {
             SetApiName: {
                 type: 'string'
-                defaultValue: '/userlabels?page={pagina}&page_size=5000'
             }
         }
         linkedServiceName: {
