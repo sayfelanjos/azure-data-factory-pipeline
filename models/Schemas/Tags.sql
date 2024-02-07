@@ -1,0 +1,4 @@
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'Tags')
+BEGIN
+    EXEC('CREATE SCHEMA Tags')
+END

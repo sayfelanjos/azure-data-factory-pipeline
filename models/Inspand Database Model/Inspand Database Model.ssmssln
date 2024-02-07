@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 19.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Inspand Database Model", "Inspand Database Model.ssmssqlproj", "{B0DBCDF6-5866-42FB-AB47-A9217D18E2B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0DBCDF6-5866-42FB-AB47-A9217D18E2B4}.Default|Default.ActiveCfg = Default
+		{9E0E8332-A7BE-460C-8C52-137B70D3CBCB}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {586D65AA-0F12-411F-BC70-CEA83011B2B4}
+	EndGlobalSection
+EndGlobal

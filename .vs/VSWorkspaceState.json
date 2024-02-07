@@ -1,0 +1,19 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\models",
+    "\\models\\Tables",
+    "\\models\\Tables\\Files",
+    "\\models\\Tables\\FilesSend",
+    "\\models\\Tables\\HtmlPages",
+    "\\models\\Tables\\PowerPointPresentation",
+    "\\models\\Tables\\PresentialMeetings",
+    "\\models\\Tables\\Research",
+    "\\models\\Tables\\Scorms",
+    "\\models\\Tables\\Tags",
+    "\\models\\Tables\\Users",
+    "\\models\\Tables\\VideoConference"
+  ],
+  "SelectedNode": "\\models\\Tables\\Contents\\MediaLibraryPermissions.sql",
+  "PreviewInSolutionExplorer": false
+}

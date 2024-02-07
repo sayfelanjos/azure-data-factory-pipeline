@@ -1,0 +1,4 @@
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'Files')
+BEGIN
+    EXEC('CREATE SCHEMA Files')
+END
