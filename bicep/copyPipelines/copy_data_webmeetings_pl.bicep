@@ -179,10 +179,6 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
           {
             referenceName: 'webmeetings_tb'
             type: 'DatasetReference'
-            parameters: {
-              type: 'Expression'
-              value: 'webmeetings?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-            }
           }
         ]
       }

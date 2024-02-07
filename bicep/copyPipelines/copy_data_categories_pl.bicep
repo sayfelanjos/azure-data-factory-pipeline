@@ -155,12 +155,6 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
           {
             referenceName: 'categories_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'categories?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

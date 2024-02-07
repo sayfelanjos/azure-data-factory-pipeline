@@ -155,12 +155,6 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
           {
             referenceName: 'usercertifications_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'usercertifications?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

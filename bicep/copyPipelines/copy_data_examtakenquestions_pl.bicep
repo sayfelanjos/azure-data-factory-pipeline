@@ -164,12 +164,6 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
           {
             referenceName: 'examtakenquestions_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'examtakenquestions?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

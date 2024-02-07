@@ -209,12 +209,6 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
           {
             referenceName: 'certifications_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'certifications?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

@@ -164,12 +164,6 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
           {
             referenceName: 'ppts_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'ppts?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

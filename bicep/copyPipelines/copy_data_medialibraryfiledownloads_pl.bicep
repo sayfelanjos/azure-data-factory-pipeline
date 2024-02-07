@@ -173,12 +173,6 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
           {
             referenceName: 'medialibraryfiledownloads_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'medialibraryfiledownloads?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

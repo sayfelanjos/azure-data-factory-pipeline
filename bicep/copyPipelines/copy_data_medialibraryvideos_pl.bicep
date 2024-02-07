@@ -173,12 +173,6 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
           {
             referenceName: 'medialibraryvideos_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'medialibraryvideos?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

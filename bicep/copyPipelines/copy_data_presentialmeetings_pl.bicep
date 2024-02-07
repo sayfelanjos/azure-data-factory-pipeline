@@ -245,12 +245,6 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
           {
             referenceName: 'presentialmeetings_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'presentialmeetings?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

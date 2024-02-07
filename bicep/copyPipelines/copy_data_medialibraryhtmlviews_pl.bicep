@@ -146,12 +146,6 @@ resource medialibraryhtmlviews_pipeline 'Microsoft.DataFactory/factories/pipelin
           {
             referenceName: 'medialibraryhtmlviews_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'medialibraryhtmlviews?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [
