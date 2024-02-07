@@ -35,13 +35,13 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Categories'
               keys: [
                 'CategoryID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'CategoryID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'CategoryTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'ParentCategoryID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,12 +143,12 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

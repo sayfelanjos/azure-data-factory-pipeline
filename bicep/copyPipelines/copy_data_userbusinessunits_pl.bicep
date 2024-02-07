@@ -35,13 +35,13 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Users'
               keys: [
                 'UserBusinessUnitID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'UserBusinessUnitID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'BusinessUnitID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'OccupationAreaID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'DirectSuperiorID'
-                  type: 'String'
+                  type: 'Int32'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'PositionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'AdmissionDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'DismissalDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'StateID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -179,7 +179,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -188,7 +188,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -197,7 +197,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -206,7 +206,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -215,12 +215,12 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

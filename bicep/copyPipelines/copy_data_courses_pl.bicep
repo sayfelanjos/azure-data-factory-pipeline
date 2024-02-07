@@ -35,13 +35,13 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'CourseID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'CourseTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'RegisterOriginTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'CourseModeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'EstimatedDuration'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'MinimumScoringGrade'
-                  type: 'Double'
+                  type: 'Decimal'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'Points'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -179,7 +179,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -188,7 +188,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -197,7 +197,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -206,7 +206,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -215,12 +215,12 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

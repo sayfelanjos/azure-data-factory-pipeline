@@ -35,13 +35,13 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Users'
               keys: [
                 'OccupationAreaID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'OccupationAreaID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'OccupationAreaStatusID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,12 +152,12 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

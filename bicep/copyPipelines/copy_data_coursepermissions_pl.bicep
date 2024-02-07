@@ -35,13 +35,13 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'UserID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           enableStaging: false
@@ -54,7 +54,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -63,7 +63,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -72,7 +72,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
                 }
                 sink: {
                   name: 'CoursePermissionLevelID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -81,7 +81,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -90,7 +90,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -99,12 +99,12 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

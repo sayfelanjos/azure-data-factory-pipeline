@@ -35,17 +35,18 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Audios'
               keys: [
                 'AudioID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
             type: 'TabularTranslator'
+            typeConversion: true
             mappings: [
               {
                 source: {
@@ -53,7 +54,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'AudioID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +63,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'AudioActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +72,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +99,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +108,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +117,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,7 +126,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -134,12 +135,12 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

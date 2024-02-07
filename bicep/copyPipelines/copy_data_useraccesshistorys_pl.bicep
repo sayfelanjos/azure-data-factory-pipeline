@@ -35,13 +35,13 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Users'
               keys: [
                 'UserID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,12 +116,12 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

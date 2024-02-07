@@ -34,13 +34,14 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
             type: 'AzureSqlSink'
             writeBehavior: 'upsert'
             upsertSettings: {
-              useTempDB: true
+              useTempDB: false
+              interimSchemaName: 'Assessments'
               keys: [
                 'ExamTakenID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -70,7 +71,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'ExamTakenID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -79,7 +80,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'QuestionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -88,7 +89,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'Grade'
-                  type: 'Double'
+                  type: 'Decimal'
                 }
               }
               {
@@ -115,7 +116,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -124,7 +125,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -133,7 +134,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -142,7 +143,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -151,12 +152,12 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

@@ -35,13 +35,13 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'PresentialMeetings'
               keys: [
                 'PresentialMeetingID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PresentialMeetingID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PresentialMeetingActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Ending'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PlaceID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PlaceRoomID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -179,7 +179,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PlaceRoomCapacity'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -188,7 +188,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PlaceRoomHasAccessibility'
-                  type: 'String'
+                  type: 'Boolean'
                 }
               }
               {
@@ -197,7 +197,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -206,7 +206,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -215,7 +215,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -224,7 +224,7 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -233,12 +233,12 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

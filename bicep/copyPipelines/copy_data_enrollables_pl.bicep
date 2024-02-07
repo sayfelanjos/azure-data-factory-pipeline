@@ -35,13 +35,13 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'EnrollableID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'EnrollableID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'SourceEnrollableID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'Status_ID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'EnrollableCancellationReasonID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'Beginning'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'Ending'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'EstimatedDuration'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'EnrollableEnrollmentMethodID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -179,7 +179,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'MinimumScoringGrade'
-                  type: 'String'
+                  type: 'Decimal'
                 }
               }
               {
@@ -188,7 +188,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'KeepInProgress'
-                  type: 'String'
+                  type: 'Boolean'
                 }
               }
               {
@@ -197,7 +197,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'PlaceID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -206,7 +206,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'PlaceRoomID'
-                  type: 'String'
+                  type: 'Decimal'
                 }
               }
               {
@@ -215,7 +215,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -224,7 +224,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -233,7 +233,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -242,7 +242,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -251,12 +251,12 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

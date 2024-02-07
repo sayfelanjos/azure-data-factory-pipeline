@@ -35,13 +35,13 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Files'
               keys: [
                 'DownloadHistoryID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'DownloadHistoryID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'FileAssignmentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'DownloadDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -166,7 +166,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

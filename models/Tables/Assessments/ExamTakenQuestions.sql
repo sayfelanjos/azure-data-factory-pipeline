@@ -5,13 +5,13 @@ WHERE s.name='Assessments' and t.name='ExamTakenQuestions'
 ) 
 CREATE TABLE [Assessments].[ExamTakenQuestions]
 (
-	[ExamTakenQuestionID] [bigint] NULL,
-	[IsDeleted] [bit] NULL,
-	[ExamTakenID] [bigint] NULL,
-	[QuestionID] [bigint] NULL,
-	[Order] [bigint] NULL,
-	[Grade] [float] NULL,
-	[Points] [bigint] NULL,
+	[ExamTakenQuestionID] [int] NOT NULL PRIMARY KEY,
+	[IsDeleted] [bit] NOT NULL,
+	[ExamTakenID] [int] NOT NULL,
+	[QuestionID] [int] NOT NULL,
+	[Order] [tinyint] NOT NULL,
+	[Grade] [decimal] NOT NULL,
+	[Points] [tinyint] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,
 	[Page] [smallint] NOT NULL,

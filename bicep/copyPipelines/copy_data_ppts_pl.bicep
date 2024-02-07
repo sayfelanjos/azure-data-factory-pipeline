@@ -35,13 +35,13 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'PowerPointPresentation'
               keys: [
                 'PresentationID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'PresentationID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'PresentationActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'SlideCount'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,12 +152,12 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

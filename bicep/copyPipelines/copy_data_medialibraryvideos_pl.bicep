@@ -35,13 +35,13 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Contents'
               keys: [
                 'MediaContentID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'MediaContentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'CategoryID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'VideoID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'DisplayDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Points'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -161,12 +161,12 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

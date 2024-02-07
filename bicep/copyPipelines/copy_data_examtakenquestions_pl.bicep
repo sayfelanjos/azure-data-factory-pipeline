@@ -35,13 +35,13 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Assessments'
               keys: [
                 'ExamTakenQuestionID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'ExamTakenQuestionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'ExamTakenID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'QuestionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Order'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Grade'
-                  type: 'Double'
+                  type: 'Decimal'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Points'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -134,7 +134,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,12 +152,12 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

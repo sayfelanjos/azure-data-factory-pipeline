@@ -35,13 +35,13 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Users'
               keys: [
                 'UserID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -121,6 +121,24 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
               }
               {
                 source: {
+                  path: 'BirthDate'
+                }
+                sink: {
+                  name: 'BirthDate'
+                  type: 'Datetime'
+                }
+              }
+              {
+                source: {
+                  path: 'GenderIdentifier'
+                }
+                sink: {
+                  name: 'GenderIdentifier'
+                  type: 'String'
+                }
+              }
+              {
+                source: {
                   path: 'IsDeleted'
                 }
                 sink: {
@@ -134,7 +152,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -143,7 +161,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -152,7 +170,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'LastLogin'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -161,7 +179,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'RegisterOriginTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -179,7 +197,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'TermsOfUseAcceptance'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -197,7 +215,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'Suspension_IsActive'
-                  type: 'Int64'
+                  type: 'Boolean'
                 }
               }
               {
@@ -224,7 +242,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'Suspension_StartDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -233,7 +251,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'Suspension_ExpirationDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -242,7 +260,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'Suspension_AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -251,7 +269,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -260,7 +278,7 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -269,12 +287,12 @@ resource users_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

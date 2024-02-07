@@ -35,13 +35,13 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'FilesSend'
               keys: [
                 'FileAssignmentID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'FileAssignmentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'FileAssignmentUploadActivityID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -134,12 +134,12 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

@@ -35,13 +35,13 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'HtmlPages'
               keys: [
                 'HTMLPageID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'HTMLPageID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'ModuleActivityTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -134,12 +134,12 @@ resource htmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

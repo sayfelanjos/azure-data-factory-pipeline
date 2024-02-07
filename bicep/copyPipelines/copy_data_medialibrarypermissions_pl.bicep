@@ -35,13 +35,13 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Contents'
               keys: [
                 'MediaContentPermissionID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
@@ -53,7 +53,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'MediaContentPermissionID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'MediaContentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'ModuleContentTypeID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -98,7 +98,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,7 +125,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -134,12 +134,12 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

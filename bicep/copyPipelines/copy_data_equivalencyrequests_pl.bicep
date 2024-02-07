@@ -35,17 +35,26 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Courses'
               keys: [
                 'CourseEquivalencyRequestID'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
+            tableOption: 'none'
             disableMetricsCollection: false
           }
           translator: {
             type: 'TabularTranslator'
+            // dataConversionSettings: {
+            //   allowDataTruncation: true
+            //   treatBooleanAsNumber: true
+            //   dateTimeFormat: 'yyyy-MM-dd HH:mm:ss.fff'
+            //   dateTimeOffsetFormat: 'yyyy-MM-dd HH:mm:ss.fff zzz'
+            //   timeSpanFormat: 'dd\.hh\:mm'
+            //   culture: 'en-us'
+
+            // }
             mappings: [
               {
                 source: {
@@ -53,7 +62,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'CourseEquivalencyRequestID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +71,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'RequestedCourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +80,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'EnrollmentID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +89,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'RequesterUserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -89,7 +98,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'RequestCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -125,7 +134,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'Duration'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +152,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ExpirationDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -152,7 +161,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ConclusionDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -161,7 +170,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'Status'
-                  type: 'Int64'
+                  type: 'Boolean'
                 }
               }
               {
@@ -179,7 +188,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'LastActionDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -197,7 +206,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -206,7 +215,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -224,7 +233,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -233,7 +242,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -242,12 +251,12 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [
