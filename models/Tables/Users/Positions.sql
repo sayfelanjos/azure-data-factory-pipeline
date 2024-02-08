@@ -6,7 +6,7 @@ WHERE s.name='Users' and t.name='Positions'
 CREATE TABLE [Users].[Positions]
 (
 	[PositionID] [int] NOT NULL PRIMARY KEY,
-	[PositionName] [nvarchar](40) NOT NULL,
+	[PositionName] [nvarchar](200) NOT NULL,
 	[IsDeleted] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,

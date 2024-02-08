@@ -11,7 +11,7 @@ CREATE TABLE [PowerPointPresentation].[PPTS]
 	[IsDeleted] [bit] NOT NULL,
 	[Title] [nvarchar](200) NOT NULL,
 	[SlideCount] [smallint] NOT NULL,
-	[LastUploadedFileInfo] [nvarchar](400) NOT NULL,
+	[LastUploadedFileInfo] [nvarchar](400) NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,
 	[Page] [smallint] NOT NULL,

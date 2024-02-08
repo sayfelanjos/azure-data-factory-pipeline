@@ -8,7 +8,7 @@ CREATE TABLE [Users].[UserAccessHistorys]
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[Device] [nvarchar](40) NOT NULL,
 	[AuditCreatedDate] [datetime],
-	[BusinessUnitLinks] [nvarchar](400) NULL,
+	[BusinessUnitLinks] [nvarchar](4000) NULL,
 	[Identifier] [nvarchar](80) NULL,
 	[Page] [smallint] NOT NULL,
 	[PageSize] [smallint] NOT NULL,

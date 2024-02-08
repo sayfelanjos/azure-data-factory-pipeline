@@ -22,7 +22,7 @@ CREATE TABLE [Courses].[ComponentActivities]
 	[VisibilityIdentifier] [nvarchar](20) NULL,
 	[VisibilityBeginning] [datetime] NULL,
 	[VisibilityEnding] [datetime] NULL,
-	[VisibilityHoldDays] [tinyint] NULL,
+	[VisibilityHoldDays] [smallint] NULL,
 	[VisibilityAvailableDays] [smallint] NULL,
 	[ComponentID] [int] NOT NULL,
 	[ComponentName] [nvarchar](200) NULL,

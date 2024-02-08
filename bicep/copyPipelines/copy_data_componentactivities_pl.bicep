@@ -206,7 +206,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityHoldDays'
-                  type: 'Byte'
+                  type: 'Int16'
                 }
               }
               {

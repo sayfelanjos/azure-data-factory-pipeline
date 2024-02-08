@@ -6,7 +6,7 @@ WHERE s.name='Courses' and t.name='PlaceRooms'
 CREATE TABLE [Courses].[PlaceRooms]
 (
 	[PlaceRoomID] [int] NOT NULL PRIMARY KEY,
-	[PlaceID] [int] NOT NULL FOREIGN KEY (PlaceID) REFERENCES Courses.Places(PlaceID),
+	[PlaceID] [int] NULL FOREIGN KEY (PlaceID) REFERENCES Courses.Places(PlaceID),
 	[PlaceRoomName] [nvarchar](200) NULL,
 	[Capacity] [smallint] NOT NULL,
 	[HasAccessibility] [bit] NOT NULL,
