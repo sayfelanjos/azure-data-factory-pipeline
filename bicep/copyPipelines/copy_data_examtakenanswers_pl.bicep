@@ -13,7 +13,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 2
+          retry: 0
           retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false

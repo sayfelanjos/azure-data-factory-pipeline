@@ -13,7 +13,7 @@ resource campaigcontents_pipeline 'Microsoft.DataFactory/factories/pipelines@201
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 2
+          retry: 0
           retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
@@ -134,7 +134,7 @@ resource campaigcontents_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'AuditCreatedDate'
-                  type: 'Dateti16'
+                  type: 'Datetime'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource campaigcontents_pipeline 'Microsoft.DataFactory/factories/pipelines@201
                 }
                 sink: {
                   name: 'AuditLastUpdatedDate'
-                  type: 'Dateti16'
+                  type: 'Datetime'
                 }
               }
               {

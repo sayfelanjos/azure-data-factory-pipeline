@@ -13,7 +13,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 2
+          retry: 0
           retryIntervalInSeconds: 30
           secureOutput: false
           secureInput: false
@@ -80,7 +80,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentActivityOrder'
-                  type: 'Int16'
+                  type: 'Byte'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'GradeScale'
-                  type: 'Int16'
+                  type: 'Byte'
                 }
               }
               {
@@ -206,7 +206,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'VisibilityHoldDays'
-                  type: 'Int16'
+                  type: 'Byte'
                 }
               }
               {
@@ -242,7 +242,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentOrder'
-                  type: 'Int16'
+                  type: 'Byte'
                 }
               }
               {
