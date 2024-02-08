@@ -191,12 +191,6 @@ resource surveyanswers_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
           {
             referenceName: 'surveyanswers_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'surveyanswers?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

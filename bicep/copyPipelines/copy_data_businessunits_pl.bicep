@@ -182,12 +182,6 @@ resource businessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
           {
             referenceName: 'businessunits_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: '/businessunits?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

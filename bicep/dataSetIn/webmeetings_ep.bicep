@@ -11,19 +11,13 @@ resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     properties: {
         annotations: []
         type: 'RestResource'
-        parameters: {
-            SetApiName: {
-                type: 'string'
-                defaultValue: '/webmeetings?page={pagina}&page_size=5000'
-            }
-        }
         linkedServiceName: {
             referenceName: 'rest-api-linked-service'
             type: 'LinkedServiceReference'
         }
         schema: {}
         typeProperties: {
-            relativeUrl: '@dataset().SetApiName'
+            relativeUrl: 'webmeetings?page={pagina}&page_size=5000&update_start_date=2022-01-01'
         }
         folder: {
             name: 'rest_endpoints'

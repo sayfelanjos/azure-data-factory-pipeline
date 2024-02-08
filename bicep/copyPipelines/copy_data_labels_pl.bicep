@@ -137,12 +137,6 @@ resource labels_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
           {
             referenceName: 'labels_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'labels?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

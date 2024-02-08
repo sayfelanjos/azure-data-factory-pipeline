@@ -111,12 +111,6 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           {
             referenceName: 'coursepermissions_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'coursepermissions?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

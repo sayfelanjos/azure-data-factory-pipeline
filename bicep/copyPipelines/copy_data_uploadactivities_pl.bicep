@@ -146,12 +146,6 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
           {
             referenceName: 'uploadactivities_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'uploadactivities?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

@@ -146,12 +146,6 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
           {
             referenceName: 'medialibrarypermissions_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'medialibrarypermissions?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

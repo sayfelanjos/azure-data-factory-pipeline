@@ -14,7 +14,6 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         parameters: {
             SetApiName: {
                 type: 'string'
-                defaultValue: '/places?page={pagina}&page_size=5000'
             }
         }
         linkedServiceName: {
@@ -23,7 +22,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: '@dataset().SetApiName'
+            relativeUrl: 'places?page={pagina}&page_size=5000&update_start_date=2022-01-01'
         }
         folder: {
             name: 'rest_endpoints'

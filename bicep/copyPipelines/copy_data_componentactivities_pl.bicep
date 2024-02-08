@@ -317,12 +317,6 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
           {
             referenceName: 'componentactivities_ep'
             type: 'DatasetReference'
-            parameters: {
-              SetApiName: {
-                type: 'Expression'
-                value: 'componentactivities?page={pagina}&page_size=5000&update_start_date=2022-01-01'
-              }
-            }
           }
         ]
         outputs: [

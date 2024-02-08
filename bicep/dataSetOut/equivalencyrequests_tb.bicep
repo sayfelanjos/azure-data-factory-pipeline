@@ -17,8 +17,8 @@ resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: []
         typeProperties: {
-            table: 'equivalencyrequests'
-            schema: 'neolude'
+            table: 'EquivalencyRequests'
+            schema: 'Courses'
         }
         folder: {
             name: 'sql_tables'
