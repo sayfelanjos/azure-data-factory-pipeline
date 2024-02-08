@@ -17,7 +17,7 @@ CREATE TABLE [Courses].[Courses]
 	[CourseMode_Identifier] [nvarchar](20) NULL,
 	[EstimatedDuration] [smallint] NULL,
 	[MinimumScoringGrade] [decimal] NULL,
-	[Points] [tinyint] NULL,
+	[Points] [int] NULL,
 	[Points_ScoreOnActivityConclusion] [bit] NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,

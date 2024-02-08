@@ -41,7 +41,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {
@@ -161,7 +161,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'Points'
-                  type: 'Int16'
+                  type: 'Int32'
                 }
               }
               {

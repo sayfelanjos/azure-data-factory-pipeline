@@ -41,7 +41,7 @@ resource surveyanswerquestions_pipeline 'Microsoft.DataFactory/factories/pipelin
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

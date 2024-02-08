@@ -6,7 +6,7 @@ WHERE s.name='Tags' and t.name='Tags'
 CREATE TABLE [Tags].[Tags]
 (
 	[TagID] [int] NOT NULL PRIMARY KEY,
-	[TagName] [nvarchar](40) NOT NULL,
+	[TagName] [nvarchar](80) NOT NULL,
 	[IsDeleted] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,

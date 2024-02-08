@@ -41,7 +41,7 @@ resource campaigcontents_pipeline 'Microsoft.DataFactory/factories/pipelines@201
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

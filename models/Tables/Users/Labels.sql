@@ -7,7 +7,7 @@ CREATE TABLE [Users].[Labels]
 (
 	[LabelID] [int] NOT NULL PRIMARY KEY,
 	[ClientUniqueIdentifier] [nvarchar](80) NULL,
-	[LabelName] [nvarchar](40) NULL,
+	[LabelName] [nvarchar](400) NULL,
 	[IsDeleted] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
 	[AuditLastUpdatedDate] [datetime] NOT NULL,

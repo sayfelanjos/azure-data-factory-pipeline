@@ -41,7 +41,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

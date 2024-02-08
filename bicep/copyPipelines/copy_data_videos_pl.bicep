@@ -41,7 +41,7 @@ resource videos_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

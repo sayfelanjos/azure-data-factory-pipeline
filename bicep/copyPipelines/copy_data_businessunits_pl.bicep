@@ -41,7 +41,7 @@ resource businessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

@@ -41,7 +41,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

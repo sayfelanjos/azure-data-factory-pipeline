@@ -41,7 +41,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

@@ -41,7 +41,7 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           translator: {

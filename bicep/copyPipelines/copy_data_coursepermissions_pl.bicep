@@ -41,7 +41,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'none'
+
             disableMetricsCollection: false
           }
           enableStaging: false
