@@ -419,7 +419,7 @@ resource contents_pl 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
               ]
               outputs: [
                 {
-                  referenceName: 'examtaken_tb'
+                  referenceName: 'examtakens_tb'
                   type: 'DatasetReference'
                 }
               ]
