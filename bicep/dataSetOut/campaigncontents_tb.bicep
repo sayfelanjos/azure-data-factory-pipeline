@@ -17,8 +17,8 @@ resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: []
         typeProperties: {
-            table: 'campaigncontents'
-            schema: 'neolude'
+            table: 'CampaignContents'
+            schema: 'Campaigns'
         }
         folder: {
             name: 'sql_tables'
