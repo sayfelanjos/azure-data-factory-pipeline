@@ -143,7 +143,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
                 }
                 sink: {
                   name: 'EstimatedDuration'
-                  type: 'Int16'
+                  type: 'Int32'
                 }
               }
               {

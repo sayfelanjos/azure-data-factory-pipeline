@@ -10,7 +10,7 @@ CREATE TABLE [Users].[UserBusinessUnits]
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[BusinessUnitID] [int] NOT NULL FOREIGN KEY (BusinessUnitID) REFERENCES Users.BusinessUnits(BusinessUnitID),
 	[OccupationAreaID] [int] NOT NULL,
-	[MonitorIndirectSubordinates] [bit] NOT NULL,
+	[MonitorIndirectSubordinates] [bit] NULL,
 	[DirectSuperiorID] [int] NULL,
 	[PositionID] [int] NULL,
 	[AdmissionDate] [datetime] NOT NULL,

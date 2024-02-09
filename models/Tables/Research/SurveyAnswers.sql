@@ -10,7 +10,7 @@ CREATE TABLE [Research].[SurveyAnswers]
 	[EnrollmentID] [int] NOT NULL FOREIGN KEY (EnrollmentID) REFERENCES Courses.Enrollments(EnrollmentID),
 	[EnrollableID] [int] NOT NULL FOREIGN KEY (EnrollableID) REFERENCES Courses.Enrollables(EnrollableID),
 	[CourseID] [int] NOT NULL FOREIGN KEY (CourseID) REFERENCES Courses.Courses(CourseID),
-	[CampaignID] [int] NOT NULL FOREIGN KEY (CampaignID) REFERENCES Campaigns.Campaigns(CampaignID),
+	[CampaignID] [int] NULL FOREIGN KEY (CampaignID) REFERENCES Campaigns.Campaigns(CampaignID),
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[SubmissionDate] [datetime] NOT NULL,
 	[IsDeleted] [bit] NOT NULL,

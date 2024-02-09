@@ -15,7 +15,7 @@ CREATE TABLE [Courses].[Courses]
 	[RegisterOriginType_Identifier] [nvarchar](20) NULL,
 	[CourseModeID] [int] NULL,
 	[CourseMode_Identifier] [nvarchar](20) NULL,
-	[EstimatedDuration] [smallint] NULL,
+	[EstimatedDuration] [int] NULL,
 	[MinimumScoringGrade] [decimal] NULL,
 	[Points] [int] NULL,
 	[Points_ScoreOnActivityConclusion] [bit] NULL,
