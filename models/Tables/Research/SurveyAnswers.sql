@@ -7,11 +7,11 @@ CREATE TABLE [Research].[SurveyAnswers]
 (
 	[SurveyAnswerID] [int] NOT NULL PRIMARY KEY,
 	[SurveyID] [int] NOT NULL FOREIGN KEY (SurveyID) REFERENCES Research.Surveys(SurveyID),
-	[EnrollmentID] [int] NOT NULL FOREIGN KEY (EnrollmentID) REFERENCES Courses.Enrollments(EnrollmentID),
+	[EnrollmentID] [int] NULL FOREIGN KEY (EnrollmentID) REFERENCES Courses.Enrollments(EnrollmentID),
 	[EnrollableID] [int] NOT NULL FOREIGN KEY (EnrollableID) REFERENCES Courses.Enrollables(EnrollableID),
 	[CourseID] [int] NOT NULL FOREIGN KEY (CourseID) REFERENCES Courses.Courses(CourseID),
 	[CampaignID] [int] NULL FOREIGN KEY (CampaignID) REFERENCES Campaigns.Campaigns(CampaignID),
-	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
+	[UserID] [int] NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[SubmissionDate] [datetime] NOT NULL,
 	[IsDeleted] [bit] NOT NULL,
 	[IsAnonymousAnswer] [bit] NOT NULL,

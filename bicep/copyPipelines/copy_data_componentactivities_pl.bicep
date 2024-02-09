@@ -80,7 +80,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentActivityOrder'
-                  type: 'Byte'
+                  type: 'Int16'
                 }
               }
               {
@@ -143,7 +143,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'GradeScale'
-                  type: 'Byte'
+                  type: 'Int16'
                 }
               }
               {
@@ -242,7 +242,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
                 }
                 sink: {
                   name: 'ComponentOrder'
-                  type: 'Byte'
+                  type: 'Int16'
                 }
               }
               {

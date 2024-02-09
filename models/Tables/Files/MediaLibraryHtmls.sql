@@ -7,7 +7,7 @@ CREATE TABLE [Files].[MediaLibraryHtmls]
 (
 	[MediaContentID] [int] NOT NULL PRIMARY KEY,
 	[IsDeleted] [bit] NOT NULL,
-	[CategoryID] [int] NOT NULL,
+	[CategoryID] [int] NULL,
 	[Media_Name] [nvarchar](200) NOT NULL,
 	[HTMLPageID] [int] NOT NULL,
 	[IsEnabled] [bit] NOT NULL,
