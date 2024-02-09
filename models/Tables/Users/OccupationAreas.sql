@@ -7,7 +7,7 @@ CREATE TABLE [Users].[OccupationAreas]
 (
 	[OccupationAreaID] [int] NOT NULL PRIMARY KEY,
 	[ClientUniqueIdentifier] [nvarchar](80) NULL,
-	[OccupationAreaName] [nvarchar](40) NOT NULL,
+	[OccupationAreaName] [nvarchar](200) NOT NULL,
 	[IsManager] [bit] NOT NULL,
 	[OccupationAreaStatusID] [int] NOT NULL,
 	[OccupationAreaStatus_Identifier] [nvarchar](20) NOT NULL,

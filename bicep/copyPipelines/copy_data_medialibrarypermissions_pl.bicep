@@ -23,7 +23,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:00:00.030'
+            requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'

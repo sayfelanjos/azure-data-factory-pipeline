@@ -15,7 +15,7 @@ CREATE TABLE [Users].[BusinessUnits]
 	[ParentBusinessUnitID] [int] NULL,
 	[IsDeleted] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
 	[Page] [smallint] NOT NULL,
 	[PageSize] [smallint] NOT NULL,
 	[MaximumPageSize] [smallint] NOT NULL

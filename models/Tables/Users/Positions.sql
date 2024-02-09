@@ -9,7 +9,7 @@ CREATE TABLE [Users].[Positions]
 	[PositionName] [nvarchar](200) NOT NULL,
 	[IsDeleted] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
 	[Page] [smallint] NOT NULL,
 	[PageSize] [smallint] NOT NULL,
 	[MaximumPageSize] [smallint] NOT NULL

@@ -16,7 +16,7 @@ CREATE TABLE [Courses].[Enrollables]
 	[EnrollableCancellationReasonID] [int] NULL,
 	[Beginning] [datetime] NOT NULL,
 	[Ending] [datetime] NOT NULL,
-	[EstimatedDuration] [smallint] NULL,
+	[EstimatedDuration] [int] NULL,
 	[EnrollableEnrollmentMethodID] [int] NOT NULL,
 	[EnrollableEnrollmentMethod_Identifier] [nvarchar](20) NOT NULL,
 	[MinimumScoringGrade] [decimal] NOT NULL,

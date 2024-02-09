@@ -7,8 +7,8 @@ CREATE TABLE [Assessments].[Questions]
 (
 	[QuestionID] [int] NOT NULL PRIMARY KEY,
 	[IsDeleted] [bit] NOT NULL,
-	[Title] [nvarchar](4000) NULL,
-	[Question] [nvarchar](4000) NOT NULL,
+	[Title] [nvarchar](max) NULL,
+	[Question] [nvarchar](max) NOT NULL,
 	[DifficultyLevel] [tinyint] NOT NULL,
 	[Feedback] [nvarchar](4000) NULL,
 	[HasAutoCorrection] [bit] NOT NULL,

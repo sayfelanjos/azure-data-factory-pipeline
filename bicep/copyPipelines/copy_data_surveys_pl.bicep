@@ -23,7 +23,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:00:00.030'
+            requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
