@@ -13,8 +13,8 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 0
-          retryIntervalInSeconds: 30
+          retry: 2
+          retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
         }
@@ -22,8 +22,8 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:01:40'
-            requestInterval: '00.00:00:00.010'
+            httpRequestTimeout: '00:05:00'
+            requestInterval: '00.00:00:00.030'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
@@ -41,7 +41,7 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
               ]
             }
             sqlWriterUseTableLock: true
-
+            tableOption: 'None'
             disableMetricsCollection: false
           }
           translator: {

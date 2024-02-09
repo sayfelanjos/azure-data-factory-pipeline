@@ -12,7 +12,7 @@ CREATE TABLE [Assessments].[Exams]
 	[AttemptsLimit] [tinyint] NULL,
 	[DurationLimit] [int] NULL,
 	[KeepScoreTypeID] [int] NULL,
-	[KeepScoreType_Identifier] [nvarchar](100) NOT NULL,
+	[KeepScoreType_Identifier] [nvarchar](100) NULL,
 	[ExamTypeID] [int] NOT NULL,
 	[ExamType_Identifier] [nvarchar](100) NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,

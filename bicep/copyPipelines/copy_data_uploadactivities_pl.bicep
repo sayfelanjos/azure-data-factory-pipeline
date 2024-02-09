@@ -13,8 +13,8 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 0
-          retryIntervalInSeconds: 30
+          retry: 2
+          retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
         }
@@ -22,8 +22,8 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:01:40'
-            requestInterval: '00.00:00:00.010'
+            httpRequestTimeout: '00:05:00'
+            requestInterval: '00.00:00:00.030'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
@@ -41,7 +41,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
               ]
             }
             sqlWriterUseTableLock: true
-
+            tableOption: 'None'
             disableMetricsCollection: false
           }
           translator: {

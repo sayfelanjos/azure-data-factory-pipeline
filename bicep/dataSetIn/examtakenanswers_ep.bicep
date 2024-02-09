@@ -17,7 +17,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: 'examtakenanswers?page={pagina}&page_size=5000&update_start_date=2022-01-01'
+            relativeUrl: 'examtakenanswers?page={pagina}&page_size=5000'
         }
         folder: {
             name: 'rest_endpoints'
