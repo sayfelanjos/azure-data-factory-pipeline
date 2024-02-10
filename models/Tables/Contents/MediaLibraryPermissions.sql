@@ -8,11 +8,11 @@ CREATE TABLE [Contents].[MediaLibraryPermissions]
 	[MediaContentPermissionID] [int] NOT NULL PRIMARY KEY,
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[MediaContentID] [int] NOT NULL FOREIGN KEY (MediaContentID) REFERENCES Contents.MediaLibraryVideos(MediaContentID),
-	[ModuleContentTypeID] [int] NOT NULL,
+	[ModuleContentTypeID] [int] NULL,
 	[ModuleContentType_Identifier] [nvarchar](80) NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

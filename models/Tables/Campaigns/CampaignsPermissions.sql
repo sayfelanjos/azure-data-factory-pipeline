@@ -9,7 +9,7 @@ CREATE TABLE [Campaigns].[CampaignPermissions]
 	[IsDeleted] [bit] NOT NULL,
 	[CampaignID] [int] NOT NULL FOREIGN KEY (CampaignID) REFERENCES Campaigns.Campaigns(CampaignID),
 	[OccupationAreaID] [int] NULL,
-	[BusinessUnitID] [int] NOT NULL FOREIGN KEY (BusinessUnitID) REFERENCES Users.BusinessUnits(BusinessUnitID),
+	[BusinessUnitID] [int] NULL FOREIGN KEY (BusinessUnitID) REFERENCES Users.BusinessUnits(BusinessUnitID),
 	[UserID] [int] NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[Inheritable] [bit] NOT NULL,
 	[AuditCreatedDate] [datetime] NOT NULL,

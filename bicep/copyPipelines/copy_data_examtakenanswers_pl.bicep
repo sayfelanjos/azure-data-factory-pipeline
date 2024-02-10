@@ -22,7 +22,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
+            httpRequestTimeout: '00:01:40'
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
@@ -41,7 +41,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'None'
+
             disableMetricsCollection: false
           }
           translator: {
@@ -63,6 +63,51 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
                 sink: {
                   name: 'IsDeleted'
                   type: 'Boolean'
+                }
+              }
+              {
+                source: {
+                  path: 'EssayAnswerID'
+                }
+                sink: {
+                  name: 'EssayAnswerID'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'MatchingAnswerID'
+                }
+                sink: {
+                  name: 'MatchingAnswerID'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'MultipleAnswerAnswerID'
+                }
+                sink: {
+                  name: 'MultipleAnswerAnswerID'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'MultipleChoiceAnswerID'
+                }
+                sink: {
+                  name: 'MultipleChoiceAnswerID'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'TrueOrFalseAnswerID'
+                }
+                sink: {
+                  name: 'TrueOrFalseAnswerID'
+                  type: 'Int32'
                 }
               }
               {

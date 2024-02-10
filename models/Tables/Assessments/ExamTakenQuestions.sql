@@ -6,15 +6,15 @@ WHERE s.name='Assessments' and t.name='ExamTakenQuestions'
 CREATE TABLE [Assessments].[ExamTakenQuestions]
 (
 	[ExamTakenQuestionID] [int] NOT NULL PRIMARY KEY,
-	[IsDeleted] [bit] NOT NULL,
-	[ExamTakenID] [int] NOT NULL,
-	[QuestionID] [int] NOT NULL,
-	[Order] [tinyint] NOT NULL,
-	[Grade] [decimal] NOT NULL,
-	[Points] [tinyint] NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[IsDeleted] [bit] NULL,
+	[ExamTakenID] [int] NOT NULL FOREIGN KEY (ExamTakenID) REFERENCES Assessments.ExamTakens(ExamTakenID),
+	[QuestionID] [int] NOT NULL FOREIGN KEY (QuestionID) REFERENCES Assessments.Questions(QuestionsID),
+	[Order] [tinyint] NULL,
+	[Grade] [decimal] NULL,
+	[Points] [tinyint] NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

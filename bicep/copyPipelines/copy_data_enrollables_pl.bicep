@@ -22,7 +22,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
+            httpRequestTimeout: '00:01:40'
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
@@ -41,7 +41,7 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'None'
+
             disableMetricsCollection: false
           }
           translator: {

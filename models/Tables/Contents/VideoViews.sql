@@ -5,14 +5,14 @@ WHERE s.name='Contents' and t.name='VideoViews'
 ) 
 CREATE TABLE [Contents].[VideoViews]
 (
-    [VideoAccessHistoryID] [int] NOT NULL,
-    [IsDeleted] [bit] NOT NULL,
+    [VideoAccessHistoryID] [int] NOT NULL PRIMARY KEY,
+    [IsDeleted] [bit] NULL,
     [UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
     [VideoID] [int] NOT NULL FOREIGN KEY (VideoID) REFERENCES Contents.Videos(VideoID),
-    [AccessDate] [datetime] NOT NULL,
-    [AuditCreatedDate] [datetime] NOT NULL,
-    [AuditLastUpdatedDate] [datetime] NOT NULL,
-    [Page] [smallint] NOT NULL,
-    [PageSize] [smallint] NOT NULL,
-    [MaximumPageSize] [smallint] NOT NULL
+    [AccessDate] [datetime] NULL,
+    [AuditCreatedDate] [datetime] NULL,
+    [AuditLastUpdatedDate] [datetime] NULL,
+    [Page] [smallint] NULL,
+    [PageSize] [smallint] NULL,
+    [MaximumPageSize] [smallint] NULL
 ); 

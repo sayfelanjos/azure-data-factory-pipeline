@@ -9,7 +9,7 @@ CREATE TABLE [Research].[SurveyAnswerQuestions]
 	[SurveyQuestionAnswerID] [int] NOT NULL PRIMARY KEY,
 	[SurveyAnswerID] [int] NOT NULL FOREIGN KEY (SurveyAnswerID) REFERENCES Research.SurveyAnswers(SurveyAnswerID),
 	[SurveyQuestionID] [int] NOT NULL FOREIGN KEY (SurveyQuestionID) REFERENCES Research.SurveyQuestions(SurveyQuestionID),
-	[SurveyQuestionOptionID] [int] NOT NULL FOREIGN KEY (SurveyQuestionOptionID) REFERENCES Research.SurveyQuestionOptions(SurveyQuestionOptionID),
+	[SurveyQuestionOptionID] [int] NULL FOREIGN KEY (SurveyQuestionOptionID) REFERENCES Research.SurveyQuestionOptions(SurveyQuestionOptionID),
 	[Answer] [nvarchar](4000) NULL,
 	[Justification] [nvarchar](4000) NULL,
 	[IsDeleted] [bit] NOT NULL,
