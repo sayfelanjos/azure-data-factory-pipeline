@@ -89,7 +89,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Order'
-                  type: 'Int16'
+                  type: 'Byte'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@
                 }
                 sink: {
                   name: 'Points'
-                  type: 'Int32'
+                  type: 'Byte'
                 }
               }
               {

@@ -6,18 +6,18 @@ WHERE s.name='Campaigns' and t.name='Campaigns'
 CREATE TABLE [Campaigns].[Campaigns]
 (
 	[CampaignID] [int] NOT NULL PRIMARY KEY,
-	[IsDeleted] [bit] NOT NULL,
-	[CampaignName] [nvarchar](200) NOT NULL,
-	[Beginning] [datetime] NOT NULL,
+	[IsDeleted] [bit] NULL,
+	[CampaignName] [nvarchar](400) NULL,
+	[Beginning] [datetime] NULL,
 	[Ending] [datetime] NULL,
-	[IsActive] [bit] NOT NULL,
+	[IsActive] [bit] NULL,
 	[CampaignContentID] [int] NULL FOREIGN KEY (CampaignContentID) REFERENCES Camppaigns.Campaigns(CampaignContentID),
-	[ContentName] [nvarchar](200) NULL,
+	[ContentName] [nvarchar](400) NULL,
 	[ContentTypeID] [int] NULL,
-	[CampaignContentTypeIdentifier] [nvarchar](80) NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[CampaignContentTypeIdentifier] [nvarchar](200) NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

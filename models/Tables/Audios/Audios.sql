@@ -6,13 +6,13 @@ WHERE s.name='Audios' and t.name='Audios'
 CREATE TABLE [Audios].[Audios]
 (
 	[AudioID] [int] NOT NULL PRIMARY KEY,
-	[AudioActivityID] [int] NOT NULL,
-	[ModuleActivityTypeID] [int] NOT NULL,
-	[IsDeleted] [bit] NOT NULL,
-	[Title] [nvarchar](200) NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[AudioActivityID] [int] NULL,
+	[ModuleActivityTypeID] [int] NULL,
+	[IsDeleted] [bit] NULL,
+	[Title] [nvarchar](400) NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

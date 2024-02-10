@@ -12,10 +12,10 @@ CREATE TABLE [Research].[SurveyAnswerQuestions]
 	[SurveyQuestionOptionID] [int] NULL FOREIGN KEY (SurveyQuestionOptionID) REFERENCES Research.SurveyQuestionOptions(SurveyQuestionOptionID),
 	[Answer] [nvarchar](4000) NULL,
 	[Justification] [nvarchar](4000) NULL,
-	[IsDeleted] [bit] NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[IsDeleted] [bit] NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

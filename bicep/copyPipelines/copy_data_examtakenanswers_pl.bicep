@@ -23,7 +23,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:01:40'
-            requestInterval: '00.00:00:00.060'
+            requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'

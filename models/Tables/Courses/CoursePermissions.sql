@@ -5,10 +5,10 @@ WHERE s.name='Courses' and t.name='CoursePermissions'
 ) 
 CREATE TABLE [Courses].[CoursePermissions]
 (
-	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
+	[UserID] [int] NULL,
 	[CourseID] [int] NOT NULL FOREIGN KEY (CourseID) REFERENCES Courses.Courses(CourseID),
-	[CoursePermissionLevelID] [int] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[CoursePermissionLevelID] [int] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 );

@@ -7,8 +7,8 @@ CREATE TABLE [Assessments].[ExamTakens]
 (
 	[ExamTakenID] [int] NOT NULL PRIMARY KEY,
 	[IsDeleted] [bit] NULL,
-	[ExamID] [int] NOT NULL FOREIGN KEY (ExamID) REFERENCES Assessments.Exams(ExamID),
-	[EnrollmentID] [int] NOT NULL,
+	[ExamID] [int] NULL,
+	[EnrollmentID] [int] NULL,
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
 	[Attempt] [int] NULL,
 	[TimeSpent] [int] NULL,

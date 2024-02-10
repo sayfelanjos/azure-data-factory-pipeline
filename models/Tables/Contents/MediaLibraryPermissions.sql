@@ -7,7 +7,7 @@ CREATE TABLE [Contents].[MediaLibraryPermissions]
 (
 	[MediaContentPermissionID] [int] NOT NULL PRIMARY KEY,
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
-	[MediaContentID] [int] NOT NULL FOREIGN KEY (MediaContentID) REFERENCES Contents.MediaLibraryVideos(MediaContentID),
+	[MediaContentID] [int] NULL,
 	[ModuleContentTypeID] [int] NULL,
 	[ModuleContentType_Identifier] [nvarchar](80) NULL,
 	[AuditCreatedDate] [datetime] NULL,

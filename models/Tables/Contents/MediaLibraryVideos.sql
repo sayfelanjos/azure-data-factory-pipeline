@@ -6,16 +6,16 @@ WHERE s.name='Contents' and t.name='MediaLibraryVideos'
 CREATE TABLE [Contents].[MediaLibraryVideos]
 (
 	[MediaContentID] [int] NOT NULL PRIMARY KEY,
-	[IsDeleted] [bit] NOT NULL,
-	[CategoryID] [int] NULL,
+	[IsDeleted] [bit] NULL,
+	[CategoryID] [int] NULL FOREIGN KEY (CategoryID) REFERENCES Categories.Categories(CategoryID),
 	[Media_Name] [nvarchar](400) NULL,
 	[VideoID] [int] NULL,
-	[IsEnabled] [bit] NOT NULL,
-	[DisplayDate] [datetime] NOT NULL,
+	[IsEnabled] [bit] NULL,
+	[DisplayDate] [datetime] NULL,
 	[Points] [tinyint] NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

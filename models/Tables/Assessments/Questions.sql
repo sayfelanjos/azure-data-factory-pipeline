@@ -6,17 +6,17 @@ WHERE s.name='Assessments' and t.name='Questions'
 CREATE TABLE [Assessments].[Questions]
 (
 	[QuestionID] [int] NOT NULL PRIMARY KEY,
-	[IsDeleted] [bit] NOT NULL,
+	[IsDeleted] [bit] NULL,
 	[Title] [nvarchar](max) NULL,
-	[Question] [nvarchar](max) NOT NULL,
-	[DifficultyLevel] [tinyint] NOT NULL,
+	[Question] [nvarchar](max) NULL,
+	[DifficultyLevel] [tinyint] NULL,
 	[Feedback] [nvarchar](4000) NULL,
-	[HasAutoCorrection] [bit] NOT NULL,
-	[QuestionTypeID] [smallint] NOT NULL,
-	[QuestionType_Identifier] [nvarchar](20) NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[HasAutoCorrection] [bit] NULL,
+	[QuestionTypeID] [smallint] NULL,
+	[QuestionType_Identifier] [nvarchar](200) NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

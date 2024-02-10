@@ -8,7 +8,7 @@ CREATE TABLE [Contents].[VideoViews]
     [VideoAccessHistoryID] [int] NOT NULL PRIMARY KEY,
     [IsDeleted] [bit] NULL,
     [UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
-    [VideoID] [int] NOT NULL FOREIGN KEY (VideoID) REFERENCES Contents.Videos(VideoID),
+    [VideoID] [int] NULL,
     [AccessDate] [datetime] NULL,
     [AuditCreatedDate] [datetime] NULL,
     [AuditLastUpdatedDate] [datetime] NULL,

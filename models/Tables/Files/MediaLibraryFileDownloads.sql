@@ -6,16 +6,16 @@ WHERE s.name='Files' and t.name='MediaLibraryFileDownloads'
 CREATE TABLE [Files].[MediaLibraryFileDownloads]
 (
 	[DownloadHistoryID] [int] NOT NULL PRIMARY KEY,
-	[IsDeleted] [bit] NOT NULL,
-	[FileAssignmentID] [int] NOT NULL,
+	[IsDeleted] [bit] NULL,
+	[FileAssignmentID] [int] NULL,
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
-	[FileName] [nvarchar](400) NOT NULL,
-	[Title] [nvarchar](400) NOT NULL,
+	[FileName] [nvarchar](4000) NULL,
+	[Title] [nvarchar](400) NULL,
 	[Description] [nvarchar](4000) NULL,
-	[DownloadDate] [datetime] NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[DownloadDate] [datetime] NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 
