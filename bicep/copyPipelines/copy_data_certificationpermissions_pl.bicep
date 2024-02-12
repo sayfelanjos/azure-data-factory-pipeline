@@ -12,7 +12,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
         type: 'Copy'
         dependsOn: []
         policy: {
-          timeout: '2.00:00:00'
+          timeout: '00.12:00:00'
           retry: 4
           retryIntervalInSeconds: 180
           secureOutput: false
@@ -22,8 +22,8 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
         typeProperties: {
           source: {
             type: 'RestSource'
-            httpRequestTimeout: '00:05:00'
-            requestInterval: '00.00:01:00'
+            httpRequestTimeout: '00:01:40'
+            requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
@@ -35,9 +35,9 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'neolude'
+              interimSchemaName: 'Certificarions'
               keys: [
-                'CertificationID'
+                'CertificationPermissionsID'
               ]
             }
             sqlWriterUseTableLock: true
