@@ -13,7 +13,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 2
+          retry: 1
           retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
@@ -26,7 +26,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
-              'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
+              'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
               'EndCondition:$[\'data\']': 'Empty'
             }
           }
@@ -158,7 +158,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
     ]
     annotations: []
     folder: {
-      name: 'one_to_one_copy_pl'
+      name: 'CopyPipelines'
     }
     parameters: {}
     runDimensions: {}

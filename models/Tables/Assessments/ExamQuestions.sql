@@ -6,8 +6,8 @@ WHERE s.name='Assessments' and t.name='ExamQuestions'
 CREATE TABLE [Assessments].[ExamQuestions]
 (
 	[ExamQuestionID] [int] NOT NULL PRIMARY KEY,
-	[ExamID] [int] NOT NULL FOREIGN KEY (ExamID) REFERENCES [Assessments].[Exams](ExamID),
-	[QuestionID] [int] NOT NULL FOREIGN KEY (QuestionID) REFERENCES [Assessments].[Questions](QuestionID),
+	[ExamID] [int] NULL,
+	[QuestionID] [int] NULL FOREIGN KEY (QuestionID) REFERENCES [Assessments].[Questions](QuestionID),
 	[Order] [tinyint] NULL,
 	[Points] [tinyint] NULL,
 	[QuestionGroupID] [int] NULL,

@@ -26,7 +26,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
             requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
             paginationRules: {
-              'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
+              'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
               'EndCondition:$[\'data\']': 'Empty'
             }
           }
@@ -221,7 +221,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
     ]
     annotations: []
     folder: {
-      name: 'one_to_one_copy_pl'
+      name: 'CopyPipelines'
     }
     parameters: {}
     runDimensions: {}

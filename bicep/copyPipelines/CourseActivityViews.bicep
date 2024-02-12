@@ -1,8 +1,8 @@
 param dataFactoryName string
 
-var pipelineName = 'copy_data_ppts_pl'
+var pipelineName = 'CourseActivityViews'
 
-resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
   properties: {
     activities: [
@@ -35,9 +35,9 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'PowerPointPresentation'
+              interimSchemaName: 'CourseActivityViews'
               keys: [
-                'PresentationID'
+                'CourseID'
               ]
             }
             sqlWriterUseTableLock: true
@@ -46,23 +46,51 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
           }
           translator: {
             type: 'TabularTranslator'
+            typeConversion: true
             mappings: [
               {
                 source: {
-                  path: 'PresentationID'
+                  path: 'CourseID'
                 }
                 sink: {
-                  name: 'PresentationID'
+                  name: 'CourseID'
                   type: 'Int32'
                 }
               }
               {
                 source: {
-                  path: 'PresentationActivityID'
+                  path: 'EnrollableID'
                 }
                 sink: {
-                  name: 'PresentationActivityID'
+                  name: 'EnrollableID'
                   type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'EnrollmentID'
+                }
+                sink: {
+                  name: 'EnrollmentID'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'UserID'
+                }
+                sink: {
+                  name: 'UserID'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'Identifier'
+                }
+                sink: {
+                  name: 'Identifier'
+                  type: 'String'
                 }
               }
               {
@@ -76,38 +104,47 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
               }
               {
                 source: {
-                  path: 'IsDeleted'
+                  path: 'ModuleActivityID'
                 }
                 sink: {
-                  name: 'IsDeleted'
-                  type: 'Boolean'
+                  name: 'ModuleActivityID'
+                  type: 'Int32'
                 }
               }
               {
                 source: {
-                  path: 'Title'
+                  path: 'Activity'
                 }
                 sink: {
-                  name: 'Title'
+                  name: 'Activity'
                   type: 'String'
                 }
               }
               {
                 source: {
-                  path: 'SlideCount'
+                  path: 'Attempt'
                 }
                 sink: {
-                  name: 'SlideCount'
-                  type: 'Int16'
+                  name: 'Attempt'
+                  type: 'Int32'
                 }
               }
               {
                 source: {
-                  path: 'LastUploadedFileInfo'
+                  path: 'timeSpent'
                 }
                 sink: {
-                  name: 'LastUploadedFileInfo'
-                  type: 'String'
+                  name: 'timeSpent'
+                  type: 'Int32'
+                }
+              }
+              {
+                source: {
+                  path: 'ConclusionDate'
+                }
+                sink: {
+                  name: 'ConclusionDate'
+                  type: 'Datetime'
                 }
               }
               {
@@ -162,13 +199,13 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
         }
         inputs: [
           {
-            referenceName: 'ppts_ep'
+            referenceName: 'audios_ep'
             type: 'DatasetReference'
           }
         ]
         outputs: [
           {
-            referenceName: 'ppts_tb'
+            referenceName: 'audios_tb'
             type: 'DatasetReference'
           }
         ]
@@ -181,6 +218,5 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
     parameters: {}
     runDimensions: {}
     variables: {}
-
   }
 }

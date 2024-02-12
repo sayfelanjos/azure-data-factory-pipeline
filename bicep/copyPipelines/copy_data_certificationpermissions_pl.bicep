@@ -53,7 +53,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'CertificationID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -62,7 +62,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'UserID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -71,7 +71,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'CourseID'
-                  type: 'Int64'
+                  type: 'Int32'
                 }
               }
               {
@@ -80,7 +80,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'GrantedDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -89,7 +89,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'ExpirationDate'
-                  type: 'String'
+                  type: 'Datetime'
                 }
               }
               {
@@ -107,7 +107,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -116,7 +116,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -125,12 +125,12 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
             collectionReference: '$[\'data\']'
-            mapComplexValuesToString: true
+            mapComplexValuesToString: false
           }
         }
         inputs: [

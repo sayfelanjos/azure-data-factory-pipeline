@@ -5,22 +5,23 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
     name: dataFactoryName
 }
 
-resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-    name: 'certificationpermissions_ep'
+resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+    name: 'certificationpermissions_tb'
     parent: dataFactory
     properties: {
         annotations: []
-        type: 'RestResource'
+        type: 'AzureSqlTable'
         linkedServiceName: {
-            referenceName: 'rest-api-linked-service'
+            referenceName: 'sqldb-linked-service'
             type: 'LinkedServiceReference'
         }
-        schema: {}
+        schema: []
         typeProperties: {
-            relativeUrl: '/certificationpermissions?page={pagina}&page_size=5000'
+            table: 'CertificationPermissions'
+            schema: 'Certificarions'
         }
         folder: {
-            name: 'rest_endpoints'
+            name: 'sql_tables'
         }
     }
 }

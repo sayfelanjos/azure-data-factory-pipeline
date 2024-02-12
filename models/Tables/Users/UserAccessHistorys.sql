@@ -6,11 +6,11 @@ WHERE s.name='Users' and t.name='UserAccessHistorys'
 CREATE TABLE [Users].[UserAccessHistorys]
 (
 	[UserID] [int] NOT NULL FOREIGN KEY (UserID) REFERENCES Users.Users(UserID),
-	[Device] [nvarchar](40) NOT NULL,
-	[AuditCreatedDate] [datetime],
+	[Device] [nvarchar](40) NULL,
+	[AuditCreatedDate] [datetime] NULL,
 	[BusinessUnitLinks] [nvarchar](4000) NULL,
 	[Identifier] [nvarchar](80) NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

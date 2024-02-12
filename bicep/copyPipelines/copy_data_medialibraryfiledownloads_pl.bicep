@@ -13,7 +13,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 2
+          retry: 1
           retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
@@ -26,7 +26,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
-              'AbsoluteUrl.{pagina}': 'RANGE:1:1000:1'
+              'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
               'EndCondition:$[\'data\']': 'Empty'
             }
           }
@@ -143,7 +143,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'Page'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -152,7 +152,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'PageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
               {
@@ -161,7 +161,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
                 }
                 sink: {
                   name: 'MaximumPageSize'
-                  type: 'Int64'
+                  type: 'Int16'
                 }
               }
             ]
@@ -185,7 +185,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
     ]
     annotations: []
     folder: {
-      name: 'one_to_one_copy_pl'
+      name: 'CopyPipelines'
     }
     parameters: {}
     runDimensions: {}

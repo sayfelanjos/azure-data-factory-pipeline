@@ -6,16 +6,16 @@ WHERE s.name='Files' and t.name='MediaLibraryHtmls'
 CREATE TABLE [Files].[MediaLibraryHtmls]
 (
 	[MediaContentID] [int] NOT NULL PRIMARY KEY,
-	[IsDeleted] [bit] NOT NULL,
+	[IsDeleted] [bit] NULL,
 	[CategoryID] [int] NULL,
-	[Media_Name] [nvarchar](200) NOT NULL,
-	[HTMLPageID] [int] NOT NULL,
-	[IsEnabled] [bit] NOT NULL,
-	[DisplayDate] [datetime] NOT NULL,
-	[Points] [smallint] NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[Media_Name] [nvarchar](4000) NULL,
+	[HTMLPageID] [int] NULL,
+	[IsEnabled] [bit] NULL,
+	[DisplayDate] [datetime] NULL,
+	[Points] [smallint] NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

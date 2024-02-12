@@ -6,11 +6,11 @@ WHERE s.name='Tags' and t.name='Tags'
 CREATE TABLE [Tags].[Tags]
 (
 	[TagID] [int] NOT NULL PRIMARY KEY,
-	[TagName] [nvarchar](80) NOT NULL,
-	[IsDeleted] [bit] NOT NULL,
-	[AuditCreatedDate] [datetime] NOT NULL,
-	[AuditLastUpdatedDate] [datetime] NOT NULL,
-	[Page] [smallint] NOT NULL,
-	[PageSize] [smallint] NOT NULL,
-	[MaximumPageSize] [smallint] NOT NULL
+	[TagName] [nvarchar](400) NULL,
+	[IsDeleted] [bit] NULL,
+	[AuditCreatedDate] [datetime] NULL,
+	[AuditLastUpdatedDate] [datetime] NULL,
+	[Page] [smallint] NULL,
+	[PageSize] [smallint] NULL,
+	[MaximumPageSize] [smallint] NULL
 ); 

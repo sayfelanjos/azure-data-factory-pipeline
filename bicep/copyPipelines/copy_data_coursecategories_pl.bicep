@@ -13,7 +13,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 2
+          retry: 1
           retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
@@ -149,7 +149,7 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
     ]
     annotations: []
     folder: {
-      name: 'one_to_one_copy_pl'
+      name: 'CopyPipelines'
     }
     parameters: {}
     runDimensions: {}
