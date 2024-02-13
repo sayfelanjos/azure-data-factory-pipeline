@@ -9,6 +9,11 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'campaigncontents_ep'
     parent: dataFactory
     properties: {
+        parameters: {
+            SetApiName: {
+                type: 'String'
+            }
+        }
         annotations: []
         type: 'RestResource'
         linkedServiceName: {
@@ -17,7 +22,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: 'campaigncontents?page={pagina}&page_size=5000&update_start_date=2021-12-31'
+            relativeUrl: '@dataset().SetApiName'
         }
         folder: {
             name: 'rest_endpoints'

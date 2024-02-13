@@ -1,5 +1,5 @@
 param dataFactoryName string
-
+param update_start_date string
 var pipelineName = 'copy_data_certificationpermissions_pl'
 
 resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
@@ -13,8 +13,8 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
         dependsOn: []
         policy: {
           timeout: '00.12:00:00'
-          retry: 4
-          retryIntervalInSeconds: 180
+          retry: 1
+          retryIntervalInSeconds: 60
           secureOutput: false
           secureInput: false
         }
@@ -41,7 +41,6 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
               ]
             }
             sqlWriterUseTableLock: true
-            tableOption: 'autoCreate'
             disableMetricsCollection: false
           }
           translator: {
@@ -137,6 +136,11 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
           {
             referenceName: 'certificationpermissions_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'certificationpermissions?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

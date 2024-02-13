@@ -21,7 +21,7 @@ resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             schema: 'Courses'
         }
         folder: {
-            name: 'sql_tables'
+            name: 'Tables'
         }
     }
 }

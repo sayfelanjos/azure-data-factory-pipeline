@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_webmeetings_pl'
 
@@ -173,6 +174,11 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
           {
             referenceName: 'webmeetings_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'webmeetings?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

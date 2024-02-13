@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_enrollables_pl'
 
@@ -263,6 +264,11 @@ resource enrollables_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
           {
             referenceName: 'enrollables_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'enrollables?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

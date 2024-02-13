@@ -9,6 +9,11 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'RestAPINeolude_ep'
     parent: dataFactory
     properties: {
+        parameters: {
+            SetApiName: {
+                type: 'String'
+            }
+        }
         annotations: []
         parameters: {
             SetApiName: {

@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_coursecategories_pl'
 
@@ -137,6 +138,11 @@ resource coursecategories_pipeline 'Microsoft.DataFactory/factories/pipelines@20
           {
             referenceName: 'coursecategories_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'coursecategories?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_presentialmeetings_pl'
 
@@ -245,6 +246,11 @@ resource presentialmeetings_pipeline 'Microsoft.DataFactory/factories/pipelines@
           {
             referenceName: 'presentialmeetings_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'presentialmeetings?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

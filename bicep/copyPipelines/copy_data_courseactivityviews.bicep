@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'CourseActivityViews'
 
@@ -37,17 +38,25 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
               useTempDB: false
               interimSchemaName: 'CourseActivityViews'
               keys: [
-                'CourseID'
+                'CourseActivityViewsID'
               ]
             }
             sqlWriterUseTableLock: true
-
             disableMetricsCollection: false
           }
           translator: {
             type: 'TabularTranslator'
             typeConversion: true
             mappings: [
+              {
+                source: {
+                  path: 'CourseActivityViewsID'
+                }
+                sink: {
+                  name: 'CourseActivityViewsID'
+                  type: 'Int32'
+                }
+              }
               {
                 source: {
                   path: 'CourseID'
@@ -126,7 +135,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'Attempt'
-                  type: 'Int32'
+                  type: 'Byte'
                 }
               }
               {
@@ -135,7 +144,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'timeSpent'
-                  type: 'Int32'
+                  type: 'Int16'
                 }
               }
               {
@@ -199,13 +208,18 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
         }
         inputs: [
           {
-            referenceName: 'audios_ep'
+            referenceName: 'courseActivityViews_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'courseActivityViews?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [
           {
-            referenceName: 'audios_tb'
+            referenceName: 'courseActivityViews_tb'
             type: 'DatasetReference'
           }
         ]

@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_medialibraryfiledownloads_pl'
 
@@ -22,6 +23,15 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
         typeProperties: {
           source: {
             type: 'RestSource'
+            additionalColumns: [
+              {
+                name: 'MediaLibraryFileDownloadsID'
+                value: {
+                  value: '@guid()'
+                  type: 'Expression'
+                }
+              }
+            ]
             httpRequestTimeout: '00:01:40'
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
@@ -37,16 +47,24 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
               useTempDB: false
               interimSchemaName: 'Files'
               keys: [
-                'DownloadHistoryID'
+                'MediaLibraryFileDownloadsID'
               ]
             }
             sqlWriterUseTableLock: true
-
             disableMetricsCollection: false
           }
           translator: {
             type: 'TabularTranslator'
             mappings: [
+              {
+                source: {
+                  path: 'MediaLibraryFileDownloadsID'
+                }
+                sink: {
+                  name: 'MediaLibraryFileDownloadsID'
+                  type: 'Guid'
+                }
+              }
               {
                 source: {
                   path: 'DownloadHistoryID'
@@ -173,6 +191,11 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
           {
             referenceName: 'medialibraryfiledownloads_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'medialibraryfiledownloads?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

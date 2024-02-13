@@ -5,6 +5,7 @@ WHERE s.name='Files' and t.name='MediaLibraryFileDownloads'
 ) 
 CREATE TABLE [Files].[MediaLibraryFileDownloads]
 (
+	[MediaLibraryFileDownloadsID] [uniqueidentifier] NOT NULL PRIMARY KEY,
 	[DownloadHistoryID] [int] NOT NULL,
 	[IsDeleted] [bit] NULL,
 	[FileAssignmentID] [int] NULL,

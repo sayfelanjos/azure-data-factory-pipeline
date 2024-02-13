@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_usercertifications_pl'
 
@@ -155,6 +156,11 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
           {
             referenceName: 'usercertifications_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'usercertifications?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

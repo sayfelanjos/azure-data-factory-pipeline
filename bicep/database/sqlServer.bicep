@@ -30,7 +30,7 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   name: dbName
   location: location
   properties: {
-    maxSizeBytes: 549755813888
+    maxSizeBytes: 137438953472
     minCapacity: 1
     requestedBackupStorageRedundancy: 'Zone'
   }

@@ -5,6 +5,7 @@ WHERE s.name='Courses' and t.name='CoursePermissions'
 ) 
 CREATE TABLE [Courses].[CoursePermissions]
 (
+	[CoursePermissionsID] [uniqueidentifier] NOT NULL PRIMARY KEY,
 	[UserID] [int] NULL,
 	[CourseID] [int] NOT NULL FOREIGN KEY (CourseID) REFERENCES Courses.Courses(CourseID),
 	[CoursePermissionLevelID] [int] NULL,

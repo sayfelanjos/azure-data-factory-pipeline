@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_positions_pl'
 
@@ -128,6 +129,11 @@ resource positions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
           {
             referenceName: 'positions_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'positions?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

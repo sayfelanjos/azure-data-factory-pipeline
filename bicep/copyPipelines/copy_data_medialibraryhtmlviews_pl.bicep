@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_medialibraryhtmlviews_pl'
 
@@ -146,6 +147,11 @@ resource medialibraryhtmlviews_pipeline 'Microsoft.DataFactory/factories/pipelin
           {
             referenceName: 'medialibraryhtmlviews_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'medialibraryhtmlsviews?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

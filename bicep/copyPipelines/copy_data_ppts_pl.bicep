@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_ppts_pl'
 
@@ -164,6 +165,11 @@ resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = 
           {
             referenceName: 'ppts_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'ppts?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

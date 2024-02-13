@@ -1,5 +1,5 @@
 param dataFactoryName string
-
+param update_start_date string
 var pipelineName = 'copy_data_campaignpermissions_pl'
 
 resource campaignpermissions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
@@ -164,6 +164,11 @@ resource campaignpermissions_pipeline 'Microsoft.DataFactory/factories/pipelines
           {
             referenceName: 'campaignpermissions_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'campaignpermissions?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

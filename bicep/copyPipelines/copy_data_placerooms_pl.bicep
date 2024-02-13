@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_placerooms_pl'
 
@@ -164,6 +165,11 @@ resource placerooms_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
           {
             referenceName: 'placerooms_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'placerooms?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

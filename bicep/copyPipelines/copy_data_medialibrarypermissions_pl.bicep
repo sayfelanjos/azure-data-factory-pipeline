@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_medialibrarypermissions_pl'
 
@@ -146,6 +147,11 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
           {
             referenceName: 'medialibrarypermissions_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'medialibrarypermissions?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

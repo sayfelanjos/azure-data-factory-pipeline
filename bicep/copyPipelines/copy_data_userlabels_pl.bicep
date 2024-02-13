@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_userlabels_pl'
 
@@ -146,6 +147,11 @@ resource userlabels_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
           {
             referenceName: 'userlabels_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'userlabels?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

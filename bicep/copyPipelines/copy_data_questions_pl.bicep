@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_questions_pl'
 
@@ -182,6 +183,11 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
           {
             referenceName: 'questions_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'questions?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_occupationareas_pl'
 
@@ -164,6 +165,11 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
           {
             referenceName: 'occupationareas_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'occupationareas?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

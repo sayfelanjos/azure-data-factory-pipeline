@@ -1,4 +1,5 @@
 param dataFactoryName string
+param update_start_date string
 
 var pipelineName = 'copy_data_coursepermissions_pl'
 
@@ -23,6 +24,13 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:01:40'
+            additionalColumns: {
+              name: 'CoursePermissionsID'
+              value: {
+                value: '@guid()'
+                type: 'Expression'
+              }
+            }
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
@@ -37,7 +45,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
               useTempDB: false
               interimSchemaName: 'Courses'
               keys: [
-                'UserID'
+                'CoursePermissionsID'
               ]
             }
             sqlWriterUseTableLock: true
@@ -48,6 +56,15 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           translator: {
             type: 'TabularTranslator'
             mappings: [
+              {
+                source: {
+                  path: 'CoursePermissionsID'
+                }
+                sink: {
+                  name: 'CoursePermissionsID'
+                  type: 'Int32'
+                }
+              }
               {
                 source: {
                   path: 'UserID'
@@ -111,6 +128,11 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           {
             referenceName: 'coursepermissions_ep'
             type: 'DatasetReference'
+            parameters: {
+              SetApiName: {
+                value: 'coursepermissions?page={pagina}&page_size=5000&${update_start_date}'
+              }
+            }
           }
         ]
         outputs: [

@@ -9,6 +9,11 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'certificationpermissions_ep'
     parent: dataFactory
     properties: {
+        parameters: {
+            SetApiName: {
+                type: 'String'
+            }
+        }
         annotations: []
         type: 'RestResource'
         linkedServiceName: {
@@ -17,7 +22,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         }
         schema: {}
         typeProperties: {
-            relativeUrl: 'certificationpermissions?page={pagina}&page_size=5000'
+            relativeUrl: '@dataset().SetApiName'
         }
         folder: {
             name: 'rest_endpoints'

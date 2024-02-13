@@ -5,6 +5,7 @@ WHERE s.name='Assessments' and t.name='ExamTakenAnswers'
 ) 
 CREATE TABLE [Assessments].[ExamTakenAnswers]
 (
+	[ExamTakenAnswersID] [uniqueidentifier] NOT NULL PRIMARY KEY,
 	[Identifier] [nvarchar](200) NOT NULL,
 	[IsDeleted] [bit] NULL,
 	[EssayAnswerID] [int] NULL,
