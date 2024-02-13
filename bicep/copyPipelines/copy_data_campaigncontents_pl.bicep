@@ -1,5 +1,5 @@
 param dataFactoryName string
-param update_start_date string
+param updateStartDate string
 var pipelineName = 'copy_data_campaigncontents_pl'
 
 resource campaigcontents_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {

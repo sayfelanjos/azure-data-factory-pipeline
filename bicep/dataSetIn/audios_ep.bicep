@@ -8,7 +8,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
 resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'audios_ep'
     parent: dataFactory
-    properties: {        
+    properties: {
         parameters: {
             SetApiName: {
                 type: 'String'
@@ -25,7 +25,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             relativeUrl: '@dataset().SetApiName'
         }
         folder: {
-            name: 'rest_endpoints'
+            name: 'EndPoints'
         }
     }
 }

@@ -1,5 +1,5 @@
 param dataFactoryName string
-param update_start_date string
+param updateStartDate string
 
 var pipelineName = 'copy_data_examtakens_pl'
 

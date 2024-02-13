@@ -15,11 +15,6 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             }
         }
         annotations: []
-        parameters: {
-            SetApiName: {
-                type: 'String'
-            }
-        }
         type: 'RestResource'
         linkedServiceName: {
             referenceName: 'rest-api-linked-service'
@@ -30,7 +25,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             relativeUrl: '@dataset().SetApiName'
         }
         folder: {
-            name: 'rest_endpoints'
+            name: 'EndPoints'
         }
     }
 }

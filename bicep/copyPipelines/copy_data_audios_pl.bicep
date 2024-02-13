@@ -1,5 +1,5 @@
 param dataFactoryName string
-param update_start_date string
+param updateStartDate string
 var pipelineName = 'copy_data_audios_pl'
 
 resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
@@ -18,16 +18,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
           secureOutput: false
           secureInput: false
         }
-        userProperties: [
-          {
-            name: 'Source'
-            value: 'examtakenanswers?page={pagina}&page_size=5000'
-          }
-          {
-            name: 'Destination'
-            value: 'Assessments.ExamTakenAnswers'
-          }
-        ]
+        userProperties: []
         typeProperties: {
           source: {
             type: 'RestSource'

@@ -3,6 +3,7 @@ $copyPipelinesPath = '.\bicep\copyPipelines'
 $copyPipelines = Get-ChildItem $copyPipelinesPath
 $resourceGroupName = $args[0]
 $dataFactoryName = $args[1]
+$updateStartDate = $args[2]
 
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$($pipelinesPath)\contents_pl.bicep" -pipelineName 'contents_pl' -dataFactoryName $dataFactoryName
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$($pipelinesPath)\contents_pl_2.bicep" -pipelineName 'contents_pl_2' -dataFactoryName $dataFactoryName
@@ -13,7 +14,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFil
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$($pipelinesPath)\execute_copyPipelines_pl.bicep" -pipelineName 'execute_pl' -dataFactoryName $dataFactoryName
 
 foreach ($pl in $copyPipelines) {
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $pl.FullName -dataFactoryName $dataFactoryName -ErrorAction SilentlyContinue
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $pl.FullName -dataFactoryName $dataFactoryName -updateStartDate $updateStartDate -ErrorAction SilentlyContinue
 }
 
 

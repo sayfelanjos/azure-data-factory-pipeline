@@ -25,7 +25,7 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             relativeUrl: '@dataset().SetApiName'
         }
         folder: {
-            name: 'rest_endpoints'
+            name: 'EndPoints'
         }
     }
 }
