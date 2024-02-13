@@ -149,7 +149,7 @@ resource uploadactivities_pipeline 'Microsoft.DataFactory/factories/pipelines@20
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'uploadactivities?page={pagina}&page_size=5000&${update_start_date}'
+                value: 'uploadactivities?page={pagina}&page_size=5000&${updateStartDate}'
               }
             }
           }

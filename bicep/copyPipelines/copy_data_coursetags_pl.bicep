@@ -103,7 +103,7 @@ resource coursestags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
             referenceName: 'coursetags_ep'
             type: 'DatasetReference'
             parameters: {
-              SetApiName: 'coursetags?page={pagina}&page_size=5000&${update_start_date}'
+              SetApiName: 'coursetags?page={pagina}&page_size=5000&${updateStartDate}'
             }
           }
         ]

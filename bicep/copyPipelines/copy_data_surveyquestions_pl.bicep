@@ -203,7 +203,7 @@ resource surveys_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'surveyquestions?page={pagina}&page_size=5000&${update_start_date}'
+                value: 'surveyquestions?page={pagina}&page_size=5000&${updateStartDate}'
               }
             }
           }

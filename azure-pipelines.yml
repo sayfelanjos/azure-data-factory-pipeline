@@ -17,8 +17,8 @@ parameters:
     type: string
     default: 'bi'
   - name: 'updateStartDate'
-    displayName: 'Data de início para coleta dos dados. Obs: manter o mesmo formato de data.'
-    default: '2022-01-01'
+    displayName: 'Data de início para coleta dos dados. Obs: manter o mesmo formato de data, update_start_date=2022-01-01.'
+    default: ''
 
 variables:
   location: 'brazilsouth'

@@ -211,7 +211,7 @@ resource certifications_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'certifications?page={pagina}&page_size=5000&${update_start_date}'
+                value: 'certifications?page={pagina}&page_size=5000&${updateStartDate}'
               }
             }
           }

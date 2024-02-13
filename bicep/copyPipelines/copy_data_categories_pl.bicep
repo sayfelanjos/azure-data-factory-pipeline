@@ -157,7 +157,7 @@ resource categories_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'categories?page={pagina}&page_size=5000&${update_start_date}'
+                value: 'categories?page={pagina}&page_size=5000&${updateStartDate}'
               }
             }
           }

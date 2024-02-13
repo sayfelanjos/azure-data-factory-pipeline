@@ -228,7 +228,7 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'examtakenanswers?page={pagina}&page_size=5000&${update_start_date}'
+                value: 'examtakenanswers?page={pagina}&page_size=5000&${updateStartDate}'
               }
             }
           }

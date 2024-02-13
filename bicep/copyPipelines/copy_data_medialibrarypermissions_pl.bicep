@@ -149,7 +149,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'medialibrarypermissions?page={pagina}&page_size=5000&${update_start_date}'
+                value: 'medialibrarypermissions?page={pagina}&page_size=5000&${updateStartDate}'
               }
             }
           }
