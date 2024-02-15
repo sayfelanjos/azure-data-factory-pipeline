@@ -131,7 +131,8 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'useraccesshistorys?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'useraccesshistorys?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

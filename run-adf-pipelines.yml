@@ -1,0 +1,61 @@
+trigger: none
+parameters:
+  - name: 'customer'
+    displayName: 'Nome do cliente para o qual serão criados os recursos'
+    type: string
+    default: 'casas-bahia'
+  - name: 'baseURL'
+    displayName: 'API URL'
+    default: 'https://data-api.neolude.com.br'
+    type: string
+  - name: 'environment'
+    displayName: 'Ambiente de desenvolvimento ex: dev, stg, prod'
+    type: string
+    default: 'dev'
+  - name: 'department'
+    displayName: 'Departamento responsável'
+    type: string
+    default: 'bi'
+  - name: 'updateStartDate'
+    displayName: 'Data de início para coleta dos dados. Obs: manter o mesmo formato de data, update_start_date=2022-01-01.'
+    default: ''
+
+variables:
+  location: 'brazilsouth'
+  prefix: '${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }}'
+  resourceGroupName: '$(prefix)-rg'
+  dataFactoryName: '$(prefix)-adf'
+  serverName: '$(prefix)-sqlsvr'
+  dbName: '$(prefix)-sqldb'
+  subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
+  servicePrincipalConnection: 'AzureDevOpsPipelines'
+  agentPool: 'Azure Pipelines'
+
+stages:
+  - stage: 'StartingAzureDataFactoryPipeline'
+    displayName: 'Start Azure Data Factory Pipeline'
+    dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
+    pool:
+      name: '$(agentPool)'
+      vmImage: 'windows-latest'
+    jobs:
+      - job: 'CreatePipelines'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) ${{ parameters.updateStartDate }}'  
+      - job: 'RunPipelines'
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'

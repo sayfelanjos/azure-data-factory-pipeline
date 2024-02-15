@@ -1,87 +1,151 @@
-// param dataFactoryName string
+param dataFactoryName string
 
-// var pipelineName = 'copy_data_surveyquestions_pl'
+var pipelineName = 'AssessmentsCopyPipelines'
 
-// resource symbolicname 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
-//   name: '${dataFactoryName}/${pipelineName}'
-//   properties: {
-//     activities: [
-//       {
-//         // dependsOn: [
-//         //   {
-//         //     activity: 'string'
-//         //     dependencyConditions: [
-//         //       'string'
-//         //     ]
-//         //   }
-//         // ]
-//         // description: 'string'
-//         // name: 'string'
-//         // userProperties: [
-//         //   {
-//         //     name: 'string'
-//         //     value: any()
-//         //   }
-//         // ]
-//         type: 'ForEach'
-//         typeProperties: {
-//           activities: [
-//             {
-//               dependsOn: [
-//                 {
-//                   activity: 'string'
-//                   dependencyConditions: [
-//                     'string'
-//                   ]
-//                 }
-//               ]
-//               description: 'string'
-//               name: 'string'
-//               userProperties: [
-//                 {
-//                   name: 'string'
-//                   value: any()
-//                 }
-//               ]
-//               type: 'ExecutePipeline'
-//               policy: {
-//                 secureInput: bool
-//               }
-//               typeProperties: {
-//                 parameters: {}
-//                 pipeline: {
-//                   name: 'string'
-//                   referenceName: 'string'
-//                   type: 'PipelineReference'
-//                 }
-//                 waitOnCompletion: bool
-//               }
-//             }
-//           ]
-//           batchCount: int
-//           isSequential: bool
-//           items: {
-//             type: 'Expression'
-//             value: 'string'
-//           }
-//         }
-//       }
-//     ]
-//     annotations: [
-//       any
-//     ]
-//     concurrency: int
-//     description: 'string'
-//     folder: {
-//       name: 'string'
-//     }
-//     parameters: {}
-//     policy: {
-//       elapsedTimeMetric: {
-//         duration: any()
-//       }
-//     }
-//     runDimensions: {}
-//     variables: {}
-//   }
-// }
+resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+  name: '${dataFactoryName}/${pipelineName}'
+  properties: {
+    activities: [
+      {
+        name: 'Execute QuestionsCopyData'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_questions_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'Execute ExamsCopyData'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_exams_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_examtakenanswers_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'Execute QuestionsCopyData'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_examtakenanswers_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_examtakenquestions_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'Execute QuestionsCopyData'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Execute ExamsCopyData'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_examtakenquestions_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_examtakens_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'Execute ExamsCopyData'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_examtakens_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_examquestions_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'Execute ExamsCopyData'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Execute QuestionsCopyData'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_examquestions_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+    ]
+    folder: {
+      name: 'PipelinesByDomains'
+    }
+    annotations: []
+  }
+}

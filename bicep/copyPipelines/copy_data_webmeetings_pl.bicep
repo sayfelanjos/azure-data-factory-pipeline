@@ -176,7 +176,8 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'webmeetings?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'webmeetings?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

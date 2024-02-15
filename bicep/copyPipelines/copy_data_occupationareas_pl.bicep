@@ -167,7 +167,8 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'occupationareas?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'occupationareas?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

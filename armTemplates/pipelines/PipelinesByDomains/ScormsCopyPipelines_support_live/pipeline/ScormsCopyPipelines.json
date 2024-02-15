@@ -1,0 +1,29 @@
+{
+    "name": "ScormsCopyPipelines",
+    "properties": {
+        "activities": [
+            {
+                "name": "copy_data_scorms_pl",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "policy": {
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "copy_data_scorms_pl",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true
+                }
+            }
+        ],
+        "folder": {
+            "name": "PipelinesByDomains"
+        },
+        "annotations": [],
+        "lastPublishTime": "2024-02-09T18:13:49Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

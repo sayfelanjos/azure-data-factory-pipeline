@@ -1,7 +1,7 @@
 param dataFactoryName string
 param updateStartDate string
 
-var pipelineName = 'CourseActivityViews'
+var pipelineName = 'copy_data_courseActivityViews_pl'
 
 resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
@@ -212,7 +212,8 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'courseActivityViews?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'courseActivityViews?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

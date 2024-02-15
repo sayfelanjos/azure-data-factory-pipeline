@@ -220,7 +220,7 @@ resource examtakens_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             referenceName: 'examtakens_ep'
             type: 'DatasetReference'
             parameters: {
-              SetApiName: 'examtakens?page={pagina}&page_size=5000&${updateStartDate}'
+              SetApiName: 'examtakens?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
             }
           }
         ]

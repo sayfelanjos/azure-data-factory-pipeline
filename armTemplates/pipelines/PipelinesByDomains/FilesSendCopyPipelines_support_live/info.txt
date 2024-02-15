@@ -1,0 +1,6 @@
+selected resource name:		FilesSendCopyPipelines
+selected resource type:		pipeline
+factory name:			febraban-bi-stg-adf
+factory location:		brazilsouth
+subscription id:		c56f173d-86ef-45e2-9a11-d3d887738b21
+time of download (UTC):		Thu, 15 Feb 2024 17:23:54 GMT

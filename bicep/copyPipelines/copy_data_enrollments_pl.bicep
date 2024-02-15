@@ -28,7 +28,7 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
-              'EndCondition:$[\'header\']': 'Empty'
+              'EndCondition:$[\'data\']': 'Empty'
             }
           }
           sink: {
@@ -238,7 +238,7 @@ resource enrollments_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06
             referenceName: 'enrollments_ep'
             type: 'DatasetReference'
             parameters: {
-              SetApiName: 'enrollments?page={pagina}&page_size=5000&${updateStartDate}'
+              SetApiName: 'enrollments?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
             }
           }
         ]

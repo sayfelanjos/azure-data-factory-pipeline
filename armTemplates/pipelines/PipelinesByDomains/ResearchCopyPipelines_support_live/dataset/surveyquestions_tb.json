@@ -1,0 +1,20 @@
+{
+    "name": "surveyquestions_tb",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "sqldb-linked-service",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Tables"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "Research",
+            "table": "SurveyQuestions"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,19 @@
+{
+    "name": "positions_tb",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "sqldb-linked-service",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Tables"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "typeProperties": {
+            "schema": "Users",
+            "table": "Positions"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

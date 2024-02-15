@@ -1,0 +1,219 @@
+{
+    "name": "copy_data_scorms_pl",
+    "properties": {
+        "activities": [
+            {
+                "name": "OneToOneCopyPipeline",
+                "description": "Copy data from rest api to sql database table",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "00.12:00:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 60,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "RestSource",
+                        "httpRequestTimeout": "00:01:40",
+                        "requestInterval": "00.00:00:00.060",
+                        "requestMethod": "GET",
+                        "paginationRules": {
+                            "AbsoluteUrl.{pagina}": "RANGE:1:9999:1",
+                            "EndCondition:$['data']": "Empty"
+                        }
+                    },
+                    "sink": {
+                        "type": "AzureSqlSink",
+                        "writeBehavior": "upsert",
+                        "upsertSettings": {
+                            "useTempDB": false,
+                            "keys": [
+                                "ScormID"
+                            ],
+                            "interimSchemaName": "Scorms"
+                        },
+                        "sqlWriterUseTableLock": true,
+                        "disableMetricsCollection": false
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "mappings": [
+                            {
+                                "source": {
+                                    "path": "ScormID"
+                                },
+                                "sink": {
+                                    "name": "ScormID",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "ScormActivityID"
+                                },
+                                "sink": {
+                                    "name": "ScormActivityID",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "ModuleActivityTypeID"
+                                },
+                                "sink": {
+                                    "name": "ModuleActivityTypeID",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "IsDeleted"
+                                },
+                                "sink": {
+                                    "name": "IsDeleted",
+                                    "type": "Boolean"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "Title"
+                                },
+                                "sink": {
+                                    "name": "Title",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "Version"
+                                },
+                                "sink": {
+                                    "name": "Version",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "gradeType"
+                                },
+                                "sink": {
+                                    "name": "gradeType",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "keepGradeType"
+                                },
+                                "sink": {
+                                    "name": "keepGradeType",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "AllowMultipleAttempts"
+                                },
+                                "sink": {
+                                    "name": "AllowMultipleAttempts",
+                                    "type": "Boolean"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "AttemptsLimit"
+                                },
+                                "sink": {
+                                    "name": "AttemptsLimit",
+                                    "type": "Int16"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "LastUploadedFileInfo"
+                                },
+                                "sink": {
+                                    "name": "LastUploadedFileInfo",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "AuditCreatedDate"
+                                },
+                                "sink": {
+                                    "name": "AuditCreatedDate",
+                                    "type": "Datetime"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "AuditLastUpdatedDate"
+                                },
+                                "sink": {
+                                    "name": "AuditLastUpdatedDate",
+                                    "type": "Datetime"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "$['metadata']['Page']"
+                                },
+                                "sink": {
+                                    "name": "Page",
+                                    "type": "Int16"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "$['metadata']['PageSize']"
+                                },
+                                "sink": {
+                                    "name": "PageSize",
+                                    "type": "Int16"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "path": "$['metadata']['MaximumPageSize']"
+                                },
+                                "sink": {
+                                    "name": "MaximumPageSize",
+                                    "type": "Int16"
+                                }
+                            }
+                        ],
+                        "collectionReference": "$['data']",
+                        "mapComplexValuesToString": false
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "scorms_ep",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "SetApiName": "scorms?page={pagina}&page_size=5000"
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "scorms_tb",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
+        ],
+        "folder": {
+            "name": "CopyPipelines"
+        },
+        "annotations": [],
+        "lastPublishTime": "2024-02-13T03:46:53Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

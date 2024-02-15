@@ -131,7 +131,8 @@ resource positions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'positions?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'positions?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

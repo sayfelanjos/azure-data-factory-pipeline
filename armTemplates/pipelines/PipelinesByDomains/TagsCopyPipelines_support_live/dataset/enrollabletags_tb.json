@@ -1,0 +1,20 @@
+{
+    "name": "enrollabletags_tb",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "sqldb-linked-service",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Tables"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "Tags",
+            "table": "EnrollableTags"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

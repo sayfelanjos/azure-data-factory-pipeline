@@ -24,13 +24,6 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           source: {
             type: 'RestSource'
             httpRequestTimeout: '00:01:40'
-            additionalColumns: {
-              name: 'CoursePermissionsID'
-              value: {
-                value: '@guid()'
-                type: 'Expression'
-              }
-            }
             requestInterval: '00.00:00:00.060'
             requestMethod: 'GET'
             paginationRules: {
@@ -130,7 +123,8 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'coursepermissions?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'coursepermissions?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

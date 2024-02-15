@@ -1,0 +1,20 @@
+{
+    "name": "places_tb",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "sqldb-linked-service",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Tables"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "Courses",
+            "table": "Places"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

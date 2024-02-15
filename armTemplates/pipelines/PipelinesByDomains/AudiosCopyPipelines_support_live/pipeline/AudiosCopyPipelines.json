@@ -1,0 +1,29 @@
+{
+    "name": "AudiosCopyPipelines",
+    "properties": {
+        "activities": [
+            {
+                "name": "copy_data_audios_pl",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "policy": {
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "copy_data_audios_pl",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true
+                }
+            }
+        ],
+        "folder": {
+            "name": "PipelinesByDomains"
+        },
+        "annotations": [],
+        "lastPublishTime": "2024-02-09T18:13:48Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

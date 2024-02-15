@@ -1,0 +1,27 @@
+{
+    "name": "htmls_ep",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "rest-api-linked-service",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "SetApiName": {
+                "type": "String"
+            }
+        },
+        "folder": {
+            "name": "EndPoints"
+        },
+        "annotations": [],
+        "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": {
+                "value": "@dataset().SetApiName",
+                "type": "Expression"
+            }
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

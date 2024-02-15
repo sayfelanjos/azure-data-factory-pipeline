@@ -1,0 +1,20 @@
+{
+    "name": "medialibraryhtmlviews_tb",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "sqldb-linked-service",
+            "type": "LinkedServiceReference"
+        },
+        "folder": {
+            "name": "Tables"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "HtmlPages",
+            "table": "MediaLibraryHtmlViews"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

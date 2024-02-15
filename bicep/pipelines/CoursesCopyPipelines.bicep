@@ -1,0 +1,217 @@
+param dataFactoryName string
+
+var pipelineName = 'CoursesCopyPipelines'
+
+resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+  name: '${dataFactoryName}/${pipelineName}'
+  properties: {
+    activities: [
+      {
+        name: 'copy_data_courses_pl'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_courses_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_componentactivities_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_enrollables_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_componentactivities_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_coursecategories_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_courses_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_coursecategories_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_coursetags_pl'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_coursetags_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_enrollments_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_enrollables_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_enrollments_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_placerooms_pl'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_placerooms_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_enrollables_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_courses_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_enrollables_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_equivalencyrequests_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_enrollments_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_equivalencyrequests_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_places_pl'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_places_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_placerooms_pl1'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_places_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_placerooms_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+    ]
+    folder: {
+      name: 'PipelinesByDomains'
+    }
+    annotations: []
+  }
+}

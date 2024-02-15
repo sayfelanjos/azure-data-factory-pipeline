@@ -10,7 +10,7 @@ CREATE TABLE [Certifications].[CertificationPermissions]
 	[CourseID] [int] NULL FOREIGN KEY (CourseID) REFERENCES Courses.Courses(CourseID),
 	[GranteDate] [datetime] NULL,
 	[ExpirationDate] [datetime] NULL,
-	[Status] [nvarchar](20) NOT NULL,
+	[Status] [nvarchar](80) NOT NULL,
 	[Page] [smallint] NOT NULL,
 	[PageSize] [smallint] NOT NULL,
 	[MaximumPageSize] [smallint] NOT NULL

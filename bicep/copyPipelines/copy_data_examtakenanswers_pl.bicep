@@ -23,13 +23,6 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
         typeProperties: {
           source: {
             type: 'RestSource'
-            additionalColumns: {
-              name: 'ExamTakenAnswersID'
-              value: {
-                value: '@guid()'
-                type: 'Expression'
-              }
-            }
             httpRequestTimeout: '00:01:40'
             requestInterval: '00.00:00:00.010'
             requestMethod: 'GET'
@@ -45,7 +38,8 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
               useTempDB: false
               interimSchemaName: 'Assessments'
               keys: [
-                'ExamTakenAnswersID'
+                'ExamTakenID'
+                'QuestionID'
               ]
             }
             sqlWriterUseTableLock: true
@@ -55,15 +49,6 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
           translator: {
             type: 'TabularTranslator'
             mappings: [
-              {
-                source: {
-                  path: 'ExamTakenAnswersID'
-                }
-                sink: {
-                  name: 'ExamTakenAnswersID'
-                  type: 'Guid'
-                }
-              }
               {
                 source: {
                   path: 'Identifier'
@@ -228,7 +213,8 @@ resource copyPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'examtakenanswers?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'examtakenanswers?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

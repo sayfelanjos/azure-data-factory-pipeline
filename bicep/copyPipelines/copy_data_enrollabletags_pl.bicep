@@ -104,7 +104,8 @@ resource enrollabletags_pipeline 'Microsoft.DataFactory/factories/pipelines@2018
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'enrollabletags?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'enrollabletags?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }

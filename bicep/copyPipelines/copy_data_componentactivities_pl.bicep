@@ -27,7 +27,7 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
             requestMethod: 'GET'
             paginationRules: {
               'AbsoluteUrl.{pagina}': 'RANGE:1:9999:1'
-              'EndCondition:$[\'header\']': 'Empty'
+              'EndCondition:$[\'data\']': 'Empty'
             }
           }
           sink: {
@@ -319,7 +319,8 @@ resource componentactivities_pipeline 'Microsoft.DataFactory/factories/pipelines
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'componentactivities?page={pagina}&page_size=5000&${updateStartDate}'
+                value: 'componentactivities?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
           }
