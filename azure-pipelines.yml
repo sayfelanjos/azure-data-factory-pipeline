@@ -180,7 +180,6 @@ stages:
       vmImage: 'windows-latest'
     jobs:
       - job: 'RebuildPipelines'
-        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
         condition: succeeded()
         steps:
           - task: AzurePowerShell@5
@@ -191,7 +190,7 @@ stages:
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
       - job: 'CreateTrigger'
-        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        dependsOn: 'RebuildPipelines'
         condition: succeeded()
         steps:
           - task: AzurePowerShell@5
@@ -202,7 +201,7 @@ stages:
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\trigger-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
       - job: 'StartTrigger'
-        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        dependsOn: 'CreateTrigger'
         condition: succeeded()
         steps:
           - task: AzurePowerShell@5
