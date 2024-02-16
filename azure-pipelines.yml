@@ -157,26 +157,26 @@ stages:
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateInicial)'  
-  - stage: 'StartingAzureDataFactoryPipeline'
-    displayName: 'Start Azure Data Factory Pipeline'
-    # dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
-    dependsOn: 'CreateAzureDataFactory'
-    pool:
-      name: '$(agentPool)'
-      vmImage: 'windows-latest'
-    jobs:
-      - job: 'RunPipelines'
-        steps:
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: '$(servicePrincipalConnection)'
-              azurePowerShellVersion: latestVersion
-              ScriptType: 'FilePath'
-              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
+  # - stage: 'StartingAzureDataFactoryPipeline'
+  #   displayName: 'Start Azure Data Factory Pipeline'
+  #   # dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
+  #   dependsOn: 'CreateAzureDataFactory'
+  #   pool:
+  #     name: '$(agentPool)'
+  #     vmImage: 'windows-latest'
+  #   jobs:
+  #     - job: 'RunPipelines'
+  #       steps:
+  #         - task: AzurePowerShell@5
+  #           inputs:
+  #             azureSubscription: '$(servicePrincipalConnection)'
+  #             azurePowerShellVersion: latestVersion
+  #             ScriptType: 'FilePath'
+  #             ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
+  #             ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
   - stage: 'CreateTriggerForDailyExecution'
     displayName: 'Start Azure Data Factory Pipeline'
-    dependsOn: StartingAzureDataFactoryPipeline
+    # dependsOn: StartingAzureDataFactoryPipeline
     pool:
       name: '$(agentPool)'
       vmImage: 'windows-latest'
@@ -190,7 +190,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) "$(updateStartDateDaily)"'  
       - job: 'CreateTrigger'
         dependsOn: 'RebuildPipelines'
         condition: succeeded()
