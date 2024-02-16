@@ -70,7 +70,6 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
           }
           translator: {
             type: 'TabularTranslator'
-            typeConversion: true
             mappings: [
               {
                 source: {
