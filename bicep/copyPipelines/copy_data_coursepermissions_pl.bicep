@@ -62,7 +62,8 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
               useTempDB: false
               interimSchemaName: 'Courses'
               keys: [
-                'CoursePermissionsID'
+                'UserID'
+                'CourseID'
               ]
             }
             sqlWriterUseTableLock: true
@@ -73,15 +74,6 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
           translator: {
             type: 'TabularTranslator'
             mappings: [
-              {
-                source: {
-                  path: 'CoursePermissionsID'
-                }
-                sink: {
-                  name: 'CoursePermissionsID'
-                  type: 'Int32'
-                }
-              }
               {
                 source: {
                   path: 'UserID'
