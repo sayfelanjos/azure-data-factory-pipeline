@@ -231,6 +231,35 @@ resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@201
           waitOnCompletion: true
         }
       }
+      {
+        name: 'copy_data_courseActivityViews_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_enrollables_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'copy_data_courses_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_courseActivityViews_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
     ]
     folder: {
       name: 'PipelinesByDomains'
