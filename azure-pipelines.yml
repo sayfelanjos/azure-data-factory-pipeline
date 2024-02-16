@@ -28,7 +28,7 @@ variables:
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
   # updateStartDateInicial: '2009-12-31 23:59:59.999'
-  updateStartDateInicial: '2020-12-31 23:59:59.999'
+  updateStartDateInicial: '2020-12-31T23:59:59.999'
   updateStartDateDaily: "@{variables('NextRunPipelineDate')}"
 
 stages:
