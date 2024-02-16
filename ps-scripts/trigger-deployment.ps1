@@ -1,10 +1,8 @@
 $triggersPath = '.\bicep\trigger'
-$triggers = Get-ChildItem $triggersPath
+$trigger = Get-ChildItem $triggersPath
 $resourceGroupName =  $args[0]
 $dataFactoryName = $args[1]
 
 
-foreach ($tgr in $triggers) {
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $tgr.FullName -Mode Incremental -dataFactoryName $dataFactoryName -ErrorAction SilentlyContinue
-    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -TriggerName $tgr.BaseName -Force -ErrorAction SilentlyContinue
-}
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $trigger.BaseName -TemplateFile '.\bicep\trigger\ExecuteAllCopyPipelinesTrigger.bicep' -Mode Incremental -dataFactoryName $dataFactoryName
+Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -TriggerName $trigger.BaseName -Force -ErrorAction SilentlyContinue
