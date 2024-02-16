@@ -6,4 +6,4 @@ $dataFactoryName = $args[1]
 Invoke-AzDataFactoryV2Pipeline `
     -DataFactoryName $dataFactoryName `
     -ResourceGroupName $resourceGroupName `
-    -PipelineName 'ExecuteAllCopyPipelines'
+    -PipelineName 'ExecuteAllCopyDataPipelines'
