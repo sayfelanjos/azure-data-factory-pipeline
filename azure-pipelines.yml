@@ -27,60 +27,60 @@ variables:
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
-  updateStartDateInicial: '2020-12-31 23:59:59.999'
+  updateStartDateInicial: '2020-12-31T23:59:59'
   updateStartDateDaily: "@{variables('NextRunPipelineDate')}"
 
 stages:
-  - stage: 'CreateResourceGroup'
-    displayName: 'Create resource group'
-    pool: 
-      name: $(agentPool)
-      vmImage: windows-latest
-    jobs:
-      - job: 'CreateResourceGroup'
-        steps:
-          - task: AzureResourceManagerTemplateDeployment@3
-            inputs:
-              deploymentScope: 'Subscription'
-              azureResourceManagerConnection: $(servicePrincipalConnection)
-              subscriptionId: $(subscriptionId)
-              location: $(location)
-              templateLocation: 'Linked artifact'
-              csmFile: '$(Build.SourcesDirectory)\bicep\resourceGroup\resourceGroup.bicep'
-              overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
-              deploymentMode: 'Incremental'
+  # - stage: 'CreateResourceGroup'
+  #   displayName: 'Create resource group'
+  #   pool: 
+  #     name: $(agentPool)
+  #     vmImage: windows-latest
+  #   jobs:
+  #     - job: 'CreateResourceGroup'
+  #       steps:
+  #         - task: AzureResourceManagerTemplateDeployment@3
+  #           inputs:
+  #             deploymentScope: 'Subscription'
+  #             azureResourceManagerConnection: $(servicePrincipalConnection)
+  #             subscriptionId: $(subscriptionId)
+  #             location: $(location)
+  #             templateLocation: 'Linked artifact'
+  #             csmFile: '$(Build.SourcesDirectory)\bicep\resourceGroup\resourceGroup.bicep'
+  #             overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
+  #             deploymentMode: 'Incremental'
 
-  - stage: 'CreateSqlDatabase'
-    displayName: 'Create SQL database'
-    dependsOn: 'CreateResourceGroup'
-    condition: succeeded()
-    pool:
-      name: $(agentPool)
-      vmImage: windows-latest
-    jobs:
-      - job: 'CreateSQLDatabase'
-        steps:
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: '$(servicePrincipalConnection)'
-              azurePowerShellVersion: latestVersion
-              ScriptType: 'FilePath'
-              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\sql-server-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"'   
-      - job: 'CreateSchemasAndTablesOnDatabase'
-        dependsOn: 'CreateSQLDatabase'
-        condition: succeeded()
-        steps:
-          - task: UseDotNet@2
-            inputs:
-              version: '8.x'
-              performMultiLevelLookup: true
-          - task: DotNetCoreCLI@2
-            inputs:
-              command: 'run'
-              projects: '$(Build.SourcesDirectory)\dotnet-scripts\dotnet-scripts.csproj'
-              arguments: '"$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"' 
-              workingDirectory: '.\dotnet-scripts'
+  # - stage: 'CreateSqlDatabase'
+  #   displayName: 'Create SQL database'
+  #   dependsOn: 'CreateResourceGroup'
+  #   condition: succeeded()
+  #   pool:
+  #     name: $(agentPool)
+  #     vmImage: windows-latest
+  #   jobs:
+  #     - job: 'CreateSQLDatabase'
+  #       steps:
+  #         - task: AzurePowerShell@5
+  #           inputs:
+  #             azureSubscription: '$(servicePrincipalConnection)'
+  #             azurePowerShellVersion: latestVersion
+  #             ScriptType: 'FilePath'
+  #             ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\sql-server-deployment.ps1'
+  #             ScriptArguments: '"$(resourceGroupName)" "$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"'   
+  #     - job: 'CreateSchemasAndTablesOnDatabase'
+  #       dependsOn: 'CreateSQLDatabase'
+  #       condition: succeeded()
+  #       steps:
+  #         - task: UseDotNet@2
+  #           inputs:
+  #             version: '8.x'
+  #             performMultiLevelLookup: true
+  #         - task: DotNetCoreCLI@2
+  #           inputs:
+  #             command: 'run'
+  #             projects: '$(Build.SourcesDirectory)\dotnet-scripts\dotnet-scripts.csproj'
+  #             arguments: '"$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"' 
+  #             workingDirectory: '.\dotnet-scripts'
 
   - stage: 'CreateAzureDataFactory'
     # dependsOn: ['CreateResourceGroup', 'CreateSqlDatabase']

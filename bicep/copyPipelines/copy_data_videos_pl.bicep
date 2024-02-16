@@ -218,7 +218,7 @@ resource videos_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'videos?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+                value: 'videos?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
                 type: 'Expression'
               }
             }

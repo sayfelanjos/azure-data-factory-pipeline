@@ -201,7 +201,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'medialibraryfiledownloads?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+                value: 'medialibraryfiledownloads?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
                 type: 'Expression'
               }
             }

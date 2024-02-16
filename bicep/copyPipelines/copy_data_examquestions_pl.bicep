@@ -200,7 +200,7 @@ resource examquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'examquestions?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+                value: 'examquestions?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
                 type: 'Expression'
               }
             }

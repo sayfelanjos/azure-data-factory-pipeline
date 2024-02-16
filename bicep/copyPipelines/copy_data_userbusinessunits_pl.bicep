@@ -254,7 +254,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'userbusinessunits?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+                value: 'userbusinessunits?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
                 type: 'Expression'
               }
             }

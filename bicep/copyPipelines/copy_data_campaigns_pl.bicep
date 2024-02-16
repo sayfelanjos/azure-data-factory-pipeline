@@ -217,7 +217,7 @@ resource campaigns_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'campaigns?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+                value: 'campaigns?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
                 type: 'Expression'
               }
             }

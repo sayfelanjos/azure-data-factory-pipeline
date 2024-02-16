@@ -200,7 +200,7 @@ resource medialibraryhtmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'medialibraryhtmls?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+                value: 'medialibraryhtmls?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
               }
             }
 

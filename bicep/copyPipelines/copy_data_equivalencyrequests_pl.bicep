@@ -289,7 +289,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
             referenceName: 'equivalencyrequests_ep'
             type: 'DatasetReference'
             parameters: {
-              SetApiName: 'equivalencyrequests?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
+              SetApiName: 'equivalencyrequests?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
               type: 'string'
             }
           }
