@@ -28,6 +28,14 @@ resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
         interval: 1
         startTime: startTime
         timeZone: 'E. South America Standard Time'
+        schedule: {
+          hours: [
+            02
+          ]
+          minutes: [
+            00
+          ]
+        }
       }
     }
   }
