@@ -186,7 +186,7 @@ resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'copy_data_placerooms_pl1'
+        name: 'copy_data_placerooms_pl'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -203,6 +203,29 @@ resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@201
         typeProperties: {
           pipeline: {
             referenceName: 'copy_data_placerooms_pl'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'copy_data_coursepermissions_pl'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'copy_data_courses_pl'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'copy_data_coursepermissions_pl'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
