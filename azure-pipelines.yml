@@ -27,7 +27,8 @@ variables:
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
-  updateStartDateInicial: '2009-12-31 23:59:59.999'
+  # updateStartDateInicial: '2009-12-31 23:59:59.999'
+  updateStartDateInicial: '2020-12-31 23:59:59.999'
   updateStartDateDaily: "@{variables('NextRunPipelineDate')}"
 
 stages:
