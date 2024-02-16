@@ -158,7 +158,7 @@ stages:
               ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateInicial)"'  
   - stage: 'StartingAzureDataFactoryPipeline'
     displayName: 'Start Azure Data Factory pipelines'
-    dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
+    # dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
     pool:
       name: '$(agentPool)'
       vmImage: 'windows-latest'
