@@ -16,9 +16,6 @@ parameters:
     displayName: 'Departamento responsável'
     type: string
     default: 'bi'
-  - name: 'updateStartDate'
-    displayName: 'Data de início para coleta dos dados. Obs: manter o mesmo formato de data, update_start_date=2022-01-01.'
-    default: ''
 
 variables:
   location: 'brazilsouth'
@@ -30,6 +27,8 @@ variables:
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'Azure Pipelines'
+  updateStartDateInicial: '2009-12-31 23:59:59.999'
+  updateStartDateDaily: "@{variables('NextRunPipelineDate')}"
 
 stages:
   - stage: 'CreateResourceGroup'
@@ -156,7 +155,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) ${{ parameters.updateStartDate }}'  
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateInicial)'  
   - stage: 'StartingAzureDataFactoryPipeline'
     displayName: 'Start Azure Data Factory Pipeline'
     dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
@@ -173,3 +172,43 @@ stages:
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
               ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
+  - stage: 'CreateTriggerForDailyExecution'
+    displayName: 'Start Azure Data Factory Pipeline'
+    dependsOn: StartingAzureDataFactoryPipeline
+    pool:
+      name: '$(agentPool)'
+      vmImage: 'windows-latest'
+    jobs:
+      - job: 'RebuildPipelines'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
+      - job: 'CreateTrigger'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\trigger-deployment.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
+      - job: 'StartTrigger'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\start-trigger.ps1'
+              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  

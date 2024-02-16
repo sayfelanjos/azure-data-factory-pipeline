@@ -4,6 +4,7 @@ $pipelines = Get-ChildItem $pipelinesPath
 $copyPipelines = Get-ChildItem $copyPipelinesPath
 $resourceGroupName = $args[0]
 $dataFactoryName = $args[1]
+$updateStartDate = $args[2]
 
 # New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$($pipelinesPath)\contents_pl.bicep" -pipelineName 'contents_pl' -dataFactoryName $dataFactoryName
 # New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$($pipelinesPath)\contents_pl_2.bicep" -pipelineName 'contents_pl_2' -dataFactoryName $dataFactoryName

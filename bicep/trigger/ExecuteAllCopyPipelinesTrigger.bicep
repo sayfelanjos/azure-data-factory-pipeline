@@ -2,16 +2,14 @@
 param dataFactoryName string
 
 param utcTime string = utcNow('u')
-var timeNow = dateTimeAdd(utcTime, '-PT3H')
-var startTime = dateTimeAdd(timeNow, 'PT0H1M')
-var endTime = dateTimeAdd(startTime, 'PT1Y')
+var startTime = dateTimeAdd(utcTime, '-PT3H')
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
 }
 
 resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
-  name: 'copy_data_equivalencyrequests_tgr'
+  name: 'ExecuteAllCopyDataPipelinesTrigger'
   parent: dataFactory
   properties: {
     type: 'ScheduleTrigger'
@@ -19,15 +17,14 @@ resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
       {
         parameters: {}
         pipelineReference: {
-          referenceName: 'copy_data_equivalencyrequests_pl'
+          referenceName: 'ExecuteAllCopyDataPipelines'
           type: 'PipelineReference'
         }
       }
     ]
     typeProperties: {
       recurrence: {
-        frequency: 'Month'
-        endTime: endTime
+        frequency: 'Day'
         interval: 1
         startTime: startTime
         timeZone: 'E. South America Standard Time'
