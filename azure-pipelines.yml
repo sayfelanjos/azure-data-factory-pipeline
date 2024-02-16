@@ -32,7 +32,7 @@ variables:
 
 stages:
   - stage: 'CreateResourceGroup'
-    displayName: 'Create Resource Group'
+    displayName: 'Create resource group'
     pool: 
       name: $(agentPool)
       vmImage: windows-latest
@@ -51,7 +51,7 @@ stages:
               deploymentMode: 'Incremental'
 
   - stage: 'CreateSqlDatabase'
-    displayName: 'Create SQL Database'
+    displayName: 'Create SQL database'
     dependsOn: 'CreateResourceGroup'
     condition: succeeded()
     pool:
@@ -131,7 +131,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'          
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'          
 
       - job: 'CreateDataSetsIn'
         dependsOn: ['CreateLinkedServices']
@@ -143,7 +143,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'   
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'   
                           
       - job: 'CreatePipelines'
         dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
@@ -155,9 +155,9 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateInicial)'  
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateInicial)"'  
   - stage: 'StartingAzureDataFactoryPipeline'
-    displayName: 'Start Azure Data Factory Pipeline'
+    displayName: 'Start Azure Data Factory pipelines'
     dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
     pool:
       name: '$(agentPool)'
@@ -171,9 +171,9 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName)'
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
   - stage: 'CreateTriggerForDailyExecution'
-    displayName: 'Start Azure Data Factory Pipeline'
+    displayName: 'Create trigger for daily executions'
     dependsOn: StartingAzureDataFactoryPipeline
     pool:
       name: '$(agentPool)'
@@ -188,7 +188,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateDaily)"'  
       - job: 'CreateTrigger'
         dependsOn: 'RebuildPipelines'
         condition: succeeded()
@@ -199,7 +199,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\trigger-deployment.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateDaily)"'  
       - job: 'StartTrigger'
         dependsOn: 'CreateTrigger'
         condition: succeeded()
@@ -210,4 +210,4 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '$(resourceGroupName) $(dataFactoryName) $(updateStartDateDaily)'  
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateDaily)"'  

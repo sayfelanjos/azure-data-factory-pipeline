@@ -73,5 +73,6 @@ resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@201
       name: 'PipelinesByDomains'
     }
     annotations: []
+    variables: {}
   }
 }

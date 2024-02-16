@@ -8,10 +8,34 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
   properties: {
     activities: [
       {
+        name: 'SetNextRunPipelineDate'
+        type: 'SetVariable'
+        dependsOn: []
+        policy: {
+          secureInput: false
+          secureOutput: false
+        }
+        userProperties: []
+        typeProperties: {
+          variableName: 'NextRunPipelineDate'
+          value: {
+            value: '@{formatDateTime(adddays(convertFromUtc(utcnow(), \'E. South America Standard Time\'), -1), \'yyyy-MM-dd 02:00:00.000\')}'
+            type: 'Expression'
+          }
+        }
+      }
+      {
         name: 'OneToOneCopyPipeline'
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
-        dependsOn: []
+        dependsOn: [
+          {
+            activity: 'SetNextRunPipelineDate'
+            dependencyConditions: [
+              'Completed'
+            ]
+          }
+        ]
         policy: {
           timeout: '00.12:00:00'
           retry: 1
@@ -176,7 +200,7 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
-                value: 'webmeetings?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                value: 'webmeetings?page={pagina}&page_size=5000&update_start_date=\'${updateStartDate}\''
                 type: 'Expression'
               }
             }
@@ -196,7 +220,11 @@ resource webmeeting_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
     }
     parameters: {}
     runDimensions: {}
-    variables: {}
+    variables: {
+      NextRunPipelineDate: {
+        type: 'String'
+      }
+    }
 
   }
 }

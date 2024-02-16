@@ -371,5 +371,6 @@ resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@201
       }
     ]
     annotations: []
+    variables: {}
   }
 }
