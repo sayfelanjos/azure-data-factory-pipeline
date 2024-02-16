@@ -19,7 +19,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
         typeProperties: {
           variableName: 'NextRunPipelineDate'
           value: {
-            value: '@{formatDateTime(adddays(convertFromUtc(utcnow(), \'E. South America Standard Time\'), -1), \'yyyy-MM-dd 02:00:00.000\')}'
+            value: '@{formatDateTime(adddays(convertFromUtc(utcnow(), \'E. South America Standard Time\'), -1), \'yyyy-MM-ddT02:00:00\')}'
             type: 'Expression'
           }
         }
