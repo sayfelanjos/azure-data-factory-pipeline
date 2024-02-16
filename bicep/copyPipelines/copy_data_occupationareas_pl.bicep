@@ -207,7 +207,7 @@ resource occupationareas_pipeline 'Microsoft.DataFactory/factories/pipelines@201
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

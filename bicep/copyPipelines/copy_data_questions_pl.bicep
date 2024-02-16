@@ -225,7 +225,7 @@ resource questions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

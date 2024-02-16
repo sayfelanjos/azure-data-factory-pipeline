@@ -201,6 +201,7 @@ resource medialibraryhtmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2
             parameters: {
               SetApiName: {
                 value: 'medialibraryhtmls?page={pagina}&page_size=5000&update_start_date=${updateStartDate}'
+                type: 'Expression'
               }
             }
 
@@ -216,7 +217,7 @@ resource medialibraryhtmls_pipeline 'Microsoft.DataFactory/factories/pipelines@2
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

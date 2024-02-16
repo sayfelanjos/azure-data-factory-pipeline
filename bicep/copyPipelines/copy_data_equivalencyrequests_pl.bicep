@@ -304,7 +304,7 @@ resource equivalencyrequests_pipeline 'Microsoft.DataFactory/factories/pipelines
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

@@ -20,7 +20,9 @@ resource dataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
             referenceName: 'rest-api-linked-service'
             type: 'LinkedServiceReference'
         }
-        schema: {}
+        schema: {
+            
+        }
         typeProperties: {
             relativeUrl: '@dataset().SetApiName'
         }

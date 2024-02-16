@@ -207,7 +207,7 @@ resource surveyanswerquestions_pipeline 'Microsoft.DataFactory/factories/pipelin
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

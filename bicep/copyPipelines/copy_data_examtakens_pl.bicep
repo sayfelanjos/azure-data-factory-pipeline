@@ -258,7 +258,7 @@ resource examtakens_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

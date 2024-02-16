@@ -1,6 +1,6 @@
 param dataFactoryName string
 
-var pipelineName = 'ExecuteAllCopyPipelines'
+var pipelineName = 'ExecuteAllCopyDataPipelines'
 
 resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${dataFactoryName}/${pipelineName}'
@@ -39,7 +39,7 @@ resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'copy_data_webmeetings_pl'
+            referenceName: 'copy_data_users_pl'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

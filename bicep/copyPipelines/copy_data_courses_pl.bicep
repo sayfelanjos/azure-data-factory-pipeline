@@ -270,7 +270,7 @@ resource courses_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01'
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

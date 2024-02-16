@@ -163,7 +163,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

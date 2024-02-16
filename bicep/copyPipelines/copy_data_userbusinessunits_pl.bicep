@@ -270,7 +270,7 @@ resource userbusinessunits_pipeline 'Microsoft.DataFactory/factories/pipelines@2
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

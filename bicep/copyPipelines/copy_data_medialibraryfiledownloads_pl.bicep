@@ -217,7 +217,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

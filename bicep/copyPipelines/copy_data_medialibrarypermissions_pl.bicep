@@ -189,7 +189,7 @@ resource medialibrarypermissions_pipeline 'Microsoft.DataFactory/factories/pipel
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}

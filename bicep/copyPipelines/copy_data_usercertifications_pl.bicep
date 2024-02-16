@@ -198,7 +198,7 @@ resource usercertifications_pipeline 'Microsoft.DataFactory/factories/pipelines@
     ]
     annotations: []
     folder: {
-      name: 'CopyPipelines'
+      name: 'CopyDataPipelines'
     }
     parameters: {}
     runDimensions: {}
