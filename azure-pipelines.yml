@@ -179,7 +179,6 @@ stages:
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
               ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
       - job: 'CreateTrigger'
-        dependsOn: 'RebuildPipelines'
         condition: succeeded()
         steps:
           - task: AzurePowerShell@5
