@@ -1,9 +1,9 @@
 $resourceGroupName =  $args[0]
-$dataFactoryName = $args[1]
+$azureDataFactoryName = $args[1]
 
 
 
 Invoke-AzDataFactoryV2Pipeline `
-    -DataFactoryName $dataFactoryName `
+    -azureDataFactoryName $azureDataFactoryName `
     -ResourceGroupName $resourceGroupName `
     -PipelineName 'ExecuteAllCopyDataPipelinesWithCustomDate'
