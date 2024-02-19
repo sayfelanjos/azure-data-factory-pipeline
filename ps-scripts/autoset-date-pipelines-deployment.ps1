@@ -1,4 +1,4 @@
-$pipelinesPath = '.\bicep\pipelinesByDomainsWithAutoSetDatePipelines'
+$pipelinesPath = '.\bicep\pipelinesByDomainsWithAutoSetDate'
 $copyPipelinesPath = '.\bicep\copyDataPipelinesWithAutoSetDate'
 $pipelines = Get-ChildItem $pipelinesPath
 $copyPipelines = Get-ChildItem $copyPipelinesPath
