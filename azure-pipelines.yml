@@ -98,7 +98,7 @@ stages:
               resourceGroupName: $(resourceGroupName)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '$(Build.SourcesDirectory)\bicep\dataFactory\dataFactory.bicep'
+              csmFile: '$(Build.SourcesDirectory)\bicep\azureDataFactory\AzureDataFactory.bicep'
               overrideParameters: '-dataFactoryName $(dataFactoryName)'
               deploymentMode: 'Incremental'
       - job: 'CreateLinkedServices'
