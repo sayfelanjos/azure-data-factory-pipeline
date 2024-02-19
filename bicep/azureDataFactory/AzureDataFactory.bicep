@@ -17,9 +17,9 @@ resource azureDataFactoryGlobalVariable 'Microsoft.DataFactory/factories/globalP
   name: 'NewRunPipelineDateGlobalVariable'
   parent: azureDataFactory
   properties: {
-    GlobalParameterSpecification: {
-      value: '1999-12-31T23:59:59.000'
+    name:{
       type: 'String'
+      value: '1999-12-31T23:59:59.000'
     }
-  }
+  }    
 }
