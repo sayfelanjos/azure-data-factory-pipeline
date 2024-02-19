@@ -1,8 +1,8 @@
 @description('Data Factory Name')
-param dataFactoryName string
+param azureDataFactoryName string
 
 @description('The customer API URL')
-param baseURL string 
+param baseURL string
 
 @description('Secure string, token, to access API')
 @secure()
@@ -18,12 +18,12 @@ param dbName string
 var restLinkedServiceName = 'rest-api-linked-service'
 var sqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
-resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
-  name: dataFactoryName
+resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
+  name: azureDataFactoryName
 }
 
-resource dataFactoryRestLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
-  parent: dataFactory
+resource azureDataFactoryRestLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
+  parent: azureDataFactory
   name: restLinkedServiceName
   properties: {
     type: 'RestService'
@@ -47,9 +47,9 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' existing = {
   name: serverName
 }
 
-resource dataFactorySqlDatabaseLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
+resource azureDataFactorySqlDatabaseLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
   name: sqlDatabaseLinkedServiceName
-  parent: dataFactory
+  parent: azureDataFactory
   properties: {
     annotations: []
     type: 'AzureSqlDatabase'

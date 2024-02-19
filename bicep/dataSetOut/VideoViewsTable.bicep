@@ -1,13 +1,13 @@
 @description('Data Factory Name')
-param dataFactoryName string
+param azureDataFactoryName string
 
-resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
-    name: dataFactoryName
+resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
+    name: azureDataFactoryName
 }
 
 resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     name: 'VideoViewsTable'
-    parent: dataFactory
+    parent: azureDataFactory
     properties: {
         annotations: []
         type: 'AzureSqlTable'

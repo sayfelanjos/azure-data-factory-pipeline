@@ -1,16 +1,16 @@
 @description('Data Factory Name')
-param dataFactoryName string
+param azureDataFactoryName string
 
 param utcTime string = utcNow('u')
 var startTime = dateTimeAdd(utcTime, '-PT3H')
 
-resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
-  name: dataFactoryName
+resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
+  name: azureDataFactoryName
 }
 
 resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
   name: 'ExecuteAllCopyDataPipelinesTrigger'
-  parent: dataFactory
+  parent: azureDataFactory
   properties: {
     type: 'ScheduleTrigger'
     pipelines: [
