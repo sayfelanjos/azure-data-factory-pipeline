@@ -21,7 +21,7 @@ variables:
   location: 'brazilsouth'
   prefix: '${{ parameters.customer }}-${{ parameters.department }}-${{ parameters.environment }}'
   resourceGroupName: '$(prefix)-rg'
-  dataFactoryName: '$(prefix)-adf'
+  azureDataFactoryName: '$(prefix)-adf'
   serverName: '$(prefix)-sqlsvr'
   dbName: '$(prefix)-sqldb'
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
@@ -99,7 +99,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '$(Build.SourcesDirectory)\bicep\azureDataFactory\AzureDataFactory.bicep'
-              overrideParameters: '-dataFactoryName $(dataFactoryName)'
+              overrideParameters: '-azureDataFactoryName $(azureDataFactoryName)'
               deploymentMode: 'Incremental'
       - job: 'CreateLinkedServices'
         dependsOn: ['CreateAzureDataFactory']
@@ -115,7 +115,7 @@ stages:
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
               csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\linkedServices.bicep'
-              overrideParameters: '-dataFactoryName "$(dataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
+              overrideParameters: '-azureDataFactoryName "$(azureDataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
               deploymentMode: 'Incremental'
       - job: 'CreateDataSetsOut'
         dependsOn: ['CreateLinkedServices']
@@ -127,7 +127,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'          
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'          
       - job: 'CreateDataSetsIn'
         dependsOn: ['CreateLinkedServices']
         condition: succeeded()
@@ -138,7 +138,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'   
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'   
       - job: 'CreateAutoSetDatePipelines'
         dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
         condition: succeeded()
@@ -149,7 +149,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\autoset-date-pipelines-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'
       - job: 'CreateCustomDatePipelines'
         dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
         condition: succeeded()
@@ -160,7 +160,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\custom-date-pipelines-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'
 
   - stage: 'StartingAzureDataFactoryPipelines'
     displayName: 'Start Azure Data Factory pipelines'
@@ -177,7 +177,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'
       - job: 'CreateTrigger'
         condition: succeeded()
         steps:
@@ -187,7 +187,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\trigger-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'  
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'  
       - job: 'StartTrigger'
         dependsOn: 'CreateTrigger'
         condition: succeeded()
@@ -198,4 +198,4 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'  
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'  
