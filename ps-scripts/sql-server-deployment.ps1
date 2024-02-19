@@ -3,7 +3,7 @@ $serverName = $args[1]
 $dbName = $args[2]
 $adminLogin = $args[3]
 $adminPassword = $args[4]
-$templatePath = '.\bicep\database\sqlServer.bicep'
+$templatePath = '.\bicep\database\SQLServer.bicep'
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `

@@ -27,126 +27,98 @@ variables:
   subscriptionId: 'c56f173d-86ef-45e2-9a11-d3d887738b21'
   servicePrincipalConnection: 'AzureDevOpsPipelines'
   agentPool: 'SaymonDesktopAgent'
-  updateStartDateInicial: '2023-12-31T23:59:59'
-  updateStartDateDaily: "@{variables('NextRunPipelineDate')}"
 
 stages:
-  # - stage: 'CreateResourceGroup'
-  #   displayName: 'Create resource group'
-  #   pool: 
-  #     name: $(agentPool)
-  #     vmImage: windows-latest
-  #   jobs:
-  #     - job: 'CreateResourceGroup'
-  #       steps:
-  #         - task: AzureResourceManagerTemplateDeployment@3
-  #           inputs:
-  #             deploymentScope: 'Subscription'
-  #             azureResourceManagerConnection: $(servicePrincipalConnection)
-  #             subscriptionId: $(subscriptionId)
-  #             location: $(location)
-  #             templateLocation: 'Linked artifact'
-  #             csmFile: '$(Build.SourcesDirectory)\bicep\resourceGroup\resourceGroup.bicep'
-  #             overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
-  #             deploymentMode: 'Incremental'
+  - stage: 'CreateResourceGroup'
+    displayName: 'Create resource group'
+    pool: 
+      name: $(agentPool)
+      vmImage: windows-latest
+    jobs:
+      - job: 'CreateResourceGroup'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Subscription'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              location: $(location)
+              templateLocation: 'Linked artifact'
+              csmFile: '$(Build.SourcesDirectory)\bicep\resourceGroup\resourceGroup.bicep'
+              overrideParameters: '-resourceGroupName $(resourceGroupName) -resourceGroupLocation $(location)'
+              deploymentMode: 'Incremental'
 
-  # - stage: 'CreateSqlDatabase'
-  #   displayName: 'Create SQL database'
-  #   dependsOn: 'CreateResourceGroup'
-  #   condition: succeeded()
-  #   pool:
-  #     name: $(agentPool)
-  #     vmImage: windows-latest
-  #   jobs:
-  #     - job: 'CreateSQLDatabase'
-  #       steps:
-  #         - task: AzurePowerShell@5
-  #           inputs:
-  #             azureSubscription: '$(servicePrincipalConnection)'
-  #             azurePowerShellVersion: latestVersion
-  #             ScriptType: 'FilePath'
-  #             ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\sql-server-deployment.ps1'
-  #             ScriptArguments: '"$(resourceGroupName)" "$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"'   
-  #     - job: 'CreateSchemasAndTablesOnDatabase'
-  #       dependsOn: 'CreateSQLDatabase'
-  #       condition: succeeded()
-  #       steps:
-  #         - task: UseDotNet@2
-  #           inputs:
-  #             version: '8.x'
-  #             performMultiLevelLookup: true
-  #         - task: DotNetCoreCLI@2
-  #           inputs:
-  #             command: 'run'
-  #             projects: '$(Build.SourcesDirectory)\dotnet-scripts\dotnet-scripts.csproj'
-  #             arguments: '"$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"' 
-  #             workingDirectory: '.\dotnet-scripts'
+  - stage: 'CreateSqlDatabase'
+    displayName: 'Create SQL database'
+    dependsOn: 'CreateResourceGroup'
+    condition: succeeded()
+    pool:
+      name: $(agentPool)
+      vmImage: windows-latest
+    jobs:
+      - job: 'CreateSQLDatabase'
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\sql-server-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"'   
+      - job: 'CreateSchemasAndTablesOnDatabase'
+        dependsOn: 'CreateSQLDatabase'
+        condition: succeeded()
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              version: '8.x'
+              performMultiLevelLookup: true
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'run'
+              projects: '$(Build.SourcesDirectory)\dotnet-scripts\dotnet-scripts.csproj'
+              arguments: '"$(serverName)" "$(dbName)" "$(adminLogin)" "$(adminPassword)"' 
+              workingDirectory: '.\dotnet-scripts'
 
   - stage: 'CreateAzureDataFactory'
-    # dependsOn: ['CreateResourceGroup', 'CreateSqlDatabase']
+    dependsOn: ['CreateResourceGroup', 'CreateSqlDatabase']
     displayName: 'Create Azure Data Factory'
     pool: 
       name: $(agentPool)
       vmImage: windows-latest
     jobs:
-      # - job: 'CreateAzureDataFactory'
-      #   steps:
-      #     - task: AzureResourceManagerTemplateDeployment@3
-      #       inputs:
-      #         deploymentScope: 'Resource Group'
-      #         azureResourceManagerConnection: $(servicePrincipalConnection)
-      #         subscriptionId: $(subscriptionId)
-      #         location: $(location)
-      #         resourceGroupName: $(resourceGroupName)
-      #         action: 'Create Or Update Resource Group'
-      #         templateLocation: 'Linked artifact'
-      #         csmFile: '$(Build.SourcesDirectory)\bicep\dataFactory\dataFactory.bicep'
-      #         overrideParameters: '-dataFactoryName $(dataFactoryName)'
-      #         deploymentMode: 'Incremental'
-                
-      # - job: 'CreateLinkedServices'
-      #   dependsOn: ['CreateAzureDataFactory']
-      #   condition: succeeded()
-      #   steps:
-      #     - task: AzureResourceManagerTemplateDeployment@3
-      #       inputs:
-      #         deploymentScope: 'Resource Group'
-      #         azureResourceManagerConnection: $(servicePrincipalConnection)
-      #         subscriptionId: $(subscriptionId)
-      #         resourceGroupName: $(resourceGroupName)
-      #         location: $(location)
-      #         action: 'Create Or Update Resource Group'
-      #         templateLocation: 'Linked artifact'
-      #         csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\linkedServices.bicep'
-      #         overrideParameters: '-dataFactoryName "$(dataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
-      #         deploymentMode: 'Incremental'
-
-      # - job: 'CreateDataSetsOut'
-      #   dependsOn: ['CreateLinkedServices']
-      #   condition: succeeded()
-      #   steps:
-      #     - task: AzurePowerShell@5
-      #       inputs:
-      #         azureSubscription: '$(servicePrincipalConnection)'
-      #         azurePowerShellVersion: latestVersion
-      #         ScriptType: 'FilePath'
-      #         ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
-      #         ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'          
-
-      # - job: 'CreateDataSetsIn'
-      #   dependsOn: ['CreateLinkedServices']
-      #   condition: succeeded()
-      #   steps:
-      #     - task: AzurePowerShell@5
-      #       inputs:
-      #         azureSubscription: '$(servicePrincipalConnection)'
-      #         azurePowerShellVersion: latestVersion
-      #         ScriptType: 'FilePath'
-      #         ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
-      #         ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'   
-                          
-      - job: 'CreatePipelines'
-        # dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+      - job: 'CreateAzureDataFactory'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              location: $(location)
+              resourceGroupName: $(resourceGroupName)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '$(Build.SourcesDirectory)\bicep\dataFactory\dataFactory.bicep'
+              overrideParameters: '-dataFactoryName $(dataFactoryName)'
+              deploymentMode: 'Incremental'
+      - job: 'CreateLinkedServices'
+        dependsOn: ['CreateAzureDataFactory']
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: $(resourceGroupName)
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\linkedServices.bicep'
+              overrideParameters: '-dataFactoryName "$(dataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
+              deploymentMode: 'Incremental'
+      - job: 'CreateDataSetsOut'
+        dependsOn: ['CreateLinkedServices']
         condition: succeeded()
         steps:
           - task: AzurePowerShell@5
@@ -154,11 +126,45 @@ stages:
               azureSubscription: '$(servicePrincipalConnection)'
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
-              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateInicial)"'  
-  - stage: 'StartingAzureDataFactoryPipeline'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'          
+      - job: 'CreateDataSetsIn'
+        dependsOn: ['CreateLinkedServices']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'   
+      - job: 'CreateAutoSetDatePipelines'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\autoset-date-pipelines-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
+      - job: 'CreateCustomDatePipelines'
+        dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\custom-date-pipelines-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
+
+  - stage: 'StartingAzureDataFactoryPipelines'
     displayName: 'Start Azure Data Factory pipelines'
-    # dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
+    dependsOn: ['CreateResourceGroup', 'CreateAzureDataFactory', 'CreateSqlDatabase']
     pool:
       name: '$(agentPool)'
       vmImage: 'windows-latest'
@@ -172,23 +178,6 @@ stages:
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\run-pipelines.ps1'
               ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'
-  - stage: 'CreateTriggerForDailyExecution'
-    displayName: 'Create trigger for daily executions'
-    dependsOn: StartingAzureDataFactoryPipeline
-    pool:
-      name: '$(agentPool)'
-      vmImage: 'windows-latest'
-    jobs:
-      - job: 'RebuildPipelines'
-        condition: succeeded()
-        steps:
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: '$(servicePrincipalConnection)'
-              azurePowerShellVersion: latestVersion
-              ScriptType: 'FilePath'
-              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\pipelines-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateDaily)"'  
       - job: 'CreateTrigger'
         dependsOn: 'RebuildPipelines'
         condition: succeeded()
@@ -199,7 +188,7 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\trigger-deployment.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateDaily)"'  
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'  
       - job: 'StartTrigger'
         dependsOn: 'CreateTrigger'
         condition: succeeded()
@@ -210,4 +199,4 @@ stages:
               azurePowerShellVersion: latestVersion
               ScriptType: 'FilePath'
               ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\start-trigger.ps1'
-              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)" "$(updateStartDateDaily)"'  
+              ScriptArguments: '"$(resourceGroupName)" "$(dataFactoryName)"'  

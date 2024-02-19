@@ -1,6 +1,6 @@
 $resourceGroupName = $args[0]
 $DataFactoryName = $args[1]
-$triggerName = 'ExecuteAllCopyDataPipelinesTrigger'
+$triggerName = 'ExecuteAllCopyDataPipelinesWithAutoSetDateTrigger'
 
 Start-AzDataFactoryV2Trigger `
     -ResourceGroupName $resourceGroupName `

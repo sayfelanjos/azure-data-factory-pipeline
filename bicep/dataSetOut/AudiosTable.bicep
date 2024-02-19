@@ -6,7 +6,7 @@ resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
 }
 
 resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-    name: 'audios_tb'
+    name: 'AudiosTable'
     parent: dataFactory
     properties: {
         annotations: []
