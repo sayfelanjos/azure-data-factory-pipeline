@@ -1,5 +1,4 @@
-use [febraban-bi-stg-sqldb]
-go
+use [febraban-bi-stg-sqldb];
 
 if not exists (select 1 from sys.schemas where name = 'Assessments')
 begin
@@ -104,8 +103,7 @@ create table Audios.Audios
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 
 if not exists (
@@ -130,8 +128,7 @@ create table Users.BusinessUnits
     Page                          smallint      not null,
     PageSize                      smallint      not null,
     MaximumPageSize               smallint      not null
-)
-go
+);
 
 
 if not exists (
@@ -157,8 +154,7 @@ create table Campaigns.CampaignContents
     Page                          smallint,
     PageSize                      smallint,
     MaximumPageSize               smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -183,8 +179,7 @@ create table Campaigns.Campaigns
     Page                          smallint,
     PageSize                      smallint,
     MaximumPageSize               smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -205,8 +200,7 @@ create table Categories.Categories
     Page                   smallint not null,
     PageSize               smallint not null,
     MaximumPageSize        smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -233,8 +227,7 @@ create table Certifications.Certifications
     Page                          smallint not null,
     PageSize                      smallint not null,
     MaximumPageSize               smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -263,8 +256,7 @@ create table Courses.Courses
     Page                             smallint      not null,
     PageSize                         smallint      not null,
     MaximumPageSize                  smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -285,8 +277,7 @@ create table Courses.CourseCategories
     Page                 smallint not null,
     PageSize             smallint not null,
     MaximumPageSize      smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -302,8 +293,7 @@ create table Courses.CourseTags
     Page            smallint not null,
     PageSize        smallint not null,
     MaximumPageSize smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -337,8 +327,7 @@ create table Courses.Enrollables
     Page                                  smallint,
     PageSize                              smallint,
     MaximumPageSize                       smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -379,8 +368,7 @@ create table Courses.ComponentActivities
     Page                         smallint      not null,
     PageSize                     smallint      not null,
     MaximumPageSize              smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -411,8 +399,7 @@ create table Courses.Enrollments
     Page                        smallint,
     PageSize                    smallint,
     MaximumPageSize             smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -444,8 +431,7 @@ create table Courses.EquivalencyRequests
     Page                       smallint,
     PageSize                   smallint,
     MaximumPageSize            smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -471,8 +457,7 @@ create table Assessments.ExamTakenAnswers
     MultipleAnswerAnswerID int,
     MultipleChoiceAnswerID int,
     TrueOrFalseAnswerID    int
-)
-go
+);
 
 if not exists (
 select *
@@ -497,8 +482,7 @@ create table Assessments.Exams
     Page                     smallint,
     PageSize                 smallint,
     MaximumPageSize          smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -518,8 +502,7 @@ create table HtmlPages.Htmls
     Page                 smallint      not null,
     PageSize             smallint      not null,
     MaximumPageSize      smallint      not null
-)
-go
+);
 
 
 if not exists (
@@ -539,8 +522,7 @@ create table Users.Labels
     Page                   smallint not null,
     PageSize               smallint not null,
     MaximumPageSize        smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -563,8 +545,7 @@ create table Files.MediaLibraryHtmls
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -590,8 +571,7 @@ create table Contents.MediaLibraryVideos
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -613,8 +593,7 @@ create table Users.OccupationAreas
     Page                            smallint      not null,
     PageSize                        smallint      not null,
     MaximumPageSize                 smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -636,8 +615,7 @@ create table PowerPointPresentation.PPTS
     Page                   smallint      not null,
     PageSize               smallint      not null,
     MaximumPageSize        smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -657,8 +635,7 @@ create table Courses.Places
     Page                   smallint      not null,
     PageSize               smallint      not null,
     MaximumPageSize        smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -681,8 +658,7 @@ create table Courses.PlaceRooms
     Page                 smallint not null,
     PageSize             smallint not null,
     MaximumPageSize      smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -700,8 +676,7 @@ create table Users.Positions
     Page                 smallint      not null,
     PageSize             smallint      not null,
     MaximumPageSize      smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -732,8 +707,7 @@ create table PresentialMeetings.PresentialMeetings
     Page                        smallint      not null,
     PageSize                    smallint      not null,
     MaximumPageSize             smallint      not null
-)
-go
+);
 
 if not exists (
 select *
@@ -757,8 +731,7 @@ create table Assessments.Questions
     Page                    smallint,
     PageSize                smallint,
     MaximumPageSize         smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -783,8 +756,7 @@ create table Assessments.ExamQuestions
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -809,8 +781,7 @@ create table Assessments.ExamTakenQuestions
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -836,8 +807,7 @@ create table Scorms.Scorms
     Page                  smallint     not null,
     PageSize              smallint     not null,
     MaximumPageSize       smallint     not null
-)
-go
+);
 
 if not exists (
 select *
@@ -862,8 +832,7 @@ create table Research.SurveyAnswers
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -885,8 +854,7 @@ create table Research.SurveyQuestionOptions
     Page                   smallint,
     PageSize               smallint,
     MaximumPageSize        smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -912,8 +880,7 @@ create table Research.SurveyQuestions
     Page                          smallint,
     PageSize                      smallint,
     MaximumPageSize               smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -937,8 +904,7 @@ create table Research.SurveyAnswerQuestions
     Page                   smallint,
     PageSize               smallint,
     MaximumPageSize        smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -960,8 +926,7 @@ create table Research.Surveys
     Page                             smallint,
     PageSize                         smallint,
     MaximumPageSize                  smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -979,8 +944,7 @@ create table Tags.Tags
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -997,8 +961,7 @@ create table Tags.EnrollableTags
     Page            smallint,
     PageSize        smallint,
     MaximumPageSize smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1018,8 +981,7 @@ create table FilesSend.UploadActivities
     Page                           smallint,
     PageSize                       smallint,
     MaximumPageSize                smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1043,8 +1005,7 @@ create table Certifications.UserCertifications
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1081,8 +1042,7 @@ create table Users.Users
     Page                            smallint     not null,
     PageSize                        smallint     not null,
     MaximumPageSize                 smallint     not null
-)
-go
+);
 
 if not exists (
 select *
@@ -1108,8 +1068,7 @@ create table Campaigns.CampaignPermissions
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1130,8 +1089,7 @@ create table Certifications.CertificationPermissions
     Page            smallint,
     PageSize        smallint,
     MaximumPageSize smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1161,8 +1119,7 @@ create table Courses.CourseActivityViews
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1181,8 +1138,7 @@ create table Courses.CoursePermissions
     Page                    smallint,
     PageSize                smallint,
     MaximumPageSize         smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1212,8 +1168,7 @@ create table Assessments.ExamTakens
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1236,8 +1191,7 @@ create table Files.MediaLibraryFileDownloads
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1258,8 +1212,7 @@ create table HtmlPages.MediaLibraryHtmlViews
     Page                 smallint not null,
     PageSize             smallint not null,
     MaximumPageSize      smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -1280,8 +1233,7 @@ create table Contents.MediaLibraryPermissions
     Page                         smallint,
     PageSize                     smallint,
     MaximumPageSize              smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1299,8 +1251,7 @@ create table Users.UserAccessHistorys
     Page              smallint,
     PageSize          smallint,
     MaximumPageSize   smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1331,8 +1282,7 @@ create table Users.UserBusinessUnits
     Page                        smallint,
     PageSize                    smallint,
     MaximumPageSize             smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1354,8 +1304,7 @@ create table Users.UserLabels
     Page                   smallint not null,
     PageSize               smallint not null,
     MaximumPageSize        smallint not null
-)
-go
+);
 
 if not exists (
 select *
@@ -1377,8 +1326,7 @@ create table Contents.VideoViews
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1403,8 +1351,7 @@ create table Contents.Videos
     Page                   smallint,
     PageSize               smallint,
     MaximumPageSize        smallint
-)
-go
+);
 
 if not exists (
 select *
@@ -1428,6 +1375,5 @@ create table VideoConference.WebMeetings
     Page                 smallint,
     PageSize             smallint,
     MaximumPageSize      smallint
-)
-go
+);
 
