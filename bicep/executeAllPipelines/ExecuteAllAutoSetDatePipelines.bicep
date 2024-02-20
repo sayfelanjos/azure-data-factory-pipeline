@@ -11,7 +11,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+            activity: 'Execute UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -30,7 +30,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+        name: 'Execute UsersAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -98,7 +98,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+            activity: 'Execute UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -121,7 +121,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+            activity: 'Execute UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -144,7 +144,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+            activity: 'Execute UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -183,7 +183,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+            activity: 'Execute UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -328,7 +328,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
             ]
           }
           {
-            activity: 'Execute UsersCopyDataPipelinesWithAutoSetDate'
+            activity: 'Execute UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
