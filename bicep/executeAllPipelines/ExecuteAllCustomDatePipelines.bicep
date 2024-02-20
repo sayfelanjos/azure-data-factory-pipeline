@@ -370,6 +370,9 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
     ]
+    folder: {
+      name: 'ExecuteAll'
+    }
     annotations: []
     variables: {}
   }

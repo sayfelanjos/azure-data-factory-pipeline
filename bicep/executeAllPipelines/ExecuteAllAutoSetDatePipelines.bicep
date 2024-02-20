@@ -318,7 +318,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CertificationsCopyDataPipelineWithAutoSetDate'
+        name: 'Execute CertificationsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -340,7 +340,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CertificationsCopyDataPipelineWithAutoSetDate'
+            referenceName: 'CertificationsAutoSetDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
@@ -370,6 +370,9 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
     ]
+    folder: {
+      name: 'ExecuteAll'
+    }
     annotations: []
     variables: {}
   }
