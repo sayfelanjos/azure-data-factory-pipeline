@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyScormsDataWithCustomDatePipeline'
+        name: 'Execute CopyScormsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,7 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyScormsDataWithCustomDatePipeline'
+            referenceName: 'CopyScormsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

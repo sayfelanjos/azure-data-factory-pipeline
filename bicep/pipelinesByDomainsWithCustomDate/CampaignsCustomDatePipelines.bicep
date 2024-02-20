@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyCampaigncontentsDataWithCustomDatePipeline'
+        name: 'Execute CopyCampaigncontentsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,18 +16,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyCampaigncontentsDataWithCustomDatePipeline'
+            referenceName: 'CopyCampaigncontentsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyCampaignsDataWithCustomDatePipeline'
+        name: 'Execute CopyCampaignsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyCampaigncontentsDataWithCustomDatePipeline'
+            activity: 'Execute CopyCampaigncontentsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -39,18 +39,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyCampaignsDataWithCustomDatePipeline'
+            referenceName: 'CopyCampaignsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyCampaignPermissionsDataWithCustomDatePipeline'
+        name: 'Execute CopyCampaignPermissionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyCampaignsDataWithCustomDatePipeline'
+            activity: 'Execute CopyCampaignsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -62,7 +62,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyCampaignPermissionsDataWithCustomDatePipeline'
+            referenceName: 'CopyCampaignPermissionsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

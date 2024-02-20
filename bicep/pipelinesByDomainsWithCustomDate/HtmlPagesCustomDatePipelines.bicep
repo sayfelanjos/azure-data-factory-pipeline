@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'CopyHtmlsDataWithCustomDatePipeline'
+        name: 'CopyHtmlsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,14 +16,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyHtmlsDataWithCustomDatePipeline'
+            referenceName: 'CopyHtmlsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'CopyMediaLibraryHtmlsDataWithCustomDatePipeline'
+        name: 'CopyMediaLibraryHtmlsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -32,7 +32,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyMediaLibraryHtmlsDataWithCustomDatePipeline'
+            referenceName: 'CopyMediaLibraryHtmlsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

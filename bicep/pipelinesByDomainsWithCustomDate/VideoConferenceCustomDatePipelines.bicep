@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyWebMeetingsDataWithCustomDatePipeline'
+        name: 'Execute CopyWebMeetingsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,7 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyWebMeetingsDataWithCustomDatePipeline'
+            referenceName: 'CopyWebMeetingsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

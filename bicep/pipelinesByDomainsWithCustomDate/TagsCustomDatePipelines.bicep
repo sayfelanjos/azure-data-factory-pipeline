@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyEnrollableTagsDataWithCustomDatePipeline'
+        name: 'Execute CopyEnrollableTagsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,14 +16,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyEnrollableTagsDataWithCustomDatePipeline'
+            referenceName: 'CopyEnrollableTagsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyTagsDataWithCustomDatePipeline'
+        name: 'Execute CopyTagsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -32,7 +32,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyTagsDataWithCustomDatePipeline'
+            referenceName: 'CopyTagsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

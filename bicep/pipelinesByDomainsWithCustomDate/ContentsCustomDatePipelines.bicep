@@ -7,11 +7,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyMediaLibraryPermissionsDataWithCustomDatePipeline'
+        name: 'Execute CopyMediaLibraryPermissionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyMediaLibraryVideosDataWithCustomDatePipeline'
+            activity: 'Execute CopyMediaLibraryVideosCustomDatePipeline'
             dependencyConditions: [
               'Completed'
             ]
@@ -23,14 +23,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyMediaLibraryPermissionsDataWithCustomDatePipeline'
+            referenceName: 'CopyMediaLibraryPermissionsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyMediaLibraryVideosDataWithCustomDatePipeline'
+        name: 'Execute CopyMediaLibraryVideosCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -39,14 +39,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyMediaLibraryVideosDataWithCustomDatePipeline'
+            referenceName: 'CopyMediaLibraryVideosCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyVideosDataWithCustomDatePipeline'
+        name: 'Execute CopyVideosCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -55,18 +55,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyVideosDataWithCustomDatePipeline'
+            referenceName: 'CopyVideosCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyVideoViewsDataWithCustomDatePipeline'
+        name: 'Execute CopyVideoViewsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyVideosDataWithCustomDatePipeline'
+            activity: 'Execute CopyVideosCustomDatePipeline'
             dependencyConditions: [
               'Completed'
             ]
@@ -78,7 +78,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyVideoViewsDataWithCustomDatePipeline'
+            referenceName: 'CopyVideoViewsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

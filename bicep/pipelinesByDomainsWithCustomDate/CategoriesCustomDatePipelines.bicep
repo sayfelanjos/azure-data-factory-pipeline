@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyCategoriesDataWithCustomDatePipeline'
+        name: 'Execute CopyCategoriesCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,7 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyCategoriesDataWithCustomDatePipeline'
+            referenceName: 'CopyCategoriesCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

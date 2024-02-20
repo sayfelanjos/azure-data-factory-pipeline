@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyCertificationsDataWithCustomDatePipeline'
+        name: 'Execute CopyCertificationsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,14 +16,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyCertificationsDataWithCustomDatePipeline'
+            referenceName: 'CopyCertificationsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'CopyUserCertificationsDataWithCustomDate'
+        name: 'CopyUserCertificationsCustomDate'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -32,7 +32,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyUserCertificationsDataWithCustomDate'
+            referenceName: 'CopyUserCertificationsCustomDate'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

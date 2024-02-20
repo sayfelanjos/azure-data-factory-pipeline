@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyAudiosDataWithCustomDatePipeline'
+        name: 'Execute CopyAudiosCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,7 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyAudiosDataWithCustomDatePipeline'
+            referenceName: 'CopyAudiosCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
