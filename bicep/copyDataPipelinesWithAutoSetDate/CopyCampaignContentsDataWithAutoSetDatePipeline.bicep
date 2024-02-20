@@ -1,9 +1,9 @@
-param dataFactoryName string
+param azureDataFactoryName string
 
 var pipelineName = 'CopyCampaignContentsDataWithAutoSetDatePipeline'
 
 resource campaigcontents_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
-  name: '${dataFactoryName}/${pipelineName}'
+  name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
