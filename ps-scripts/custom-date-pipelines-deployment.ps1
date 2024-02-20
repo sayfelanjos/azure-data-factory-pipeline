@@ -20,3 +20,8 @@ foreach ($pl in $pipelines) {
     # -ErrorAction SilentlyContinue
 }
 
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile '.\bicep\executeAllPipelines\ExecuteAllCustomDatePipelines.bicep' `
+    -azureDataFactoryName $azureDataFactoryName `
+# -ErrorAction SilentlyContinue
