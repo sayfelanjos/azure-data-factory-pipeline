@@ -179,7 +179,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
         }
         inputs: [
           {
-            referenceName: 'medialibraryfiledownloads_ep'
+            referenceName: 'MediaLibraryFileDownloadsEndPoint'
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
@@ -191,7 +191,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
         ]
         outputs: [
           {
-            referenceName: 'medialibraryfiledownloads_tb'
+            referenceName: 'MediaLibraryFileDownloadsTable'
             type: 'DatasetReference'
           }
         ]

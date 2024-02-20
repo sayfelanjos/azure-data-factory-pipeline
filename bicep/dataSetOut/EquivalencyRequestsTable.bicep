@@ -6,7 +6,7 @@ resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing 
 }
 
 resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-    name: 'EequivalencyRequestsTable'
+    name: 'EquivalencyRequestsTable'
     parent: azureDataFactory
     properties: {
         annotations: []
