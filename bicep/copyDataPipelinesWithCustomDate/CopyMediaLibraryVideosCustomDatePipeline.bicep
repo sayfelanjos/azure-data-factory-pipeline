@@ -178,7 +178,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
         }
         inputs: [
           {
-            referenceName: 'Medialibraryvideos_ep'
+            referenceName: 'MediaLibraryVideosEndPoint'
             type: 'DatasetReference'
             parameters: {
               SetApiName: {
@@ -190,7 +190,7 @@ resource medialibraryvideos_pipeline 'Microsoft.DataFactory/factories/pipelines@
         ]
         outputs: [
           {
-            referenceName: 'medialibraryvideos_tb'
+            referenceName: 'MediaLibraryVideosTable'
             type: 'DatasetReference'
           }
         ]
