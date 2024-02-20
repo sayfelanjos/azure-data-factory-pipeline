@@ -169,7 +169,7 @@ resource surveyanswerquestions_pipeline 'Microsoft.DataFactory/factories/pipelin
         }
         inputs: [
           {
-            referenceName: 'SurveyAnswerQuestionsEndPoints'
+            referenceName: 'SurveyAnswerQuestionsEndPoint'
             type: 'DatasetReference'
             parameters: {
               SetApiName: {

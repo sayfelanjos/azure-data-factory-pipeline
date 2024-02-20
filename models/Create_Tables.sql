@@ -1,5 +1,3 @@
-use [febraban-bi-stg-sqldb];
-
 if not exists (select 1 from sys.schemas where name = 'Assessments')
 begin
     exec('create schema Assessments')
