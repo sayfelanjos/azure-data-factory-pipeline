@@ -1,13 +1,13 @@
 param azureDataFactoryName string
 
-var pipelineName = 'TagsCopyDataPipelinesWithCustomDate'
+var pipelineName = 'PresentialMeetingsCustomDatePipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'Execute CopyEnrollableTagsDataWithCustomDatePipeline'
+        name: 'Execute CopyPresentialMeetingsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,23 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyEnrollableTagsDataWithCustomDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'Execute CopyTagsDataWithCustomDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: []
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyTagsDataWithCustomDatePipeline'
+            referenceName: 'CopyPresentialMeetingsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

@@ -1,17 +1,17 @@
 param azureDataFactoryName string
 
-var pipelineName = 'ExecuteAllCopyDataPipelinesWithCustomDate'
+var pipelineName = 'ExecuteAllCustomDatePipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'Execute AssessmentsCopyDataPipelinesWithCustomDate'
+        name: 'Execute AssessmentsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithCustomDate'
+            activity: 'Execute UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -23,14 +23,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'AssessmentsCopyDataPipelinesWithCustomDate'
+            referenceName: 'AssessmentsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute UsersCopyDataPipelinesWithCustomDate'
+        name: 'Execute UsersCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -46,7 +46,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute AudiosCopyDataPipelinesWithCustomDate'
+        name: 'Execute AudiosCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -55,14 +55,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'AudiosCopyDataPipelinesWithCustomDate'
+            referenceName: 'AudiosCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CampaignsCopyDataPipelinesWithCustomDate'
+        name: 'Execute CampaignsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -71,14 +71,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CampaignsCopyDataPipelinesWithCustomDate'
+            referenceName: 'CampaignsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CategoriesCopyDataPipelinesWithCustomDate'
+        name: 'Execute CategoriesCustomDatePipelinesPipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -87,18 +87,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CategoriesCopyDataPipelinesWithCustomDate'
+            referenceName: 'CategoriesCustomDatePipelinesPipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute ContentsCopyDataPipelinesWithCustomDate'
+        name: 'Execute ContentsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithCustomDate'
+            activity: 'Execute UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -110,18 +110,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'ContentsCopyDataPipelinesWithCustomDate'
+            referenceName: 'ContentsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CoursesCopyDataPipelinesWithCustomDate'
+        name: 'Execute CoursesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithCustomDate'
+            activity: 'Execute UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -133,18 +133,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CoursesCopyDataPipelinesWithCustomDate'
+            referenceName: 'CoursesCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute FilesCopyDataPipelinesWithCustomDate'
+        name: 'Execute FilesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithCustomDate'
+            activity: 'Execute UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -156,14 +156,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'FilesCopyDataPipelinesWithCustomDate'
+            referenceName: 'FilesCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute FilesSendCopyDataPipelinesWithCustomDate'
+        name: 'Execute FilesSendCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -172,18 +172,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'FilesSendCopyDataPipelinesWithCustomDate'
+            referenceName: 'FilesSendCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute HtmlPagesCopyDataPipelinesWithCustomDate'
+        name: 'Execute HtmlPagesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCopyDataPipelinesWithCustomDate'
+            activity: 'Execute UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -195,14 +195,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'HtmlPagesCopyDataPipelinesWithCustomDate'
+            referenceName: 'HtmlPagesCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute PowerPointPresentationCopyDataPipelinesWithCustomDate'
+        name: 'Execute PowerPointPresentationCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -211,14 +211,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'PowerPointPresentationCopyDataPipelinesWithCustomDate'
+            referenceName: 'PowerPointPresentationCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute PresentialMeetingsCopyDataPipelinesWithCustomDate'
+        name: 'Execute PresentialMeetingsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -227,24 +227,24 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'PresentialMeetingsCopyDataPipelinesWithCustomDate'
+            referenceName: 'PresentialMeetingsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute ResearchCopyDataPipelinesWithCustomDate'
+        name: 'Execute ResearchCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCopyDataPipelinesWithCustomDate'
+            activity: 'Execute CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CampaignsCopyDataPipelinesWithCustomDate'
+            activity: 'Execute CampaignsCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -256,14 +256,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'ResearchCopyDataPipelinesWithCustomDate'
+            referenceName: 'ResearchCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute ScormsCopyDataPipelinesWithCustomDate'
+        name: 'Execute ScormsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -272,18 +272,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'ScormsCopyDataPipelinesWithCustomDate'
+            referenceName: 'ScormsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute TagsCopyDataPipelinesWithCustomDate'
+        name: 'Execute TagsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCopyDataPipelinesWithCustomDate'
+            activity: 'Execute CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -295,14 +295,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'TagsCopyDataPipelinesWithCustomDate'
+            referenceName: 'TagsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute VideoConferenceCopyDataPipelinesWithCustomDate'
+        name: 'Execute VideoConferenceCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -311,7 +311,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'VideoConferenceCopyDataPipelinesWithCustomDate'
+            referenceName: 'VideoConferenceCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
@@ -322,13 +322,13 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCopyDataPipelinesWithCustomDate'
+            activity: 'Execute CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute UsersCopyDataPipelinesWithCustomDate'
+            activity: 'Execute UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -347,11 +347,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute TagsCopyDataPipelinesWithCustomDate'
+        name: 'Execute TagsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCopyDataPipelinesWithCustomDate'
+            activity: 'Execute CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -363,7 +363,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'TagsCopyDataPipelinesWithCustomDate'
+            referenceName: 'TagsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

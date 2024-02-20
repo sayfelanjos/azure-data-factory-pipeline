@@ -1,13 +1,13 @@
 param azureDataFactoryName string
 
-var pipelineName = 'AssessmentsCopyDataPipelinesWithCustomDate'
+var pipelineName = 'UsersCustomDatePipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'Execute CopyQuestionsDataWithCustomDatePipeline'
+        name: 'Execute CopyBusinessunitsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,14 +16,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyQuestionsDataWithCustomDatePipeline'
+            referenceName: 'CopyBusinessunitsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyExamsDataWithCustomDatePipeline'
+        name: 'Execute CopyLabelsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -32,18 +32,72 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyExamsDataWithCustomDatePipeline'
+            referenceName: 'CopyLabelsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyExamTakenAnswersDataWithCustomDatePipeline'
+        name: 'Execute CopyOccupationAreasDataWithCustomDatePipeline'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'CopyOccupationAreasDataWithCustomDatePipeline'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'Execute CopyPositionsDataWithCustomDatePipeline'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'CopyPositionsDataWithCustomDatePipeline'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'Execute CopyUserAccessHistorysDataWithCustomDatePipeline'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'CopyUserAccessHistorysDataWithCustomDatePipeline'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
+        name: 'Execute CopyUserBusinessunitsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyQuestionsDataWithCustomDatePipeline'
+            activity: 'Execute CopyBusinessunitsDataWithCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Execute CopyUsersDataWithCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -55,24 +109,24 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyExamTakenAnswersDataWithCustomDatePipeline'
+            referenceName: 'CopyUserBusinessunitsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute CopyExamTakenQuestionsDataPipeline'
+        name: 'Execute CopyUserLabelsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyQuestionsDataWithCustomDatePipeline'
+            activity: 'Execute CopyUsersDataWithCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyExamsDataWithCustomDatePipeline'
+            activity: 'Execute CopyLabelsDataWithCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -84,59 +138,23 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyExamTakenQuestionsDataPipeline'
+            referenceName: 'CopyUserLabelsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'CopyExamTakensDataWithCustomDatePipeline'
+        name: 'Execute CopyUsersDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
-        dependsOn: [
-          {
-            activity: 'Execute CopyExamsDataWithCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-        ]
+        dependsOn: []
         policy: {
           secureInput: false
         }
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyExamTakensDataWithCustomDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'Execute CopyExamQuestionsDataWithCustomDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: [
-          {
-            activity: 'Execute CopyExamsDataWithCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-          {
-            activity: 'Execute CopyQuestionsDataWithCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-        ]
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyExamQuestionsDataWithCustomDatePipeline'
+            referenceName: 'CopyUsersDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

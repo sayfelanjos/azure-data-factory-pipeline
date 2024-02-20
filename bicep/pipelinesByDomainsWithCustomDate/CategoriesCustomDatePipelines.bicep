@@ -1,13 +1,13 @@
 param azureDataFactoryName string
 
-var pipelineName = 'HtmlPagesCopyDataPipelinesWithCustomDate'
+var pipelineName = 'CategoriesCustomDatePipelinesPipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'CopyHtmlsDataWithCustomDatePipeline'
+        name: 'Execute CopyCategoriesDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,23 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyHtmlsDataWithCustomDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'CopyMediaLibraryHtmlsDataWithCustomDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: []
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyMediaLibraryHtmlsDataWithCustomDatePipeline'
+            referenceName: 'CopyCategoriesDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

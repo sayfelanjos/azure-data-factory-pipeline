@@ -1,13 +1,13 @@
 param azureDataFactoryName string
 
-var pipelineName = 'CertificationsCopyDataPipelinesWithCustomDate'
+var pipelineName = 'HtmlPagesCustomDatePipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'Execute CopyCertificationsDataWithCustomDatePipeline'
+        name: 'CopyHtmlsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,14 +16,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyCertificationsDataWithCustomDatePipeline'
+            referenceName: 'CopyHtmlsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'CopyUserCertificationsDataWithCustomDate'
+        name: 'CopyMediaLibraryHtmlsDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -32,7 +32,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyUserCertificationsDataWithCustomDate'
+            referenceName: 'CopyMediaLibraryHtmlsDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

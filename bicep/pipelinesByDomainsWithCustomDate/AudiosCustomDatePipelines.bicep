@@ -1,13 +1,13 @@
 param azureDataFactoryName string
 
-var pipelineName = 'ScormsCopyDataPipelinesWithCustomDate'
+var pipelineName = 'AudiosCustomDatePipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'Execute CopyScormsDataWithCustomDatePipeline'
+        name: 'Execute CopyAudiosDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,7 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyScormsDataWithCustomDatePipeline'
+            referenceName: 'CopyAudiosDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

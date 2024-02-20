@@ -5,4 +5,4 @@ $azureDataFactoryName = $args[1]
 
 
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $trigger.BaseName -TemplateFile $trigger.FullName -Mode Incremental -azureDataFactoryName $azureDataFactoryName
-Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -azureDataFactoryName $azureDataFactoryName -TriggerName $trigger.BaseName -Force -ErrorAction SilentlyContinue
+Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -azureDataFactoryName $azureDataFactoryName -TriggerName $trigger.BaseName -Force # -ErrorAction SilentlyContinue

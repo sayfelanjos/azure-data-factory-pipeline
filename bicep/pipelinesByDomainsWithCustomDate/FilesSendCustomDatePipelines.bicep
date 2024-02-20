@@ -1,13 +1,13 @@
 param azureDataFactoryName string
 
-var pipelineName = 'VideoConferenceCopyDataPipelinesWithCustomDate'
+var pipelineName = 'FilesSendCustomDatePipelines'
 
 resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
-        name: 'Execute CopyWebMeetingsDataWithCustomDatePipeline'
+        name: 'Execute CopyUploadActivitiesDataWithCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -16,7 +16,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyWebMeetingsDataWithCustomDatePipeline'
+            referenceName: 'CopyUploadActivitiesDataWithCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

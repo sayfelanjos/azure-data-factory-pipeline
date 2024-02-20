@@ -10,13 +10,13 @@ foreach ($pl in $copyPipelines) {
         -ResourceGroupName $resourceGroupName `
         -TemplateFile $pl.FullName `
         -azureDataFactoryName $azureDataFactoryName `
-        -ErrorAction SilentlyContinue
+        # -ErrorAction SilentlyContinue
 }
 
 foreach ($pl in $pipelines) {
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateFile $pl.FullName `
-    -azureDataFactoryName $azureDataFactoryName `
-    -ErrorAction SilentlyContinue
+        -TemplateFile $pl.FullName `
+        -azureDataFactoryName $azureDataFactoryName `
+        # -ErrorAction SilentlyContinue
 }
 
