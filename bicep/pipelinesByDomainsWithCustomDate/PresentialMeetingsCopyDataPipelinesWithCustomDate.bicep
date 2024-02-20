@@ -1,9 +1,9 @@
-param dataFactoryName string
+param azureDataFactoryName string
 
 var pipelineName = 'PresentialMeetingsCopyDataPipelinesWithCustomDate'
 
-resource dataFactoryName_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
-  name: '${dataFactoryName}/${pipelineName}'
+resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
+  name: '${azureDataFactoryName}/${pipelineName}'
   properties: {
     activities: [
       {
