@@ -12,7 +12,7 @@ resource dataSetOut 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
     annotations: []
     type: 'AzureSqlTable'
     linkedServiceName: {
-      referenceName: 'sqldb-linked-service'
+      referenceName: 'NeoludeSQLDBLinkedService'
       type: 'LinkedServiceReference'
     }
     typeProperties: {

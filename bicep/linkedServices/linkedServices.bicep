@@ -16,19 +16,19 @@ param sqlServerAdminPassword string
 param serverName string
 param dbName string
 var restLinkedServiceName = 'NeoludeRestAPILinkedService'
-var sqlDatabaseLinkedServiceName = 'sqldb-linked-service'
+var sqlDatabaseLinkedServiceName = 'NeoludeSQLDBLinkedService'
 
 resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: azureDataFactoryName
 }
 
-resource azureDataFactoryRestLinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
+resource azureDataFactoryRestAPILinkedService 'Microsoft.DataFactory/factories/linkedservices@2018-06-01' = {
   parent: azureDataFactory
   name: restLinkedServiceName
   properties: {
     type: 'RestService'
     annotations: []
-    description: 'Connects to API to extract data'
+    description: 'Connects Azure Data Factory to API to extract data'
     typeProperties: {
       authenticationType: 'Anonymous'
       authHeaders: {

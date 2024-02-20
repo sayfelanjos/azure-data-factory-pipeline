@@ -114,7 +114,7 @@ stages:
               location: $(location)
               action: 'Create Or Update Resource Group'
               templateLocation: 'Linked artifact'
-              csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\linkedServices.bicep'
+              csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\LinkedServices.bicep'
               overrideParameters: '-azureDataFactoryName "$(azureDataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
               deploymentMode: 'Incremental'
       - job: 'CreateDataSetsOut'
