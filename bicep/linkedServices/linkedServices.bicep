@@ -15,7 +15,7 @@ param sqlServerAdminPassword string
 
 param serverName string
 param dbName string
-var restLinkedServiceName = 'rest-api-linked-service'
+var restLinkedServiceName = 'NeoludeRestAPILinkedService'
 var sqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
 resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {

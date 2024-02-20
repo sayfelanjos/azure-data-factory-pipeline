@@ -14,7 +14,7 @@ param dataFactoryName string = '${customer}-${department}-${environment}-adf'
 
 var dataFactoryDataSetInName = 'rest_api_dataset'
 var dataFactoryDataSetOutName = 'sqldb_dataset'
-var dataFactoryRestLinkedServiceName = 'rest-api-linked-service'
+var dataFactoryRestLinkedServiceName = 'NeoludeRestAPILinkedService'
 var dataFactorySqlDatabaseLinkedServiceName = 'sqldb-linked-service'
 
 @description('Relative URL is the last part of the url start after the Top-Level-Domain')

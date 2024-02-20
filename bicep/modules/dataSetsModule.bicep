@@ -13,7 +13,7 @@ resource dataFactoryDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-
   name: DataSetInName
   properties: {
     linkedServiceName: {
-      referenceName: 'rest-api-linked-service'
+      referenceName: 'NeoludeRestAPILinkedService'
       type: 'LinkedServiceReference'
     }
     type: 'RestResource'

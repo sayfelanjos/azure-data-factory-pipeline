@@ -17,7 +17,7 @@ resource restDataSetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
         annotations: []
         type: 'RestResource'
         linkedServiceName: {
-            referenceName: 'rest-api-linked-service'
+            referenceName: 'NeoludeRestAPILinkedService'
             type: 'LinkedServiceReference'
         }
         schema: {}

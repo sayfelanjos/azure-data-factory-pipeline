@@ -1,6 +1,6 @@
 param azureDataFactoryName string
 
-var pipelineName = 'copy_data_audios_pl'
+var pipelineName = 'CopyAudiosDataWithCustomDatePipeline'
 
 resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
