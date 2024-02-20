@@ -32,7 +32,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyUserCertificationsCustomDate'
+            referenceName: 'CopyUserCertificationsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
