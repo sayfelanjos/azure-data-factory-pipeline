@@ -1,7 +1,7 @@
 @description('Data Factory Name')
 param azureDataFactoryName string
 
-param dataFactory_properties_globalParameters_NewRunPipelineDateGlobalVariable_value string = '1999-31-12T23:59:59.999'
+param dataFactory_properties_globalParameters_NewRunPipelineDateGlobalVariable_value string = '1999-12-31T23:59:59.999'
 
 @description('Location of the data factory.')
 param location string = resourceGroup().location

@@ -59,9 +59,12 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
             writeBehavior: 'upsert'
             upsertSettings: {
               useTempDB: false
-              interimSchemaName: 'CourseActivityViews'
+              interimSchemaName: 'Courses'
               keys: [
-                'CourseActivityViewsID'
+                'CourseID'
+                'EnrollableID'
+                'EnrollmentID'
+                'UserID'
               ]
             }
             sqlWriterUseTableLock: true
@@ -71,15 +74,6 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
             type: 'TabularTranslator'
             typeConversion: true
             mappings: [
-              {
-                source: {
-                  path: 'CourseActivityViewsID'
-                }
-                sink: {
-                  name: 'CourseActivityViewsID'
-                  type: 'Int32'
-                }
-              }
               {
                 source: {
                   path: 'CourseID'
@@ -167,7 +161,7 @@ resource audios_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
                 }
                 sink: {
                   name: 'timeSpent'
-                  type: 'Int16'
+                  type: 'Int32'
                 }
               }
               {

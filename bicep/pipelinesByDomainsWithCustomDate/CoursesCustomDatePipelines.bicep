@@ -130,12 +130,6 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
               'Succeeded'
             ]
           }
-          {
-            activity: 'Exec CopyPlacesCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
         ]
         policy: {
           secureInput: false
@@ -154,7 +148,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyPlacesCustomDatePipeline'
+            activity: 'Exec CopyPlacesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -240,13 +234,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Exec CopyEnrollablesCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-          {
-            activity: 'CopyCoursesCustomDatePipeline'
+            activity: 'Exec CopyEnrollmentsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]

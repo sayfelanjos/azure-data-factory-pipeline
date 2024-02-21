@@ -1096,8 +1096,6 @@ where s.name='Courses' and t.name='CourseActivityViews'
 )
 create table Courses.CourseActivityViews
 (
-    CompletedActivityID  int not null
-        primary key,
     CourseID             int not null
         references Courses.Courses,
     EnrollableID         int not null
@@ -1110,7 +1108,7 @@ create table Courses.CourseActivityViews
     ModuleActivityID     int,
     Activity             nvarchar(400),
     Attempt              tinyint,
-    timeSpent            smallint,
+    timeSpent            int,
     ConclusionDate       datetime,
     AuditCreatedDate     datetime,
     AuditLastUpdatedDate datetime,
@@ -1158,7 +1156,7 @@ create table Assessments.ExamTakens
     NeedsGrading         bit,
     Grade                decimal,
     Finished             bit,
-    CompletionDate       datetime,
+    CompletionDate       datetimeoffset(3),
     Locked               bit,
     CreatedByLock        bit,
     AuditCreatedDate     datetime,

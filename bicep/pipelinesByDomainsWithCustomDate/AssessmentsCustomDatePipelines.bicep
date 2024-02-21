@@ -62,7 +62,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopyExamTakenQuestionsDataPipeline'
+        name: 'Exec CopyExamTakenQuestionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -72,7 +72,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
             ]
           }
           {
-            activity: 'Exec CopyExamsCustomDatePipeline'
+            activity: 'Exec CopyExamTakensCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -84,14 +84,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyExamTakenQuestionsDataPipeline'
+            referenceName: 'CopyExamTakenQuestionsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'CopyExamTakensCustomDatePipeline'
+        name: 'Exec CopyExamTakensCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {

@@ -1,6 +1,6 @@
 param azureDataFactoryName string
 
-var pipelineName = 'CopyExamTakenQuestionsDataPipeline'
+var pipelineName = 'CopyExamTakenQuestionsAutoSetDatePipeline'
 
 resource examtakenquestions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
