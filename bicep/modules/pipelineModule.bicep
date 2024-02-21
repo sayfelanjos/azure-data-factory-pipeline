@@ -28,7 +28,7 @@ resource pipelineModule 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
             sqlWriterUseTableLock: false
             disableMetricsCollection: false
           }
-          enableStaging: false
+
           translator: {
             type: 'TabularTranslator'
             schemaMapping: schemaMapping

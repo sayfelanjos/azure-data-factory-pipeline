@@ -39,13 +39,13 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
               keys: [
                 'UserID'
                 'CourseID'
+                'CoursePermissionLevelID'
               ]
             }
             sqlWriterUseTableLock: true
 
             disableMetricsCollection: false
           }
-          enableStaging: false
           translator: {
             type: 'TabularTranslator'
             mappings: [
