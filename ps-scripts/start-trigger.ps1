@@ -4,6 +4,6 @@ $triggerName = 'ExecuteAllCopyDataPipelinesWithAutoSetDateTrigger'
 
 Start-AzDataFactoryV2Trigger `
     -ResourceGroupName $resourceGroupName `
-    -azureDataFactoryName $azureDataFactoryName `
+    -DataFactoryName $azureDataFactoryName `
     -TriggerName $triggerName `
     -Force

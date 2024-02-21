@@ -6,7 +6,7 @@ $triggers =  Get-ChildItem '.\bicep\trigger'
 foreach ($tgr in $triggers) {
     Stop-AzDataFactoryV2Trigger `
     -ResourceGroupName $resourceGroupName `
-    -azureDataFactoryName $azureDataFactoryName `
+    -DataFactoryName $azureDataFactoryName `
     -TriggerName $tgr.BaseName `
     -Force
 }
