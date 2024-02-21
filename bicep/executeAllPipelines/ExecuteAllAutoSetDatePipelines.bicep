@@ -7,6 +7,22 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
+        name: 'Exec UsersAutoSetDatePipelines'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'UsersAutoSetDatePipelines'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
         name: 'Exec AssessmentsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
@@ -24,22 +40,6 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         typeProperties: {
           pipeline: {
             referenceName: 'AssessmentsAutoSetDatePipelines'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'Exec UsersAutoSetDatePipelines'
-        type: 'ExecutePipeline'
-        dependsOn: []
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'UsersAutoSetDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
@@ -273,29 +273,6 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         typeProperties: {
           pipeline: {
             referenceName: 'ScormsAutoSetDatePipelines'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'Exec TagsAutoSetDatePipelines'
-        type: 'ExecutePipeline'
-        dependsOn: [
-          {
-            activity: 'Exec CoursesAutoSetDatePipelines'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-        ]
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'TagsAutoSetDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

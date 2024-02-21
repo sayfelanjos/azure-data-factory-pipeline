@@ -7,6 +7,22 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
+        name: 'Exec UsersCustomDatePipelines'
+        type: 'ExecutePipeline'
+        dependsOn: []
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'UsersCustomDatePipelines'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
         name: 'Exec AssessmentsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
@@ -24,22 +40,6 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         typeProperties: {
           pipeline: {
             referenceName: 'AssessmentsCustomDatePipelines'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'Exec UsersCustomDatePipelines'
-        type: 'ExecutePipeline'
-        dependsOn: []
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'UsersCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
@@ -273,29 +273,6 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         typeProperties: {
           pipeline: {
             referenceName: 'ScormsCustomDatePipelines'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
-        name: 'Exec TagsCustomDatePipelines'
-        type: 'ExecutePipeline'
-        dependsOn: [
-          {
-            activity: 'Exec CoursesCustomDatePipelines'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-        ]
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'TagsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
