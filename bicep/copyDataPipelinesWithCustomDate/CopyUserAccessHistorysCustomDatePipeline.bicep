@@ -10,14 +10,7 @@ resource useraccesshistorys_pipeline 'Microsoft.DataFactory/factories/pipelines@
         name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
-        dependsOn: [
-          {
-            activity: 'SetNextRunPipelineDate'
-            dependencyConditions: [
-              'Completed'
-            ]
-          }
-        ]
+        dependsOn: []
         policy: {
           timeout: '00.12:00:00'
           retry: 1

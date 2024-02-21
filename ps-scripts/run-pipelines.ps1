@@ -4,6 +4,6 @@ $azureDataFactoryName = $args[1]
 
 
 Invoke-AzDataFactoryV2Pipeline `
-    -azureDataFactoryName $azureDataFactoryName `
+    -DataFactoryName $azureDataFactoryName `
     -ResourceGroupName $resourceGroupName `
     -PipelineName 'ExecuteAllCustomDatePipelines'
