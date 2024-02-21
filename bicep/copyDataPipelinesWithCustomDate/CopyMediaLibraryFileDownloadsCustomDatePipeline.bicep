@@ -7,7 +7,7 @@ resource medialibraryfiledownloads_pipeline 'Microsoft.DataFactory/factories/pip
   properties: {
     activities: [
       {
-        name: 'OneToOneCopyPipeline'
+        name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
         dependsOn: [

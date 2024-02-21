@@ -11,19 +11,19 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Exec CopySurveyAnswerQuestionsCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-          {
-            activity: 'Exec CopySurveyQuestionsDataWtihAutoDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-          {
             activity: 'Exec CopySurveyQuestionOptionsCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Exec CopySurveyQuestionsCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Exec CopySurveyAnswersCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -42,7 +42,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopySurveyAnswerQuestionsCustomDatePipeline'
+        name: 'Exec CopySurveyAnswersCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -58,16 +58,23 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopySurveyAnswerQuestionsCustomDatePipeline'
+            referenceName: 'CopySurveyAnswersCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'CopySurveyQuestionOptionsCustomDatePipeline'
+        name: 'Exec CopySurveyQuestionOptionsCustomDatePipeline'
         type: 'ExecutePipeline'
-        dependsOn: []
+        dependsOn: [
+          {
+            activity: 'Exec CopySurveyQuestionsCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
         policy: {
           secureInput: false
         }
@@ -97,7 +104,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopySurveyQuestionsDataWtihAutoDatePipeline'
+        name: 'Exec CopySurveyQuestionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -113,7 +120,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopySurveyQuestionsDataWtihAutoDatePipeline'
+            referenceName: 'CopySurveyQuestionsCustomDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

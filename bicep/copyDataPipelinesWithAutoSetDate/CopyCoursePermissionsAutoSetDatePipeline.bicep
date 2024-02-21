@@ -24,7 +24,7 @@ resource course_permissions_pl 'Microsoft.DataFactory/factories/pipelines@2018-0
         }
       }
       {
-        name: 'OneToOneCopyPipeline'
+        name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
         dependsOn: [

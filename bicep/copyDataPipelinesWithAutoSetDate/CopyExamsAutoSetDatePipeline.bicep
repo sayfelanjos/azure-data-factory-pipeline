@@ -24,7 +24,7 @@ resource exams_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' =
         }
       }
       {
-        name: 'OneToOneCopyPipeline'
+        name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
         dependsOn: [

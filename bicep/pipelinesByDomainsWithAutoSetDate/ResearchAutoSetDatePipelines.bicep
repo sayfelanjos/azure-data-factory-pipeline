@@ -11,13 +11,13 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Exec CopySurveyAnswerQuestionsAutoSetDatePipeline'
+            activity: 'Exec CopySurveyAnswersAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Exec CopySurveyQuestionsDataWtihAutoDatePipeline'
+            activity: 'Exec CopySurveyQuestionsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -42,7 +42,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopySurveyAnswerQuestionsAutoSetDatePipeline'
+        name: 'Exec CopySurveyAnswersAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -58,7 +58,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopySurveyAnswerQuestionsAutoSetDatePipeline'
+            referenceName: 'CopySurveyAnswersAutoSetDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
@@ -97,7 +97,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopySurveyQuestionsDataWtihAutoDatePipeline'
+        name: 'Exec CopySurveyQuestionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -113,7 +113,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopySurveyQuestionsDataWtihAutoDatePipeline'
+            referenceName: 'CopySurveyQuestionsAutoSetDatePipeline'
             type: 'PipelineReference'
           }
           waitOnCompletion: true

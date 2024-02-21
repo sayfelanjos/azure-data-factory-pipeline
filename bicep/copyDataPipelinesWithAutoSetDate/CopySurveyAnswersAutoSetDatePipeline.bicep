@@ -1,6 +1,6 @@
 param azureDataFactoryName string
 
-var pipelineName = 'CopySurveyAnswersAutoSetPipeline'
+var pipelineName = 'CopySurveyAnswersAutoSetDatePipeline'
 
 resource surveyanswers_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'
@@ -24,7 +24,7 @@ resource surveyanswers_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-
         }
       }
       {
-        name: 'OneToOneCopyPipeline'
+        name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
         dependsOn: [

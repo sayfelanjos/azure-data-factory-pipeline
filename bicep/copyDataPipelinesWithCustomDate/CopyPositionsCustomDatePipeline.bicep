@@ -7,7 +7,7 @@ resource positions_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-0
   properties: {
     activities: [
       {
-        name: 'OneToOneCopyPipeline'
+        name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
         dependsOn: [

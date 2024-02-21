@@ -7,7 +7,7 @@ resource labels_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
   properties: {
     activities: [
       {
-        name: 'OneToOneCopyPipeline'
+        name: pipelineName
         description: 'Copy data from rest api to sql database table'
         type: 'Copy'
         dependsOn: [
@@ -154,7 +154,7 @@ resource labels_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' 
         ]
         outputs: [
           {
-            referenceName: 'LabelsEndPoint'
+            referenceName: 'LabelsTable'
             type: 'DatasetReference'
           }
         ]

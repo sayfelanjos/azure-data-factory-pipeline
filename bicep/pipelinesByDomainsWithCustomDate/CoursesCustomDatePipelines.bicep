@@ -27,7 +27,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollablesCustomDatePipeline'
+            activity: 'Exec CopyEnrollablesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -50,7 +50,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyCoursesCustomDatePipeline'
+            activity: 'Exec CopyCoursesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -71,7 +71,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
       {
         name: 'Exec CopyCourseTagsCustomDatePipeline'
         type: 'ExecutePipeline'
-        dependsOn: []
+        dependsOn: [
+          {
+            activity: 'Exec CopyCoursesCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
         policy: {
           secureInput: false
         }
@@ -89,7 +96,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollablesCustomDatePipeline'
+            activity: 'Exec CopyEnrollablesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -108,27 +115,23 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopyPlaceRoomsCustomDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: []
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyPlaceRoomsCustomDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
         name: 'Exec CopyEnrollablesCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyCoursesCustomDatePipeline'
+            activity: 'Exec CopyCoursesCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Exec CopyPlaceRoomsCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Exec CopyPlacesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -147,11 +150,34 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
+        name: 'Exec CopyPlaceRoomsCustomDatePipeline'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'CopyPlacesCustomDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'CopyPlaceRoomsCustomDatePipeline'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
         name: 'Exec CopyEquivalencyRequestsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollmentsCustomDatePipeline'
+            activity: 'Exec CopyEnrollmentsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -185,35 +211,13 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
           waitOnCompletion: true
         }
       }
-      {
-        name: 'Exec CopyPlaceRoomsCustomDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: [
-          {
-            activity: 'CopyPlacesCustomDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-        ]
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyPlaceRoomsCustomDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
+
       {
         name: 'Exec CopyCoursePermissionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyCoursesCustomDatePipeline'
+            activity: 'Exec CopyCoursesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -236,7 +240,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollablesCustomDatePipeline'
+            activity: 'Exec CopyEnrollablesCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]

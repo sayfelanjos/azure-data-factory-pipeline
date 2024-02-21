@@ -50,7 +50,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyCoursesAutoSetDatePipeline'
+            activity: 'Exec CopyCoursesAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -71,7 +71,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
       {
         name: 'Exec CopyCourseTagsAutoSetDatePipeline'
         type: 'ExecutePipeline'
-        dependsOn: []
+        dependsOn: [
+          {
+            activity: 'Exec CopyCoursesAutoSetDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
         policy: {
           secureInput: false
         }
@@ -89,7 +96,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollablesAutoSetDatePipeline'
+            activity: 'Exec CopyEnrollablesAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -108,27 +115,23 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopyPlaceRoomsAutoSetDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: []
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyPlaceRoomsAutoSetDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
         name: 'Exec CopyEnrollablesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
             activity: 'CopyCoursesAutoSetDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Exec CopyPlaceRoomsAutoSetDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+          {
+            activity: 'Exec CopyPlacesAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -147,11 +150,34 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
+        name: 'Exec CopyPlaceRoomsAutoSetDatePipeline'
+        type: 'ExecutePipeline'
+        dependsOn: [
+          {
+            activity: 'CopyPlacesAutoSetDatePipeline'
+            dependencyConditions: [
+              'Succeeded'
+            ]
+          }
+        ]
+        policy: {
+          secureInput: false
+        }
+        userProperties: []
+        typeProperties: {
+          pipeline: {
+            referenceName: 'CopyPlaceRoomsAutoSetDatePipeline'
+            type: 'PipelineReference'
+          }
+          waitOnCompletion: true
+        }
+      }
+      {
         name: 'Exec CopyEquivalencyRequestsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollmentsAutoSetDatePipeline'
+            activity: 'Exec CopyEnrollmentsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -186,34 +212,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Exec CopyPlaceRoomsAutoSetDatePipeline'
-        type: 'ExecutePipeline'
-        dependsOn: [
-          {
-            activity: 'CopyPlacesAutoSetDatePipeline'
-            dependencyConditions: [
-              'Succeeded'
-            ]
-          }
-        ]
-        policy: {
-          secureInput: false
-        }
-        userProperties: []
-        typeProperties: {
-          pipeline: {
-            referenceName: 'CopyPlaceRoomsAutoSetDatePipeline'
-            type: 'PipelineReference'
-          }
-          waitOnCompletion: true
-        }
-      }
-      {
         name: 'Exec CopyCoursePermissionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyCoursesAutoSetDatePipeline'
+            activity: 'Exec CopyCoursesAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -236,7 +239,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'CopyEnrollablesAutoSetDatePipeline'
+            activity: 'Exec CopyEnrollablesAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
