@@ -87,58 +87,58 @@ stages:
       name: $(agentPool)
       vmImage: windows-latest
     jobs:
-      # - job: 'CreateAzureDataFactory'
-      #   steps:
-      #     - task: AzureResourceManagerTemplateDeployment@3
-      #       inputs:
-      #         deploymentScope: 'Resource Group'
-      #         azureResourceManagerConnection: $(servicePrincipalConnection)
-      #         subscriptionId: $(subscriptionId)
-      #         location: $(location)
-      #         resourceGroupName: $(resourceGroupName)
-      #         action: 'Create Or Update Resource Group'
-      #         templateLocation: 'Linked artifact'
-      #         csmFile: '$(Build.SourcesDirectory)\bicep\azureDataFactory\AzureDataFactory.bicep'
-      #         overrideParameters: '-azureDataFactoryName $(azureDataFactoryName)'
-      #         deploymentMode: 'Incremental'
-      # - job: 'CreateLinkedServices'
-      #   dependsOn: ['CreateAzureDataFactory']
-      #   condition: succeeded()
-      #   steps:
-      #     - task: AzureResourceManagerTemplateDeployment@3
-      #       inputs:
-      #         deploymentScope: 'Resource Group'
-      #         azureResourceManagerConnection: $(servicePrincipalConnection)
-      #         subscriptionId: $(subscriptionId)
-      #         resourceGroupName: $(resourceGroupName)
-      #         location: $(location)
-      #         action: 'Create Or Update Resource Group'
-      #         templateLocation: 'Linked artifact'
-      #         csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\LinkedServices.bicep'
-      #         overrideParameters: '-azureDataFactoryName "$(azureDataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
-      #         deploymentMode: 'Incremental'
-      # - job: 'CreateDataSetsOut'
-      #   dependsOn: ['CreateLinkedServices']
-      #   condition: succeeded()
-      #   steps:
-      #     - task: AzurePowerShell@5
-      #       inputs:
-      #         azureSubscription: '$(servicePrincipalConnection)'
-      #         azurePowerShellVersion: latestVersion
-      #         ScriptType: 'FilePath'
-      #         ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
-      #         ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'          
-      # - job: 'CreateDataSetsIn'
-      #   dependsOn: ['CreateLinkedServices']
-      #   condition: succeeded()
-      #   steps:
-      #     - task: AzurePowerShell@5
-      #       inputs:
-      #         azureSubscription: '$(servicePrincipalConnection)'
-      #         azurePowerShellVersion: latestVersion
-      #         ScriptType: 'FilePath'
-      #         ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
-      #         ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'   
+      - job: 'CreateAzureDataFactory'
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              location: $(location)
+              resourceGroupName: $(resourceGroupName)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '$(Build.SourcesDirectory)\bicep\azureDataFactory\AzureDataFactory.bicep'
+              overrideParameters: '-azureDataFactoryName $(azureDataFactoryName)'
+              deploymentMode: 'Incremental'
+      - job: 'CreateLinkedServices'
+        dependsOn: ['CreateAzureDataFactory']
+        condition: succeeded()
+        steps:
+          - task: AzureResourceManagerTemplateDeployment@3
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: $(servicePrincipalConnection)
+              subscriptionId: $(subscriptionId)
+              resourceGroupName: $(resourceGroupName)
+              location: $(location)
+              action: 'Create Or Update Resource Group'
+              templateLocation: 'Linked artifact'
+              csmFile: '$(Build.SourcesDirectory)\bicep\linkedServices\LinkedServices.bicep'
+              overrideParameters: '-azureDataFactoryName "$(azureDataFactoryName)" -serverName "$(serverName)" -dbName "$(dbName)" -sqlServerAdminLogin "$(adminLogin)" -sqlServerAdminPassword "$(adminPassword)" -baseURL "${{ parameters.baseURL }}" -apiSecureString "$(apiToken)"'
+              deploymentMode: 'Incremental'
+      - job: 'CreateDataSetsOut'
+        dependsOn: ['CreateLinkedServices']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-out-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'          
+      - job: 'CreateDataSetsIn'
+        dependsOn: ['CreateLinkedServices']
+        condition: succeeded()
+        steps:
+          - task: AzurePowerShell@5
+            inputs:
+              azureSubscription: '$(servicePrincipalConnection)'
+              azurePowerShellVersion: latestVersion
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Build.SourcesDirectory)\ps-scripts\datasets-in-deployment.ps1'
+              ScriptArguments: '"$(resourceGroupName)" "$(azureDataFactoryName)"'   
       - job: 'CreateAutoSetDatePipelines'
         dependsOn: ['CreateDataSetsOut', 'CreateDataSetsIn']
         condition: succeeded()

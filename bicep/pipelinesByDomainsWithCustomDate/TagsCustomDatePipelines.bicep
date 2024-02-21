@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyEnrollableTagsCustomDatePipeline'
+        name: 'Exec CopyEnrollableTagsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,7 +23,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyTagsCustomDatePipeline'
+        name: 'Exec CopyTagsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

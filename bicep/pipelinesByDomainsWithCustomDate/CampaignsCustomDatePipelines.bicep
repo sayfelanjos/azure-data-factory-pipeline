@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyCampaigncontentsCustomDatePipeline'
+        name: 'Exec CopyCampaigncontentsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,11 +23,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyCampaignsCustomDatePipeline'
+        name: 'Exec CopyCampaignsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyCampaigncontentsCustomDatePipeline'
+            activity: 'Exec CopyCampaigncontentsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -46,11 +46,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyCampaignPermissionsCustomDatePipeline'
+        name: 'Exec CopyCampaignPermissionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyCampaignsCustomDatePipeline'
+            activity: 'Exec CopyCampaignsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]

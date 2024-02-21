@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyQuestionsAutoSetDatePipeline'
+        name: 'Exec CopyQuestionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,7 +23,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyExamsAutoSetDatePipeline'
+        name: 'Exec CopyExamsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -39,11 +39,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyExamTakenAnswersAutoSetDatePipeline'
+        name: 'Exec CopyExamTakenAnswersAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyQuestionsAutoSetDatePipeline'
+            activity: 'Exec CopyQuestionsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -62,17 +62,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyExamTakenQuestionsDataPipeline'
+        name: 'Exec CopyExamTakenQuestionsDataPipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyQuestionsAutoSetDatePipeline'
+            activity: 'Exec CopyQuestionsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyExamsAutoSetDatePipeline'
+            activity: 'Exec CopyExamsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -95,7 +95,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyExamsAutoSetDatePipeline'
+            activity: 'Exec CopyExamsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -114,17 +114,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyExamQuestionsAutoSetDatePipeline'
+        name: 'Exec CopyExamQuestionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyExamsAutoSetDatePipeline'
+            activity: 'Exec CopyExamsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyQuestionsAutoSetDatePipeline'
+            activity: 'Exec CopyQuestionsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]

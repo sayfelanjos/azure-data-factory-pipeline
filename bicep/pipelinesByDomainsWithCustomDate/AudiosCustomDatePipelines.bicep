@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyAudiosCustomDatePipeline'
+        name: 'Exec CopyAudiosCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyPPTSCustomDatePipeline'
+        name: 'Exec CopyPPTSCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

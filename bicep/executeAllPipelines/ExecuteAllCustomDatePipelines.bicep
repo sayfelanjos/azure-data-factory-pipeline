@@ -7,11 +7,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute AssessmentsCustomDatePipelines'
+        name: 'Exec AssessmentsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCustomDatePipelines'
+            activity: 'Exec UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -30,7 +30,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute UsersCustomDatePipelines'
+        name: 'Exec UsersCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -39,14 +39,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyUsersCustomDatePipeline'
+            referenceName: 'UsersCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute AudiosCustomDatePipelines'
+        name: 'Exec AudiosCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -62,7 +62,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CampaignsCustomDatePipelines'
+        name: 'Exec CampaignsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -78,7 +78,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CategoriesCustomDatePipelinesPipelines'
+        name: 'Exec CategoriesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -87,18 +87,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CategoriesCustomDatePipelinesPipelines'
+            referenceName: 'CategoriesCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute ContentsCustomDatePipelines'
+        name: 'Exec ContentsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCustomDatePipelines'
+            activity: 'Exec UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -117,11 +117,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CoursesCustomDatePipelines'
+        name: 'Exec CoursesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCustomDatePipelines'
+            activity: 'Exec UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -140,11 +140,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute FilesCustomDatePipelines'
+        name: 'Exec FilesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCustomDatePipelines'
+            activity: 'Exec UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -163,7 +163,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute FilesSendCustomDatePipelines'
+        name: 'Exec FilesSendCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -179,11 +179,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute HtmlPagesCustomDatePipelines'
+        name: 'Exec HtmlPagesCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersCustomDatePipelines'
+            activity: 'Exec UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -202,7 +202,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute PowerPointPresentationCustomDatePipelines'
+        name: 'Exec PowerPointPresentationCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -218,7 +218,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute PresentialMeetingsCustomDatePipelines'
+        name: 'Exec PresentialMeetingsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -234,17 +234,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute ResearchCustomDatePipelines'
+        name: 'Exec ResearchCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCustomDatePipelines'
+            activity: 'Exec CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CampaignsCustomDatePipelines'
+            activity: 'Exec CampaignsCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -263,7 +263,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute ScormsCustomDatePipelines'
+        name: 'Exec ScormsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -279,11 +279,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute TagsCustomDatePipelines'
+        name: 'Exec TagsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCustomDatePipelines'
+            activity: 'Exec CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -302,7 +302,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute VideoConferenceCustomDatePipelines'
+        name: 'Exec VideoConferenceCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -318,17 +318,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CertificationsCopyDataPipelineWithCustomDate'
+        name: 'Exec CertificationsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCustomDatePipelines'
+            activity: 'Exec CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute UsersCustomDatePipelines'
+            activity: 'Exec UsersCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -340,18 +340,18 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CertificationsCopyDataPipelineWithCustomDate'
+            referenceName: 'CertificationsCustomDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute TagsCustomDatePipelines'
+        name: 'Exec TagsCustomDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesCustomDatePipelines'
+            activity: 'Exec CoursesCustomDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]

@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyBusinessunitsCustomDatePipeline'
+        name: 'Exec CopyBusinessunitsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,7 +23,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyLabelsCustomDatePipeline'
+        name: 'Exec CopyLabelsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -39,7 +39,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyOccupationAreasCustomDatePipeline'
+        name: 'Exec CopyOccupationAreasCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -55,7 +55,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyPositionsCustomDatePipeline'
+        name: 'Exec CopyPositionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -71,7 +71,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUserAccessHistorysCustomDatePipeline'
+        name: 'Exec CopyUserAccessHistorysCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -87,17 +87,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUserBusinessunitsCustomDatePipeline'
+        name: 'Exec CopyUserBusinessunitsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyBusinessunitsCustomDatePipeline'
+            activity: 'Exec CopyBusinessunitsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyUsersCustomDatePipeline'
+            activity: 'Exec CopyUsersCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -116,17 +116,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUserLabelsCustomDatePipeline'
+        name: 'Exec CopyUserLabelsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyUsersCustomDatePipeline'
+            activity: 'Exec CopyUsersCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyLabelsCustomDatePipeline'
+            activity: 'Exec CopyLabelsCustomDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -145,7 +145,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUsersCustomDatePipeline'
+        name: 'Exec CopyUsersCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

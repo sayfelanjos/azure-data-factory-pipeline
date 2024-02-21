@@ -1,6 +1,6 @@
 param azureDataFactoryName string
 
-var pipelineName = 'CopyPPTSDateWithCustomDatePipeline'
+var pipelineName = 'CopyPPTSCustomDatePipeline'
 
 resource ppts_pipeline 'Microsoft.DataFactory/factories/pipelines@2018-06-01' = {
   name: '${azureDataFactoryName}/${pipelineName}'

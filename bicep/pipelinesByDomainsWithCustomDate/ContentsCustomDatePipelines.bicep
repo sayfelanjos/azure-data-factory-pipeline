@@ -7,11 +7,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyMediaLibraryPermissionsCustomDatePipeline'
+        name: 'Exec CopyMediaLibraryPermissionsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyMediaLibraryVideosCustomDatePipeline'
+            activity: 'Exec CopyMediaLibraryVideosCustomDatePipeline'
             dependencyConditions: [
               'Completed'
             ]
@@ -30,7 +30,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyMediaLibraryVideosCustomDatePipeline'
+        name: 'Exec CopyMediaLibraryVideosCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -46,7 +46,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyVideosCustomDatePipeline'
+        name: 'Exec CopyVideosCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -62,11 +62,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyVideoViewsCustomDatePipeline'
+        name: 'Exec CopyVideoViewsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyVideosCustomDatePipeline'
+            activity: 'Exec CopyVideosCustomDatePipeline'
             dependencyConditions: [
               'Completed'
             ]

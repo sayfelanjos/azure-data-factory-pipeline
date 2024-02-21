@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyWebMeetingsAutoSetDatePipeline'
+        name: 'Exec CopyWebMeetingsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyMediaLibraryFileDownloadsCustomDatePipeline'
+        name: 'Exec CopyMediaLibraryFileDownloadsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,7 +23,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyMediaLibraryHtmlsCustomDatePipeline'
+        name: 'Exec CopyMediaLibraryHtmlsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

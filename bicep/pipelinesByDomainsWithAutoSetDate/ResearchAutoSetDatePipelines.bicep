@@ -7,23 +7,23 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopySurveyAnswerQuestionsAutoSetDatePipeline'
+        name: 'Exec CopySurveyAnswerQuestionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopySurveyAnswerQuestionsAutoSetDatePipeline'
+            activity: 'Exec CopySurveyAnswerQuestionsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopySurveyQuestionsDataWtihAutoDatePipeline'
+            activity: 'Exec CopySurveyQuestionsDataWtihAutoDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopySurveyQuestionOptionsAutoSetPipeline'
+            activity: 'Exec CopySurveyQuestionOptionsAutoSetPipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -42,11 +42,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopySurveyAnswerQuestionsAutoSetDatePipeline'
+        name: 'Exec CopySurveyAnswerQuestionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopySurveysAutoSetDatePipeline'
+            activity: 'Exec CopySurveysAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -81,7 +81,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopySurveysAutoSetDatePipeline'
+        name: 'Exec CopySurveysAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -97,11 +97,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopySurveyQuestionsDataWtihAutoDatePipeline'
+        name: 'Exec CopySurveyQuestionsDataWtihAutoDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopySurveysAutoSetDatePipeline'
+            activity: 'Exec CopySurveysAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]

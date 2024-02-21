@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyScormsCustomDatePipeline'
+        name: 'Exec CopyScormsCustomDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

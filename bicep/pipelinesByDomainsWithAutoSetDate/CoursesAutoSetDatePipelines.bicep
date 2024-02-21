@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyCoursesAutoSetDatePipeline'
+        name: 'Exec CopyCoursesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,7 +23,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyComponentActivitiesAutoSetDatePipeline'
+        name: 'Exec CopyComponentActivitiesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -46,7 +46,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyCourseCategoriesAutoSetDatePipeline'
+        name: 'Exec CopyCourseCategoriesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -69,7 +69,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyCourseTagsAutoSetDatePipeline'
+        name: 'Exec CopyCourseTagsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -85,7 +85,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyEnrollmentsAutoSetDatePipeline'
+        name: 'Exec CopyEnrollmentsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -108,7 +108,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyPlaceRoomsAutoSetDatePipeline'
+        name: 'Exec CopyPlaceRoomsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -124,7 +124,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyEnrollablesAutoSetDatePipeline'
+        name: 'Exec CopyEnrollablesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -147,7 +147,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyEquivalencyRequestsAutoSetDatePipeline'
+        name: 'Exec CopyEquivalencyRequestsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -170,7 +170,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyPlacesAutoSetDatePipeline'
+        name: 'Exec CopyPlacesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -186,7 +186,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyPlaceRoomsAutoSetDatePipeline'
+        name: 'Exec CopyPlaceRoomsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -209,7 +209,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyCoursePermissionsAutoSetDatePipeline'
+        name: 'Exec CopyCoursePermissionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
@@ -232,7 +232,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyCourseActivityViewsAutoSetDatePipeline'
+        name: 'Exec CopyCourseActivityViewsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {

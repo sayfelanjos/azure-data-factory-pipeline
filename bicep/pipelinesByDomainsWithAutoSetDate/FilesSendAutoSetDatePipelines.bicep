@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyUploadActivitiesAutoSetDatePipeline'
+        name: 'Exec CopyUploadActivitiesAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

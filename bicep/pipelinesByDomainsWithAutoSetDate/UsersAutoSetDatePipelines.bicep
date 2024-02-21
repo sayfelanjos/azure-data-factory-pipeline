@@ -7,7 +7,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute CopyBusinessunitsAutoSetDatePipeline'
+        name: 'Exec CopyBusinessunitsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -23,7 +23,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyLabelsAutoSetDatePipeline'
+        name: 'Exec CopyLabelsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -39,7 +39,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyOccupationAreasAutoSetDatePipeline'
+        name: 'Exec CopyOccupationAreasAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -55,7 +55,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyPositionsAutoSetDatePipeline'
+        name: 'Exec CopyPositionsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -71,7 +71,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUserAccessHistorysAutoSetDatePipeline'
+        name: 'Exec CopyUserAccessHistorysAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -87,17 +87,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUserBusinessunitsAutoSetDatePipeline'
+        name: 'Exec CopyUserBusinessunitsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyBusinessunitsAutoSetDatePipeline'
+            activity: 'Exec CopyBusinessunitsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyUsersAutoSetDatePipeline'
+            activity: 'Exec CopyUsersAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -116,17 +116,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUserLabelsAutoSetDatePipeline'
+        name: 'Exec CopyUserLabelsAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CopyUsersAutoSetDatePipeline'
+            activity: 'Exec CopyUsersAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CopyLabelsAutoSetDatePipeline'
+            activity: 'Exec CopyLabelsAutoSetDatePipeline'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -145,7 +145,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CopyUsersAutoSetDatePipeline'
+        name: 'Exec CopyUsersAutoSetDatePipeline'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {

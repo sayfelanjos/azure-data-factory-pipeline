@@ -7,11 +7,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
   properties: {
     activities: [
       {
-        name: 'Execute AssessmentsAutoSetDatePipelines'
+        name: 'Exec AssessmentsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersAutoSetDatePipelines'
+            activity: 'Exec UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -30,7 +30,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute UsersAutoSetDatePipelines'
+        name: 'Exec UsersAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -39,14 +39,14 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         userProperties: []
         typeProperties: {
           pipeline: {
-            referenceName: 'CopyUsersAutoSetDatePipeline'
+            referenceName: 'UsersAutoSetDatePipelines'
             type: 'PipelineReference'
           }
           waitOnCompletion: true
         }
       }
       {
-        name: 'Execute AudiosAutoSetDatePipelines'
+        name: 'Exec AudiosAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -62,7 +62,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CampaignsAutoSetDatePipelines'
+        name: 'Exec CampaignsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -78,7 +78,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CategoriesAutoSetDatePipelines'
+        name: 'Exec CategoriesAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -94,11 +94,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute ContentsAutoSetDatePipelines'
+        name: 'Exec ContentsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersAutoSetDatePipelines'
+            activity: 'Exec UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -117,11 +117,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CoursesAutoSetDatePipelines'
+        name: 'Exec CoursesAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersAutoSetDatePipelines'
+            activity: 'Exec UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -140,11 +140,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute FilesAutoSetDatePipelines'
+        name: 'Exec FilesAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersAutoSetDatePipelines'
+            activity: 'Exec UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -163,7 +163,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute FilesSendAutoSetDatePipelines'
+        name: 'Exec FilesSendAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -179,11 +179,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute HtmlPagesAutoSetDatePipelines'
+        name: 'Exec HtmlPagesAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute UsersAutoSetDatePipelines'
+            activity: 'Exec UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -202,7 +202,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute PowerPointPresentationAutoSetDatePipelines'
+        name: 'Exec PowerPointPresentationAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -218,7 +218,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute PresentialMeetingsAutoSetDatePipelines'
+        name: 'Exec PresentialMeetingsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -234,17 +234,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute ResearchAutoSetDatePipelines'
+        name: 'Exec ResearchAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesAutoSetDatePipelines'
+            activity: 'Exec CoursesAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute CampaignsAutoSetDatePipelines'
+            activity: 'Exec CampaignsAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -263,7 +263,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute ScormsAutoSetDatePipelines'
+        name: 'Exec ScormsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -279,11 +279,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute TagsAutoSetDatePipelines'
+        name: 'Exec TagsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesAutoSetDatePipelines'
+            activity: 'Exec CoursesAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -302,7 +302,7 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute VideoConferenceAutoSetDatePipelines'
+        name: 'Exec VideoConferenceAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: []
         policy: {
@@ -318,17 +318,17 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute CertificationsAutoSetDatePipelines'
+        name: 'Exec CertificationsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesAutoSetDatePipelines'
+            activity: 'Exec CoursesAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
           }
           {
-            activity: 'Execute UsersAutoSetDatePipelines'
+            activity: 'Exec UsersAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]
@@ -347,11 +347,11 @@ resource azureDataFactoryPipeline 'Microsoft.DataFactory/factories/pipelines@201
         }
       }
       {
-        name: 'Execute TagsAutoSetDatePipelines'
+        name: 'Exec TagsAutoSetDatePipelines'
         type: 'ExecutePipeline'
         dependsOn: [
           {
-            activity: 'Execute CoursesAutoSetDatePipelines'
+            activity: 'Exec CoursesAutoSetDatePipelines'
             dependencyConditions: [
               'Succeeded'
             ]

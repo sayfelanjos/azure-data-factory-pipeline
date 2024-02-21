@@ -9,7 +9,7 @@ resource azureDataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing 
 }
 
 resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
-  name: 'ExecuteAllCopyDataPipelinesTrigger'
+  name: 'ExecAllCopyDataPipelinesTrigger'
   parent: azureDataFactory
   properties: {
     type: 'ScheduleTrigger'
@@ -17,7 +17,7 @@ resource trigger 'Microsoft.DataFactory/factories/triggers@2018-06-01' = {
       {
         parameters: {}
         pipelineReference: {
-          referenceName: 'ExecuteAllCopyDataPipelines'
+          referenceName: 'ExecAllCopyDataPipelines'
           type: 'PipelineReference'
         }
       }
