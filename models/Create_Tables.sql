@@ -1372,4 +1372,3 @@ create table VideoConference.WebMeetings
     PageSize             smallint,
     MaximumPageSize      smallint
 );
-
